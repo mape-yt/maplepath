@@ -36,3 +36,35 @@ exports.signup = async (req, res) => {
     });
 
 };
+
+exports.login = async (req, res) => {
+
+    const { username, password } = req.body;
+
+    const user = users.find(
+        user => user.username === username
+    );
+
+    if (!user) {
+        return res.status(404).json({
+            message: "User not found."
+        });
+    }
+
+    const passwordMatches = await bcrypt.compare(
+        password,
+        user.password
+    );
+
+    if (!passwordMatches) {
+        return res.status(401).json({
+            message: "Incorrect password."
+        });
+    }
+
+    res.json({
+        message: "Login successful.",
+        username: user.username
+    });
+
+};

@@ -4,143 +4,127 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MaplePath | Sign In</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header / Navbar -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">🍁 MaplePath</h1>
-      <nav>
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="auth.html" class="nav-link btn-primary">Sign Up / Login</a> <!-- single auth button -->
-      </nav>
-    </div>
-  </header>
 
-  <!-- Auth Section -->
-  <section class="auth-section">
-    <div class="container auth-container">
-      <h2>Welcome to MaplePath</h2>
-      <p>
+<header class="header">
+  <div class="container">
+    <h1 class="logo">🍁 MaplePath</h1>
+
+    <nav>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="auth.html" class="nav-link btn-primary">Sign Up / Login</a>
+    </nav>
+  </div>
+</header>
+
+<section class="auth-section">
+
+  <div class="container auth-container">
+
+    <h2>Welcome to MaplePath</h2>
+
+    <p>
       Track your Canadian immigration journey with confidence.
-      </p>
-      <div class="tabs">
-        <button id="signup-tab" class="tab-btn active">Sign Up</button>
-        <button id="login-tab" class="tab-btn">Login</button>
-      </div>
+    </p>
 
-      <!-- Sign-Up Form -->
-      <form id="signup-form" class="auth-form">
-        <h3>Create an Account</h3>
-        <label for="signup-username">Username</label>
-        <input
-            type="text"
-            id="signup-username"
-            name="username"
-            placeholder="Enter username"
-            required
-        >
+    <div class="tabs">
 
-        <label for="signup-password">Password</label>
-        <input
-            type="password"
-            id="signup-password"
-            name="password"
-            placeholder="Enter password"
-            required
-        >
+      <button id="signup-tab" class="tab-btn active">
+        Sign Up
+      </button>
 
-        <button type="submit" class="btn-primary">Sign Up</button>
-        <p id="signup-message"></p>
-      </form>
+      <button id="login-tab" class="tab-btn">
+        Login
+      </button>
 
-      <!-- Login Form -->
-      <form id="login-form" class="auth-form hidden">
-        <h3>Login to Your Account</h3>
-        <label for="login-username">Username</label>
-        <input type="text" id="login-username" placeholder="Enter username" required>
-
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" placeholder="Enter password" required>
-
-        <button type="submit" class="btn-primary">Login</button>
-      </form>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 MaplePath. All rights reserved. | 
-         <a href="aboutdev.html" class="dev-link">About the Developer</a>
-      </p>
-    </div>
-  </footer>
+    <!-- SIGNUP -->
 
-  <!-- JS for Tab Switching -->
-  <script>
-    const signupTab = document.getElementById('signup-tab');
-    const loginTab = document.getElementById('login-tab');
-    const signupFormElement = document.getElementById("signup-form");
-    const loginForm = document.getElementById('login-form');
+    <form id="signup-form" class="auth-form">
 
-    signupTab.addEventListener('click', () => {
-      signupTab.classList.add('active');
-      loginTab.classList.remove('active');
-      signupForm.classList.remove('hidden');
-      loginForm.classList.add('hidden');
-    });
+      <h3>Create an Account</h3>
 
-    loginTab.addEventListener('click', () => {
-      loginTab.classList.add('active');
-      signupTab.classList.remove('active');
-      loginForm.classList.remove('hidden');
-      signupForm.classList.add('hidden');
-    });
-  </script>
-  
-  <script>
-  const signupForm = document.getElementById("signup-form");
+      <label>Username</label>
 
-  signupFormElement.addEventListener("submit", async (event) => {
+      <input
+        id="signup-username"
+        type="text"
+        required
+      >
 
-      event.preventDefault();
+      <label>Password</label>
 
-      const username = document.getElementById("signup-username").value;
-      const password = document.getElementById("signup-password").value;
+      <input
+        id="signup-password"
+        type="password"
+        required
+      >
 
-      try {
+      <button class="btn-primary" type="submit">
+        Sign Up
+      </button>
 
-          const response = await fetch("/api/auth/signup", {
+      <p id="signup-message"></p>
 
-              method: "POST",
+    </form>
 
-              headers: {
-                  "Content-Type": "application/json"
-              },
+    <!-- LOGIN -->
 
-              body: JSON.stringify({
-                  username,
-                  password
-              })
+    <form id="login-form" class="auth-form hidden">
 
-          });
+      <h3>Login</h3>
 
-          const data = await response.json();
+      <label>Username</label>
 
-          document.getElementById("signup-message").textContent =
-              data.message;
+      <input
+        id="login-username"
+        type="text"
+        required
+      >
 
-      } catch (error) {
+      <label>Password</label>
 
-          document.getElementById("signup-message").textContent =
-              "Unable to connect to server.";
+      <input
+        id="login-password"
+        type="password"
+        required
+      >
 
-      }
+      <button class="btn-primary" type="submit">
+        Login
+      </button>
 
-  });
-  </script>
+      <p id="login-message"></p>
+
+    </form>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+
+  <div class="container">
+
+    <p>
+
+      © 2026 MaplePath |
+      <a href="aboutdev.html">
+        About the Developer
+      </a>
+
+    </p>
+
+  </div>
+
+</footer>
+
+<script src="js/auth.js"></script>
+
 </body>
 </html>
