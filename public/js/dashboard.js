@@ -40,4 +40,56 @@ async function loadProfile() {
 
 }
 
+const editButton = document.getElementById("edit-profile-btn");
+
+const editForm = document.getElementById("edit-form");
+
+const saveButton = document.getElementById("save-profile-btn");
+
+const statusInput = document.getElementById("edit-status");
+const provinceInput = document.getElementById("edit-province");
+const programInput = document.getElementById("edit-program");
+const crsInput = document.getElementById("edit-crs");
+
+editButton.addEventListener("click", () => {
+
+    editForm.classList.toggle("hidden");
+
+});
+
+saveButton.addEventListener("click", async () => {
+
+    const updatedProfile = {
+
+        status: statusInput.value,
+        province: provinceInput.value,
+        program: programInput.value,
+        crs: crsInput.value
+
+    };
+
+    const response = await fetch("/api/profile", {
+
+        method: "PUT",
+
+        headers: {
+
+            "Content-Type": "application/json"
+
+        },
+
+        body: JSON.stringify(updatedProfile)
+
+    });
+
+    if(response.ok){
+
+        loadProfile();
+
+        editForm.classList.add("hidden");
+
+    }
+
+});
+
 loadProfile();

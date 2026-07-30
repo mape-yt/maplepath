@@ -76,6 +76,10 @@
 
                 <h2>Your Profile</h2>
 
+                <button id="edit-profile-btn" class="edit-btn">
+                    Edit Profile
+                </button>                
+
                 <ul>
 
                     <li><strong>Name:</strong> <span id="profile-name">Loading...</span></li>
@@ -89,6 +93,22 @@
                     <li><strong>CRS Score:</strong> <span id="profile-crs">Loading...</span></li>
 
                 </ul>
+
+                <div id="edit-form" class="edit-form hidden">
+
+                    <input id="edit-status" placeholder="Status">
+
+                    <input id="edit-province" placeholder="Province">
+
+                    <input id="edit-program" placeholder="Program">
+
+                    <input id="edit-crs" placeholder="CRS Score">
+
+                    <button id="save-profile-btn">
+                        Save Changes
+                    </button>
+
+                </div>
 
             </div>
 

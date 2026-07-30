@@ -174,3 +174,44 @@ header {
     color:#444;
 
 }
+
+.edit-btn{
+    margin:15px 0;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.edit-btn:hover{
+    background:#1d4ed8;
+}
+
+.edit-form.hidden{
+    display:none;
+}
+
+.edit-form{
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.edit-form input{
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+.edit-form button{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#16a34a;
+    color:white;
+    cursor:pointer;
+}
