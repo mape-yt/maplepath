@@ -215,3 +215,13 @@ header {
     color:white;
     cursor:pointer;
 }
+
+#profile-message{
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+    color:#16a34a;
+
+}
