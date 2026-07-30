@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 240px;
+    background: #0f172a;
+    color: white;
+    padding: 30px;
+}
+
+.sidebar h2 {
+    margin-bottom: 40px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.sidebar a:hover {
+    color: #60a5fa;
+}
+
+/* Main */
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    flex: 1;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,.08);
+}
+
+.tasks {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 12px rgba(0,0,0,.08);
+}
+
+.tasks ul {
+    margin-top: 20px;
+}
+
+.tasks li {
+    margin-bottom: 12px;
+}

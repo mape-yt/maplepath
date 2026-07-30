@@ -1,59 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard | MaplePath</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MaplePath Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
-<header class="header">
-  <div class="container">
-    <h1 class="logo">🍁 MaplePath</h1>
-    <nav>
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="auth.html" class="nav-link btn-primary">Sign Up / Login</a>
-    </nav>
-  </div>
-</header>
 
-<section class="dashboard-container">
-  <h2>Your MaplePath Dashboard</h2>
-  <p>Track your immigration journey below.</p>
+<div class="container">
 
-  <!-- Example stages -->
-  <div class="stage-card completed">
-    <span>Submit Expression of Interest</span>
-    <span class="status">Completed: 2026-02-10</span>
-    <button>Edit</button>
-  </div>
+    <aside class="sidebar">
 
-  <div class="stage-card pending">
-    <span>Invitation to Apply</span>
-    <span class="status">Pending</span>
-    <button>Edit</button>
-  </div>
+        <h2>🍁 MaplePath</h2>
 
-  <div class="stage-card pending">
-    <span>Submit PR Application</span>
-    <span class="status">Pending</span>
-    <button>Edit</button>
-  </div>
+        <nav>
 
-  <div class="stage-card pending">
-    <span>PR Approval</span>
-    <span class="status">Pending</span>
-    <button>Edit</button>
-  </div>
-</section>
+            <a href="#">Dashboard</a>
+            <a href="#">Profile</a>
+            <a href="#">Tasks</a>
+            <a href="#">Updates</a>
+            <a href="#">Settings</a>
 
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2026 MaplePath. All rights reserved. | 
-       <a href="aboutdev.html" class="dev-link">About the Developer</a>
-    </p>
-  </div>
-</footer>
+        </nav>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header>
+
+            <h1>Welcome Back!</h1>
+            <p>Let's continue your immigration journey.</p>
+
+        </header>
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>Progress</h3>
+                <p>0%</p>
+            </div>
+
+            <div class="card">
+                <h3>Latest Updates</h3>
+                <p>No updates yet.</p>
+            </div>
+
+        </section>
+
+        <section class="tasks">
+
+            <h2>Upcoming Tasks</h2>
+
+            <ul>
+
+                <li>Create your immigration profile</li>
+                <li>Upload required documents</li>
+                <li>Complete language test</li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
 </body>
 </html>
