@@ -3,6 +3,7 @@ const path = require("path");
 require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
+const profileRoutes = require("./routes/profileRoutes");
 
 // const connectDB = require("./config/db");
 
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
+app.use("/api/profile", profileRoutes);
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "public")));
