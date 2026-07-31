@@ -1,7 +1,89 @@
+// ==============================
+// Current Profile State
+// ==============================
+
 let currentProfile = {};
 
 
-// Load profile from backend
+// ==============================
+// DOM Elements
+// ==============================
+
+const editButton = document.getElementById("edit-profile-btn");
+const editForm = document.getElementById("edit-form");
+
+const saveButton = document.getElementById("save-profile-btn");
+
+const statusInput = document.getElementById("edit-status");
+const provinceInput = document.getElementById("edit-province");
+const programInput = document.getElementById("edit-program");
+const crsInput = document.getElementById("edit-crs");
+
+const profileMessage = document.getElementById("profile-message");
+
+const taskList = document.getElementById("task-list");
+
+const newTaskInput = document.getElementById("new-task");
+const addTaskButton = document.getElementById("add-task-btn");
+
+addTaskButton.addEventListener("click", async () => {
+
+    const title = newTaskInput.value.trim();
+
+    if (!title) {
+
+        alert("Please enter a task.");
+
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch("/api/tasks", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                title: title
+            })
+
+        });
+
+        if (response.ok) {
+
+            newTaskInput.value = "";
+
+            await loadTasks();
+
+        }
+
+        else {
+
+            alert("Failed to add task.");
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Server error.");
+
+    }
+
+});
+
+// ==============================
+// Load Profile
+// ==============================
+
 async function loadProfile() {
 
     try {
@@ -12,42 +94,33 @@ async function loadProfile() {
 
         currentProfile = profile;
 
-
         document.getElementById("welcome-title").textContent =
             `Welcome Back, ${profile.name}!`;
-
 
         document.getElementById("profile-name").textContent =
             profile.name;
 
-
         document.getElementById("profile-status").textContent =
             profile.status;
-
 
         document.getElementById("profile-province").textContent =
             profile.province;
 
-
         document.getElementById("profile-program").textContent =
             profile.program;
-
 
         document.getElementById("profile-crs").textContent =
             profile.crs;
 
-
         document.getElementById("progress-percent").textContent =
             profile.progress + "%";
-
 
         document.getElementById("progress-fill").style.width =
             profile.progress + "%";
 
-
     }
 
-    catch(error) {
+    catch(error){
 
         console.error(error);
 
@@ -56,142 +129,148 @@ async function loadProfile() {
 }
 
 
-// Edit Profile Elements
+// ==============================
+// Load Tasks
+// ==============================
 
-const editButton = document.getElementById("edit-profile-btn");
+async function loadTasks() {
 
-const editForm = document.getElementById("edit-form");
+    try {
+
+        const response = await fetch("/api/tasks");
+
+        const tasks = await response.json();
+
+        taskList.innerHTML = "";
+
+        tasks.forEach(task => {
+
+            const li = document.createElement("li");
+
+            const checkbox = document.createElement("input");
+
+            checkbox.type = "checkbox";
+            checkbox.checked = task.completed;
+
+            checkbox.addEventListener("change", async () => {
+
+                await fetch(`/api/tasks/${task.id}`, {
+
+                    method: "PUT",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        completed: checkbox.checked
+                    })
+
+                });
+
+                loadTasks();
+
+            });
+
+            li.appendChild(checkbox);
+
+            li.append(" " + task.title);
+
+            taskList.appendChild(li);
+
+        });
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+    }
+
+}
 
 
-const saveButton = document.getElementById("save-profile-btn");
-
-
-const statusInput = document.getElementById("edit-status");
-
-const provinceInput = document.getElementById("edit-province");
-
-const programInput = document.getElementById("edit-program");
-
-const crsInput = document.getElementById("edit-crs");
-
-
-const profileMessage = document.getElementById("profile-message");
-
-
-
-// Open / Close edit form
+// ==============================
+// Edit Button
+// ==============================
 
 editButton.addEventListener("click", () => {
 
-
     editForm.classList.toggle("hidden");
 
-
-    // Fill current values
-
     statusInput.value = currentProfile.status;
-
     provinceInput.value = currentProfile.province;
-
     programInput.value = currentProfile.program;
-
     crsInput.value = currentProfile.crs;
-
 
 });
 
 
-
-
-// Save profile changes
+// ==============================
+// Save Profile
+// ==============================
 
 saveButton.addEventListener("click", async () => {
 
-
     const updatedProfile = {
 
-
         status: statusInput.value,
-
         province: provinceInput.value,
-
         program: programInput.value,
-
         crs: crsInput.value
-
 
     };
 
-
     try {
-
 
         const response = await fetch("/api/profile", {
 
-
             method: "PUT",
 
-
             headers: {
-
                 "Content-Type": "application/json"
-
             },
-
 
             body: JSON.stringify(updatedProfile)
 
-
         });
 
-
-
-        if(response.ok) {
-
+        if(response.ok){
 
             profileMessage.textContent =
                 "✅ Profile updated successfully!";
 
-
             await loadProfile();
-
 
             editForm.classList.add("hidden");
 
-
         }
 
-
-        else {
-
+        else{
 
             profileMessage.textContent =
                 "❌ Failed to update profile.";
 
-
         }
-
 
     }
 
-
-    catch(error) {
-
+    catch(error){
 
         console.error(error);
-
 
         profileMessage.textContent =
             "❌ Server error.";
 
-
     }
-
 
 });
 
 
-
-// Start dashboard
+// ==============================
+// Initialize Dashboard
+// ==============================
 
 loadProfile();
+loadTasks();

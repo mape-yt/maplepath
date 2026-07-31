@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 // const connectDB = require("./config/db");
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/tasks", taskRoutes);
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "public")));
