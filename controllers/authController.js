@@ -98,7 +98,9 @@ exports.login = async (req, res) => {
 
             message: "Login successful.",
 
-            username: user.username
+            username: user.username,
+
+            profileCompleted: user.profileCompleted
 
         });
 

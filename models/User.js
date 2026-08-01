@@ -13,6 +13,11 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 
+    profileCompleted: {
+        type: Boolean,
+        default: false
+    },
+
     immigrationProfile: {
 
         pathway: {

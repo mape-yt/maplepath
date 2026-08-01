@@ -2,8 +2,6 @@ require("dns").setDefaultResultOrder("ipv4first");
 
 require("dotenv").config();
 
-console.log(process.env.MONGO_URI);
-
 const express = require("express");
 const path = require("path");
 
@@ -14,30 +12,57 @@ const taskRoutes = require("./routes/taskRoutes");
 
 const connectDB = require("./config/db");
 
+
 const app = express();
+
 const PORT = process.env.PORT || 3000;
 
+
 // Connect to MongoDB
+
 connectDB();
 
+
 // Middleware
+
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
+
+
+// API Routes
+
 app.use("/api/auth", authRoutes);
+
 app.use("/api/profile", profileRoutes);
+
 app.use("/api/tasks", taskRoutes);
 
+
 // Serve frontend
+
 app.use(express.static(path.join(__dirname, "public")));
 
+
 // Test API
+
 app.get("/api", (req, res) => {
+
     res.json({
-        message: "Immigration Tracker API is running!"
+
+        message: "MaplePath API is running!"
+
     });
+
 });
 
+
 // Start server
+
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+
+    console.log(
+        `Server running on http://localhost:${PORT}`
+    );
+
 });

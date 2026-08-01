@@ -2,39 +2,99 @@ const express = require("express");
 
 const router = express.Router();
 
-let profile = {
+const User = require("../models/User");
 
-    name: "Seungyun",
-    status: "Student",
-    province: "Alberta",
-    program: "Express Entry",
-    crs: "--",
-    progress: 35
 
-};
+// Get immigration profile
 
-router.get("/", (req, res) => {
+router.get("/:username", async (req, res) => {
 
-    res.json(profile);
+    try {
+
+        const user = await User.findOne({
+            username: req.params.username
+        });
+
+
+        if (!user) {
+
+            return res.status(404).json({
+                message: "User not found."
+            });
+
+        }
+
+
+        res.json(user.immigrationProfile);
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            message: "Server error."
+        });
+
+    }
 
 });
 
-router.put("/", (req, res) => {
 
-    profile = {
 
-        ...profile,
-        ...req.body
+// Update immigration profile
 
-    };
+router.put("/:username", async (req, res) => {
 
-    res.json({
+    try {
 
-        message: "Profile updated!",
-        profile
+        const user = await User.findOne({
+            username: req.params.username
+        });
 
-    });
+
+        if (!user) {
+
+            return res.status(404).json({
+                message: "User not found."
+            });
+
+        }
+
+
+        user.immigrationProfile = {
+
+            ...user.immigrationProfile,
+            ...req.body
+
+        };
+
+
+        user.profileCompleted = true;
+
+
+        await user.save();
+
+
+        res.json({
+
+            message: "Profile updated!",
+            profile: user.immigrationProfile
+
+        });
+
+
+    } catch(error) {
+
+        console.error(error);
+
+        res.status(500).json({
+            message: "Server error."
+        });
+
+    }
 
 });
+
 
 module.exports = router;

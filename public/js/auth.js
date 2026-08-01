@@ -4,6 +4,7 @@ const loginTab = document.getElementById("login-tab");
 const signupForm = document.getElementById("signup-form");
 const loginForm = document.getElementById("login-form");
 
+
 // -------------------------
 // TAB SWITCHING
 // -------------------------
@@ -18,6 +19,7 @@ signupTab.addEventListener("click", () => {
 
 });
 
+
 loginTab.addEventListener("click", () => {
 
     loginTab.classList.add("active");
@@ -28,6 +30,7 @@ loginTab.addEventListener("click", () => {
 
 });
 
+
 // -------------------------
 // SIGNUP
 // -------------------------
@@ -36,11 +39,14 @@ signupForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
+
     const username =
         document.getElementById("signup-username").value;
 
+
     const password =
         document.getElementById("signup-password").value;
+
 
     try {
 
@@ -61,12 +67,16 @@ signupForm.addEventListener("submit", async (event) => {
 
         });
 
+
         const data = await response.json();
+
 
         document.getElementById("signup-message").textContent =
             data.message;
 
+
     }
+
 
     catch {
 
@@ -75,7 +85,9 @@ signupForm.addEventListener("submit", async (event) => {
 
     }
 
+
 });
+
 
 // -------------------------
 // LOGIN
@@ -85,11 +97,14 @@ loginForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
+
     const username =
         document.getElementById("login-username").value;
 
+
     const password =
         document.getElementById("login-password").value;
+
 
     try {
 
@@ -110,24 +125,52 @@ loginForm.addEventListener("submit", async (event) => {
 
         });
 
+
         const data = await response.json();
+
 
         document.getElementById("login-message").textContent =
             data.message;
 
+
+
         if (response.ok) {
 
-            window.location.href = "/dashboard.html";
+
+            // Save logged-in user
+            localStorage.setItem(
+                "username",
+                data.username
+            );
+
+
+            if (data.profileCompleted) {
+
+
+                window.location.href = "dashboard.html";
+
+
+            } else {
+
+
+                window.location.href = "onboarding.html";
+
+
+            }
 
         }
 
+
     }
 
+
     catch {
+
 
         document.getElementById("login-message").textContent =
             "Unable to connect to server.";
 
     }
+
 
 });
