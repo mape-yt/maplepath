@@ -147,6 +147,13 @@ async function loadTasks() {
 
             const li = document.createElement("li");
 
+            li.style.display = "flex";
+            li.style.justifyContent = "space-between";
+            li.style.alignItems = "center";
+            li.style.marginBottom = "12px";
+
+            const left = document.createElement("div");
+
             const checkbox = document.createElement("input");
 
             checkbox.type = "checkbox";
@@ -172,9 +179,36 @@ async function loadTasks() {
 
             });
 
-            li.appendChild(checkbox);
+            left.appendChild(checkbox);
+            left.append(" " + task.title);
 
-            li.append(" " + task.title);
+            const deleteButton = document.createElement("button");
+
+            deleteButton.textContent = "🗑️";
+
+            deleteButton.style.border = "none";
+            deleteButton.style.background = "transparent";
+            deleteButton.style.cursor = "pointer";
+            deleteButton.style.fontSize = "18px";
+
+            deleteButton.addEventListener("click", async () => {
+
+                const response = await fetch(`/api/tasks/${task.id}`, {
+
+                    method: "DELETE"
+
+                });
+
+                if (response.ok) {
+
+                    loadTasks();
+
+                }
+
+            });
+
+            li.appendChild(left);
+            li.appendChild(deleteButton);
 
             taskList.appendChild(li);
 
