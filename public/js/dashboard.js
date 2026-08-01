@@ -26,6 +26,21 @@ const taskList = document.getElementById("task-list");
 const newTaskInput = document.getElementById("new-task");
 const addTaskButton = document.getElementById("add-task-btn");
 
+const logoutButton = document.getElementById("logout-btn");
+
+
+// ==============================
+// Logout
+// ==============================
+
+logoutButton.addEventListener("click", () => {
+
+    localStorage.removeItem("username");
+
+    window.location.href = "auth.html";
+
+});
+
 
 // ==============================
 // Add Task
@@ -52,11 +67,15 @@ addTaskButton.addEventListener("click", async () => {
             method: "POST",
 
             headers: {
+
                 "Content-Type": "application/json"
+
             },
 
             body: JSON.stringify({
+
                 title: title
+
             })
 
         });
@@ -70,6 +89,7 @@ addTaskButton.addEventListener("click", async () => {
 
         }
 
+
         else {
 
             alert("Failed to add task.");
@@ -78,6 +98,7 @@ addTaskButton.addEventListener("click", async () => {
 
 
     }
+
 
     catch(error) {
 
@@ -113,43 +134,54 @@ async function loadProfile() {
         }
 
 
+
         const response = await fetch(
             `/api/profile/${username}`
         );
 
 
+
         const profile = await response.json();
 
 
+
         currentProfile = profile;
+
 
 
         loadRecommendation(profile);
 
 
 
+
         document.getElementById("welcome-title").textContent =
-            "Welcome Back!";
+            `Welcome Back, ${username}!`;
+
 
 
         document.getElementById("profile-status").textContent =
             profile.status || "Not set";
 
 
+
         document.getElementById("profile-province").textContent =
             profile.province || "Not set";
+
 
 
         document.getElementById("profile-program").textContent =
             profile.pathway || "Not set";
 
 
+
         document.getElementById("profile-stage").textContent =
             profile.currentStage || "Not set";
 
 
+
         document.getElementById("profile-location").textContent =
             profile.location || "Not set";
+
 
 
     }
@@ -166,7 +198,7 @@ async function loadProfile() {
 
 
 // ==============================
-// Next Recommendation
+// Recommendation System
 // ==============================
 
 function loadRecommendation(profile) {
@@ -190,8 +222,13 @@ function loadRecommendation(profile) {
 
 
     if (
-        profile.pathway === "Express Entry" &&
+
+        profile.pathway === "Express Entry"
+
+        &&
+
         profile.currentStage === "Researching"
+
     ) {
 
 
@@ -201,7 +238,6 @@ function loadRecommendation(profile) {
 
         description.textContent =
             "Language results are one of the first steps for Express Entry applicants.";
-
 
     }
 
@@ -240,6 +276,7 @@ async function loadTasks() {
         const tasks = await response.json();
 
 
+
         taskList.innerHTML = "";
 
 
@@ -260,10 +297,12 @@ async function loadTasks() {
             const left = document.createElement("div");
 
 
+
             const checkbox = document.createElement("input");
 
 
             checkbox.type = "checkbox";
+
             checkbox.checked = task.completed;
 
 
@@ -290,12 +329,10 @@ async function loadTasks() {
 
                     })
 
-
                 });
 
 
                 loadTasks();
-
 
             });
 
@@ -307,16 +344,20 @@ async function loadTasks() {
 
 
 
+
             const deleteButton = document.createElement("button");
 
 
             deleteButton.textContent = "🗑️";
 
-
             deleteButton.style.border = "none";
+
             deleteButton.style.background = "transparent";
+
             deleteButton.style.cursor = "pointer";
+
             deleteButton.style.fontSize = "18px";
+
 
 
 
@@ -324,13 +365,17 @@ async function loadTasks() {
 
 
                 const response = await fetch(
+
                     `/api/tasks/${task.id}`,
+
                     {
 
                         method: "DELETE"
 
                     }
+
                 );
+
 
 
                 if (response.ok) {
@@ -353,6 +398,7 @@ async function loadTasks() {
 
 
         });
+
 
 
     }
@@ -379,16 +425,20 @@ editButton.addEventListener("click", () => {
     editForm.classList.toggle("hidden");
 
 
+
     statusInput.value =
         currentProfile.status || "";
+
 
 
     provinceInput.value =
         currentProfile.province || "";
 
 
+
     stageInput.value =
         currentProfile.currentStage || "";
+
 
 
     locationInput.value =
@@ -396,7 +446,6 @@ editButton.addEventListener("click", () => {
 
 
 });
-
 
 
 
@@ -436,8 +485,11 @@ saveButton.addEventListener("click", async () => {
 
 
         const response = await fetch(
+
             `/api/profile/${username}`,
+
             {
+
 
                 method: "PUT",
 
@@ -451,7 +503,9 @@ saveButton.addEventListener("click", async () => {
 
                 body: JSON.stringify(updatedProfile)
 
+
             }
+
         );
 
 
@@ -460,10 +514,13 @@ saveButton.addEventListener("click", async () => {
 
 
             profileMessage.textContent =
+
                 "✅ Profile updated successfully!";
 
 
+
             await loadProfile();
+
 
 
             editForm.classList.add("hidden");
@@ -476,7 +533,9 @@ saveButton.addEventListener("click", async () => {
 
 
             profileMessage.textContent =
+
                 "❌ Failed to update profile.";
+
 
         }
 
@@ -490,8 +549,11 @@ saveButton.addEventListener("click", async () => {
         console.error(error);
 
 
+
         profileMessage.textContent =
+
             "❌ Server error.";
+
 
     }
 

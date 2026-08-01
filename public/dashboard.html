@@ -2,21 +2,27 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MaplePath Dashboard</title>
 
     <link rel="stylesheet" href="css/dashboard.css">
+
 </head>
+
 
 <body>
 
+
 <div class="container">
+
 
     <aside class="sidebar">
 
         <h2>🍁 MaplePath</h2>
+
 
         <nav>
 
@@ -28,35 +34,71 @@
 
         </nav>
 
+
     </aside>
+
+
+
 
     <main class="main-content">
 
+
         <header class="dashboard-header">
+
 
             <div>
 
-                <h1 id="welcome-title">Welcome Back!</h1>
+                <h1 id="welcome-title">
+                    Welcome Back!
+                </h1>
+
 
                 <p>
                     Track your journey toward Canadian Permanent Residency.
                 </p>
 
+
             </div>
 
-            <div class="avatar">
-                👤
+
+
+            <div class="header-actions">
+
+
+                <div class="avatar">
+
+                    👤
+
+                </div>
+
+
+
+                <button id="logout-btn">
+
+                    Logout
+
+                </button>
+
+
             </div>
+
 
         </header>
 
+
+
+
+
         <section class="cards">
+
 
             <!-- Progress Card -->
 
             <div class="card progress-card">
 
-                <h2>Profile Progress</h2>
+
+                <h2>Immigration Progress</h2>
+
 
                 <div class="progress-bar">
 
@@ -64,151 +106,246 @@
 
                 </div>
 
-                <h3 id="progress-percent">35%</h3>
 
-                <p>Keep going! You're making great progress.</p>
+                <h3 id="progress-percent">
+                    0%
+                </h3>
+
+
+                <p>
+                    Your immigration journey progress.
+                </p>
+
 
             </div>
 
-            <!-- Profile Card -->
-
-            <div class="card profile-card">
-
-                <h2>Your Profile</h2>
-
-                <button id="edit-profile-btn" class="edit-btn">
-                    Edit Profile
-                </button>                
-
-                <ul>
-
-                    <li>
-                        <strong>Immigration Pathway:</strong>
-                        <span id="profile-program">Loading...</span>
-                    </li>
 
 
-                    <li>
-                        <strong>Status:</strong>
-                        <span id="profile-status">Loading...</span>
-                    </li>
 
-
-                    <li>
-                        <strong>Province:</strong>
-                        <span id="profile-province">Loading...</span>
-                    </li>
-
-
-                    <li>
-                        <strong>Current Stage:</strong>
-                        <span id="profile-stage">Loading...</span>
-                    </li>
-
-
-                    <li>
-                        <strong>Location:</strong>
-                        <span id="profile-location">Loading...</span>
-                    </li>
-
-                </ul>
-
-                <div id="edit-form" class="edit-form hidden">
-
-                    <input id="edit-status" placeholder="Status">
-
-                    <input id="edit-province" placeholder="Province">
-
-                    <input id="edit-stage" placeholder="Current Stage">
-
-                    <input id="edit-location" placeholder="Location">
-
-
-                    <button id="save-profile-btn">
-                        Save Changes
-                    </button>
-
-                </div>
-
-
-                <p id="profile-message"></p>
-
-            </div>
 
             <!-- Next Step Card -->
 
+
             <div class="card next-step-card">
 
-                <h2>Next Recommended Step</h2>
+
+                <h2>
+                    Next Recommended Step
+                </h2>
 
 
                 <h3 id="next-step-title">
+
                     Loading...
+
                 </h3>
 
 
                 <p id="next-step-description">
+
                     Checking your immigration pathway...
+
                 </p>
+
 
             </div>
 
-            <!-- Updates Card -->
 
-            <div class="card updates-card">
 
-                <h2>Latest Updates</h2>
+
+
+
+
+            <!-- Profile Card -->
+
+
+            <div class="card profile-card">
+
+
+                <h2>
+                    Your Immigration Profile
+                </h2>
+
+
+
+                <button id="edit-profile-btn" class="edit-btn">
+
+                    Edit Profile
+
+                </button>
+
+
+
 
                 <ul>
 
-                    <li>🇨🇦 Express Entry Draw announced</li>
 
-                    <li>📄 Alberta PNP updated</li>
+                    <li>
+                        <strong>Immigration Pathway:</strong>
 
-                    <li>⏳ Processing times refreshed</li>
+                        <span id="profile-program">
+                            Loading...
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>Status:</strong>
+
+                        <span id="profile-status">
+                            Loading...
+                        </span>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <strong>Province:</strong>
+
+                        <span id="profile-province">
+                            Loading...
+                        </span>
+
+                    </li>
+
+
+
+                    <li>
+
+                        <strong>Current Stage:</strong>
+
+                        <span id="profile-stage">
+                            Loading...
+                        </span>
+
+                    </li>
+
+
+
+
+                    <li>
+
+                        <strong>Location:</strong>
+
+                        <span id="profile-location">
+                            Loading...
+                        </span>
+
+                    </li>
+
+
 
                 </ul>
 
+
+
+
+
+                <div id="edit-form" class="edit-form hidden">
+
+
+                    <input id="edit-status" placeholder="Status">
+
+
+                    <input id="edit-province" placeholder="Province">
+
+
+                    <input id="edit-stage" placeholder="Current Stage">
+
+
+                    <input id="edit-location" placeholder="Location">
+
+
+
+                    <button id="save-profile-btn">
+
+                        Save Changes
+
+                    </button>
+
+
+
+                </div>
+
+
+
+                <p id="profile-message"></p>
+
+
+
             </div>
+
+
+
 
         </section>
 
+
+
+
+
+
         <section class="tasks">
 
-            <h2>Upcoming Tasks</h2>
+
+            <h2>
+                Upcoming Tasks
+            </h2>
+
+
 
             <div class="task-input">
+
 
                 <input
                     type="text"
                     id="new-task"
-                    placeholder="Enter a new immigration task">
+                    placeholder="Enter a new immigration task"
+                >
+
 
                 <button id="add-task-btn">
+
                     Add Task
+
                 </button>
+
 
             </div>
 
+
+
+
             <ul id="task-list">
 
-                <li>☐ Upload Passport</li>
-
-                <li>☐ Book IELTS Test</li>
-
-                <li>☐ Complete Express Entry Profile</li>
-
-                <li>☐ Gather Educational Documents</li>
 
             </ul>
 
+
+
         </section>
+
+
+
 
     </main>
 
+
+
 </div>
+
+
+
+
 
 <script src="js/dashboard.js"></script>
 
+
 </body>
+
+
 </html>
