@@ -1,18 +1,24 @@
+require("dns").setDefaultResultOrder("ipv4first");
+
+require("dotenv").config();
+
+console.log(process.env.MONGO_URI);
+
 const express = require("express");
 const path = require("path");
-require("dotenv").config();
+
 
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 
-// const connectDB = require("./config/db");
+const connectDB = require("./config/db");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
-// connectDB();
+connectDB();
 
 // Middleware
 app.use(express.json());
