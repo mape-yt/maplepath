@@ -4,208 +4,235 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>MaplePath Onboarding</title>
 
-</head>
+    <link rel="stylesheet" href="css/onboarding.css">
 
+</head>
 
 <body>
 
+    <div class="container">
 
-    <h1>Welcome to MaplePath 🍁</h1>
+        <div class="logo">
+            🍁
+        </div>
 
-    <p>
-        Let's personalize your Canadian immigration journey.
-    </p>
+        <h1>Welcome to MaplePath</h1>
 
+        <p class="subtitle">
+            Let's personalize your Canadian immigration journey.
+        </p>
 
-    <form id="onboardingForm">
+        <div class="progress-section">
 
+            <div class="progress-text">
+                Step 1 of 5
+            </div>
 
-        <label>
-            Immigration Pathway
-        </label>
+            <div class="progress-bar">
 
-        <br>
+                <div class="progress-fill"></div>
 
-        <select id="pathway">
+            </div>
 
-            <option value="Express Entry">
-                Express Entry
-            </option>
+        </div>
 
-            <option value="Provincial Nominee Program">
-                Provincial Nominee Program
-            </option>
+        <h2 class="question">
+            What best describes your current situation?
+        </h2>
 
-            <option value="Atlantic Immigration Program">
-                Atlantic Immigration Program
-            </option>
+        <div class="selection-cards">
 
-            <option value="Family Sponsorship">
-                Family Sponsorship
-            </option>
+            <div
+                class="choice-card"
+                id="planningCard"
+                data-choice="planning"
+            >
 
-            <option value="Other">
-                Other
-            </option>
+                <div class="emoji">
+                    🌱
+                </div>
 
-        </select>
+                <h3>
+                    I'm still exploring
+                </h3>
 
+                <p>
+                    I haven't chosen an immigration pathway yet.
+                </p>
 
-        <br><br>
+            </div>
 
+            <div
+                class="choice-card"
+                id="pathwayCard"
+                data-choice="pathway"
+            >
 
+                <div class="emoji">
+                    🍁
+                </div>
 
-        <label>
-            Province
-        </label>
+                <h3>
+                    I already know my pathway
+                </h3>
 
-        <br>
+                <p>
+                    I'm already preparing or applying through a pathway.
+                </p>
 
-        <select id="province">
+            </div>
 
-            <option value="Alberta">
-                Alberta
-            </option>
+        </div>
 
-            <option value="Ontario">
-                Ontario
-            </option>
-
-            <option value="British Columbia">
-                British Columbia
-            </option>
-
-            <option value="Manitoba">
-                Manitoba
-            </option>
-
-            <option value="Not decided">
-                Not decided
-            </option>
-
-        </select>
-
-
-        <br><br>
-
-
-
-        <label>
-            Current Location
-        </label>
-
-        <br>
-
-        <select id="location">
-
-            <option value="Inside Canada">
-                Inside Canada
-            </option>
-
-            <option value="Outside Canada">
-                Outside Canada
-            </option>
-
-        </select>
-
-
-        <br><br>
-
-
-
-        <label>
-            Immigration Status
-        </label>
-
-        <br>
-
-        <select id="status">
-
-            <option value="Planning">
-                Planning
-            </option>
-
-            <option value="Preparing application">
-                Preparing application
-            </option>
-
-            <option value="Submitted application">
-                Submitted application
-            </option>
-
-            <option value="Waiting for decision">
-                Waiting for decision
-            </option>
-
-        </select>
-
-
-        <br><br>
-
-
-
-        <label>
-            Current Stage
-        </label>
-
-        <br>
-
-        <select id="currentStage">
-
-            <option value="Researching">
-                Researching
-            </option>
-
-            <option value="Collecting documents">
-                Collecting documents
-            </option>
-
-            <option value="Improving eligibility">
-                Improving eligibility
-            </option>
-
-            <option value="Submitted">
-                Submitted
-            </option>
-
-        </select>
-
-
-        <br><br>
-
-
-
-        <label>
-            Journey Start Date
-        </label>
-
-        <br>
-
-        <input 
-            type="date"
-            id="journeyStartDate"
+        <form
+            id="onboardingForm"
+            class="hidden"
         >
 
+            <label>
+                Immigration Pathway
+            </label>
 
-        <br><br>
+            <select id="pathway">
 
+                <option value="Express Entry">
+                    Express Entry
+                </option>
 
+                <option value="Provincial Nominee Program">
+                    Provincial Nominee Program
+                </option>
 
-        <button type="submit">
-            Continue
-        </button>
+                <option value="Atlantic Immigration Program">
+                    Atlantic Immigration Program
+                </option>
 
+                <option value="Family Sponsorship">
+                    Family Sponsorship
+                </option>
 
-    </form>
+                <option value="Other">
+                    Other
+                </option>
 
+            </select>
 
+            <label>
+                Province
+            </label>
+
+            <select id="province">
+
+                <option value="Alberta">
+                    Alberta
+                </option>
+
+                <option value="Ontario">
+                    Ontario
+                </option>
+
+                <option value="British Columbia">
+                    British Columbia
+                </option>
+
+                <option value="Manitoba">
+                    Manitoba
+                </option>
+
+                <option value="Not decided">
+                    Not decided
+                </option>
+
+            </select>
+
+            <label>
+                Current Location
+            </label>
+
+            <select id="location">
+
+                <option value="Inside Canada">
+                    Inside Canada
+                </option>
+
+                <option value="Outside Canada">
+                    Outside Canada
+                </option>
+
+            </select>
+
+            <label>
+                Immigration Status
+            </label>
+
+            <select id="status">
+
+                <option value="Planning">
+                    Planning
+                </option>
+
+                <option value="Preparing application">
+                    Preparing application
+                </option>
+
+                <option value="Submitted application">
+                    Submitted application
+                </option>
+
+                <option value="Waiting for decision">
+                    Waiting for decision
+                </option>
+
+            </select>
+
+            <label>
+                Current Stage
+            </label>
+
+            <select id="currentStage">
+
+                <option value="Researching">
+                    Researching
+                </option>
+
+                <option value="Collecting documents">
+                    Collecting documents
+                </option>
+
+                <option value="Improving eligibility">
+                    Improving eligibility
+                </option>
+
+                <option value="Submitted">
+                    Submitted
+                </option>
+
+            </select>
+
+            <label>
+                Journey Start Date
+            </label>
+
+            <input
+                type="date"
+                id="journeyStartDate"
+            >
+
+            <button type="submit">
+                Continue →
+            </button>
+
+        </form>
+
+    </div>
 
     <script src="js/onboarding.js"></script>
-
 
 </body>
 
