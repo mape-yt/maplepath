@@ -4,8 +4,9 @@ const router = express.Router();
 
 const User = require("../models/User");
 
-
-// Get immigration profile
+// ======================================
+// Get Immigration Profile
+// ======================================
 
 router.get("/:username", async (req, res) => {
 
@@ -15,7 +16,6 @@ router.get("/:username", async (req, res) => {
             username: req.params.username
         });
 
-
         if (!user) {
 
             return res.status(404).json({
@@ -24,11 +24,11 @@ router.get("/:username", async (req, res) => {
 
         }
 
-
         res.json(user.immigrationProfile);
 
+    }
 
-    } catch (error) {
+    catch (error) {
 
         console.error(error);
 
@@ -41,10 +41,12 @@ router.get("/:username", async (req, res) => {
 });
 
 
+// ======================================
+// Onboarding
+// Replace Entire Profile
+// ======================================
 
-// Update immigration profile
-
-router.put("/:username", async (req, res) => {
+router.put("/onboarding/:username", async (req, res) => {
 
     try {
 
@@ -52,7 +54,6 @@ router.put("/:username", async (req, res) => {
             username: req.params.username
         });
 
-
         if (!user) {
 
             return res.status(404).json({
@@ -61,40 +62,89 @@ router.put("/:username", async (req, res) => {
 
         }
 
-
-        user.immigrationProfile = {
-
-            ...user.immigrationProfile,
-            ...req.body
-
-        };
-
+        user.immigrationProfile = req.body;
 
         user.profileCompleted = true;
 
-
         await user.save();
-
 
         res.json({
 
-            message: "Profile updated!",
+            message: "Onboarding completed.",
+
             profile: user.immigrationProfile
 
         });
 
+    }
 
-    } catch(error) {
+    catch (error) {
 
         console.error(error);
 
         res.status(500).json({
+
             message: "Server error."
+
         });
 
     }
 
 });
 
+
+// ======================================
+// Dashboard Edit
+// Update Only Selected Fields
+// ======================================
+
+router.patch("/:username", async (req, res) => {
+
+    try {
+
+        const user = await User.findOne({
+            username: req.params.username
+        });
+
+        if (!user) {
+
+            return res.status(404).json({
+
+                message: "User not found."
+
+            });
+
+        }
+
+        Object.assign(
+            user.immigrationProfile,
+            req.body
+        );
+
+        await user.save();
+
+        res.json({
+
+            message: "Profile updated.",
+
+            profile: user.immigrationProfile
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        res.status(500).json({
+
+            message: "Server error."
+
+        });
+
+    }
+
+});
 
 module.exports = router;

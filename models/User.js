@@ -20,44 +20,42 @@ const userSchema = new mongoose.Schema({
 
     immigrationProfile: {
 
-        pathway: {
-            type: String,
-            default: ""
-        },
+        // =============================
+        // User Type
+        // =============================
 
-        stream: {
-            type: String,
-            default: ""
-        },
+        journeyType: String,
 
-        province: {
-            type: String,
-            default: ""
-        },
+        // =============================
+        // Exploring User
+        // =============================
 
-        location: {
-            type: String,
-            default: ""
-        },
+        country: String,
 
-        status: {
-            type: String,
-            default: ""
-        },
+        currentStatus: String,
 
-        currentStage: {
-            type: String,
-            default: ""
-        },
+        education: String,
 
-        journeyStartDate: {
-            type: Date,
-            default: null
-        }
+        // =============================
+        // Journey User
+        // =============================
+
+        pathway: String,
+
+        stream: String,
+
+        province: String,
+
+        location: String,
+
+        status: String,
+
+        currentStage: String,
+
+        journeyStartDate: Date
 
     }
 
 });
-
 
 module.exports = mongoose.model("User", userSchema);

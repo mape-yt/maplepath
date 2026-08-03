@@ -45,16 +45,91 @@ pathwayCard.addEventListener("click", () => {
 });
 
 // ======================================
+// Save Profile Helper
+// ======================================
+
+async function saveProfile(profileData) {
+
+    const username = localStorage.getItem("username");
+
+    if (!username) {
+
+        alert("User session not found. Please login again.");
+
+        window.location.href = "auth.html";
+
+        return;
+
+    }
+
+    try {
+
+        const response = await fetch(`/api/profile/onboarding/${username}`, {
+
+            method: "PUT",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(profileData)
+
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+
+            localStorage.setItem(
+                "journeyType",
+                userJourneyType
+            );
+
+            alert("Profile completed successfully!");
+
+            window.location.href = "dashboard.html";
+
+        }
+
+        else {
+
+            alert(data.message);
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert("Unable to connect to server.");
+
+    }
+
+}
+
+// ======================================
 // Exploring Form
 // ======================================
 
-exploringForm.addEventListener("submit", (event) => {
+exploringForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-    alert(
-        "Exploring onboarding will be connected to MongoDB in the next step."
-    );
+    const profileData = {
+
+        journeyType: "planning",
+
+        country: document.getElementById("country").value,
+
+        currentStatus: document.getElementById("currentStatus").value,
+
+        education: document.getElementById("education").value
+
+    };
+
+    await saveProfile(profileData);
 
 });
 
@@ -62,12 +137,29 @@ exploringForm.addEventListener("submit", (event) => {
 // Journey Form
 // ======================================
 
-journeyForm.addEventListener("submit", (event) => {
+journeyForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-    alert(
-        "Journey onboarding will be connected back to MongoDB in the next step."
-    );
+    const profileData = {
+
+        journeyType: "pathway",
+
+        pathway: document.getElementById("pathway").value,
+
+        province: document.getElementById("province").value,
+
+        location: document.getElementById("location").value,
+
+        status: document.getElementById("status").value,
+
+        currentStage: document.getElementById("currentStage").value,
+
+        journeyStartDate:
+            document.getElementById("journeyStartDate").value
+
+    };
+
+    await saveProfile(profileData);
 
 });

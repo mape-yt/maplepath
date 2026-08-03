@@ -8,6 +8,7 @@
 
     <title>MaplePath Dashboard</title>
 
+    <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
@@ -19,25 +20,7 @@
 <div class="container">
 
 
-    <aside class="sidebar">
-
-        <h2>🍁 MaplePath</h2>
-
-
-        <nav>
-
-            <a href="#">Dashboard</a>
-            <a href="#">Profile</a>
-            <a href="#">Tasks</a>
-            <a href="#">Updates</a>
-            <a href="#">Settings</a>
-
-        </nav>
-
-
-    </aside>
-
-
+    <div id="sidebar-container"></div>
 
 
     <main class="main-content">
@@ -177,7 +160,7 @@
 
 
 
-                <ul>
+                <ul id="profile-list">
 
 
                     <li>
@@ -341,7 +324,7 @@
 
 
 
-
+<script src="js/layout.js"></script>
 <script src="js/dashboard.js"></script>
 
 
