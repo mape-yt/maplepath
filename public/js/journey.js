@@ -4,9 +4,9 @@
 
 
 const journeyContainer =
-    document.getElementById(
-        "journey-container"
-    );
+document.getElementById(
+    "journey-container"
+);
 
 
 let currentRoadmap = null;
@@ -15,6 +15,7 @@ let completedSteps = [];
 
 let timelineRecords = [];
 
+let timelineAverages = [];
 
 
 
@@ -30,16 +31,15 @@ async function loadJourney(){
 
 
         const username =
-            localStorage.getItem(
-                "username"
-            );
-
+        localStorage.getItem(
+            "username"
+        );
 
 
         if(!username){
 
             window.location.href =
-                "auth.html";
+            "auth.html";
 
             return;
 
@@ -49,54 +49,51 @@ async function loadJourney(){
 
 
         const profileResponse =
-            await fetch(
-                `/api/profile/${username}`
-            );
-
+        await fetch(
+            `/api/profile/${username}`
+        );
 
 
         const profile =
-            await profileResponse.json();
+        await profileResponse.json();
+
 
 
 
 
         const roadmapResponse =
-            await fetch(
-
-                `/api/journey/${encodeURIComponent(profile.pathway)}`
-
-            );
-
+        await fetch(
+            `/api/journey/${encodeURIComponent(profile.pathway)}`
+        );
 
 
         const roadmap =
-            await roadmapResponse.json();
+        await roadmapResponse.json();
 
 
 
         currentRoadmap =
-            roadmap;
+        roadmap;
+
+
 
 
 
 
         const progressResponse =
-            await fetch(
-
+        await fetch(
             `/api/journey/progress/${username}`
-
-            );
-
+        );
 
 
         const progress =
-            await progressResponse.json();
+        await progressResponse.json();
 
 
 
         completedSteps =
-            progress.completedSteps || [];
+        progress.completedSteps || [];
+
 
 
 
@@ -107,9 +104,18 @@ async function loadJourney(){
 
 
 
+        await loadTimelineAverages(
+            profile.pathway,
+            roadmap.steps
+        );
+
+
+
+
         displayJourney(
             roadmap
         );
+
 
 
     }
@@ -117,9 +123,7 @@ async function loadJourney(){
 
     catch(error){
 
-
         console.error(error);
-
 
     }
 
@@ -133,42 +137,173 @@ async function loadJourney(){
 
 
 // =================================
-// Load Timeline Data
+// Load Timeline Records
 // =================================
 
 async function loadTimelineRecords(username){
 
 
-
     const response =
+    await fetch(
+        `/api/timeline/${username}`
+    );
+
+
+    if(response.ok){
+
+        timelineRecords =
+        await response.json();
+
+    }
+
+    else{
+
+        timelineRecords=[];
+
+    }
+
+}
+
+
+
+
+
+
+
+
+// =================================
+// Load Community Averages
+// =================================
+
+async function loadTimelineAverages(
+    pathway,
+    steps
+){
+
+
+    timelineAverages = [];
+
+
+
+    for(const step of steps){
+
+
+        const response =
         await fetch(
 
-        `/api/timeline/${username}`
+        `/api/analytics/${encodeURIComponent(pathway)}/${step.order}`
 
         );
 
 
 
-    if(response.ok){
+        if(response.ok){
 
 
-        timelineRecords =
+            const average =
             await response.json();
 
 
-    }
+
+            timelineAverages.push({
+
+                stepOrder:
+                step.order,
+
+                averageDays:
+                average.averageDays,
+
+                totalUsers:
+                average.totalUsers
 
 
-    else{
+            });
 
 
-        timelineRecords=[];
+        }
 
 
     }
 
 
 }
+
+
+
+
+// =================================
+// Confidence Calculator
+// =================================
+
+function getConfidence(totalUsers){
+
+
+    if(!totalUsers || totalUsers === 0){
+
+        return "⚠️ No data yet";
+
+    }
+
+
+    if(totalUsers < 10){
+
+        return "⚠️ Limited data";
+
+    }
+
+
+    if(totalUsers < 50){
+
+        return "📊 Moderate confidence";
+
+    }
+
+
+    return "✅ High confidence";
+
+
+}
+
+
+
+
+// =================================
+// Date Formatter
+// =================================
+
+function formatDate(date){
+
+
+    const d =
+    new Date(date);
+
+
+
+    const year =
+    d.getFullYear();
+
+
+
+    const month =
+    String(
+        d.getMonth()+1
+    ).padStart(2,"0");
+
+
+
+    const day =
+    String(
+        d.getDate()
+    ).padStart(2,"0");
+
+
+
+    return `${year}.${month}.${day}`;
+
+
+}
+
+
 
 
 
@@ -189,9 +324,10 @@ function displayJourney(roadmap){
 
 
     const timeline =
-        document.createElement(
-            "div"
-        );
+    document.createElement(
+        "div"
+    );
+
 
 
 
@@ -200,37 +336,52 @@ function displayJourney(roadmap){
 
 
         const completed =
-            completedSteps.includes(
-                step.order
-            );
+        completedSteps.includes(
+            step.order
+        );
 
 
 
         const current =
-            getCurrentStep()
-            ===
-            step.order;
+        getCurrentStep()
+        ===
+        step.order;
+
 
 
 
 
         const record =
-            timelineRecords.find(
+        timelineRecords.find(
 
-                item =>
-                item.stepOrder
-                ===
-                step.order
+            item =>
+            item.stepOrder
+            ===
+            step.order
 
-            );
+        );
+
+
+
+
+        const average =
+        timelineAverages.find(
+
+            item =>
+            item.stepOrder
+            ===
+            step.order
+
+        );
+
 
 
 
 
         const card =
-            document.createElement(
-                "div"
-            );
+        document.createElement(
+            "div"
+        );
 
 
 
@@ -261,49 +412,123 @@ function displayJourney(roadmap){
 
 
         let timelineText =
-            "Not started";
+        "Not started";
 
 
 
         let buttonText =
-            "Start Step";
+        "Start Step";
 
 
 
 
-        if(record){
 
 
-            if(record.status==="in-progress"){
+        // =============================
+        // Completed Step
+        // =============================
+
+        if(record &&
+        record.status==="completed"){
 
 
-                timelineText =
-                `Started:
-                ${new Date(record.startedAt)
-                .toLocaleDateString()}`;
+
+            let comparison =
+            "";
 
 
-                buttonText =
-                "Complete Step";
+
+            if(average.averageDays){
+
+
+                const difference =
+                record.durationDays
+                -
+                average.averageDays;
+
+
+
+                if(difference > 0){
+
+
+                    comparison =
+                    `
+                    <br>
+                    ⏳ You took
+                    ${difference}
+                    more days than average
+                    `;
+
+
+                }
+
+
+                else if(difference < 0){
+
+
+                    comparison =
+                    `
+                    <br>
+                    🚀 You completed
+                    ${Math.abs(difference)}
+                    days faster than average
+                    `;
+
+
+                }
+
+
+                else{
+
+
+                    comparison =
+                    `
+                    <br>
+                    🎯 Right on the MaplePath average
+                    `;
+
+
+                }
 
 
             }
 
 
-            if(record.status==="completed"){
 
 
-                timelineText =
-                `Completed in
-                ${record.durationDays}
-                days`;
+
+            timelineText =
+            `
+            Completed in:
+            ${record.durationDays}
+            days
+
+            <br><br>
+
+            MaplePath average:
+            ${average.averageDays || "N/A"}
+            days
+
+            <br>
+
+            Based on:
+            ${average.totalUsers || 0}
+            applicants
+
+            <br>
+
+            ${getConfidence(
+                average.totalUsers
+            )}
+
+            ${comparison}
+
+            `;
 
 
-                buttonText =
-                "Completed";
 
-
-            }
+            buttonText =
+            "Completed";
 
 
         }
@@ -312,7 +537,145 @@ function displayJourney(roadmap){
 
 
 
-        card.innerHTML=`
+
+
+        // =============================
+        // Current Step
+        // =============================
+
+        else if(record &&
+        record.status==="in-progress"){
+
+
+
+            let estimated =
+            "";
+
+
+
+            if(average.averageDays){
+
+
+                const estimateDate =
+                new Date(
+                    record.startedAt
+                );
+
+
+
+                estimateDate.setDate(
+
+                    estimateDate.getDate()
+                    +
+                    average.averageDays
+
+                );
+
+
+
+                estimated =
+                `
+                <br><br>
+
+                Estimated completion:
+                ${formatDate(estimateDate)}
+
+                `;
+
+
+            }
+
+
+
+
+
+            timelineText =
+            `
+            Started:
+            ${formatDate(record.startedAt)}
+
+            <br><br>
+
+            MaplePath average:
+            ${average.averageDays || "N/A"}
+            days
+
+            <br>
+
+            Based on:
+            ${average.totalUsers || 0}
+            applicants
+
+            <br>
+
+            ${getConfidence(
+                average.totalUsers
+            )}
+
+            ${estimated}
+
+            `;
+
+
+
+            buttonText =
+            "Complete Step";
+
+
+        }
+
+
+
+
+
+
+
+        // =============================
+        // Future Step
+        // =============================
+
+        else{
+
+
+            timelineText =
+            `
+            MaplePath average:
+            ${
+            average.averageDays
+            ?
+            average.averageDays
+            :
+            "N/A"
+            }
+            days
+
+            <br>
+
+            Based on:
+            ${average.totalUsers || 0}
+            applicants
+
+            <br>
+
+            ${getConfidence(
+                average.totalUsers
+            )}
+
+            `;
+
+
+        }
+
+
+
+
+
+
+
+
+
+        card.innerHTML = `
+
 
 
         <div class="step-number">
@@ -333,17 +696,13 @@ function displayJourney(roadmap){
 
 
         <h3>
-
         ${step.title}
-
         </h3>
 
 
 
         <p>
-
         ${step.description}
-
         </p>
 
 
@@ -357,11 +716,14 @@ function displayJourney(roadmap){
 
 
 
+
         <button class="complete-btn">
 
         ${buttonText}
 
         </button>
+
+
 
 
         ${
@@ -387,15 +749,23 @@ function displayJourney(roadmap){
 
 
 
+
+
+
+
         const button =
-            card.querySelector(
-                ".complete-btn"
-            );
+        card.querySelector(
+            ".complete-btn"
+        );
+
+
 
         const editButton =
         card.querySelector(
             ".edit-timeline-btn"
         );
+
+
 
 
 
@@ -418,6 +788,9 @@ function displayJourney(roadmap){
 
 
 
+
+
+
         if(!completed){
 
 
@@ -425,18 +798,18 @@ function displayJourney(roadmap){
                 "click",
                 ()=>{
 
-
                     handleStepAction(
                         step
                     );
 
 
                 }
-
             );
 
 
         }
+
+
 
 
 
@@ -445,6 +818,7 @@ function displayJourney(roadmap){
 
 
     });
+
 
 
 
@@ -469,41 +843,40 @@ async function handleStepAction(step){
 
 
     const username =
-        localStorage.getItem(
-            "username"
-        );
+    localStorage.getItem(
+        "username"
+    );
 
 
 
     const profileResponse =
-        await fetch(
-
+    await fetch(
         `/api/profile/${username}`
-
-        );
-
+    );
 
 
     const profile =
-        await profileResponse.json();
+    await profileResponse.json();
 
 
 
 
     const existing =
-        timelineRecords.find(
+    timelineRecords.find(
 
-            record =>
-            record.stepOrder
-            ===
-            step.order
+        record =>
+        record.stepOrder
+        ===
+        step.order
 
-        );
+    );
+
 
 
 
 
     if(!existing){
+
 
 
         await fetch(
@@ -512,34 +885,31 @@ async function handleStepAction(step){
 
         {
 
+        method:"POST",
 
-            method:"POST",
+        headers:{
 
+        "Content-Type":
+        "application/json"
 
-            headers:{
-
-            "Content-Type":
-            "application/json"
-
-            },
+        },
 
 
-            body:JSON.stringify({
+        body:JSON.stringify({
 
-            username,
+        username,
 
-            pathway:
-            profile.pathway,
+        pathway:
+        profile.pathway,
 
-            stepOrder:
-            step.order,
+        stepOrder:
+        step.order,
 
-            stepTitle:
-            step.title
+        stepTitle:
+        step.title
 
 
-            })
-
+        })
 
         });
 
@@ -547,11 +917,11 @@ async function handleStepAction(step){
     }
 
 
-    else if(
-        existing.status
-        ===
-        "in-progress"
-    ){
+
+
+
+    else if(existing.status==="in-progress"){
+
 
 
         await fetch(
@@ -579,6 +949,7 @@ async function handleStepAction(step){
         pathway:
         profile.pathway,
 
+
         stepOrder:
         step.order
 
@@ -598,8 +969,8 @@ async function handleStepAction(step){
         await updateJourneyProgress();
 
 
-
     }
+
 
 
 
@@ -614,15 +985,19 @@ async function handleStepAction(step){
 
 
 
+
+
+// =================================
+// Progress Update
+// =================================
+
 async function updateJourneyProgress(){
 
 
-
     const username =
-        localStorage.getItem(
-            "username"
-        );
-
+    localStorage.getItem(
+        "username"
+    );
 
 
     await fetch(
@@ -631,7 +1006,9 @@ async function updateJourneyProgress(){
 
     {
 
+
     method:"PUT",
+
 
     headers:{
 
@@ -648,15 +1025,17 @@ async function updateJourneyProgress(){
     currentStep:
     getCurrentStep()
 
-
     })
 
 
     });
 
 
-
 }
+
+
+
+
 
 
 
@@ -666,14 +1045,15 @@ function getCurrentStep(){
 
 
     const next =
-        currentRoadmap.steps.find(
+    currentRoadmap.steps.find(
 
-        step =>
-        !completedSteps.includes(
-            step.order
-        )
+    step =>
+    !completedSteps.includes(
+        step.order
+    )
 
-        );
+    );
+
 
 
     return next
@@ -687,7 +1067,17 @@ function getCurrentStep(){
 
 
 
-let selectedTimelineRecord = null;
+
+
+
+
+
+
+// =================================
+// Edit Timeline Modal
+// =================================
+
+let selectedTimelineRecord=null;
 
 
 
@@ -697,19 +1087,16 @@ document.getElementById(
 );
 
 
-
 const startInput =
 document.getElementById(
 "edit-start-date"
 );
 
 
-
 const endInput =
 document.getElementById(
 "edit-end-date"
 );
-
 
 
 const durationText =
@@ -744,14 +1131,18 @@ function editTimelineDates(record){
 
 
     startInput.value =
-    record.startedAt.substring(0,10);
+    record.startedAt.substring(
+        0,10
+    );
 
 
 
     endInput.value =
     record.completedAt
     ?
-    record.completedAt.substring(0,10)
+    record.completedAt.substring(
+        0,10
+    )
     :
     "";
 
@@ -760,14 +1151,12 @@ function editTimelineDates(record){
     updateDurationPreview();
 
 
-
     modal.classList.remove(
         "hidden"
     );
 
 
 }
-
 
 
 
@@ -792,9 +1181,9 @@ function updateDurationPreview(){
 
 
 
+
     const start =
     new Date(startInput.value);
-
 
 
     const end =
@@ -802,17 +1191,12 @@ function updateDurationPreview(){
 
 
 
-
-    const difference =
-    end-start;
-
-
-
     const days =
     Math.ceil(
 
-        difference /
-        (1000*60*60*24)
+    (end-start)
+    /
+    (1000*60*60*24)
 
     );
 
@@ -834,7 +1218,9 @@ function updateDurationPreview(){
     durationText.textContent =
     `${days} days`;
 
+
 }
+
 
 
 
@@ -858,14 +1244,11 @@ cancelEdit.addEventListener(
 "click",
 ()=>{
 
-
-    modal.classList.add(
-        "hidden"
-    );
-
+modal.classList.add(
+"hidden"
+);
 
 });
-
 
 
 
@@ -876,13 +1259,10 @@ saveEdit.addEventListener(
 async()=>{
 
 
-    const duration =
-    durationText.textContent;
-
-
-
     if(
-        duration==="Invalid dates"
+    durationText.textContent
+    ===
+    "Invalid dates"
     ){
 
         alert(
@@ -892,6 +1272,7 @@ async()=>{
         return;
 
     }
+
 
 
 
@@ -915,19 +1296,18 @@ async()=>{
 
     body:JSON.stringify({
 
-        startedAt:
-        startInput.value,
+    startedAt:
+    startInput.value,
 
 
-        completedAt:
-        endInput.value
+    completedAt:
+    endInput.value
 
 
     })
 
 
     });
-
 
 
     modal.classList.add(
@@ -938,8 +1318,9 @@ async()=>{
     loadJourney();
 
 
-
 });
+
+
 
 
 
