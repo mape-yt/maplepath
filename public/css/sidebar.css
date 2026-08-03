@@ -1,28 +1,57 @@
-/* Sidebar */
+/* =================================
+   MaplePath Shared Sidebar
+================================= */
+
 
 .sidebar {
+
     width: 240px;
+
+    min-height: 100vh;
+
     background: #0f172a;
+
     color: white;
+
     padding: 30px;
+
 }
+
 
 .sidebar h2 {
+
     margin-bottom: 40px;
+
 }
+
+
 
 .sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
 }
+
+
 
 .sidebar a {
-    color: white;
-    text-decoration: none;
-    transition: .3s;
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+
 }
 
+
+
 .sidebar a:hover {
-    color: #60a5fa;
+
+    color:#60a5fa;
+
 }

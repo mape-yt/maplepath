@@ -9,17 +9,12 @@ let currentProfile = {};
 // DOM Elements
 // ==============================
 
-const editButton = document.getElementById("edit-profile-btn");
-const editForm = document.getElementById("edit-form");
+const profileSnapshot =
+    document.getElementById("profile-snapshot");
 
-const saveButton = document.getElementById("save-profile-btn");
 
-const statusInput = document.getElementById("edit-status");
-const provinceInput = document.getElementById("edit-province");
-const stageInput = document.getElementById("edit-stage");
-const locationInput = document.getElementById("edit-location");
-
-const profileMessage = document.getElementById("profile-message");
+const viewProfileButton =
+    document.getElementById("view-profile-btn");
 
 const taskList = document.getElementById("task-list");
 
@@ -130,6 +125,11 @@ async function loadProfile() {
         const profile = await response.json();
 
         currentProfile = profile;
+
+        document.getElementById("welcome-title").textContent =
+            `Welcome Back, ${username}!`;
+
+        loadProfileSnapshot(profile);
 
         document.getElementById("welcome-title").textContent =
             `Welcome Back, ${username}!`;
@@ -437,103 +437,85 @@ async function loadTasks() {
 }
 
 
-// ==============================
-// Edit Profile
-// ==============================
-
-editButton.addEventListener("click", () => {
-
-    editForm.classList.toggle("hidden");
-
-    statusInput.value =
-        currentProfile.status || "";
-
-    provinceInput.value =
-        currentProfile.province || "";
-
-    stageInput.value =
-        currentProfile.currentStage || "";
-
-    locationInput.value =
-        currentProfile.location || "";
-
-});
-
 
 // ==============================
-// Save Profile
+// Profile Snapshot
 // ==============================
 
-saveButton.addEventListener("click", async () => {
 
-    const username =
-        localStorage.getItem("username");
+function loadProfileSnapshot(profile){
 
-    const updatedProfile = {
 
-        status: statusInput.value,
+    if(!profileSnapshot){
 
-        province: provinceInput.value,
-
-        currentStage: stageInput.value,
-
-        location: locationInput.value
-
-    };
-
-    try {
-
-        const response = await fetch(
-
-            `/api/profile/${username}`,
-
-            {
-
-                method: "PATCH",
-
-                headers: {
-
-                    "Content-Type": "application/json"
-
-                },
-
-                body: JSON.stringify(updatedProfile)
-
-            }
-
-        );
-
-        if(response.ok){
-
-            profileMessage.textContent =
-                "✅ Profile updated successfully!";
-
-            await loadProfile();
-
-            editForm.classList.add("hidden");
-
-        }
-
-        else {
-
-            profileMessage.textContent =
-                "❌ Failed to update profile.";
-
-        }
+        return;
 
     }
 
-    catch(error) {
 
-        console.error(error);
 
-        profileMessage.textContent =
-            "❌ Server error.";
+    if(profile.journeyType==="planning"){
+
+
+        profileSnapshot.innerHTML = `
+
+
+        <p>
+            🌱 Still Exploring
+        </p>
+
+
+        <p>
+            Build your eligibility profile
+            to discover possible pathways.
+        </p>
+
+
+        `;
+
 
     }
 
-});
 
+    else {
+
+
+        profileSnapshot.innerHTML = `
+
+
+        <p>
+            🍁 ${profile.pathway}
+        </p>
+
+
+        <p>
+            Stage:
+            ${profile.currentStage || "Not set"}
+        </p>
+
+
+        <p>
+            Province:
+            ${profile.province || "Not set"}
+        </p>
+
+
+        `;
+
+
+    }
+
+
+}
+
+viewProfileButton.addEventListener(
+"click",
+()=>{
+
+    window.location.href =
+    "profile.html";
+
+});
 
 // ==============================
 // Initialize Dashboard

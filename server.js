@@ -9,6 +9,7 @@ const path = require("path");
 const authRoutes = require("./routes/authRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const taskRoutes = require("./routes/taskRoutes");
+const journeyRoutes = require("./routes/journeyRoutes");
 
 const connectDB = require("./config/db");
 
@@ -37,6 +38,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
 
 app.use("/api/tasks", taskRoutes);
+
+app.use("/api/journey", journeyRoutes);
 
 
 // Serve frontend

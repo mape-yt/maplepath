@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MaplePath Profile</title>
+
+    <link rel="stylesheet" href="css/layout.css">
+
+    <link rel="stylesheet" href="css/sidebar.css">
+
+    <link rel="stylesheet" href="css/profile.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- Shared Sidebar -->
+
+    <div id="sidebar-container"></div>
+
+
+
+    <main class="main-content">
+
+
+        <header class="profile-header">
+
+            <h1>
+                👤 Immigration Profile
+            </h1>
+
+            <p>
+                Your personalized Canadian immigration information.
+            </p>
+
+        </header>
+
+
+
+
+
+        <section class="profile-card">
+
+
+            <div class="profile-title">
+
+
+                <h2 id="journey-title">
+                    Loading...
+                </h2>
+
+
+                <span id="journey-badge">
+                    
+                </span>
+
+
+            </div>
+
+
+
+
+            <div id="profile-content">
+
+
+                Loading profile...
+
+
+            </div>
+
+
+
+
+
+            <button id="edit-profile-btn">
+
+                Edit Profile
+
+            </button>
+
+
+
+        </section>
+
+
+
+
+
+
+
+        <!-- Edit Section -->
+
+
+        <section
+            id="edit-section"
+            class="edit-card hidden"
+        >
+
+
+            <h2>
+                Edit Profile
+            </h2>
+
+
+
+
+            <label>
+                Province
+            </label>
+
+            <input
+                id="edit-province"
+            >
+
+
+
+            <label>
+                Status
+            </label>
+
+            <input
+                id="edit-status"
+            >
+
+
+
+            <label>
+                Current Stage
+            </label>
+
+            <input
+                id="edit-stage"
+            >
+
+
+
+            <label>
+                Location
+            </label>
+
+            <input
+                id="edit-location"
+            >
+
+
+
+
+            <button id="save-btn">
+
+                Save Changes
+
+            </button>
+
+
+            <p id="message"></p>
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+</div>
+
+
+
+<script src="js/layout.js"></script>
+
+<script src="js/profile.js"></script>
+
+
+</body>
+
+
+</html>

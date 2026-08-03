@@ -8,6 +8,7 @@
 
     <title>MaplePath Dashboard</title>
 
+    <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/dashboard.css">
 
@@ -139,125 +140,35 @@
 
 
 
-            <!-- Profile Card -->
-
+            <!-- Profile Snapshot -->
 
             <div class="card profile-card">
 
 
                 <h2>
-                    Your Immigration Profile
+                    👤 Profile Snapshot
                 </h2>
 
 
 
-                <button id="edit-profile-btn" class="edit-btn">
-
-                    Edit Profile
-
-                </button>
+                <div id="profile-snapshot">
 
 
-
-
-                <ul id="profile-list">
-
-
-                    <li>
-                        <strong>Immigration Pathway:</strong>
-
-                        <span id="profile-program">
-                            Loading...
-                        </span>
-
-                    </li>
-
-
-                    <li>
-
-                        <strong>Status:</strong>
-
-                        <span id="profile-status">
-                            Loading...
-                        </span>
-
-                    </li>
-
-
-
-                    <li>
-
-                        <strong>Province:</strong>
-
-                        <span id="profile-province">
-                            Loading...
-                        </span>
-
-                    </li>
-
-
-
-                    <li>
-
-                        <strong>Current Stage:</strong>
-
-                        <span id="profile-stage">
-                            Loading...
-                        </span>
-
-                    </li>
-
-
-
-
-                    <li>
-
-                        <strong>Location:</strong>
-
-                        <span id="profile-location">
-                            Loading...
-                        </span>
-
-                    </li>
-
-
-
-                </ul>
-
-
-
-
-
-                <div id="edit-form" class="edit-form hidden">
-
-
-                    <input id="edit-status" placeholder="Status">
-
-
-                    <input id="edit-province" placeholder="Province">
-
-
-                    <input id="edit-stage" placeholder="Current Stage">
-
-
-                    <input id="edit-location" placeholder="Location">
-
-
-
-                    <button id="save-profile-btn">
-
-                        Save Changes
-
-                    </button>
-
+                    Loading...
 
 
                 </div>
 
 
 
-                <p id="profile-message"></p>
+                <button
+                    id="view-profile-btn"
+                    class="view-btn"
+                >
 
+                    View Full Profile →
+
+                </button>
 
 
             </div>

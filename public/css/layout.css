@@ -1,0 +1,44 @@
+/* =================================
+   MaplePath Shared Layout
+================================= */
+
+
+* {
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    font-family:Arial, sans-serif;
+
+}
+
+
+
+body {
+
+    background:#f4f6f9;
+
+}
+
+
+
+.container {
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+
+
+.main-content {
+
+    flex:1;
+
+    padding:40px;
+
+}
