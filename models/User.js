@@ -54,7 +54,27 @@ const userSchema = new mongoose.Schema({
 
         journeyStartDate: Date
 
-    }
+    },
+
+    immigrationJourney: {
+
+        completedSteps: {
+
+            type: [Number],
+
+            default: []
+
+        },
+
+        currentStep: {
+
+            type: Number,
+
+            default: 1
+
+        }
+
+    },
 
 });
 

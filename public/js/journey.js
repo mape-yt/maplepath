@@ -1,32 +1,42 @@
 // =================================
-// MaplePath Journey Page
+// MaplePath Journey
 // =================================
 
 
 const journeyContainer =
-    document.getElementById("journey-container");
+    document.getElementById(
+        "journey-container"
+    );
 
 
 let currentRoadmap = null;
 
+let completedSteps = [];
+
+let timelineRecords = [];
+
+
+
 
 
 // =================================
-// Load User Journey
+// Load Journey
 // =================================
 
-async function loadJourney() {
+async function loadJourney(){
 
 
-    try {
+    try{
 
 
         const username =
-            localStorage.getItem("username");
+            localStorage.getItem(
+                "username"
+            );
 
 
 
-        if (!username) {
+        if(!username){
 
             window.location.href =
                 "auth.html";
@@ -37,10 +47,12 @@ async function loadJourney() {
 
 
 
+
         const profileResponse =
             await fetch(
                 `/api/profile/${username}`
             );
+
 
 
         const profile =
@@ -48,30 +60,8 @@ async function loadJourney() {
 
 
 
-        if (!profile.pathway) {
 
-
-            journeyContainer.innerHTML = `
-
-                <h2>
-                    No pathway selected
-                </h2>
-
-                <p>
-                    Complete your profile first.
-                </p>
-
-            `;
-
-
-            return;
-
-
-        }
-
-
-
-        const journeyResponse =
+        const roadmapResponse =
             await fetch(
 
                 `/api/journey/${encodeURIComponent(profile.pathway)}`
@@ -81,34 +71,54 @@ async function loadJourney() {
 
 
         const roadmap =
-            await journeyResponse.json();
+            await roadmapResponse.json();
 
 
 
-        currentRoadmap = roadmap;
+        currentRoadmap =
+            roadmap;
 
 
 
-        displayJourney(roadmap);
 
+        const progressResponse =
+            await fetch(
+
+            `/api/journey/progress/${username}`
+
+            );
+
+
+
+        const progress =
+            await progressResponse.json();
+
+
+
+        completedSteps =
+            progress.completedSteps || [];
+
+
+
+
+        await loadTimelineRecords(
+            username
+        );
+
+
+
+        displayJourney(
+            roadmap
+        );
 
 
     }
 
 
-    catch(error) {
+    catch(error){
 
 
         console.error(error);
-
-
-        journeyContainer.innerHTML = `
-
-            <h2>
-                Unable to load journey
-            </h2>
-
-        `;
 
 
     }
@@ -119,148 +129,258 @@ async function loadJourney() {
 
 
 
+
+
+
 // =================================
-// Display Journey
+// Load Timeline Data
 // =================================
 
-function displayJourney(roadmap) {
-
-
-    journeyContainer.innerHTML = "";
+async function loadTimelineRecords(username){
 
 
 
-    const completedSteps =
-        JSON.parse(
-            localStorage.getItem("completedSteps")
-        ) || [];
+    const response =
+        await fetch(
 
+        `/api/timeline/${username}`
 
-
-    const completedCount =
-        completedSteps.length;
-
-
-
-    const progress =
-        Math.round(
-            (completedCount / roadmap.steps.length) * 100
         );
 
 
 
-    journeyContainer.innerHTML = `
-
-        <div class="journey-header">
-
-            <h2>
-                🍁 ${roadmap.name} Journey
-            </h2>
+    if(response.ok){
 
 
-            <p>
-                ${roadmap.description}
-            </p>
+        timelineRecords =
+            await response.json();
 
 
-            <div class="journey-progress">
-
-                <div class="progress-bar">
-
-                    <div
-                        class="progress-fill"
-                        style="width:${progress}%"
-                    ></div>
-
-                </div>
+    }
 
 
-                <h3>
-                    ${progress}% Completed
-                </h3>
+    else{
 
 
-            </div>
+        timelineRecords=[];
 
 
-        </div>
+    }
 
 
-    `;
+}
+
+
+
+
+
+
+
+// =================================
+// Display Journey
+// =================================
+
+function displayJourney(roadmap){
+
+
+
+    journeyContainer.innerHTML="";
 
 
 
     const timeline =
-        document.createElement("div");
-
-
-    timeline.className =
-        "journey-timeline";
-
+        document.createElement(
+            "div"
+        );
 
 
 
-    roadmap.steps.forEach(step => {
+    roadmap.steps.forEach(step=>{
+
 
 
         const completed =
-            completedSteps.includes(step.order);
+            completedSteps.includes(
+                step.order
+            );
+
+
+
+        const current =
+            getCurrentStep()
+            ===
+            step.order;
+
+
+
+
+        const record =
+            timelineRecords.find(
+
+                item =>
+                item.stepOrder
+                ===
+                step.order
+
+            );
+
 
 
 
         const card =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
-        card.className =
-            completed
-            ?
-            "journey-step completed"
-            :
+
+        if(completed){
+
+            card.className =
+            "journey-step completed";
+
+        }
+
+        else if(current){
+
+            card.className =
+            "journey-step current";
+
+        }
+
+        else{
+
+            card.className =
             "journey-step";
 
+        }
 
 
-        card.innerHTML = `
-
-            <div class="step-number">
-
-                ${completed ? "✓" : step.order}
-
-            </div>
 
 
-            <div class="step-content">
 
 
-                <h3>
-
-                    ${step.title}
-
-                </h3>
+        let timelineText =
+            "Not started";
 
 
-                <p>
 
-                    ${step.description}
-
-                </p>
+        let buttonText =
+            "Start Step";
 
 
-                <button class="complete-btn">
-
-                    ${
-                        completed
-                        ?
-                        "Completed"
-                        :
-                        "Mark Complete"
-                    }
-
-                </button>
 
 
-            </div>
+        if(record){
+
+
+            if(record.status==="in-progress"){
+
+
+                timelineText =
+                `Started:
+                ${new Date(record.startedAt)
+                .toLocaleDateString()}`;
+
+
+                buttonText =
+                "Complete Step";
+
+
+            }
+
+
+            if(record.status==="completed"){
+
+
+                timelineText =
+                `Completed in
+                ${record.durationDays}
+                days`;
+
+
+                buttonText =
+                "Completed";
+
+
+            }
+
+
+        }
+
+
+
+
+
+        card.innerHTML=`
+
+
+        <div class="step-number">
+
+        ${
+            completed
+            ?
+            "✓"
+            :
+            step.order
+        }
+
+        </div>
+
+
+
+        <div class="step-content">
+
+
+        <h3>
+
+        ${step.title}
+
+        </h3>
+
+
+
+        <p>
+
+        ${step.description}
+
+        </p>
+
+
+
+        <span class="step-status">
+
+        ${timelineText}
+
+        </span>
+
+
+
+
+        <button class="complete-btn">
+
+        ${buttonText}
+
+        </button>
+
+
+        ${
+        record
+        ?
+        `
+        <button class="edit-timeline-btn">
+
+        ✏️ Edit Dates
+
+        </button>
+        `
+        :
+        ""
+        }
+
+
+
+        </div>
 
 
         `;
@@ -268,21 +388,55 @@ function displayJourney(roadmap) {
 
 
         const button =
-            card.querySelector(".complete-btn");
+            card.querySelector(
+                ".complete-btn"
+            );
 
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-
-                toggleStep(step.order);
-
-
-            }
-
+        const editButton =
+        card.querySelector(
+            ".edit-timeline-btn"
         );
+
+
+
+        if(editButton){
+
+
+            editButton.addEventListener(
+                "click",
+                ()=>{
+
+                    editTimelineDates(
+                        record
+                    );
+
+                }
+            );
+
+
+        }
+
+
+
+        if(!completed){
+
+
+            button.addEventListener(
+                "click",
+                ()=>{
+
+
+                    handleStepAction(
+                        step
+                    );
+
+
+                }
+
+            );
+
+
+        }
 
 
 
@@ -294,7 +448,211 @@ function displayJourney(roadmap) {
 
 
 
-    journeyContainer.appendChild(timeline);
+    journeyContainer.appendChild(
+        timeline
+    );
+
+
+}
+
+
+
+
+
+
+
+// =================================
+// Step Action
+// =================================
+
+async function handleStepAction(step){
+
+
+    const username =
+        localStorage.getItem(
+            "username"
+        );
+
+
+
+    const profileResponse =
+        await fetch(
+
+        `/api/profile/${username}`
+
+        );
+
+
+
+    const profile =
+        await profileResponse.json();
+
+
+
+
+    const existing =
+        timelineRecords.find(
+
+            record =>
+            record.stepOrder
+            ===
+            step.order
+
+        );
+
+
+
+
+    if(!existing){
+
+
+        await fetch(
+
+        "/api/timeline/start",
+
+        {
+
+
+            method:"POST",
+
+
+            headers:{
+
+            "Content-Type":
+            "application/json"
+
+            },
+
+
+            body:JSON.stringify({
+
+            username,
+
+            pathway:
+            profile.pathway,
+
+            stepOrder:
+            step.order,
+
+            stepTitle:
+            step.title
+
+
+            })
+
+
+        });
+
+
+    }
+
+
+    else if(
+        existing.status
+        ===
+        "in-progress"
+    ){
+
+
+        await fetch(
+
+        "/api/timeline/complete",
+
+        {
+
+
+        method:"PUT",
+
+
+        headers:{
+
+        "Content-Type":
+        "application/json"
+
+        },
+
+
+        body:JSON.stringify({
+
+        username,
+
+        pathway:
+        profile.pathway,
+
+        stepOrder:
+        step.order
+
+
+        })
+
+
+        });
+
+
+
+        completedSteps.push(
+            step.order
+        );
+
+
+        await updateJourneyProgress();
+
+
+
+    }
+
+
+
+
+    loadJourney();
+
+
+}
+
+
+
+
+
+
+async function updateJourneyProgress(){
+
+
+
+    const username =
+        localStorage.getItem(
+            "username"
+        );
+
+
+
+    await fetch(
+
+    `/api/journey/progress/${username}`,
+
+    {
+
+    method:"PUT",
+
+    headers:{
+
+    "Content-Type":
+    "application/json"
+
+    },
+
+
+    body:JSON.stringify({
+
+    completedSteps,
+
+    currentStep:
+    getCurrentStep()
+
+
+    })
+
+
+    });
 
 
 
@@ -303,66 +661,286 @@ function displayJourney(roadmap) {
 
 
 
-// =================================
-// Complete Step
-// =================================
+
+function getCurrentStep(){
 
 
-function toggleStep(stepNumber) {
+    const next =
+        currentRoadmap.steps.find(
+
+        step =>
+        !completedSteps.includes(
+            step.order
+        )
+
+        );
 
 
-    let completedSteps =
-        JSON.parse(
-            localStorage.getItem("completedSteps")
-        ) || [];
+    return next
+    ?
+    next.order
+    :
+    currentRoadmap.steps.length;
+
+
+}
 
 
 
-    if (
-        completedSteps.includes(stepNumber)
-    ) {
+let selectedTimelineRecord = null;
 
 
-        completedSteps =
-            completedSteps.filter(
-                step =>
-                    step !== stepNumber
-            );
 
+const modal =
+document.getElementById(
+"timeline-modal"
+);
+
+
+
+const startInput =
+document.getElementById(
+"edit-start-date"
+);
+
+
+
+const endInput =
+document.getElementById(
+"edit-end-date"
+);
+
+
+
+const durationText =
+document.getElementById(
+"edit-duration"
+);
+
+
+
+const saveEdit =
+document.getElementById(
+"save-edit"
+);
+
+
+
+const cancelEdit =
+document.getElementById(
+"cancel-edit"
+);
+
+
+
+
+
+function editTimelineDates(record){
+
+
+    selectedTimelineRecord =
+    record;
+
+
+
+    startInput.value =
+    record.startedAt.substring(0,10);
+
+
+
+    endInput.value =
+    record.completedAt
+    ?
+    record.completedAt.substring(0,10)
+    :
+    "";
+
+
+
+    updateDurationPreview();
+
+
+
+    modal.classList.remove(
+        "hidden"
+    );
+
+
+}
+
+
+
+
+
+
+
+function updateDurationPreview(){
+
+
+    if(
+        !startInput.value
+        ||
+        !endInput.value
+    ){
+
+        durationText.textContent =
+        "0 days";
+
+        return;
 
     }
 
 
-    else {
 
-
-        completedSteps.push(stepNumber);
-
-
-    }
+    const start =
+    new Date(startInput.value);
 
 
 
-    localStorage.setItem(
+    const end =
+    new Date(endInput.value);
 
-        "completedSteps",
 
-        JSON.stringify(completedSteps)
+
+
+    const difference =
+    end-start;
+
+
+
+    const days =
+    Math.ceil(
+
+        difference /
+        (1000*60*60*24)
 
     );
 
 
 
-    displayJourney(currentRoadmap);
+    if(days < 0){
 
 
+        durationText.textContent =
+        "Invalid dates";
+
+
+        return;
+
+    }
+
+
+
+    durationText.textContent =
+    `${days} days`;
 
 }
 
 
 
 
+startInput.addEventListener(
+"change",
+updateDurationPreview
+);
 
-// Start
+
+endInput.addEventListener(
+"change",
+updateDurationPreview
+);
+
+
+
+
+
+cancelEdit.addEventListener(
+"click",
+()=>{
+
+
+    modal.classList.add(
+        "hidden"
+    );
+
+
+});
+
+
+
+
+
+
+saveEdit.addEventListener(
+"click",
+async()=>{
+
+
+    const duration =
+    durationText.textContent;
+
+
+
+    if(
+        duration==="Invalid dates"
+    ){
+
+        alert(
+        "Completion date cannot be before start date."
+        );
+
+        return;
+
+    }
+
+
+
+    await fetch(
+
+    `/api/timeline/edit/${selectedTimelineRecord._id}`,
+
+    {
+
+
+    method:"PUT",
+
+
+    headers:{
+
+    "Content-Type":
+    "application/json"
+
+    },
+
+
+    body:JSON.stringify({
+
+        startedAt:
+        startInput.value,
+
+
+        completedAt:
+        endInput.value
+
+
+    })
+
+
+    });
+
+
+
+    modal.classList.add(
+        "hidden"
+    );
+
+
+    loadJourney();
+
+
+
+});
+
+
 
 loadJourney();

@@ -2,11 +2,14 @@ const express = require("express");
 
 const router = express.Router();
 
+const User = require("../models/User");
 
-// Import roadmap data
+
+// Roadmap data
 
 const expressEntryRoadmap =
     require("../data/expressEntry");
+
 
 
 
@@ -20,7 +23,8 @@ router.get("/:pathway", async (req, res) => {
     try {
 
 
-        const pathway = req.params.pathway;
+        const pathway =
+            req.params.pathway;
 
 
 
@@ -66,6 +70,175 @@ router.get("/:pathway", async (req, res) => {
 
 
 });
+
+
+
+
+
+// =================================
+// Get User Journey Progress
+// =================================
+
+router.get("/progress/:username", async (req,res)=>{
+
+
+    try {
+
+
+        const user =
+            await User.findOne({
+
+                username:
+                    req.params.username
+
+            });
+
+
+
+        if(!user){
+
+
+            return res.status(404).json({
+
+                message:
+                    "User not found."
+
+            });
+
+
+        }
+
+
+
+        res.json({
+
+            completedSteps:
+                user.immigrationJourney.completedSteps,
+
+
+            currentStep:
+                user.immigrationJourney.currentStep
+
+
+        });
+
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(error);
+
+
+        res.status(500).json({
+
+            message:
+                "Server error."
+
+        });
+
+
+    }
+
+
+});
+
+
+
+
+
+
+// =================================
+// Update User Journey Progress
+// =================================
+
+router.put("/progress/:username", async (req,res)=>{
+
+
+    try {
+
+
+        const user =
+            await User.findOne({
+
+                username:
+                    req.params.username
+
+            });
+
+
+
+        if(!user){
+
+
+            return res.status(404).json({
+
+                message:
+                    "User not found."
+
+            });
+
+
+        }
+
+
+
+
+        user.immigrationJourney.completedSteps =
+            req.body.completedSteps;
+
+
+
+        user.immigrationJourney.currentStep =
+            req.body.currentStep;
+
+
+
+        await user.save();
+
+
+
+
+        res.json({
+
+            message:
+                "Journey progress updated.",
+
+
+            journey:
+                user.immigrationJourney
+
+
+        });
+
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(error);
+
+
+        res.status(500).json({
+
+            message:
+                "Server error."
+
+        });
+
+
+    }
+
+
+});
+
+
 
 
 
