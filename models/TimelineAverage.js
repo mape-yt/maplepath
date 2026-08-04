@@ -5,12 +5,9 @@ const timelineAverageSchema =
 new mongoose.Schema({
 
 
-    pathway: {
-
-        type:String,
-
-        required:true
-
+    profileKey: {
+        type: String,
+        required: true
     },
 
 

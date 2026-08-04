@@ -28,7 +28,7 @@ async(req,res)=>{
 
         const {
 
-            pathway,
+            profileKey,
 
             stepOrder,
 
@@ -39,18 +39,16 @@ async(req,res)=>{
 
 
 
-
         const records =
         await TimelineRecord.find({
 
-            pathway,
+            profileKey,
 
             stepOrder,
 
             status:"completed",
 
-            durationDays:
-            {
+            durationDays:{
                 $ne:null
             }
 
@@ -60,7 +58,7 @@ async(req,res)=>{
 
 
 
-        if(records.length===0){
+        if(records.length === 0){
 
 
             return res.json({
@@ -72,8 +70,6 @@ async(req,res)=>{
 
 
         }
-
-
 
 
 
@@ -112,16 +108,19 @@ async(req,res)=>{
 
             {
 
-            pathway,
+
+            profileKey,
 
             stepOrder
+
 
             },
 
 
             {
 
-            pathway,
+
+            profileKey,
 
             stepOrder,
 
@@ -135,14 +134,17 @@ async(req,res)=>{
             lastUpdated:
             new Date()
 
+
             },
 
 
             {
 
+
             upsert:true,
 
             returnDocument:"after"
+
 
             }
 
@@ -192,12 +194,17 @@ async(req,res)=>{
 
 
 
+
+
+
+
 // =================================
 // Get Average
 // =================================
 
+
 router.get(
-"/:pathway/:stepOrder",
+"/:profileKey/:stepOrder",
 async(req,res)=>{
 
 
@@ -207,8 +214,8 @@ async(req,res)=>{
         const average =
         await TimelineAverage.findOne({
 
-            pathway:
-            req.params.pathway,
+            profileKey:
+            req.params.profileKey,
 
 
             stepOrder:
@@ -216,6 +223,7 @@ async(req,res)=>{
 
 
         });
+
 
 
 
@@ -237,6 +245,7 @@ async(req,res)=>{
 
 
 
+
         res.json(average);
 
 
@@ -249,7 +258,6 @@ async(req,res)=>{
 
 
         console.error(error);
-
 
 
         res.status(500).json({
@@ -265,6 +273,7 @@ async(req,res)=>{
 
 
 });
+
 
 
 

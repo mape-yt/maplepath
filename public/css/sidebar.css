@@ -5,24 +5,31 @@
 
 .sidebar {
 
-    width: 240px;
+    width:240px;
 
-    min-height: 100vh;
+    min-height:100%;
 
-    background: #0f172a;
+    height:auto;
 
-    color: white;
+    background:#0f172a;
 
-    padding: 30px;
+    color:white;
+
+    padding:30px;
+
+    flex-shrink:0;
 
 }
+
+
 
 
 .sidebar h2 {
 
-    margin-bottom: 40px;
+    margin-bottom:40px;
 
 }
+
 
 
 
@@ -38,6 +45,7 @@
 
 
 
+
 .sidebar a {
 
     color:white;
@@ -47,6 +55,7 @@
     transition:.3s;
 
 }
+
 
 
 

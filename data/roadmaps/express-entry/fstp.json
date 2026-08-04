@@ -1,0 +1,57 @@
+{
+    "pathway": "Express Entry",
+    "stream": "Federal Skilled Trades Program (FSTP)",
+
+    "steps": [
+
+        {
+            "order": 1,
+            "title": "Check Trade Eligibility",
+            "description": "Confirm your skilled trade experience and requirements."
+        },
+
+
+        {
+            "order": 2,
+            "title": "Language Test",
+            "description": "Complete an approved language test."
+        },
+
+
+        {
+            "order": 3,
+            "title": "Proof of Trade Experience",
+            "description": "Prepare documents proving your skilled trade experience."
+        },
+
+
+        {
+            "order": 4,
+            "title": "Create Express Entry Profile",
+            "description": "Submit your Express Entry profile."
+        },
+
+
+        {
+            "order": 5,
+            "title": "Receive Invitation to Apply",
+            "description": "Wait for an ITA."
+        },
+
+
+        {
+            "order": 6,
+            "title": "Submit PR Application",
+            "description": "Submit your application."
+        },
+
+
+        {
+            "order": 7,
+            "title": "Final Review",
+            "description": "IRCC completes final review."
+        }
+
+
+    ]
+}

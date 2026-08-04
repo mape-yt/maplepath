@@ -4,72 +4,104 @@ const router = express.Router();
 
 const User = require("../models/User");
 
+const path = require("path");
 
-// Roadmap data
-
-const expressEntryRoadmap =
-    require("../data/expressEntry");
-
+const fs = require("fs");
 
 
 
 // =================================
-// Get Journey Roadmap
+// Load Dynamic Roadmap
 // =================================
 
-router.get("/:pathway", async (req, res) => {
+function getRoadmap(
+    pathway,
+    stream
+){
 
 
-    try {
+    if(pathway === "Express Entry"){
 
 
-        const pathway =
-            req.params.pathway;
+        let fileName;
 
 
 
-        if (pathway === "Express Entry") {
+        if(
+            stream ===
+            "Canadian Experience Class (CEC)"
+        ){
+
+            fileName = "cec.json";
+
+        }
 
 
-            return res.json(
-                expressEntryRoadmap
-            );
+        else if(
+            stream ===
+            "Federal Skilled Worker Program (FSWP)"
+        ){
 
+            fileName = "fswp.json";
+
+        }
+
+
+        else if(
+            stream ===
+            "Federal Skilled Trades Program (FSTP)"
+        ){
+
+            fileName = "fstp.json";
+
+        }
+
+
+        else {
+
+            return null;
 
         }
 
 
 
-        res.status(404).json({
+        const filePath =
+            path.join(
 
-            message:
-                "Journey roadmap not found."
+                __dirname,
 
-        });
+                "../data/roadmaps/express-entry",
 
+                fileName
+
+            );
+
+
+
+        const roadmap =
+            JSON.parse(
+
+                fs.readFileSync(
+                    filePath,
+                    "utf8"
+                )
+
+            );
+
+
+
+        return roadmap;
 
 
     }
 
 
-    catch(error) {
+
+    return null;
 
 
-        console.error(error);
+}
 
-
-        res.status(500).json({
-
-            message:
-                "Server error."
-
-        });
-
-
-    }
-
-
-});
 
 
 
@@ -77,21 +109,25 @@ router.get("/:pathway", async (req, res) => {
 
 // =================================
 // Get User Journey Progress
+// IMPORTANT:
+// Must be ABOVE /:pathway/:stream
 // =================================
 
-router.get("/progress/:username", async (req,res)=>{
+router.get(
+    "/progress/:username",
+    async(req,res)=>{
 
 
     try {
 
 
         const user =
-            await User.findOne({
+        await User.findOne({
 
-                username:
-                    req.params.username
+            username:
+            req.params.username
 
-            });
+        });
 
 
 
@@ -101,7 +137,7 @@ router.get("/progress/:username", async (req,res)=>{
             return res.status(404).json({
 
                 message:
-                    "User not found."
+                "User not found."
 
             });
 
@@ -113,15 +149,14 @@ router.get("/progress/:username", async (req,res)=>{
         res.json({
 
             completedSteps:
-                user.immigrationJourney.completedSteps,
+            user.immigrationJourney.completedSteps,
 
 
             currentStep:
-                user.immigrationJourney.currentStep
+            user.immigrationJourney.currentStep
 
 
         });
-
 
 
     }
@@ -136,7 +171,7 @@ router.get("/progress/:username", async (req,res)=>{
         res.status(500).json({
 
             message:
-                "Server error."
+            "Server error."
 
         });
 
@@ -151,23 +186,27 @@ router.get("/progress/:username", async (req,res)=>{
 
 
 
+
+
 // =================================
 // Update User Journey Progress
 // =================================
 
-router.put("/progress/:username", async (req,res)=>{
+router.put(
+    "/progress/:username",
+    async(req,res)=>{
 
 
     try {
 
 
         const user =
-            await User.findOne({
+        await User.findOne({
 
-                username:
-                    req.params.username
+            username:
+            req.params.username
 
-            });
+        });
 
 
 
@@ -177,7 +216,7 @@ router.put("/progress/:username", async (req,res)=>{
             return res.status(404).json({
 
                 message:
-                    "User not found."
+                "User not found."
 
             });
 
@@ -205,11 +244,11 @@ router.put("/progress/:username", async (req,res)=>{
         res.json({
 
             message:
-                "Journey progress updated.",
+            "Journey progress updated.",
 
 
             journey:
-                user.immigrationJourney
+            user.immigrationJourney
 
 
         });
@@ -228,7 +267,7 @@ router.put("/progress/:username", async (req,res)=>{
         res.status(500).json({
 
             message:
-                "Server error."
+            "Server error."
 
         });
 
@@ -237,6 +276,87 @@ router.put("/progress/:username", async (req,res)=>{
 
 
 });
+
+
+
+
+
+
+
+
+
+// =================================
+// Get Dynamic Journey Roadmap
+// =================================
+
+router.get(
+    "/:pathway/:stream",
+    async(req,res)=>{
+
+
+    try {
+
+
+        const pathway =
+            req.params.pathway;
+
+
+
+        const stream =
+            req.params.stream;
+
+
+
+        const roadmap =
+            getRoadmap(
+                pathway,
+                stream
+            );
+
+
+
+        if(!roadmap){
+
+
+            return res.status(404).json({
+
+                message:
+                "Journey roadmap not found."
+
+            });
+
+
+        }
+
+
+
+        res.json(
+            roadmap
+        );
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(error);
+
+
+        res.status(500).json({
+
+            message:
+            "Server error."
+
+        });
+
+
+    }
+
+
+});
+
 
 
 

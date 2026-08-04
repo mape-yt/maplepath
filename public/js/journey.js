@@ -63,12 +63,23 @@ async function loadJourney(){
 
         const roadmapResponse =
         await fetch(
-            `/api/journey/${encodeURIComponent(profile.pathway)}`
+            `/api/journey/${encodeURIComponent(profile.pathway)}/${encodeURIComponent(profile.stream)}`
         );
 
 
         const roadmap =
         await roadmapResponse.json();
+
+        if(!roadmapResponse.ok){
+
+            alert(
+                roadmap.message ||
+                "No roadmap available for this pathway."
+            );
+
+            return;
+
+        }
 
 
 
@@ -105,8 +116,11 @@ async function loadJourney(){
 
 
         await loadTimelineAverages(
-            profile.pathway,
+
+            getProfileKey(profile),
+
             roadmap.steps
+
         );
 
 
@@ -166,44 +180,33 @@ async function loadTimelineRecords(username){
 
 
 
-
-
-
-
-
 // =================================
 // Load Community Averages
 // =================================
 
 async function loadTimelineAverages(
-    pathway,
-    steps
-){
 
+    profileKey,
+
+    steps
+
+){
 
     timelineAverages = [];
 
-
-
     for(const step of steps){
-
 
         const response =
         await fetch(
 
-        `/api/analytics/${encodeURIComponent(pathway)}/${step.order}`
+            `/api/analytics/${encodeURIComponent(profileKey)}/${step.order}`
 
         );
 
-
-
         if(response.ok){
-
 
             const average =
             await response.json();
-
-
 
             timelineAverages.push({
 
@@ -216,15 +219,11 @@ async function loadTimelineAverages(
                 totalUsers:
                 average.totalUsers
 
-
             });
-
 
         }
 
-
     }
-
 
 }
 
@@ -306,7 +305,34 @@ function formatDate(date){
 
 
 
+// =================================
+// Build Profile Key
+// =================================
 
+function getProfileKey(profile){
+
+    if(profile.pathway === "Express Entry"){
+
+        switch(profile.stream){
+
+            case "Canadian Experience Class (CEC)":
+                return "EE-CEC";
+
+            case "Federal Skilled Worker Program (FSWP)":
+                return "EE-FSWP";
+
+            case "Federal Skilled Trades Program (FSTP)":
+                return "EE-FSTP";
+
+            default:
+                return "EE";
+        }
+
+    }
+
+    return profile.pathway;
+
+}
 
 
 

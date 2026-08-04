@@ -12,6 +12,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const journeyRoutes = require("./routes/journeyRoutes");
 const timelineRoutes = require("./routes/timelineRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
+const optionsRoutes = require("./routes/optionsRoutes");
 
 const connectDB = require("./config/db");
 
@@ -46,6 +47,8 @@ app.use("/api/journey", journeyRoutes);
 app.use("/api/timeline", timelineRoutes);
 
 app.use("/api/analytics", analyticsRoutes);
+
+app.use("/api/options", optionsRoutes);
 
 // Serve frontend
 

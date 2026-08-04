@@ -1,0 +1,63 @@
+{
+    "pathway": "Express Entry",
+    "stream": "Canadian Experience Class (CEC)",
+
+    "steps": [
+
+        {
+            "order": 1,
+            "title": "Check Eligibility",
+            "description": "Confirm you meet CEC requirements including Canadian work experience, language ability, and eligibility criteria."
+        },
+
+
+        {
+            "order": 2,
+            "title": "Take Language Test",
+            "description": "Complete an approved English or French language test."
+        },
+
+
+        {
+            "order": 3,
+            "title": "Create Express Entry Profile",
+            "description": "Create and submit your Express Entry profile."
+        },
+
+
+        {
+            "order": 4,
+            "title": "Receive Invitation to Apply",
+            "description": "Wait for an Invitation to Apply (ITA) from IRCC."
+        },
+
+
+        {
+            "order": 5,
+            "title": "Submit PR Application",
+            "description": "Submit your permanent residence application with required documents."
+        },
+
+
+        {
+            "order": 6,
+            "title": "Medical Exam and Biometrics",
+            "description": "Complete required medical examination and biometrics."
+        },
+
+
+        {
+            "order": 7,
+            "title": "Background Check",
+            "description": "IRCC reviews security and background information."
+        },
+
+
+        {
+            "order": 8,
+            "title": "PR Decision",
+            "description": "Receive your permanent residence decision."
+        }
+
+    ]
+}

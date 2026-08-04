@@ -6,6 +6,8 @@ const router = express.Router();
 const TimelineRecord =
     require("../models/TimelineRecord");
 
+const User =
+    require("../models/User");
 
 const TimelineAverage =
     require("../models/TimelineAverage");
@@ -25,8 +27,9 @@ async function updateTimelineAverage(record){
         const records =
             await TimelineRecord.find({
 
-                pathway:
-                record.pathway,
+
+                profileKey:
+                record.profileKey,
 
 
                 stepOrder:
@@ -42,7 +45,10 @@ async function updateTimelineAverage(record){
                     $ne:null
                 }
 
+
             });
+
+
 
 
 
@@ -51,6 +57,8 @@ async function updateTimelineAverage(record){
             return;
 
         }
+
+
 
 
 
@@ -69,6 +77,8 @@ async function updateTimelineAverage(record){
 
 
 
+
+
         const averageDays =
             Math.round(
 
@@ -81,13 +91,14 @@ async function updateTimelineAverage(record){
 
 
 
+
         await TimelineAverage.findOneAndUpdate(
 
             {
 
 
-                pathway:
-                record.pathway,
+                profileKey:
+                record.profileKey,
 
 
                 stepOrder:
@@ -100,8 +111,8 @@ async function updateTimelineAverage(record){
             {
 
 
-                pathway:
-                record.pathway,
+                profileKey:
+                record.profileKey,
 
 
                 stepOrder:
@@ -130,7 +141,7 @@ async function updateTimelineAverage(record){
 
 
                 upsert:true,
-                
+
                 returnDocument:"after"
 
 
@@ -138,6 +149,7 @@ async function updateTimelineAverage(record){
 
 
         );
+
 
 
 
@@ -167,8 +179,6 @@ async function updateTimelineAverage(record){
 
 
 
-
-
 // =================================
 // Start a Journey Step
 // =================================
@@ -189,8 +199,50 @@ router.post("/start", async (req,res)=>{
 
             stepTitle
 
-
         } = req.body;
+
+
+
+        const user =
+            await User.findOne({ username });
+
+        if (!user) {
+
+            return res.status(404).json({
+
+                message: "User not found."
+
+            });
+
+        }
+
+
+
+        let profileKey = pathway;
+
+
+
+        if (pathway === "Express Entry") {
+
+            switch(user.immigrationProfile.stream){
+
+                case "Canadian Experience Class (CEC)":
+                    profileKey = "EE-CEC";
+                    break;
+
+                case "Federal Skilled Worker Program (FSWP)":
+                    profileKey = "EE-FSWP";
+                    break;
+
+                case "Federal Skilled Trades Program (FSTP)":
+                    profileKey = "EE-FSTP";
+                    break;
+
+                default:
+                    profileKey = "EE";
+            }
+
+        }
 
 
 
@@ -234,6 +286,8 @@ router.post("/start", async (req,res)=>{
                 username,
 
                 pathway,
+
+                profileKey,
 
                 stepOrder,
 

@@ -1,0 +1,63 @@
+{
+    "pathway": "Express Entry",
+    "stream": "Federal Skilled Worker Program (FSWP)",
+
+    "steps": [
+
+        {
+            "order": 1,
+            "title": "Check Eligibility",
+            "description": "Review FSWP requirements including work experience, education, language, and points."
+        },
+
+
+        {
+            "order": 2,
+            "title": "Education Assessment",
+            "description": "Complete an Educational Credential Assessment (ECA) if required."
+        },
+
+
+        {
+            "order": 3,
+            "title": "Language Test",
+            "description": "Complete an approved language test."
+        },
+
+
+        {
+            "order": 4,
+            "title": "Create Express Entry Profile",
+            "description": "Submit your Express Entry profile."
+        },
+
+
+        {
+            "order": 5,
+            "title": "Receive Invitation to Apply",
+            "description": "Wait for an ITA."
+        },
+
+
+        {
+            "order": 6,
+            "title": "Submit PR Application",
+            "description": "Submit your PR application."
+        },
+
+
+        {
+            "order": 7,
+            "title": "Medical and Background Checks",
+            "description": "Complete required checks."
+        },
+
+
+        {
+            "order": 8,
+            "title": "PR Decision",
+            "description": "Receive final decision."
+        }
+
+    ]
+}

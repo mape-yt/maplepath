@@ -1,165 +1,544 @@
 // ======================================
-// MaplePath Onboarding
+// MaplePath Onboarding V2
 // ======================================
 
-const planningCard = document.getElementById("planningCard");
-const pathwayCard = document.getElementById("pathwayCard");
 
-const exploringForm = document.getElementById("exploringForm");
-const journeyForm = document.getElementById("journeyForm");
+// ======================================
+// Elements
+// ======================================
+
+
+const planningCard =
+    document.getElementById("planningCard");
+
+
+const pathwayCard =
+    document.getElementById("pathwayCard");
+
+
+const exploringForm =
+    document.getElementById("exploringForm");
+
+
+const journeyForm =
+    document.getElementById("journeyForm");
+
+
+
+const pathwayInput =
+    document.getElementById("pathway");
+
+
+const streamInput =
+    document.getElementById("stream");
+
+
+const streamContainer =
+    document.getElementById("stream-container");
+
+
 
 let userJourneyType = "";
+
+
+
+// ======================================
+// Immigration Data
+// ======================================
+
+
+let OPTIONS = {
+
+    streams:{}
+
+};
+
+
+
+async function loadOptions(){
+
+    const response =
+        await fetch("/api/options");
+
+
+    OPTIONS =
+        await response.json();
+
+}
+
+
 
 // ======================================
 // Card Selection
 // ======================================
 
-planningCard.addEventListener("click", () => {
 
-    userJourneyType = "planning";
+planningCard.addEventListener(
+    "click",
+    ()=>{
 
-    planningCard.classList.add("active");
-    pathwayCard.classList.remove("active");
 
-    exploringForm.classList.remove("hidden");
-    exploringForm.classList.add("show");
+        userJourneyType =
+            "planning";
 
-    journeyForm.classList.add("hidden");
-    journeyForm.classList.remove("show");
 
-});
+        planningCard.classList.add(
+            "active"
+        );
 
-pathwayCard.addEventListener("click", () => {
 
-    userJourneyType = "pathway";
+        pathwayCard.classList.remove(
+            "active"
+        );
 
-    pathwayCard.classList.add("active");
-    planningCard.classList.remove("active");
 
-    journeyForm.classList.remove("hidden");
-    journeyForm.classList.add("show");
 
-    exploringForm.classList.add("hidden");
-    exploringForm.classList.remove("show");
+        exploringForm.classList.remove(
+            "hidden"
+        );
 
-});
+
+        exploringForm.classList.add(
+            "show"
+        );
+
+
+
+        journeyForm.classList.add(
+            "hidden"
+        );
+
+
+        journeyForm.classList.remove(
+            "show"
+        );
+
+
+    }
+);
+
+
+
+
+pathwayCard.addEventListener(
+    "click",
+    ()=>{
+
+
+        userJourneyType =
+            "pathway";
+
+
+
+        pathwayCard.classList.add(
+            "active"
+        );
+
+
+        planningCard.classList.remove(
+            "active"
+        );
+
+
+
+        journeyForm.classList.remove(
+            "hidden"
+        );
+
+
+        journeyForm.classList.add(
+            "show"
+        );
+
+
+
+        exploringForm.classList.add(
+            "hidden"
+        );
+
+
+        exploringForm.classList.remove(
+            "show"
+        );
+
+
+    }
+);
+
+
 
 // ======================================
-// Save Profile Helper
+// Stream Handling
 // ======================================
 
-async function saveProfile(profileData) {
 
-    const username = localStorage.getItem("username");
+function updateStreams(){
 
-    if (!username) {
 
-        alert("User session not found. Please login again.");
 
-        window.location.href = "auth.html";
+    const pathway =
+        pathwayInput.value;
+
+
+
+    const streams =
+        OPTIONS.streams[pathway];
+
+
+
+    if(!streams){
+
+
+        streamContainer.classList.add(
+            "hidden"
+        );
+
+
+        streamInput.innerHTML =
+            "";
+
 
         return;
 
+
     }
+
+
+
+    streamContainer.classList.remove(
+        "hidden"
+    );
+
+
+
+    streamInput.innerHTML =
+        `
+        <option value="">
+            Select Stream
+        </option>
+        `;
+
+
+
+    streams.forEach(stream=>{
+
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.value =
+            stream;
+
+
+        option.textContent =
+            stream;
+
+
+
+        streamInput.appendChild(
+            option
+        );
+
+
+    });
+
+
+}
+
+
+
+pathwayInput.addEventListener(
+    "change",
+    updateStreams
+);
+
+
+
+
+// ======================================
+// Save Profile
+// ======================================
+
+
+async function saveProfile(profileData){
+
+
+
+    const username =
+        localStorage.getItem(
+            "username"
+        );
+
+
+
+    if(!username){
+
+
+        alert(
+            "User session not found. Please login again."
+        );
+
+
+        window.location.href =
+            "auth.html";
+
+
+        return;
+
+
+    }
+
+
+
 
     try {
 
-        const response = await fetch(`/api/profile/onboarding/${username}`, {
 
-            method: "PUT",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+        const response =
+            await fetch(
+                `/api/profile/onboarding/${username}`,
+                {
 
-            body: JSON.stringify(profileData)
 
-        });
+                    method:"PUT",
 
-        const data = await response.json();
 
-        if (response.ok) {
+                    headers:{
+
+
+                        "Content-Type":
+                            "application/json"
+
+
+                    },
+
+
+                    body:
+                        JSON.stringify(profileData)
+
+
+                }
+            );
+
+
+
+        const data =
+            await response.json();
+
+
+
+        if(response.ok){
+
+
 
             localStorage.setItem(
                 "journeyType",
                 userJourneyType
             );
 
-            alert("Profile completed successfully!");
 
-            window.location.href = "dashboard.html";
+
+            alert(
+                "Profile completed successfully!"
+            );
+
+
+
+            window.location.href =
+                "dashboard.html";
+
+
 
         }
 
         else {
 
-            alert(data.message);
+
+            alert(
+                data.message
+            );
+
 
         }
 
+
+
     }
 
-    catch (error) {
+
+    catch(error){
+
 
         console.error(error);
 
-        alert("Unable to connect to server.");
+
+        alert(
+            "Unable to connect to server."
+        );
+
 
     }
 
+
 }
 
-// ======================================
-// Exploring Form
-// ======================================
 
-exploringForm.addEventListener("submit", async (event) => {
 
-    event.preventDefault();
-
-    const profileData = {
-
-        journeyType: "planning",
-
-        country: document.getElementById("country").value,
-
-        currentStatus: document.getElementById("currentStatus").value,
-
-        education: document.getElementById("education").value
-
-    };
-
-    await saveProfile(profileData);
-
-});
 
 // ======================================
-// Journey Form
+// Exploring Form Submit
 // ======================================
 
-journeyForm.addEventListener("submit", async (event) => {
 
-    event.preventDefault();
+exploringForm.addEventListener(
+    "submit",
+    async(event)=>{
 
-    const profileData = {
 
-        journeyType: "pathway",
+        event.preventDefault();
 
-        pathway: document.getElementById("pathway").value,
 
-        province: document.getElementById("province").value,
 
-        location: document.getElementById("location").value,
+        const profileData = {
 
-        status: document.getElementById("status").value,
 
-        currentStage: document.getElementById("currentStage").value,
+            journeyType:
+                "planning",
 
-        journeyStartDate:
-            document.getElementById("journeyStartDate").value
 
-    };
+            country:
+                document.getElementById(
+                    "country"
+                ).value,
 
-    await saveProfile(profileData);
 
-});
+            currentStatus:
+                document.getElementById(
+                    "currentStatus"
+                ).value,
+
+
+            education:
+                document.getElementById(
+                    "education"
+                ).value
+
+
+
+        };
+
+
+
+        await saveProfile(
+            profileData
+        );
+
+
+
+    }
+);
+
+
+
+
+// ======================================
+// Journey Form Submit
+// ======================================
+
+
+journeyForm.addEventListener(
+    "submit",
+    async(event)=>{
+
+
+        event.preventDefault();
+
+
+
+        const profileData = {
+
+
+            journeyType:
+                "pathway",
+
+
+
+            pathway:
+                document.getElementById(
+                    "pathway"
+                ).value,
+
+
+
+            stream:
+                document.getElementById(
+                    "stream"
+                ).value,
+
+
+
+            province:
+                document.getElementById(
+                    "province"
+                ).value,
+
+
+
+            location:
+                document.getElementById(
+                    "location"
+                ).value,
+
+
+
+            status:
+                document.getElementById(
+                    "status"
+                ).value,
+
+
+
+            currentStage:
+                document.getElementById(
+                    "currentStage"
+                ).value,
+
+
+
+            journeyStartDate:
+                document.getElementById(
+                    "journeyStartDate"
+                ).value
+
+
+
+        };
+
+
+
+        await saveProfile(
+            profileData
+        );
+
+
+    }
+);
+
+// ======================================
+// Initialize Default Pathway
+// ======================================
+
+async function startOnboarding(){
+
+    await loadOptions();
+
+    updateStreams();
+
+}
+
+
+startOnboarding();

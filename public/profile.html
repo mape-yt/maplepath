@@ -4,185 +4,343 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>MaplePath Profile</title>
 
     <link rel="stylesheet" href="css/layout.css">
-
     <link rel="stylesheet" href="css/sidebar.css">
-
     <link rel="stylesheet" href="css/profile.css">
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
-    <!-- Shared Sidebar -->
-
+    <!-- Sidebar -->
     <div id="sidebar-container"></div>
-
-
 
     <main class="main-content">
 
+        <!-- Header -->
 
         <header class="profile-header">
 
-            <h1>
-                👤 Immigration Profile
-            </h1>
+            <h1>👤 Immigration Profile</h1>
 
             <p>
-                Your personalized Canadian immigration information.
+                Manage your MaplePath immigration information.
             </p>
 
         </header>
 
 
 
-
+        <!-- Profile Card -->
 
         <section class="profile-card">
 
-
             <div class="profile-title">
 
+                <div>
 
-                <h2 id="journey-title">
-                    Loading...
-                </h2>
+                    <h2 id="journey-title">
+                        Loading...
+                    </h2>
 
+                    <p id="journey-subtitle"></p>
 
-                <span id="journey-badge">
-                    
-                </span>
+                </div>
 
+                <span id="journey-badge"></span>
 
             </div>
-
-
 
 
             <div id="profile-content">
 
-
                 Loading profile...
-
 
             </div>
 
 
-
-
-
-            <button id="edit-profile-btn">
+            <button
+                id="edit-profile-btn"
+                class="primary-btn"
+            >
 
                 Edit Profile
 
             </button>
 
-
-
         </section>
 
 
 
-
-
-
-
-        <!-- Edit Section -->
-
+        <!-- ============================= -->
+        <!-- Edit Panel -->
+        <!-- ============================= -->
 
         <section
             id="edit-section"
             class="edit-card hidden"
         >
 
+            <div class="edit-header">
 
-            <h2>
-                Edit Profile
-            </h2>
+                <h2>
+
+                    Edit Immigration Profile
+
+                </h2>
+
+                <button
+                    id="cancel-btn"
+                    class="secondary-btn"
+                    type="button"
+                >
+
+                    Cancel
+
+                </button>
+
+            </div>
 
 
+            <!-- ========================= -->
+            <!-- Planning User -->
+            <!-- ========================= -->
 
-
-            <label>
-                Province
-            </label>
-
-            <input
-                id="edit-province"
+            <div
+                id="planning-form"
+                class="hidden"
             >
 
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Country
+
+                        </label>
+
+                        <input
+                            id="edit-country"
+                            type="text"
+                        >
+
+                    </div>
 
 
-            <label>
-                Status
-            </label>
+                    <div class="form-group">
 
-            <input
-                id="edit-status"
+                        <label>
+
+                            Current Status
+
+                        </label>
+
+                        <select id="edit-current-status">
+
+                            <option value="">
+                                Select
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Highest Education
+
+                        </label>
+
+                        <select id="edit-education">
+
+                            <option value="">
+                                Select
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ========================= -->
+            <!-- Journey User -->
+            <!-- ========================= -->
+
+            <div
+                id="journey-form"
+                class="hidden"
             >
 
+                <div class="form-grid">
 
 
-            <label>
-                Current Stage
-            </label>
+                    <div class="form-group">
 
-            <input
-                id="edit-stage"
-            >
+                        <label>
 
+                            Pathway
 
+                        </label>
 
-            <label>
-                Location
-            </label>
+                        <select id="edit-pathway">
 
-            <input
-                id="edit-location"
-            >
+                            <option value="">
+                                Select Pathway
+                            </option>
 
+                        </select>
 
+                    </div>
 
 
-            <button id="save-btn">
 
-                Save Changes
+                    <div
+                        id="stream-group"
+                        class="form-group hidden"
+                    >
 
-            </button>
+                        <label>
 
+                            Stream
+
+                        </label>
+
+                        <select id="edit-stream">
+
+                            <option value="">
+                                Select Stream
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Province
+
+                        </label>
+
+                        <select id="edit-province">
+
+                            <option value="">
+                                Select Province
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Location
+
+                        </label>
+
+                        <select id="edit-location">
+
+                            <option value="">
+                                Select Location
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Current Status
+
+                        </label>
+
+                        <select id="edit-status">
+
+                            <option value="">
+                                Select Status
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+
+                            Current Stage
+
+                        </label>
+
+                        <select id="edit-stage">
+
+                            <option value="">
+                                Select Stage
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="edit-actions">
+
+                <button
+                    id="save-btn"
+                    class="primary-btn"
+                >
+
+                    Save Changes
+
+                </button>
+
+            </div>
 
             <p id="message"></p>
 
-
         </section>
-
-
 
     </main>
 
-
-
 </div>
 
-
-
 <script src="js/layout.js"></script>
-
 <script src="js/profile.js"></script>
 
-
 </body>
-
 
 </html>

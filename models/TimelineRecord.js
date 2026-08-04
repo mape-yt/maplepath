@@ -26,6 +26,11 @@ const timelineRecordSchema = new mongoose.Schema({
 
     },
 
+    profileKey: {
+        type: String,
+        required: true
+    },
+
 
 
     // Step number from roadmap
