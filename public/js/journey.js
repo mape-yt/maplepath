@@ -1,112 +1,131 @@
-// =================================
+// ============================================
 // MaplePath Journey
-// =================================
+// Phase 7 Rebuild
+// Part 1
+//
+// DOM
+// State
+// Loading
+// Utilities
+// ============================================
+
+
+
+// ============================================
+// DOM REFERENCES
+// ============================================
 
 
 const journeyContainer =
-document.getElementById(
-    "journey-container"
-);
+    document.getElementById(
+        "journey-container"
+    );
 
 
-let currentRoadmap = null;
-
-let completedSteps = [];
-
-let timelineRecords = [];
-
-let timelineAverages = [];
+const journeySummary =
+    document.getElementById(
+        "journey-summary"
+    );
 
 
 
+// ============================================
+// GLOBAL STATE
+// ============================================
 
-// =================================
-// Load Journey
-// =================================
 
-async function loadJourney(){
+const state = {
+
+    profile:null,
+
+
+    roadmap:null,
+
+
+    pathway:null,
+
+
+    stream:null,
+
+
+    profileKey:null,
+
+
+    completedSteps:[],
+
+
+    timelineRecords:[],
+
+
+    timelineAverages:[],
+
+
+    selectedTimelineRecord:null,
+
+
+    progress:{
+
+
+        completed:0,
+
+
+        total:0,
+
+
+        percent:0
+
+
+    }
+
+};
+
+
+
+
+// ============================================
+// INITIALIZATION
+// ============================================
+
+
+async function initializeJourney(){
 
 
     try{
 
 
         const username =
-        localStorage.getItem(
-            "username"
-        );
+            localStorage.getItem(
+                "username"
+            );
+
 
 
         if(!username){
 
+
             window.location.href =
-            "auth.html";
+                "auth.html";
+
 
             return;
+
 
         }
 
 
 
 
-        const profileResponse =
-        await fetch(
-            `/api/profile/${username}`
+        await loadProfile(
+            username
         );
 
 
-        const profile =
-        await profileResponse.json();
+        await loadRoadmap();
 
 
-
-
-
-        const roadmapResponse =
-        await fetch(
-            `/api/journey/${encodeURIComponent(profile.pathway)}/${encodeURIComponent(profile.stream)}`
+        await loadJourneyProgress(
+            username
         );
-
-
-        const roadmap =
-        await roadmapResponse.json();
-
-        if(!roadmapResponse.ok){
-
-            alert(
-                roadmap.message ||
-                "No roadmap available for this pathway."
-            );
-
-            return;
-
-        }
-
-
-
-        currentRoadmap =
-        roadmap;
-
-
-
-
-
-
-        const progressResponse =
-        await fetch(
-            `/api/journey/progress/${username}`
-        );
-
-
-        const progress =
-        await progressResponse.json();
-
-
-
-        completedSteps =
-        progress.completedSteps || [];
-
-
-
 
 
         await loadTimelineRecords(
@@ -114,21 +133,15 @@ async function loadJourney(){
         );
 
 
-
-        await loadTimelineAverages(
-
-            getProfileKey(profile),
-
-            roadmap.steps
-
-        );
+        await loadCommunityAnalytics();
 
 
 
+        calculateProgress();
 
-        displayJourney(
-            roadmap
-        );
+
+
+        renderJourney();
 
 
 
@@ -137,7 +150,17 @@ async function loadJourney(){
 
     catch(error){
 
-        console.error(error);
+
+        console.error(
+            "Journey initialization error:",
+            error
+        );
+
+
+        showJourneyError(
+            "Unable to load your journey."
+        );
+
 
     }
 
@@ -149,116 +172,313 @@ async function loadJourney(){
 
 
 
+// ============================================
+// PROFILE LOADING
+// ============================================
 
-// =================================
-// Load Timeline Records
-// =================================
+
+async function loadProfile(username){
+
+
+    const response =
+        await fetch(
+            `/api/profile/${username}`
+        );
+
+
+
+    if(!response.ok){
+
+
+        throw new Error(
+            "Profile loading failed."
+        );
+
+
+    }
+
+
+
+    const profile =
+        await response.json();
+
+
+
+    state.profile =
+        profile;
+
+
+
+    state.pathway =
+        profile.pathway;
+
+
+
+    state.stream =
+        profile.stream;
+
+
+
+    state.profileKey =
+        getProfileKey(
+            profile
+        );
+
+
+}
+
+
+
+
+
+
+// ============================================
+// ROADMAP LOADING
+// ============================================
+
+
+async function loadRoadmap(){
+
+
+
+    const response =
+        await fetch(
+
+            `/api/journey/${
+
+                encodeURIComponent(
+                    state.pathway
+                )
+
+            }/${
+
+                encodeURIComponent(
+                    state.stream
+                )
+
+            }`
+
+        );
+
+
+
+    const roadmap =
+        await response.json();
+
+
+
+
+    if(!response.ok){
+
+
+        throw new Error(
+
+            roadmap.message ||
+            "Roadmap not found."
+
+        );
+
+
+    }
+
+
+
+    state.roadmap =
+        roadmap;
+
+
+
+}
+
+
+
+
+
+
+// ============================================
+// PROGRESS LOADING
+// ============================================
+
+
+async function loadJourneyProgress(username){
+
+
+
+    const response =
+        await fetch(
+
+            `/api/journey/progress/${username}`
+
+        );
+
+
+
+    if(!response.ok){
+
+
+        state.completedSteps =
+            [];
+
+
+        return;
+
+
+    }
+
+
+
+    const progress =
+        await response.json();
+
+
+
+    state.completedSteps =
+        progress.completedSteps || [];
+
+
+
+}
+
+
+
+
+
+
+
+// ============================================
+// TIMELINE RECORD LOADING
+// ============================================
+
 
 async function loadTimelineRecords(username){
 
 
+
     const response =
-    await fetch(
-        `/api/timeline/${username}`
-    );
-
-
-    if(response.ok){
-
-        timelineRecords =
-        await response.json();
-
-    }
-
-    else{
-
-        timelineRecords=[];
-
-    }
-
-}
-
-
-
-// =================================
-// Load Community Averages
-// =================================
-
-async function loadTimelineAverages(
-
-    profileKey,
-
-    steps
-
-){
-
-    timelineAverages = [];
-
-    for(const step of steps){
-
-        const response =
         await fetch(
 
-            `/api/analytics/${encodeURIComponent(profileKey)}/${step.order}`
+            `/api/timeline/${username}`
 
         );
 
+
+
+    if(!response.ok){
+
+
+        state.timelineRecords =
+            [];
+
+
+        return;
+
+
+    }
+
+
+
+    state.timelineRecords =
+        await response.json();
+
+
+
+}
+
+
+
+
+
+
+
+// ============================================
+// COMMUNITY ANALYTICS LOADING
+// ============================================
+
+
+async function loadCommunityAnalytics(){
+
+
+
+    state.timelineAverages =
+        [];
+
+
+
+    if(!state.roadmap){
+
+
+        return;
+
+
+    }
+
+
+
+
+    for(
+        const step of state.roadmap.steps
+    ){
+
+
+
+        const response =
+            await fetch(
+
+                `/api/analytics/${
+
+                    encodeURIComponent(
+                        state.profileKey
+                    )
+
+                }/${
+
+                    step.order
+
+                }`
+
+            );
+
+
+
         if(response.ok){
 
-            const average =
-            await response.json();
 
-            timelineAverages.push({
+
+            const average =
+                await response.json();
+
+
+
+            state.timelineAverages.push({
+
 
                 stepOrder:
-                step.order,
+                    step.order,
+
+
+                stepTitle:
+                    step.title,
+
 
                 averageDays:
-                average.averageDays,
+                    average.averageDays,
+
 
                 totalUsers:
-                average.totalUsers
+                    average.totalUsers
+
+
 
             });
 
+
+
         }
 
-    }
 
-}
-
-
-
-
-// =================================
-// Confidence Calculator
-// =================================
-
-function getConfidence(totalUsers){
-
-
-    if(!totalUsers || totalUsers === 0){
-
-        return "⚠️ No data yet";
 
     }
 
-
-    if(totalUsers < 10){
-
-        return "⚠️ Limited data";
-
-    }
-
-
-    if(totalUsers < 50){
-
-        return "📊 Moderate confidence";
-
-    }
-
-
-    return "✅ High confidence";
 
 
 }
@@ -266,800 +486,238 @@ function getConfidence(totalUsers){
 
 
 
-// =================================
-// Date Formatter
-// =================================
+
+
+
+// ============================================
+// PROGRESS CALCULATION
+// ============================================
+
+
+function calculateProgress(){
+
+
+
+    if(!state.roadmap){
+
+
+        return;
+
+
+    }
+
+
+
+    state.progress.total =
+        state.roadmap.steps.length;
+
+
+
+    state.progress.completed =
+        state.completedSteps.length;
+
+
+
+    state.progress.percent =
+        Math.round(
+
+            (
+
+                state.progress.completed /
+
+                state.progress.total
+
+            )
+
+            *
+
+            100
+
+        );
+
+
+
+}
+
+
+
+
+
+
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+
+function getProfileKey(profile){
+
+
+
+    if(
+        profile.pathway !==
+        "Express Entry"
+    ){
+
+
+        return profile.pathway;
+
+
+    }
+
+
+
+
+    switch(profile.stream){
+
+
+
+        case "Canadian Experience Class (CEC)":
+
+            return "EE-CEC";
+
+
+
+        case "Federal Skilled Worker Program (FSWP)":
+
+            return "EE-FSWP";
+
+
+
+        case "Federal Skilled Trades Program (FSTP)":
+
+            return "EE-FSTP";
+
+
+
+        default:
+
+            return "EE";
+
+
+    }
+
+
+}
+
+
+
+
+
+
 
 function formatDate(date){
 
 
-    const d =
-    new Date(date);
+
+    if(!date){
 
 
+        return "N/A";
 
-    const year =
-    d.getFullYear();
-
-
-
-    const month =
-    String(
-        d.getMonth()+1
-    ).padStart(2,"0");
-
-
-
-    const day =
-    String(
-        d.getDate()
-    ).padStart(2,"0");
-
-
-
-    return `${year}.${month}.${day}`;
-
-
-}
-
-
-
-
-// =================================
-// Build Profile Key
-// =================================
-
-function getProfileKey(profile){
-
-    if(profile.pathway === "Express Entry"){
-
-        switch(profile.stream){
-
-            case "Canadian Experience Class (CEC)":
-                return "EE-CEC";
-
-            case "Federal Skilled Worker Program (FSWP)":
-                return "EE-FSWP";
-
-            case "Federal Skilled Trades Program (FSTP)":
-                return "EE-FSTP";
-
-            default:
-                return "EE";
-        }
 
     }
 
-    return profile.pathway;
 
-}
 
+    const formatted =
+        new Date(date);
 
 
 
-// =================================
-// Display Journey
-// =================================
+    return formatted.toLocaleDateString(
 
-function displayJourney(roadmap){
-
-
-
-    journeyContainer.innerHTML="";
-
-
-
-    const timeline =
-    document.createElement(
-        "div"
-    );
-
-
-
-
-    roadmap.steps.forEach(step=>{
-
-
-
-        const completed =
-        completedSteps.includes(
-            step.order
-        );
-
-
-
-        const current =
-        getCurrentStep()
-        ===
-        step.order;
-
-
-
-
-
-        const record =
-        timelineRecords.find(
-
-            item =>
-            item.stepOrder
-            ===
-            step.order
-
-        );
-
-
-
-
-        const average =
-        timelineAverages.find(
-
-            item =>
-            item.stepOrder
-            ===
-            step.order
-
-        );
-
-
-
-
-
-        const card =
-        document.createElement(
-            "div"
-        );
-
-
-
-        if(completed){
-
-            card.className =
-            "journey-step completed";
-
-        }
-
-        else if(current){
-
-            card.className =
-            "journey-step current";
-
-        }
-
-        else{
-
-            card.className =
-            "journey-step";
-
-        }
-
-
-
-
-
-
-        let timelineText =
-        "Not started";
-
-
-
-        let buttonText =
-        "Start Step";
-
-
-
-
-
-
-        // =============================
-        // Completed Step
-        // =============================
-
-        if(record &&
-        record.status==="completed"){
-
-
-
-            let comparison =
-            "";
-
-
-
-            if(average.averageDays){
-
-
-                const difference =
-                record.durationDays
-                -
-                average.averageDays;
-
-
-
-                if(difference > 0){
-
-
-                    comparison =
-                    `
-                    <br>
-                    ⏳ You took
-                    ${difference}
-                    more days than average
-                    `;
-
-
-                }
-
-
-                else if(difference < 0){
-
-
-                    comparison =
-                    `
-                    <br>
-                    🚀 You completed
-                    ${Math.abs(difference)}
-                    days faster than average
-                    `;
-
-
-                }
-
-
-                else{
-
-
-                    comparison =
-                    `
-                    <br>
-                    🎯 Right on the MaplePath average
-                    `;
-
-
-                }
-
-
-            }
-
-
-
-
-
-            timelineText =
-            `
-            Completed in:
-            ${record.durationDays}
-            days
-
-            <br><br>
-
-            MaplePath average:
-            ${average.averageDays || "N/A"}
-            days
-
-            <br>
-
-            Based on:
-            ${average.totalUsers || 0}
-            applicants
-
-            <br>
-
-            ${getConfidence(
-                average.totalUsers
-            )}
-
-            ${comparison}
-
-            `;
-
-
-
-            buttonText =
-            "Completed";
-
-
-        }
-
-
-
-
-
-
-
-        // =============================
-        // Current Step
-        // =============================
-
-        else if(record &&
-        record.status==="in-progress"){
-
-
-
-            let estimated =
-            "";
-
-
-
-            if(average.averageDays){
-
-
-                const estimateDate =
-                new Date(
-                    record.startedAt
-                );
-
-
-
-                estimateDate.setDate(
-
-                    estimateDate.getDate()
-                    +
-                    average.averageDays
-
-                );
-
-
-
-                estimated =
-                `
-                <br><br>
-
-                Estimated completion:
-                ${formatDate(estimateDate)}
-
-                `;
-
-
-            }
-
-
-
-
-
-            timelineText =
-            `
-            Started:
-            ${formatDate(record.startedAt)}
-
-            <br><br>
-
-            MaplePath average:
-            ${average.averageDays || "N/A"}
-            days
-
-            <br>
-
-            Based on:
-            ${average.totalUsers || 0}
-            applicants
-
-            <br>
-
-            ${getConfidence(
-                average.totalUsers
-            )}
-
-            ${estimated}
-
-            `;
-
-
-
-            buttonText =
-            "Complete Step";
-
-
-        }
-
-
-
-
-
-
-
-        // =============================
-        // Future Step
-        // =============================
-
-        else{
-
-
-            timelineText =
-            `
-            MaplePath average:
-            ${
-            average.averageDays
-            ?
-            average.averageDays
-            :
-            "N/A"
-            }
-            days
-
-            <br>
-
-            Based on:
-            ${average.totalUsers || 0}
-            applicants
-
-            <br>
-
-            ${getConfidence(
-                average.totalUsers
-            )}
-
-            `;
-
-
-        }
-
-
-
-
-
-
-
-
-
-        card.innerHTML = `
-
-
-
-        <div class="step-number">
-
-        ${
-            completed
-            ?
-            "✓"
-            :
-            step.order
-        }
-
-        </div>
-
-
-
-        <div class="step-content">
-
-
-        <h3>
-        ${step.title}
-        </h3>
-
-
-
-        <p>
-        ${step.description}
-        </p>
-
-
-
-        <span class="step-status">
-
-        ${timelineText}
-
-        </span>
-
-
-
-
-
-        <button class="complete-btn">
-
-        ${buttonText}
-
-        </button>
-
-
-
-
-        ${
-        record
-        ?
-        `
-        <button class="edit-timeline-btn">
-
-        ✏️ Edit Dates
-
-        </button>
-        `
-        :
-        ""
-        }
-
-
-
-        </div>
-
-
-        `;
-
-
-
-
-
-
-
-        const button =
-        card.querySelector(
-            ".complete-btn"
-        );
-
-
-
-        const editButton =
-        card.querySelector(
-            ".edit-timeline-btn"
-        );
-
-
-
-
-
-        if(editButton){
-
-
-            editButton.addEventListener(
-                "click",
-                ()=>{
-
-                    editTimelineDates(
-                        record
-                    );
-
-                }
-            );
-
-
-        }
-
-
-
-
-
-
-        if(!completed){
-
-
-            button.addEventListener(
-                "click",
-                ()=>{
-
-                    handleStepAction(
-                        step
-                    );
-
-
-                }
-            );
-
-
-        }
-
-
-
-
-
-        timeline.appendChild(card);
-
-
-
-    });
-
-
-
-
-    journeyContainer.appendChild(
-        timeline
-    );
-
-
-}
-
-
-
-
-
-
-
-// =================================
-// Step Action
-// =================================
-
-async function handleStepAction(step){
-
-
-    const username =
-    localStorage.getItem(
-        "username"
-    );
-
-
-
-    const profileResponse =
-    await fetch(
-        `/api/profile/${username}`
-    );
-
-
-    const profile =
-    await profileResponse.json();
-
-
-
-
-    const existing =
-    timelineRecords.find(
-
-        record =>
-        record.stepOrder
-        ===
-        step.order
-
-    );
-
-
-
-
-
-    if(!existing){
-
-
-
-        await fetch(
-
-        "/api/timeline/start",
+        "en-CA",
 
         {
 
-        method:"POST",
+            year:"numeric",
 
-        headers:{
+            month:"short",
 
-        "Content-Type":
-        "application/json"
+            day:"numeric"
 
-        },
+        }
 
-
-        body:JSON.stringify({
-
-        username,
-
-        pathway:
-        profile.pathway,
-
-        stepOrder:
-        step.order,
-
-        stepTitle:
-        step.title
-
-
-        })
-
-        });
-
-
-    }
-
-
-
-
-
-    else if(existing.status==="in-progress"){
-
-
-
-        await fetch(
-
-        "/api/timeline/complete",
-
-        {
-
-
-        method:"PUT",
-
-
-        headers:{
-
-        "Content-Type":
-        "application/json"
-
-        },
-
-
-        body:JSON.stringify({
-
-        username,
-
-        pathway:
-        profile.pathway,
-
-
-        stepOrder:
-        step.order
-
-
-        })
-
-
-        });
-
-
-
-        completedSteps.push(
-            step.order
-        );
-
-
-        await updateJourneyProgress();
-
-
-    }
-
-
-
-
-
-    loadJourney();
-
-
-}
-
-
-
-
-
-
-
-
-// =================================
-// Progress Update
-// =================================
-
-async function updateJourneyProgress(){
-
-
-    const username =
-    localStorage.getItem(
-        "username"
     );
 
 
-    await fetch(
-
-    `/api/journey/progress/${username}`,
-
-    {
+}
 
 
-    method:"PUT",
 
 
-    headers:{
-
-    "Content-Type":
-    "application/json"
-
-    },
 
 
-    body:JSON.stringify({
 
-    completedSteps,
-
-    currentStep:
-    getCurrentStep()
-
-    })
+function calculateDays(
+    start,
+    end
+){
 
 
-    });
+
+    const difference =
+        new Date(end)
+        -
+        new Date(start);
+
+
+
+    return Math.ceil(
+
+        difference /
+        (1000*60*60*24)
+
+    );
 
 
 }
 
 
+
+
+
+
+
+function getConfidence(users){
+
+
+
+    if(!users){
+
+
+        return "⚠️ No community data";
+
+
+    }
+
+
+
+    if(users < 10){
+
+
+        return "⚠️ Limited";
+
+
+    }
+
+
+
+    if(users < 50){
+
+
+        return "📊 Moderate";
+
+
+    }
+
+
+
+    return "✅ High";
+
+
+}
 
 
 
@@ -1070,284 +728,1788 @@ async function updateJourneyProgress(){
 function getCurrentStep(){
 
 
-    const next =
-    currentRoadmap.steps.find(
 
-    step =>
-    !completedSteps.includes(
-        step.order
-    )
-
-    );
+    if(!state.roadmap){
 
 
+        return null;
 
-    return next
-    ?
-    next.order
-    :
-    currentRoadmap.steps.length;
-
-
-}
-
-
-
-
-
-
-
-
-
-// =================================
-// Edit Timeline Modal
-// =================================
-
-let selectedTimelineRecord=null;
-
-
-
-const modal =
-document.getElementById(
-"timeline-modal"
-);
-
-
-const startInput =
-document.getElementById(
-"edit-start-date"
-);
-
-
-const endInput =
-document.getElementById(
-"edit-end-date"
-);
-
-
-const durationText =
-document.getElementById(
-"edit-duration"
-);
-
-
-
-const saveEdit =
-document.getElementById(
-"save-edit"
-);
-
-
-
-const cancelEdit =
-document.getElementById(
-"cancel-edit"
-);
-
-
-
-
-
-function editTimelineDates(record){
-
-
-    selectedTimelineRecord =
-    record;
-
-
-
-    startInput.value =
-    record.startedAt.substring(
-        0,10
-    );
-
-
-
-    endInput.value =
-    record.completedAt
-    ?
-    record.completedAt.substring(
-        0,10
-    )
-    :
-    "";
-
-
-
-    updateDurationPreview();
-
-
-    modal.classList.remove(
-        "hidden"
-    );
-
-
-}
-
-
-
-
-
-
-function updateDurationPreview(){
-
-
-    if(
-        !startInput.value
-        ||
-        !endInput.value
-    ){
-
-        durationText.textContent =
-        "0 days";
-
-        return;
 
     }
 
 
 
-
-    const start =
-    new Date(startInput.value);
-
-
-    const end =
-    new Date(endInput.value);
+    const nextStep =
+        state.roadmap.steps.find(
 
 
+            step =>
 
-    const days =
-    Math.ceil(
+            !state.completedSteps.includes(
 
-    (end-start)
-    /
-    (1000*60*60*24)
+                step.order
 
-    );
+            )
 
 
-
-    if(days < 0){
-
-
-        durationText.textContent =
-        "Invalid dates";
-
-
-        return;
-
-    }
-
-
-
-    durationText.textContent =
-    `${days} days`;
-
-
-}
-
-
-
-
-
-startInput.addEventListener(
-"change",
-updateDurationPreview
-);
-
-
-endInput.addEventListener(
-"change",
-updateDurationPreview
-);
-
-
-
-
-
-cancelEdit.addEventListener(
-"click",
-()=>{
-
-modal.classList.add(
-"hidden"
-);
-
-});
-
-
-
-
-
-saveEdit.addEventListener(
-"click",
-async()=>{
-
-
-    if(
-    durationText.textContent
-    ===
-    "Invalid dates"
-    ){
-
-        alert(
-        "Completion date cannot be before start date."
         );
 
+
+
+    return nextStep
+        ? nextStep.order
+        : state.roadmap.steps.length;
+
+
+
+}
+
+
+
+
+
+
+
+function getTimelineRecord(stepOrder){
+
+
+
+    return state.timelineRecords.find(
+
+
+        record =>
+
+        record.stepOrder === stepOrder
+
+
+    );
+
+
+}
+
+
+
+
+
+
+
+function getTimelineAverage(stepOrder){
+
+
+
+    return state.timelineAverages.find(
+
+
+        average =>
+
+        average.stepOrder === stepOrder
+
+
+    );
+
+
+}
+
+
+
+
+
+
+
+function getStageBadge(type){
+
+
+
+    switch(type){
+
+
+
+        case "applicant":
+
+
+            return {
+
+                text:"🧑 Applicant",
+
+                className:"applicant"
+
+            };
+
+
+
+        case "waiting":
+
+
+            return {
+
+                text:"⏳ Waiting",
+
+                className:"waiting"
+
+            };
+
+
+
+        case "ircc":
+
+
+            return {
+
+                text:"🏛️ IRCC",
+
+                className:"ircc"
+
+            };
+
+
+
+        default:
+
+
+            return {
+
+                text:"",
+
+                className:""
+
+            };
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+function showJourneyError(message){
+
+
+
+    if(journeyContainer){
+
+
+        journeyContainer.innerHTML = `
+
+            <div class="loading">
+
+                ${message}
+
+            </div>
+
+        `;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+// ============================================
+// RENDER PLACEHOLDER
+// Implemented in Part 2
+// ============================================
+
+
+function renderJourney(){
+
+
+
+    renderJourneySummary();
+
+
+    renderTimeline();
+
+
+}
+
+// ============================================
+// Part 2
+//
+// Journey Summary
+// Timeline Renderer
+// Analytics UI
+// ============================================
+
+
+
+
+
+// ============================================
+// JOURNEY SUMMARY
+// ============================================
+
+
+function renderJourneySummary(){
+
+
+
+    if(
+        !state.profile ||
+        !state.roadmap
+    ){
+
         return;
 
     }
 
+
+
+    const total =
+        state.progress.total;
+
+
+
+    const completed =
+        state.progress.completed;
+
+
+
+    const currentStep =
+        state.roadmap.steps.find(
+
+
+            step =>
+
+            step.order === getCurrentStep()
+
+
+        );
+
+
+
+    journeySummary.innerHTML = `
+
+
+        <div class="summary-title">
+
+
+            <div>
+
+
+                <h2>
+
+                    ${state.pathway}
+
+                </h2>
+
+
+                <span>
+
+                    ${state.stream}
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="summary-progress">
+
+
+                <h2>
+
+                    ${state.progress.percent}%
+
+                </h2>
+
+
+                <p>
+
+                    Journey Complete
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="summary-grid">
+
+
+            <div class="summary-card">
+
+
+                <h3>
+
+                    Current Stage
+
+                </h3>
+
+
+                <p>
+
+                    ${
+                        currentStep
+                        ?
+                        currentStep.title
+                        :
+                        "Completed 🎉"
+                    }
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="summary-card">
+
+
+                <h3>
+
+                    Completed Steps
+
+                </h3>
+
+
+                <p>
+
+                    ${completed}/${total}
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="summary-card">
+
+
+                <h3>
+
+                    Started
+
+                </h3>
+
+
+                <p>
+
+                    ${
+                        formatDate(
+                            state.profile.journeyStartDate
+                        )
+                    }
+
+                </p>
+
+
+            </div>
+
+
+
+
+
+            <div class="summary-card">
+
+
+                <h3>
+
+                    Status
+
+                </h3>
+
+
+                <p>
+
+
+                    ${
+                        completed === total
+                        ?
+                        "Completed"
+                        :
+                        "In Progress"
+                    }
+
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    `;
+
+
+}
+
+
+
+
+
+
+
+
+// ============================================
+// TIMELINE RENDERER
+// ============================================
+
+
+function renderTimeline(){
+
+
+
+    if(!state.roadmap){
+
+
+        return;
+
+
+    }
+
+
+
+    journeyContainer.innerHTML = "";
+
+
+
+    const timeline =
+        document.createElement(
+            "div"
+        );
+
+
+
+    timeline.className =
+        "journey-timeline";
+
+
+
+
+
+    state.roadmap.steps.forEach(
+
+        step => {
+
+
+            timeline.appendChild(
+
+                createTimelineStage(
+                    step
+                )
+
+            );
+
+
+        }
+
+    );
+
+
+
+
+    journeyContainer.appendChild(
+        timeline
+    );
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ============================================
+// CREATE TIMELINE STAGE
+// ============================================
+
+
+function createTimelineStage(step){
+
+
+
+    const completed =
+        state.completedSteps.includes(
+
+            step.order
+
+        );
+
+
+
+    const current =
+        getCurrentStep()
+        ===
+        step.order;
+
+
+
+
+    const record =
+        getTimelineRecord(
+
+            step.order
+
+        );
+
+
+
+    const average =
+        getTimelineAverage(
+
+            step.order
+
+        )
+        ||
+        {
+
+            averageDays:null,
+
+            totalUsers:0
+
+        };
+
+
+
+
+
+    const statusClass =
+        completed
+        ?
+        "completed"
+        :
+        current
+        ?
+        "current"
+        :
+        "future";
+
+
+
+
+
+
+    const stage =
+        document.createElement(
+            "div"
+        );
+
+
+
+    stage.className =
+        `journey-stage ${statusClass}`;
+
+
+
+
+
+    const badge =
+        getStageBadge(
+            step.type
+        );
+
+
+
+
+
+    stage.innerHTML = `
+
+
+<div class="timeline-column">
+
+
+    <div class="timeline-node ${statusClass}">
+
+    </div>
+
+
+
+    <div class="timeline-line ${
+
+        completed
+        ?
+        "completed"
+        :
+        ""
+
+    }">
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+<div class="stage-card">
+
+
+
+<div class="stage-header">
+
+
+
+<div class="stage-title">
+
+
+<h3>
+
+Stage ${step.order}
+
+</h3>
+
+
+
+<h2>
+
+${step.title}
+
+</h2>
+
+
+</div>
+
+
+
+
+
+<span class="stage-badge ${badge.className}">
+
+
+${badge.text}
+
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+<div class="step-content">
+
+
+<p>
+
+${step.description}
+
+</p>
+
+
+
+
+<div class="stage-section">
+
+
+<h4>
+
+📅 Timeline
+
+</h4>
+
+
+
+<div class="stage-info">
+
+
+${
+
+renderTimelineInformation(
+
+    step,
+
+    record,
+
+    average
+
+)
+
+}
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="stage-actions">
+
+
+${
+
+renderActionButton(
+
+    step,
+
+    record,
+
+    completed
+
+)
+
+}
+
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+
+    return stage;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ============================================
+// TIMELINE INFORMATION
+// ============================================
+
+
+function renderTimelineInformation(
+
+    step,
+
+    record,
+
+    average
+
+){
+
+
+
+    let html = "";
+
+
+
+
+    if(record){
+
+
+
+        if(
+            record.status ===
+            "completed"
+        ){
+
+
+
+            html += `
+
+
+<strong>
+
+Completed
+
+</strong>
+
+
+<br>
+
+
+Duration:
+
+${record.durationDays}
+
+days
+
+
+
+<br><br>
+
+
+
+MaplePath Average:
+
+<br>
+
+
+${
+
+average.averageDays ??
+"N/A"
+
+}
+
+days
+
+
+
+
+<br>
+
+
+${
+
+average.totalUsers
+
+}
+
+applicant(s)
+
+
+
+
+<br>
+
+
+${
+
+getConfidence(
+    average.totalUsers
+)
+
+}
+
+
+
+<br><br>
+
+
+
+${
+
+getComparisonText(
+
+    record.durationDays,
+
+    average.averageDays
+
+)
+
+}
+
+
+
+`;
+
+
+
+        }
+
+
+
+        else{
+
+
+
+            html += `
+
+
+Started:
+
+<br>
+
+
+${
+
+formatDate(
+
+record.startedAt
+
+)
+
+}
+
+
+
+
+<br><br>
+
+
+MaplePath Average:
+
+<br>
+
+
+${
+
+average.averageDays ??
+
+"N/A"
+
+}
+
+days
+
+
+
+<br>
+
+
+${
+
+average.totalUsers
+
+}
+
+applicant(s)
+
+
+
+
+<br>
+
+
+${
+
+getConfidence(
+
+average.totalUsers
+
+)
+
+}
+
+
+
+
+${
+
+getEstimatedCompletion(
+
+record,
+
+average
+
+)
+
+}
+
+
+
+`;
+
+
+
+        }
+
+
+
+    }
+
+
+
+    else{
+
+
+
+        html += `
+
+
+MaplePath Average:
+
+<br>
+
+
+${
+
+average.averageDays ??
+
+"N/A"
+
+}
+
+days
+
+
+
+
+<br>
+
+
+${
+
+average.totalUsers
+
+}
+
+applicant(s)
+
+
+
+
+<br>
+
+
+${
+
+getConfidence(
+
+average.totalUsers
+
+)
+
+}
+
+
+
+`;
+
+
+
+    }
+
+
+
+    return html;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ============================================
+// ANALYTIC HELPERS
+// ============================================
+
+
+function getComparisonText(
+
+    actual,
+
+    average
+
+){
+
+
+
+    if(!average){
+
+
+        return "";
+
+
+    }
+
+
+
+    const difference =
+        actual -
+        average;
+
+
+
+    if(difference > 0){
+
+
+        return `
+
+⏳ ${difference}
+
+day(s) slower than average.
+
+`;
+
+
+
+    }
+
+
+
+    if(difference < 0){
+
+
+        return `
+
+🚀 ${Math.abs(difference)}
+
+day(s) faster than average.
+
+`;
+
+
+
+    }
+
+
+
+
+    return `
+
+🎯 Exactly on average.
+
+`;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+function getEstimatedCompletion(
+
+    record,
+
+    average
+
+){
+
+
+
+    if(
+        !average.averageDays
+    ){
+
+
+        return "";
+
+    }
+
+
+
+
+    const date =
+        new Date(
+
+            record.startedAt
+
+        );
+
+
+
+    date.setDate(
+
+        date.getDate()
+
+        +
+
+        average.averageDays
+
+    );
+
+
+
+
+    return `
+
+
+<br><br>
+
+
+Estimated Completion:
+
+<br>
+
+
+${
+
+formatDate(date)
+
+}
+
+
+
+`;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ============================================
+// ACTION BUTTON DISPLAY
+// Part 3 will attach logic
+// ============================================
+
+
+function renderActionButton(
+
+    step,
+
+    record,
+
+    completed
+
+){
+
+
+
+    if(completed){
+
+
+
+        return `
+
+
+<button
+
+class="complete-btn completed"
+
+disabled
+
+>
+
+Completed
+
+</button>
+
+
+`;
+
+
+
+    }
+
+
+
+
+
+    if(
+        record &&
+        record.status ===
+        "in-progress"
+    ){
+
+
+        return `
+
+
+<button
+
+class="complete-btn"
+
+data-action="complete"
+
+data-step="${step.order}"
+
+>
+
+Complete Step
+
+</button>
+
+
+`;
+
+
+
+    }
+
+
+
+
+
+    return `
+
+
+<button
+
+class="complete-btn"
+
+data-action="start"
+
+data-step="${step.order}"
+
+>
+
+Start Step
+
+</button>
+
+
+`;
+
+
+
+}
+
+// ============================================
+// Part 3
+//
+// Actions
+// Timeline Updates
+// Modal
+// Events
+// Startup
+// ============================================
+
+
+
+
+
+
+
+// ============================================
+// STEP ACTION HANDLER
+// ============================================
+
+
+async function handleStepAction(stepOrder){
+
+
+
+    try{
+
+
+
+        const username =
+            localStorage.getItem(
+                "username"
+            );
+
+
+
+        const step =
+            state.roadmap.steps.find(
+
+                item =>
+                item.order === stepOrder
+
+            );
+
+
+
+        if(!step){
+
+            return;
+
+        }
+
+
+
+
+
+        const existing =
+            getTimelineRecord(
+                stepOrder
+            );
+
+
+
+
+
+        if(!existing){
+
+
+
+            await fetch(
+
+                "/api/timeline/start",
+
+                {
+
+                    method:"POST",
+
+                    headers:{
+
+                        "Content-Type":
+                        "application/json"
+
+                    },
+
+
+                    body:JSON.stringify({
+
+                        username,
+
+
+                        pathway:
+                        state.pathway,
+
+
+                        stepOrder:
+                        step.order,
+
+
+                        stepTitle:
+                        step.title
+
+
+                    })
+
+
+                }
+
+            );
+
+
+
+        }
+
+
+
+        else if(
+
+            existing.status ===
+            "in-progress"
+
+        ){
+
+
+
+            await fetch(
+
+                "/api/timeline/complete",
+
+                {
+
+                    method:"PUT",
+
+                    headers:{
+
+                        "Content-Type":
+                        "application/json"
+
+                    },
+
+
+                    body:JSON.stringify({
+
+                        username,
+
+
+                        pathway:
+                        state.pathway,
+
+
+                        stepOrder:
+                        step.order
+
+
+                    })
+
+                }
+
+            );
+
+
+
+
+            state.completedSteps.push(
+
+                step.order
+
+            );
+
+
+
+            await updateJourneyProgress();
+
+
+
+        }
+
+
+
+
+
+        await reloadJourney();
+
+
+
+    }
+
+
+    catch(error){
+
+
+        console.error(
+
+            "Step action failed:",
+
+            error
+
+        );
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ============================================
+// UPDATE JOURNEY PROGRESS
+// ============================================
+
+
+async function updateJourneyProgress(){
+
+
+
+    const username =
+        localStorage.getItem(
+            "username"
+        );
 
 
 
     await fetch(
 
-    `/api/timeline/edit/${selectedTimelineRecord._id}`,
+        `/api/journey/progress/${username}`,
 
-    {
+        {
 
-
-    method:"PUT",
-
-
-    headers:{
-
-    "Content-Type":
-    "application/json"
-
-    },
+            method:"PUT",
 
 
-    body:JSON.stringify({
+            headers:{
 
-    startedAt:
-    startInput.value,
+                "Content-Type":
+                "application/json"
 
-
-    completedAt:
-    endInput.value
+            },
 
 
-    })
+            body:JSON.stringify({
+
+                completedSteps:
+                    state.completedSteps,
 
 
-    });
+                currentStep:
+                    getCurrentStep()
 
 
-    modal.classList.add(
-        "hidden"
+            })
+
+
+        }
+
     );
 
 
-    loadJourney();
 
-
-});
-
+}
 
 
 
 
-loadJourney();
+
+
+
+
+
+// ============================================
+// RELOAD DATA
+// ============================================
+
+
+async function reloadJourney(){
+
+
+
+    const username =
+        localStorage.getItem(
+            "username"
+        );
+
+
+
+    await loadJourneyProgress(
+        username
+    );
+
+
+
+    await loadTimelineRecords(
+        username
+    );
+
+
+
+    await loadCommunityAnalytics();
+
+
+
+    calculateProgress();
+
+
+
+    renderJourney();
+
+
+
+}
+
+// ============================================
+// EVENT LISTENERS
+// ============================================
+
+
+function setupEventListeners(){
+
+
+    journeyContainer.addEventListener(
+
+        "click",
+
+        event => {
+
+
+
+            const button =
+                event.target.closest(
+                    "button"
+                );
+
+
+
+            if(!button){
+
+                return;
+
+            }
+
+
+
+
+
+            const stepOrder =
+                Number(
+
+                    button.dataset.step
+
+                );
+
+
+
+
+
+            if(
+
+                button.dataset.action ===
+                "start"
+
+            ){
+
+
+
+                handleStepAction(
+                    stepOrder
+                );
+
+
+            }
+
+
+
+
+
+            if(
+
+                button.dataset.action ===
+                "complete"
+
+            ){
+
+
+
+                handleStepAction(
+                    stepOrder
+                );
+
+
+            }
+
+
+
+        }
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+
+// ============================================
+// START APPLICATION
+// ============================================
+
+
+setupEventListeners();
+
+
+initializeJourney();

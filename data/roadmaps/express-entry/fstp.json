@@ -6,52 +6,52 @@
 
         {
             "order": 1,
+            "type": "applicant",
             "title": "Check Trade Eligibility",
-            "description": "Confirm your skilled trade experience and requirements."
+            "description": "Confirm you meet the Federal Skilled Trades Program requirements and have eligible skilled trade experience."
         },
-
 
         {
             "order": 2,
+            "type": "applicant",
             "title": "Language Test",
-            "description": "Complete an approved language test."
+            "description": "Complete an approved English or French language test."
         },
-
 
         {
             "order": 3,
+            "type": "applicant",
             "title": "Proof of Trade Experience",
-            "description": "Prepare documents proving your skilled trade experience."
+            "description": "Prepare documents demonstrating your skilled trade work experience and qualifications."
         },
-
 
         {
             "order": 4,
+            "type": "applicant",
             "title": "Create Express Entry Profile",
-            "description": "Submit your Express Entry profile."
+            "description": "Create and submit your Express Entry profile."
         },
-
 
         {
             "order": 5,
+            "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an ITA."
+            "description": "Wait for an Invitation to Apply (ITA) from IRCC."
         },
-
 
         {
             "order": 6,
+            "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your application."
+            "description": "Submit your permanent residence application with all required supporting documents."
         },
-
 
         {
             "order": 7,
+            "type": "ircc",
             "title": "Final Review",
-            "description": "IRCC completes final review."
+            "description": "IRCC completes the review of your application before making a final decision."
         }
-
 
     ]
 }

@@ -6,57 +6,58 @@
 
         {
             "order": 1,
+            "type": "applicant",
             "title": "Check Eligibility",
             "description": "Review FSWP requirements including work experience, education, language, and points."
         },
 
-
         {
             "order": 2,
+            "type": "applicant",
             "title": "Education Assessment",
             "description": "Complete an Educational Credential Assessment (ECA) if required."
         },
 
-
         {
             "order": 3,
+            "type": "applicant",
             "title": "Language Test",
             "description": "Complete an approved language test."
         },
 
-
         {
             "order": 4,
+            "type": "applicant",
             "title": "Create Express Entry Profile",
             "description": "Submit your Express Entry profile."
         },
 
-
         {
             "order": 5,
+            "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an ITA."
+            "description": "Wait for an Invitation to Apply (ITA) from IRCC."
         },
-
 
         {
             "order": 6,
+            "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your PR application."
+            "description": "Submit your permanent residence application with all required documents."
         },
-
 
         {
             "order": 7,
+            "type": "ircc",
             "title": "Medical and Background Checks",
-            "description": "Complete required checks."
+            "description": "IRCC reviews your medical, security, criminality, and background information."
         },
-
 
         {
             "order": 8,
+            "type": "ircc",
             "title": "PR Decision",
-            "description": "Receive final decision."
+            "description": "Receive the final decision on your permanent residence application."
         }
 
     ]
