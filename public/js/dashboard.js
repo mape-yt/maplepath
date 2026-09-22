@@ -23,17 +23,23 @@ const addTaskButton = document.getElementById("add-task-btn");
 
 const logoutButton = document.getElementById("logout-btn");
 
+function escapeProfileText(value){
+    return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+    })[character]);
+}
+
 
 // ==============================
 // Logout
 // ==============================
 
-logoutButton.addEventListener("click", () => {
-
-    localStorage.removeItem("username");
-
-    window.location.href = "auth.html";
-
+logoutButton.addEventListener("click", async () => {
+    try{
+        await window.MaplePathSession.logout();
+    } catch(error){
+        alert(error.message);
+    }
 });
 
 
@@ -119,7 +125,7 @@ async function loadProfile() {
         }
 
         const response = await fetch(
-            `/api/profile/${username}`
+            `/api/profile/${encodeURIComponent(username)}`
         );
 
         const profile = await response.json();
@@ -252,10 +258,11 @@ function renderProfile(profile) {
 
         const li = document.createElement("li");
 
-        li.innerHTML = `
-            <strong>${field.label}:</strong>
-            <span>${field.value}</span>
-        `;
+        const label = document.createElement("strong");
+        label.textContent = `${field.label}:`;
+        const value = document.createElement("span");
+        value.textContent = field.value;
+        li.append(label, value);
 
         profileList.appendChild(li);
 
@@ -484,19 +491,19 @@ function loadProfileSnapshot(profile){
 
 
         <p>
-            🍁 ${profile.pathway}
+            🍁 ${escapeProfileText(profile.pathway)}
         </p>
 
 
         <p>
             Stage:
-            ${profile.currentStage || "Not set"}
+            ${escapeProfileText(profile.currentStage || "Not set")}
         </p>
 
 
         <p>
             Province:
-            ${profile.province || "Not set"}
+            ${escapeProfileText(profile.province || "Not set")}
         </p>
 
 
@@ -521,6 +528,10 @@ viewProfileButton.addEventListener(
 // Initialize Dashboard
 // ==============================
 
-loadProfile();
+async function initializeDashboard(){
+    const session = await window.MaplePathSession.require();
+    if(!session) return;
+    await Promise.all([loadProfile(), loadTasks()]);
+}
 
-loadTasks();
+initializeDashboard();

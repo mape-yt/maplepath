@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
 
+const journeyProgressSchema = new mongoose.Schema({
+    completedSteps: { type:[Number], default:[] },
+    currentStep: { type:Number, default:1 }
+}, { _id:false });
+
 const userSchema = new mongoose.Schema({
 
     username: {
@@ -75,6 +80,8 @@ const userSchema = new mongoose.Schema({
         }
 
     },
+    journeyProgressByProfile: { type:Map, of:journeyProgressSchema, default:{} },
+    legacyJourneyMigrated: { type:Boolean, default:false },
 
 });
 

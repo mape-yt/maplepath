@@ -187,6 +187,7 @@ function updateStreams(){
 
 
     if(!streams){
+        streamInput.required = false;
 
 
         streamContainer.classList.add(
@@ -208,6 +209,7 @@ function updateStreams(){
     streamContainer.classList.remove(
         "hidden"
     );
+    streamInput.required = true;
 
 
 
@@ -255,6 +257,11 @@ pathwayInput.addEventListener(
     updateStreams
 );
 
+streamInput.addEventListener("change", () => {
+    const province = OPTIONS.streamProvinces?.[streamInput.value];
+    if(province) document.getElementById("province").value = province;
+});
+
 
 
 
@@ -300,7 +307,7 @@ async function saveProfile(profileData){
 
         const response =
             await fetch(
-                `/api/profile/onboarding/${username}`,
+                `/api/profile/onboarding/${encodeURIComponent(username)}`,
                 {
 
 
@@ -533,6 +540,9 @@ journeyForm.addEventListener(
 // ======================================
 
 async function startOnboarding(){
+
+    const session = await window.MaplePathSession.require();
+    if(!session) return;
 
     await loadOptions();
 

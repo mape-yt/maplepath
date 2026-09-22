@@ -1,57 +1,416 @@
 {
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
     "pathway": "Express Entry",
     "stream": "Canadian Experience Class (CEC)",
-
     "steps": [
-
         {
             "order": 1,
             "type": "applicant",
             "title": "Check Eligibility",
-            "description": "Confirm you meet CEC requirements including Canadian work experience, language ability, and eligibility criteria."
+            "description": "Confirm you meet CEC requirements including Canadian work experience, language ability, and eligibility criteria.",
+            "requiredDocuments": [
+                {
+                    "id": "canadian-work-experience-proof",
+                    "title": "Proof of Canadian work experience",
+                    "description": "For example, a reference or experience letter from an employer. IRCC says information from this evidence may be needed when creating an Express Entry profile.",
+                    "requirement": "conditional",
+                    "condition": "Prepare when claiming Canadian work experience; check your personalized document list before submitting an application.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Get your Express Entry documents ready",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "identify-noc-teer",
+                    "text": "Find the NOC for your Canadian job and check that it is TEER 0, 1, 2 or 3 and matches the work you performed."
+                },
+                {
+                    "id": "check-work-experience",
+                    "text": "Check that you have at least 1 year or 1,560 hours of qualifying paid Canadian work in the 3 years before applying, gained while authorized to work; count no more than 30 hours per week."
+                },
+                {
+                    "id": "exclude-ineligible-work",
+                    "text": "Review IRCC's rules on self-employment and work gained while a full-time student; check the stated physician exception if it may apply to you."
+                },
+                {
+                    "id": "check-language-level",
+                    "text": "Check the language threshold for your NOC TEER group in all four abilities; an approved test is needed before creating an Express Entry profile."
+                },
+                {
+                    "id": "review-admissibility-and-residence",
+                    "text": "Review admissibility requirements and confirm that you plan to live outside Quebec."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Express Entry language test requirements",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Get your Express Entry documents ready",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Counting more than 30 hours per week toward the 1,560-hour minimum.",
+                "Counting unpaid work, self-employment, or work gained while a full-time student without checking IRCC's rules and any applicable exception.",
+                "Assuming the same language threshold applies to every NOC TEER group or using an unapproved language test."
+            ]
         },
         {
             "order": 2,
             "type": "applicant",
             "title": "Take Language Test",
-            "description": "Complete an approved English or French language test."
+            "description": "Complete an approved English or French language test.",
+            "requiredDocuments": [
+                {
+                    "id": "approved-language-test-result",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "condition": "Needed to complete an Express Entry profile and still valid when submitting the permanent residence application.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-approved-test",
+                    "text": "Choose an IRCC-approved English or French test and the accepted version of that test."
+                },
+                {
+                    "id": "check-four-scores",
+                    "text": "Compare speaking, listening, reading and writing results with the CEC minimum for your NOC TEER group."
+                },
+                {
+                    "id": "check-test-validity",
+                    "text": "Make sure results will be less than 2 years old when you complete your profile and submit your permanent residence application."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Language test results",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using a test version IRCC does not accept, or relying on results that have expired."
+            ]
         },
         {
             "order": 3,
             "type": "applicant",
             "title": "Create Express Entry Profile",
-            "description": "Create and submit your Express Entry profile."
+            "description": "Create and submit your Express Entry profile.",
+            "requiredDocuments": [
+                {
+                    "id": "profile-travel-document",
+                    "title": "Passport or travel document",
+                    "requirement": "conditional",
+                    "condition": "Have the details available when IRCC asks for them in your profile.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Get your documents ready",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "profile-language-result",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "condition": "Enter valid results in your Express Entry profile.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "gather-profile-information",
+                    "text": "Gather your identity, language, education and work history information before starting the profile."
+                },
+                {
+                    "id": "submit-profile",
+                    "text": "Complete and submit the profile within the time shown by IRCC after starting it."
+                },
+                {
+                    "id": "keep-profile-current",
+                    "text": "Update the profile when your circumstances change while you are in the pool."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Create your profile",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/create-profile.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Get your documents ready",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating entry to the Express Entry pool as an invitation or approval for permanent residence."
+            ]
         },
         {
             "order": 4,
             "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an Invitation to Apply (ITA) from IRCC."
+            "description": "Wait for an Invitation to Apply (ITA) from IRCC.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc-account",
+                    "text": "Check your IRCC account for invitations and profile messages."
+                },
+                {
+                    "id": "keep-eligibility-current",
+                    "text": "Keep work history, language results and other profile details current while waiting."
+                },
+                {
+                    "id": "review-rounds",
+                    "text": "Review IRCC invitation-round information; an eligible profile does not guarantee an invitation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Rounds of invitations",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Create your profile",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/create-profile.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a previous round score guarantees an invitation in a future round."
+            ]
         },
         {
             "order": 5,
             "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your permanent residence application with required documents."
+            "description": "Submit your permanent residence application with required documents.",
+            "requiredDocuments": [
+                {
+                    "id": "personalized-application-documents",
+                    "title": "Documents on your personalized IRCC checklist",
+                    "requirement": "required",
+                    "condition": "The exact list appears after you complete the online application form.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for permanent residence",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "medical-exam-record",
+                    "title": "Medical exam information sheet, form or previous exam details",
+                    "requirement": "conditional",
+                    "condition": "Follow IRCC instructions for an upfront exam or a qualifying previous exam.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for permanent residence",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-invitation-program",
+                    "text": "Read the invitation in your IRCC account and confirm which program invited you."
+                },
+                {
+                    "id": "prepare-application-evidence",
+                    "text": "Complete the form, collect and upload the documents shown in your personalized checklist, and provide required translations."
+                },
+                {
+                    "id": "arrange-medical-exam",
+                    "text": "Check IRCC medical-exam instructions: Express Entry applicants normally complete the exam after invitation and before submitting the application."
+                },
+                {
+                    "id": "submit-within-invitation",
+                    "text": "Pay the required fees and submit the complete application within the invitation validity period shown by IRCC."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the invitation deadline or assuming a generic document list replaces the personalized IRCC checklist."
+            ]
         },
         {
             "order": 6,
             "type": "applicant",
-            "title": "Medical Exam and Biometrics",
-            "description": "Complete required medical examination and biometrics."
+            "title": "Biometrics and IRCC Follow-up",
+            "description": "For Express Entry, the medical exam is normally completed after invitation and before the PR application is submitted. After submission, follow IRCC instructions for biometrics or any medical follow-up.",
+            "requiredDocuments": [
+                {
+                    "id": "biometrics-instruction-letter",
+                    "title": "Biometrics instruction letter",
+                    "requirement": "conditional",
+                    "condition": "Use it if IRCC instructs you to give biometrics after your application is submitted.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: After you apply",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-medical-record",
+                    "text": "Keep your medical exam information sheet, form or previous exam details with your application records."
+                },
+                {
+                    "id": "follow-biometric-instructions",
+                    "text": "If IRCC sends a biometrics instruction letter, follow its directions and deadline."
+                },
+                {
+                    "id": "respond-to-medical-followup",
+                    "text": "Respond if IRCC asks for additional medical information or a new exam."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: After you apply",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Waiting until after submission to arrange an upfront medical exam when IRCC requires it before applying."
+            ]
         },
         {
             "order": 7,
             "type": "ircc",
             "title": "Background Check",
-            "description": "IRCC reviews security and background information."
+            "description": "IRCC reviews security and background information.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-application",
+                    "text": "Monitor your IRCC account for status changes and requests for more information."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Tell IRCC about material changes, such as a new address or a change in family composition, using its instructions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Ignoring a request for more information or failing to report a material change after submission."
+            ]
         },
         {
             "order": 8,
             "type": "ircc",
             "title": "PR Decision",
-            "description": "Receive your permanent residence decision."
+            "description": "Receive your permanent residence decision.",
+            "requiredDocuments": [
+                {
+                    "id": "confirmation-of-permanent-residence",
+                    "title": "Confirmation of Permanent Residence",
+                    "requirement": "conditional",
+                    "condition": "Issued if IRCC approves the application; follow instructions for your location.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: If we approve your application",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/application-approved.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "read-decision",
+                    "text": "Check your IRCC account for the decision and follow the instructions provided."
+                },
+                {
+                    "id": "verify-confirmation",
+                    "text": "If approved, verify that the details on your confirmation of permanent residence are correct."
+                },
+                {
+                    "id": "follow-location-instructions",
+                    "text": "Follow the applicable IRCC steps for confirming permanent residence inside or outside Canada."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: If we approve your application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/application-approved.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating an approval message as completion of every confirmation step; follow IRCC instructions for your location."
+            ]
         }
-
-    ]
+    ],
+    "profileKey": "EE-CEC"
 }

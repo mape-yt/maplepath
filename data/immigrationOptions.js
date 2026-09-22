@@ -22,6 +22,11 @@ const immigrationOptions = {
     streams: {
 
 
+        "Provincial Nominee Program": [
+            "Alberta Opportunity Stream (AAIP)",
+            "Skilled Worker in Manitoba (MPNP)"
+        ],
+
         "Express Entry": [
 
             "Canadian Experience Class (CEC)",
@@ -36,6 +41,11 @@ const immigrationOptions = {
     },
 
 
+
+    streamProvinces: {
+        "Alberta Opportunity Stream (AAIP)": "Alberta",
+        "Skilled Worker in Manitoba (MPNP)": "Manitoba"
+    },
 
     provinces: [
 

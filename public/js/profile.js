@@ -215,7 +215,7 @@ async function loadProfile(){
 
     const response =
         await fetch(
-            `/api/profile/${username}`
+            `/api/profile/${encodeURIComponent(username)}`
         );
 
 
@@ -362,29 +362,16 @@ function renderProfile(profile){
 
 
 
-    fields.forEach(field=>{
-
-
-        grid.innerHTML += `
-
-            <div class="info-box">
-
-                <strong>
-                    ${field[0]}
-                </strong>
-
-                <p>
-                    ${field[1] || "Not set"}
-                </p>
-
-            </div>
-
-        `;
-
-
+    fields.forEach(field => {
+        const box = document.createElement("div");
+        box.className = "info-box";
+        const label = document.createElement("strong");
+        label.textContent = field[0];
+        const value = document.createElement("p");
+        value.textContent = field[1] || "Not set";
+        box.append(label, value);
+        grid.appendChild(box);
     });
-
-
 
     profileContent.appendChild(
         grid
@@ -713,6 +700,11 @@ pathwayInput.addEventListener(
     }
 );
 
+streamInput.addEventListener("change", () => {
+    const province = OPTIONS.streamProvinces?.[streamInput.value];
+    if(province) provinceInput.value = province;
+});
+
 
 
 // =================================
@@ -801,7 +793,7 @@ saveButton.addEventListener(
 
         const response =
             await fetch(
-                `/api/profile/${username}`,
+                `/api/profile/${encodeURIComponent(username)}`,
                 {
 
 
@@ -874,6 +866,9 @@ saveButton.addEventListener(
 
 
 async function startProfile(){
+
+    const session = await window.MaplePathSession.require();
+    if(!session) return;
 
     await loadOptions();
 

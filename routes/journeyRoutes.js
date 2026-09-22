@@ -1,365 +1,78 @@
 const express = require("express");
+const User = require("../models/User");
+const { requireOwnUsername } = require("../middleware/auth");
+const { findRoadmap, roadmapForProfile, loadRoadmap } = require("../data/roadmaps/registry");
+const { progressFor, migrateLegacyProgress, saveProgress } = require("../services/journeyProgress");
 
 const router = express.Router();
-
-const User = require("../models/User");
-
-const path = require("path");
-
-const fs = require("fs");
-
-
-
-// =================================
-// Load Dynamic Roadmap
-// =================================
-
-function getRoadmap(
-    pathway,
-    stream
-){
-
-
-    if(pathway === "Express Entry"){
-
-
-        let fileName;
-
-
-
-        if(
-            stream ===
-            "Canadian Experience Class (CEC)"
-        ){
-
-            fileName = "cec.json";
-
-        }
-
-
-        else if(
-            stream ===
-            "Federal Skilled Worker Program (FSWP)"
-        ){
-
-            fileName = "fswp.json";
-
-        }
-
-
-        else if(
-            stream ===
-            "Federal Skilled Trades Program (FSTP)"
-        ){
-
-            fileName = "fstp.json";
-
-        }
-
-
-        else {
-
-            return null;
-
-        }
-
-
-
-        const filePath =
-            path.join(
-
-                __dirname,
-
-                "../data/roadmaps/express-entry",
-
-                fileName
-
-            );
-
-
-
-        const roadmap =
-            JSON.parse(
-
-                fs.readFileSync(
-                    filePath,
-                    "utf8"
-                )
-
-            );
-
-
-
-        return roadmap;
-
-
-    }
-
-
-
-    return null;
-
-
-}
-
-
-
-
-
-
-// =================================
-// Get User Journey Progress
-// IMPORTANT:
-// Must be ABOVE /:pathway/:stream
-// =================================
-
-router.get(
-    "/progress/:username",
-    async(req,res)=>{
-
-
-    try {
-
-
-        const user =
-        await User.findOne({
-
-            username:
-            req.params.username
-
-        });
-
-
-
-        if(!user){
-
-
-            return res.status(404).json({
-
-                message:
-                "User not found."
-
-            });
-
-
-        }
-
-
-
+router.param("username", requireOwnUsername);
+
+// Progress belongs to the signed-in user's selected pathway and stream.
+// Keep this route above /:pathway/:stream.
+router.get("/progress/:username", async (req, res) => {
+    try{
+        const user = await User.findOne({ username:req.params.username });
+        if(!user) return res.status(404).json({ message:"User not found." });
+
+        const definition = roadmapForProfile(user.immigrationProfile);
+        if(!definition) return res.status(404).json({ message:"No roadmap for this profile yet." });
+        if(migrateLegacyProgress(user, definition)) await user.save();
+
+        const progress = progressFor(user, definition.profileKey);
         res.json({
-
-            completedSteps:
-            user.immigrationJourney.completedSteps,
-
-
-            currentStep:
-            user.immigrationJourney.currentStep
-
-
+            profileKey:definition.profileKey,
+            completedSteps:progress.completedSteps,
+            currentStep:progress.currentStep
         });
-
-
-    }
-
-
-    catch(error){
-
-
+    } catch(error){
         console.error(error);
-
-
-        res.status(500).json({
-
-            message:
-            "Server error."
-
-        });
-
-
+        res.status(500).json({ message:"Server error." });
     }
-
-
 });
 
+router.put("/progress/:username", async (req, res) => {
+    try{
+        const user = await User.findOne({ username:req.params.username });
+        if(!user) return res.status(404).json({ message:"User not found." });
 
-
-
-
-
-
-
-// =================================
-// Update User Journey Progress
-// =================================
-
-router.put(
-    "/progress/:username",
-    async(req,res)=>{
-
-
-    try {
-
-
-        const user =
-        await User.findOne({
-
-            username:
-            req.params.username
-
-        });
-
-
-
-        if(!user){
-
-
-            return res.status(404).json({
-
-                message:
-                "User not found."
-
-            });
-
-
+        const definition = roadmapForProfile(user.immigrationProfile);
+        if(!definition) return res.status(404).json({ message:"No roadmap for this profile yet." });
+        if(req.body?.profileKey && req.body.profileKey !== definition.profileKey){
+            return res.status(409).json({ message:"Your selected roadmap changed. Reload Journey." });
         }
 
+        const roadmap = loadRoadmap(definition);
+        const allowed = new Set(roadmap.steps.map(step => step.order));
+        const submitted = req.body?.completedSteps;
+        if(!Array.isArray(submitted) || submitted.some(order => !Number.isInteger(order) || !allowed.has(order))){
+            return res.status(400).json({ message:"Invalid completed steps." });
+        }
 
-
-
-        user.immigrationJourney.completedSteps =
-            req.body.completedSteps;
-
-
-
-        user.immigrationJourney.currentStep =
-            req.body.currentStep;
-
-
-
+        migrateLegacyProgress(user, definition);
+        const completedSteps = [...new Set(submitted)].sort((a,b) => a-b);
+        const currentStep = roadmap.steps.find(step => !completedSteps.includes(step.order))?.order
+            ?? roadmap.steps.at(-1).order;
+        saveProgress(user, definition.profileKey, completedSteps, currentStep);
         await user.save();
 
-
-
-
-        res.json({
-
-            message:
-            "Journey progress updated.",
-
-
-            journey:
-            user.immigrationJourney
-
-
-        });
-
-
-
-    }
-
-
-    catch(error){
-
-
+        res.json({ message:"Journey progress updated.", journey:{
+            profileKey:definition.profileKey, completedSteps, currentStep
+        } });
+    } catch(error){
         console.error(error);
-
-
-        res.status(500).json({
-
-            message:
-            "Server error."
-
-        });
-
-
+        res.status(500).json({ message:"Server error." });
     }
-
-
 });
 
-
-
-
-
-
-
-
-
-// =================================
-// Get Dynamic Journey Roadmap
-// =================================
-
-router.get(
-    "/:pathway/:stream",
-    async(req,res)=>{
-
-
-    try {
-
-
-        const pathway =
-            req.params.pathway;
-
-
-
-        const stream =
-            req.params.stream;
-
-
-
-        const roadmap =
-            getRoadmap(
-                pathway,
-                stream
-            );
-
-
-
-        if(!roadmap){
-
-
-            return res.status(404).json({
-
-                message:
-                "Journey roadmap not found."
-
-            });
-
-
-        }
-
-
-
-        res.json(
-            roadmap
-        );
-
-
-    }
-
-
-    catch(error){
-
-
+router.get("/:pathway/:stream", (req, res) => {
+    try{
+        const definition = findRoadmap(req.params.pathway, req.params.stream);
+        if(!definition) return res.status(404).json({ message:"Journey roadmap not found." });
+        res.json(loadRoadmap(definition));
+    } catch(error){
         console.error(error);
-
-
-        res.status(500).json({
-
-            message:
-            "Server error."
-
-        });
-
-
+        res.status(500).json({ message:"Server error." });
     }
-
-
 });
-
-
-
-
-
 
 module.exports = router;

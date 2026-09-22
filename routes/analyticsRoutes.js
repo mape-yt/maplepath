@@ -30,9 +30,7 @@ async(req,res)=>{
 
             profileKey,
 
-            stepOrder,
-
-            stepTitle
+            stepOrder
 
 
         } = req.body;
@@ -124,7 +122,7 @@ async(req,res)=>{
 
             stepOrder,
 
-            stepTitle,
+            stepTitle: records[0].stepTitle,
 
             averageDays,
 

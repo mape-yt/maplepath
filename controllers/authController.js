@@ -1,15 +1,17 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/User");
+const { createSession } = require("../middleware/auth");
 
 
 exports.signup = async (req, res) => {
 
     try {
 
-        const { username, password } = req.body;
+        const { username, password } = req.body || {};
 
 
-        if (!username || !password) {
+        if (typeof username !== "string" || !username.trim() ||
+            typeof password !== "string" || !password) {
             return res.status(400).json({
                 message: "Username and password are required."
             });
@@ -66,8 +68,13 @@ exports.login = async (req, res) => {
 
     try {
 
-        const { username, password } = req.body;
+        const { username, password } = req.body || {};
 
+
+        if(typeof username !== "string" || !username.trim() ||
+            typeof password !== "string" || !password){
+            return res.status(400).json({ message:"Username and password are required." });
+        }
 
         const user = await User.findOne({
             username
@@ -75,8 +82,8 @@ exports.login = async (req, res) => {
 
 
         if (!user) {
-            return res.status(404).json({
-                message: "User not found."
+            return res.status(401).json({
+                message: "Incorrect username or password."
             });
         }
 
@@ -89,10 +96,12 @@ exports.login = async (req, res) => {
 
         if (!passwordMatches) {
             return res.status(401).json({
-                message: "Incorrect password."
+                message: "Incorrect username or password."
             });
         }
 
+
+        await createSession(res,user);
 
         res.json({
 

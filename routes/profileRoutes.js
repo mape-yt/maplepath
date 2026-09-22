@@ -3,6 +3,18 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/User");
+const { requireOwnUsername } = require("../middleware/auth");
+const { findRoadmap, roadmapForProfile } = require("../data/roadmaps/registry");
+const { migrateLegacyProgress, mirrorCurrentProgress } = require("../services/journeyProgress");
+
+function prepareProfile(profile){
+    if(profile.pathway !== "Provincial Nominee Program") return profile;
+    const definition = findRoadmap(profile.pathway, profile.stream);
+    if(!definition) return null;
+    return { ...profile, province:definition.province };
+}
+
+router.param("username", requireOwnUsername);
 
 // ======================================
 // Get Immigration Profile
@@ -62,7 +74,12 @@ router.put("/onboarding/:username", async (req, res) => {
 
         }
 
-        user.immigrationProfile = req.body;
+        const profile = prepareProfile(req.body || {});
+        if(!profile) return res.status(400).json({ message:"Choose a supported provincial stream." });
+
+        migrateLegacyProgress(user, roadmapForProfile(user.immigrationProfile));
+        user.immigrationProfile = profile;
+        mirrorCurrentProgress(user, roadmapForProfile(user.immigrationProfile));
 
         user.profileCompleted = true;
 
@@ -116,10 +133,12 @@ router.patch("/:username", async (req, res) => {
 
         }
 
-        Object.assign(
-            user.immigrationProfile,
-            req.body
-        );
+        const profile = prepareProfile({ ...user.immigrationProfile.toObject(), ...(req.body || {}) });
+        if(!profile) return res.status(400).json({ message:"Choose a supported provincial stream." });
+
+        migrateLegacyProgress(user, roadmapForProfile(user.immigrationProfile));
+        Object.assign(user.immigrationProfile, profile);
+        mirrorCurrentProgress(user, roadmapForProfile(user.immigrationProfile));
 
         await user.save();
 

@@ -1,64 +1,97 @@
 {
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
     "pathway": "Express Entry",
     "stream": "Federal Skilled Worker Program (FSWP)",
-
     "steps": [
-
         {
             "order": 1,
             "type": "applicant",
             "title": "Check Eligibility",
-            "description": "Review FSWP requirements including work experience, education, language, and points."
+            "description": "Review FSWP requirements including work experience, education, language, and points.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 2,
             "type": "applicant",
             "title": "Education Assessment",
-            "description": "Complete an Educational Credential Assessment (ECA) if required."
+            "description": "Complete an Educational Credential Assessment (ECA) if required.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 3,
             "type": "applicant",
             "title": "Language Test",
-            "description": "Complete an approved language test."
+            "description": "Complete an approved language test.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 4,
             "type": "applicant",
             "title": "Create Express Entry Profile",
-            "description": "Submit your Express Entry profile."
+            "description": "Submit your Express Entry profile.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 5,
             "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an Invitation to Apply (ITA) from IRCC."
+            "description": "Wait for an Invitation to Apply (ITA) from IRCC.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 6,
             "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your permanent residence application with all required documents."
+            "description": "Submit your permanent residence application with all required documents.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 7,
             "type": "ircc",
             "title": "Medical and Background Checks",
-            "description": "IRCC reviews your medical, security, criminality, and background information."
+            "description": "IRCC reviews your medical, security, criminality, and background information.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 8,
             "type": "ircc",
             "title": "PR Decision",
-            "description": "Receive the final decision on your permanent residence application."
+            "description": "Receive the final decision on your permanent residence application.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         }
-
-    ]
+    ],
+    "profileKey": "EE-FSWP"
 }

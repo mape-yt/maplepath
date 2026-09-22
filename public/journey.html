@@ -69,13 +69,38 @@
 
         </section>
 
+        <p id="journey-notice" class="journey-notice" role="status" hidden></p>
+
 
     </main>
 
 </div>
 
 
+<dialog id="timeline-edit-dialog" class="timeline-edit-dialog" aria-labelledby="timeline-edit-title">
+    <form id="timeline-edit-form">
+        <h2 id="timeline-edit-title">Edit timeline dates</h2>
+        <p id="timeline-edit-step"></p>
+
+        <label for="timeline-start-date">Start date</label>
+        <input id="timeline-start-date" name="startedAt" type="date" required>
+
+        <div id="timeline-finish-field">
+            <label for="timeline-finish-date">Finish date</label>
+            <input id="timeline-finish-date" name="completedAt" type="date">
+        </div>
+
+        <p id="timeline-edit-error" class="timeline-edit-error" role="alert" hidden></p>
+
+        <div class="timeline-edit-actions">
+            <button type="button" id="timeline-edit-cancel" class="edit-timeline-btn">Cancel</button>
+            <button type="submit" id="timeline-edit-save" class="complete-btn">Save dates</button>
+        </div>
+    </form>
+</dialog>
+
 <script src="js/layout.js"></script>
+<script src="js/session.js"></script>
 <script src="js/journey.js"></script>
 
 </body>

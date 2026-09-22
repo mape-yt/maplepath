@@ -1,0 +1,608 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "Skilled Worker in Manitoba (MPNP)",
+    "profileKey": "PNP-MPNP-SWM",
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check Skilled Worker in Manitoba eligibility",
+            "description": "Review ongoing Manitoba employment, your valid work permit, qualifying time with the employer, long-term job offer, language ability and intent to settle in Manitoba. Manitoba sets a longer qualifying employment period for some graduates of other Canadian provinces.",
+            "requiredDocuments": [
+                {
+                    "id": "manitoba-work-permit",
+                    "title": "Valid work permit",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Skilled Worker in Manitoba eligibility",
+                            "url": "https://immigratemanitoba.com/mpnp/skilled-worker/swm/eligibility/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "manitoba-job-offer",
+                    "title": "Full-time, long-term Manitoba job offer",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Skilled Worker in Manitoba eligibility",
+                            "url": "https://immigratemanitoba.com/mpnp/skilled-worker/swm/eligibility/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-employment-period",
+                    "text": "Check whether the six-month or one-year continuous employment rule applies to you."
+                },
+                {
+                    "id": "check-employer-and-job",
+                    "text": "Review the employer, occupation, licence and language requirements."
+                },
+                {
+                    "id": "plan-settlement",
+                    "text": "Prepare a genuine plan to live and work in Manitoba."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Skilled Worker in Manitoba eligibility",
+                    "url": "https://immigratemanitoba.com/mpnp/skilled-worker/swm/eligibility/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Counting unauthorized, self-employed or full-time-study work toward the qualifying period.",
+                "Assuming every Canadian graduate uses the same employment-period rule."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Prepare an MPNP Expression of Interest",
+            "description": "Review MPNP eligibility and prepare accurate employment, education, language and connection-to-Manitoba information before creating the online EOI profile. An EOI is not a full nomination application.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "gather-eoi-facts",
+                    "text": "Check dates, work history and other claims against records you can later provide."
+                },
+                {
+                    "id": "review-test-requirement",
+                    "text": "Check whether an approved language test is required for your circumstances before submitting."
+                },
+                {
+                    "id": "create-mpnp-account",
+                    "text": "Create or sign in to MPNP Online."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Expression of Interest",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/eoi/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Skilled Worker in Manitoba eligibility",
+                    "url": "https://immigratemanitoba.com/mpnp/skilled-worker/swm/eligibility/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Confusing EOI ranking points with a finding that you meet every application requirement."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Submit the MPNP Expression of Interest",
+            "description": "Submit the EOI in MPNP Online and save the summary report. Manitoba says an EOI remains valid for one year, may be updated when circumstances change, and does not guarantee an invitation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "submit-eoi",
+                    "text": "Review the answers and submit the EOI profile."
+                },
+                {
+                    "id": "save-summary",
+                    "text": "Save a copy of the EOI summary report."
+                },
+                {
+                    "id": "track-validity",
+                    "text": "Record the EOI submission date and update details when they change."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Expression of Interest",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/eoi/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating an EOI as a nomination application or a guarantee of selection.",
+                "Leaving material EOI information out of date."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "waiting",
+            "title": "Wait for a Letter of Advice to Apply",
+            "description": "MPNP draws candidates from the EOI pool and may issue a Letter of Advice to Apply (LAA). Monitor your email and MPNP Online account; selection is not guaranteed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-mpnp",
+                    "text": "Check MPNP Online and email, including spam folders, for an LAA."
+                },
+                {
+                    "id": "keep-eoi-accurate",
+                    "text": "Update the EOI when your circumstances change."
+                },
+                {
+                    "id": "review-laa",
+                    "text": "If invited, read the LAA and note its application deadline."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Expression of Interest",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/eoi/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Letter of Advice to Apply",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/laa/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a high EOI score alone guarantees an LAA."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Gather MPNP application evidence",
+            "description": "If you receive an LAA, collect documents that substantiate the EOI and full application, including identity, employment, education, immigration status and your Settlement Plan. Follow Manitoba's current document rules.",
+            "requiredDocuments": [
+                {
+                    "id": "mpnp-identity",
+                    "title": "Identity and civil-status documents",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Supporting documents",
+                            "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "mpnp-employment",
+                    "title": "Manitoba employment evidence and job offer",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Supporting documents",
+                            "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "mpnp-education",
+                    "title": "Education credentials and transcripts",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Supporting documents",
+                            "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "mpnp-language",
+                    "title": "Approved language test result",
+                    "requirement": "conditional",
+                    "condition": "Manitoba lists an exception for some applicants currently working in Manitoba in TEER 0, 1, 2 or 3; check the current rule.",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Supporting documents",
+                            "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "mpnp-settlement",
+                    "title": "Settlement Plan",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Supporting documents",
+                            "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "match-eoi",
+                    "text": "Check that documents support every material EOI claim."
+                },
+                {
+                    "id": "prepare-translations",
+                    "text": "Follow Manitoba's translation and scan-format instructions where needed."
+                },
+                {
+                    "id": "complete-plan",
+                    "text": "Explain how you intend to settle and work in Manitoba."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Letter of Advice to Apply",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/laa/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Supporting documents",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting claims that conflict with the EOI or cannot be documented.",
+                "Using untranslated or unreadable documents."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Submit the full MPNP application",
+            "description": "Complete the MPNP Online application, upload supporting documents and pay the current fee. Manitoba currently gives 60 days from the LAA date to submit the full application.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "meet-laa-deadline",
+                    "text": "Submit the complete application within the deadline shown in the LAA."
+                },
+                {
+                    "id": "check-submission",
+                    "text": "Confirm payment and save the application file number or confirmation."
+                },
+                {
+                    "id": "review-documents",
+                    "text": "Recheck all uploaded evidence and the Settlement Plan before paying."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Letter of Advice to Apply",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/laa/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Supporting documents",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/documents/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the 60-day application window.",
+                "Assuming the EOI itself is the full MPNP application."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "province",
+            "title": "Wait for MPNP assessment and respond to requests",
+            "description": "An MPNP officer assesses the application and may request clarification or further evidence. Keep your application information current while waiting for a provincial decision.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "watch-application",
+                    "text": "Check MPNP Online and email for assessment requests."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Update contact and family information through the current MPNP process."
+                },
+                {
+                    "id": "respond-to-requests",
+                    "text": "Provide requested evidence within the stated period."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: MPNP application process",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Letter of Advice to Apply",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/laa/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming an LAA guarantees nomination.",
+                "Ignoring changes that affect the application while it is under assessment."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "If approved, review the Manitoba nomination",
+            "description": "If MPNP approves the application, keep a copy of the nomination certificate and confirm whether it is linked to Express Entry. This roadmap continues with Manitoba's non-Express Entry federal PR route; an enhanced Express Entry nomination needs different federal steps. Manitoba says nominees must submit a separate IRCC PR application within 180 days of nomination.",
+            "requiredDocuments": [
+                {
+                    "id": "manitoba-nomination",
+                    "title": "MPNP nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Manitoba: Apply for permanent residence",
+                            "url": "https://immigratemanitoba.com/mpnp/apply/pr/",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "save-nomination",
+                    "text": "Save and check the nomination certificate and its expiry date."
+                },
+                {
+                    "id": "plan-federal-filing",
+                    "text": "Plan the IRCC application before the 180-day period ends."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: MPNP application process",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Apply for permanent residence",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/pr/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Express Entry PNP federal process",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial nomination as a final grant of permanent residence.",
+                "Letting the nomination expire before federal submission."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry PR application",
+            "description": "If your Manitoba nomination is not linked to Express Entry, use IRCC's non-Express Entry PNP document list and PR Portal instructions. Prepare the nomination confirmation, forms, identity documents and applicable police, family and civil-status evidence.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-nomination",
+                    "title": "Provincial nomination confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "travel-document",
+                    "title": "Passport or travel document copies",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificate",
+                    "title": "Police certificate",
+                    "requirement": "conditional",
+                    "condition": "Provide for countries and periods specified by IRCC for your history.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "family-documents",
+                    "title": "Civil-status and dependant documents",
+                    "requirement": "conditional",
+                    "condition": "Provide the documents applicable to your family situation.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-ircc-list",
+                    "text": "Follow the current IRCC forms and document checklist for non-Express Entry PNP."
+                },
+                {
+                    "id": "check-signatures",
+                    "text": "Check signatures, translations, photos and fee requirements."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Apply for permanent residence",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/pr/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry PR instructions for this non-Express Entry nomination."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Submit the federal PR application",
+            "description": "Submit the separate application to IRCC through the PR Portal, pay the required fees and keep proof of submission. Manitoba states the application must be submitted within 180 days of nomination.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "IRCC fee payment receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR after a non-Express Entry nomination",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "file-on-time",
+                    "text": "Submit before the nomination's deadline."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Keep the portal confirmation and later acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Manitoba: Apply for permanent residence",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/pr/",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Apply for PR after a non-Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the MPNP application automatically becomes a federal PR application.",
+                "Submitting an incomplete IRCC application."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "ircc",
+            "title": "Respond to IRCC checks and requests",
+            "description": "IRCC checks completeness and may request biometrics, medical exams or more documents. Follow the instructions in each notice and report relevant changes to IRCC and MPNP.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "watch-ircc",
+                    "text": "Watch for the AOR and any biometrics, medical or document requests."
+                },
+                {
+                    "id": "respond-on-time",
+                    "text": "Complete each requested action by the deadline IRCC provides."
+                },
+                {
+                    "id": "maintain-status",
+                    "text": "If working in Manitoba, maintain legal status while the PR application is processed."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply for PNP permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Apply for permanent residence",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/pr/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming nomination removes the need for federal admissibility checks.",
+                "Ignoring a change in family, employment or address during processing."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Receive the federal PR decision",
+            "description": "IRCC makes the final permanent residence decision. If approved, follow its confirmation instructions and notify MPNP as its guidance requires.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "follow-decision",
+                    "text": "Follow the instructions in the IRCC decision and confirmation documents."
+                },
+                {
+                    "id": "notify-mpnp",
+                    "text": "Notify MPNP after receiving PR as directed by Manitoba."
+                },
+                {
+                    "id": "keep-records",
+                    "text": "Save the nomination and PR confirmation for your records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply for PNP permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Manitoba: Apply for permanent residence",
+                    "url": "https://immigratemanitoba.com/mpnp/apply/pr/",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a provincial nomination guarantees federal approval."
+            ]
+        }
+    ]
+}

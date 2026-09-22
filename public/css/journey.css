@@ -529,6 +529,10 @@ body{
 
 }
 
+.stage-badge.province{
+    background:#6d4c41;
+}
+
 
 
 /* ==========================================
@@ -793,6 +797,71 @@ body{
 
 }
 
+.journey-notice{
+    margin-top:16px;
+    padding:12px 16px;
+    border-radius:10px;
+    background:#eef8f0;
+    color:#245c2d;
+}
+
+.timeline-edit-dialog{
+    width:min(440px, calc(100% - 32px));
+    max-height:calc(100vh - 32px);
+    overflow-y:auto;
+    border:0;
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+
+.timeline-edit-dialog::backdrop{
+    background:rgba(17,24,39,.55);
+}
+
+.timeline-edit-dialog h2{
+    margin:0 0 8px;
+    font-size:24px;
+}
+
+.timeline-edit-dialog p{
+    color:#555;
+    line-height:1.5;
+}
+
+.timeline-edit-dialog label{
+    display:block;
+    margin:18px 0 6px;
+    font-weight:700;
+}
+
+.timeline-edit-dialog input[type="date"]{
+    display:block;
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #aeb8c2;
+    border-radius:8px;
+    font:inherit;
+}
+
+.timeline-edit-dialog input[type="date"]:focus-visible,
+.timeline-edit-dialog button:focus-visible{
+    outline:3px solid #2563eb;
+    outline-offset:2px;
+}
+
+.timeline-edit-error{
+    color:#b42318 !important;
+    font-weight:600;
+}
+
+.timeline-edit-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    margin-top:24px;
+}
+
 
 
 /* ==========================================
@@ -837,4 +906,89 @@ body{
 
     font-weight:600;
 
+}
+
+/* Optional roadmap guidance, shown only when a step has curated content. */
+.roadmap-details{
+    margin-top:18px;
+    border:1px solid #d9e8dc;
+    border-radius:12px;
+    background:#fbfdfb;
+}
+
+.roadmap-details summary{
+    padding:14px 18px;
+    color:#245c2d;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.roadmap-details summary:focus-visible,
+.roadmap-details a:focus-visible{
+    outline:3px solid #2563eb;
+    outline-offset:3px;
+}
+
+.roadmap-details-content{
+    padding:0 18px 18px;
+}
+
+.roadmap-section{
+    padding-top:16px;
+    border-top:1px solid #e5eee6;
+}
+
+.roadmap-section + .roadmap-section{
+    margin-top:16px;
+}
+
+.roadmap-section h5{
+    margin:0 0 10px;
+    color:#333;
+    font-size:15px;
+}
+
+.roadmap-section ul{
+    margin:0;
+    padding-left:22px;
+}
+
+.roadmap-section li{
+    line-height:1.6;
+    overflow-wrap:anywhere;
+}
+
+.roadmap-section li + li{
+    margin-top:10px;
+}
+
+.roadmap-section p{
+    margin:4px 0;
+    color:#555;
+    line-height:1.6;
+}
+
+.roadmap-section a{
+    color:#1d5f9e;
+    overflow-wrap:anywhere;
+}
+
+.roadmap-section small{
+    color:#666;
+    font-size:12px;
+}
+
+.roadmap-requirement{
+    display:inline-block;
+    margin-left:4px;
+    padding:2px 7px;
+    border-radius:999px;
+    background:#edf3ee;
+    color:#355c3b;
+    font-size:12px;
+    text-transform:capitalize;
+}
+
+.roadmap-links{
+    margin-top:6px;
 }

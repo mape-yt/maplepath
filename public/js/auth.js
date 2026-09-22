@@ -135,16 +135,31 @@ loginForm.addEventListener("submit", async (event) => {
 
 
         if (response.ok) {
+            const sessionResponse = await fetch("/api/auth/session", {
+                credentials: "same-origin",
+                cache: "no-store"
+            });
+            if (!sessionResponse.ok) {
+                document.getElementById("login-message").textContent =
+                    "Login could not establish a session. Restart the MaplePath server and try again.";
+                return;
+            }
+            const session = await sessionResponse.json();
+            if (session.username !== data.username) {
+                document.getElementById("login-message").textContent =
+                    "Login could not be verified. Please try again.";
+                return;
+            }
 
 
             // Save logged-in user
             localStorage.setItem(
                 "username",
-                data.username
+                session.username
             );
 
 
-            if (data.profileCompleted) {
+            if (session.profileCompleted) {
 
 
                 window.location.href = "dashboard.html";

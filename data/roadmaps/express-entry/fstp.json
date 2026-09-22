@@ -1,57 +1,86 @@
 {
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
     "pathway": "Express Entry",
     "stream": "Federal Skilled Trades Program (FSTP)",
-
     "steps": [
-
         {
             "order": 1,
             "type": "applicant",
             "title": "Check Trade Eligibility",
-            "description": "Confirm you meet the Federal Skilled Trades Program requirements and have eligible skilled trade experience."
+            "description": "Confirm you meet the Federal Skilled Trades Program requirements and have eligible skilled trade experience.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 2,
             "type": "applicant",
             "title": "Language Test",
-            "description": "Complete an approved English or French language test."
+            "description": "Complete an approved English or French language test.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 3,
             "type": "applicant",
             "title": "Proof of Trade Experience",
-            "description": "Prepare documents demonstrating your skilled trade work experience and qualifications."
+            "description": "Prepare documents demonstrating your skilled trade work experience and qualifications.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 4,
             "type": "applicant",
             "title": "Create Express Entry Profile",
-            "description": "Create and submit your Express Entry profile."
+            "description": "Create and submit your Express Entry profile.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 5,
             "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an Invitation to Apply (ITA) from IRCC."
+            "description": "Wait for an Invitation to Apply (ITA) from IRCC.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 6,
             "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your permanent residence application with all required supporting documents."
+            "description": "Submit your permanent residence application with all required supporting documents.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         },
-
         {
             "order": 7,
             "type": "ircc",
             "title": "Final Review",
-            "description": "IRCC completes the review of your application before making a final decision."
+            "description": "IRCC completes the review of your application before making a final decision.",
+            "requiredDocuments": [],
+            "preparationChecklist": [],
+            "officialLinks": [],
+            "governmentTimeline": null,
+            "commonMistakes": []
         }
-
-    ]
+    ],
+    "profileKey": "EE-FSTP"
 }

@@ -1,0 +1,625 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "Alberta Opportunity Stream (AAIP)",
+    "profileKey": "PNP-AAIP-AOS",
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check Alberta Opportunity Stream eligibility",
+            "description": "Review your current Alberta work, valid work permit, occupation, job offer, work experience, language and education against the stream rules. Requirements can apply both when you submit and when Alberta assesses your application.",
+            "requiredDocuments": [
+                {
+                    "id": "work-permit",
+                    "title": "Valid work permit",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: Alberta Opportunity Stream eligibility",
+                            "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-eligibility",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "alberta-job-offer",
+                    "title": "Full-time Alberta job offer or employment contract",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: Alberta Opportunity Stream eligibility",
+                            "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-eligibility",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-status",
+                    "text": "Confirm your permit type and current work in Alberta meet the published rules."
+                },
+                {
+                    "id": "review-occupation",
+                    "text": "Check occupation, job offer, work experience, language and education requirements for your situation."
+                },
+                {
+                    "id": "check-employer",
+                    "text": "Confirm your employer and offer meet Alberta's requirements."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: Alberta Opportunity Stream eligibility",
+                    "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-eligibility",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a job offer alone proves eligibility; the work permit, occupation and other criteria must also be checked.",
+                "Using requirements from a different AAIP stream."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Prepare evidence for the Worker EOI and application",
+            "description": "Gather evidence for the claims you plan to make in the Worker Expression of Interest (WEOI). Alberta checks those claims if you are invited and requires supporting documents for the full application.",
+            "requiredDocuments": [
+                {
+                    "id": "language-results",
+                    "title": "Valid official language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "employment-records",
+                    "title": "Employment reference letters and recent pay statements",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-evidence",
+                    "title": "Credential, transcript or ECA as applicable",
+                    "requirement": "conditional",
+                    "condition": "Which evidence is needed depends on the education you claim and your circumstances.",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "match-eoi-evidence",
+                    "text": "Check that the occupation, employment and education you plan to declare can be supported by documents."
+                },
+                {
+                    "id": "review-checklist",
+                    "text": "Use the current AAIP worker streams checklist and portal instructions before applying."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Alberta: AAIP worker streams document checklist",
+                    "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Claiming EOI points without evidence that matches the application.",
+                "Assuming one checklist covers every applicant without checking conditional items."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Submit a Worker Expression of Interest",
+            "description": "Create or use an Alberta.ca Account, submit a WEOI through the AAIP portal and pay the current WEOI fee. A WEOI enters a selection pool; it is not a nomination application or a guarantee of invitation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-eoi-answers",
+                    "text": "Review each self-declared answer before submitting."
+                },
+                {
+                    "id": "pay-eoi-fee",
+                    "text": "Pay the fee within the portal's stated deadline and keep the receipt."
+                },
+                {
+                    "id": "track-expiry",
+                    "text": "Record the WEOI submission or payment date; Alberta says it remains valid for about 12 months."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating WEOI submission as an AAIP application or as a promise of nomination.",
+                "Leaving the WEOI unpaid, which prevents entry to the pool."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "waiting",
+            "title": "Wait for a stream-specific AAIP invitation",
+            "description": "Alberta selects candidates from the Worker Stream pool based on scores and provincial priorities. Keep your WEOI accurate and watch the Alberta.ca Account email and portal; selection is not guaranteed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "keep-eoi-current",
+                    "text": "Update the WEOI in the AAIP portal when your circumstances change."
+                },
+                {
+                    "id": "watch-invitation",
+                    "text": "Check the account email and AAIP portal for a selection notice."
+                },
+                {
+                    "id": "review-stream",
+                    "text": "If invited, confirm the invitation is for the stream you actually qualify for."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the preferred stream in the WEOI is the stream Alberta will invite you to.",
+                "Letting a WEOI expire without reviewing Alberta's renewal instructions."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Accept the invitation and prepare the AAIP application",
+            "description": "If selected for Alberta Opportunity Stream, review eligibility and the document checklist before creating an application. Alberta currently gives 15 days to accept the invitation and create the draft.",
+            "requiredDocuments": [
+                {
+                    "id": "aaip-invitation",
+                    "title": "AAIP stream-specific invitation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: How to apply to AAIP worker streams",
+                            "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-invited-stream",
+                    "text": "Confirm the invitation names Alberta Opportunity Stream and that you still meet its criteria."
+                },
+                {
+                    "id": "create-draft-on-time",
+                    "text": "Use the unique invitation link and create the draft before the invitation expires."
+                },
+                {
+                    "id": "collect-checklist",
+                    "text": "Collect the documents requested by the current portal checklist."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Alberta: AAIP worker streams document checklist",
+                    "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Starting an application for a stream whose eligibility you do not meet.",
+                "Missing the invitation period shown by Alberta."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Submit and pay for the AAIP application",
+            "description": "Complete the AAIP portal application, upload supporting evidence, submit it and pay the current application fee. Alberta currently gives 30 days after creating the application to submit and pay, and a 24-hour payment period after submission.",
+            "requiredDocuments": [
+                {
+                    "id": "passport",
+                    "title": "Valid passport identity pages",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "job-offer-package",
+                    "title": "Alberta job offer and employer declaration",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-history",
+                    "title": "Employment references and applicable pay statements",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-documents",
+                    "title": "Education documents or ECA",
+                    "requirement": "conditional",
+                    "condition": "Provide the items applicable to your credential, permit and WEOI claims.",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: AAIP worker streams document checklist",
+                            "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-accuracy",
+                    "text": "Compare the full application with your WEOI and supporting documents."
+                },
+                {
+                    "id": "upload-all-documents",
+                    "text": "Use the current checklist, including documents that apply only to your circumstances."
+                },
+                {
+                    "id": "confirm-payment",
+                    "text": "Pay the current fee and confirm the portal status is Submitted."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Alberta: AAIP worker streams document checklist",
+                    "url": "https://www.alberta.ca/system/files/jeti-aaip-worker-streams-document-checklist.pdf",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a submitted form is accepted before payment is completed.",
+                "Leaving out the employer declaration or other required evidence."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "province",
+            "title": "Wait for the AAIP decision and respond to requests",
+            "description": "AAIP may ask for additional information from you or your employer while assessing the application. Keep contact, employment and family information current. An invitation or submitted application does not guarantee nomination.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-aaip",
+                    "text": "Watch the portal and email for requests from AAIP."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes using Alberta's stated portal process."
+                },
+                {
+                    "id": "keep-status",
+                    "text": "Maintain any immigration status needed to keep working in Alberta."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Ignoring a document request or a change in employment while assessment is underway."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "If approved, review the Alberta nomination",
+            "description": "If AAIP approves the application, obtain and check the nomination certificate in the portal. Alberta says the nomination normally gives six months to submit a separate permanent residence application to IRCC.",
+            "requiredDocuments": [
+                {
+                    "id": "aaip-nomination",
+                    "title": "AAIP nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Alberta: After an Alberta Opportunity Stream nomination",
+                            "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-after-you-are-nominated",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-certificate",
+                    "text": "Check the nomination details and request corrections through the portal if needed."
+                },
+                {
+                    "id": "record-expiry",
+                    "text": "Record the nomination expiry date and plan the federal application before it expires."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: How to apply to AAIP worker streams",
+                    "url": "https://www.alberta.ca/how-to-apply-to-aaip-worker-streams",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Alberta: After an Alberta Opportunity Stream nomination",
+                    "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-after-you-are-nominated",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial nomination as permanent residence or permission to work.",
+                "Waiting until after the nomination expires to prepare the federal application."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry PR application",
+            "description": "Use IRCC's non-Express Entry PNP instructions to prepare the PR Portal forms, nomination confirmation, identity documents, photos and any applicable police or family documents.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-nomination",
+                    "title": "Provincial nomination confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "travel-document",
+                    "title": "Passport or travel document copies",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificate",
+                    "title": "Police certificate",
+                    "requirement": "conditional",
+                    "condition": "Provide for countries and periods specified by IRCC for your history.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                },
+                {
+                    "id": "family-documents",
+                    "title": "Civil-status and dependant documents",
+                    "requirement": "conditional",
+                    "condition": "Provide the documents applicable to accompanying family members and your history.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-ircc-list",
+                    "text": "Follow the current IRCC document checklist and forms for non-Express Entry PNP."
+                },
+                {
+                    "id": "check-signatures",
+                    "text": "Check signatures, translations, photos and fee requirements before submission."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Apply for PR after a non-Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry PR instructions or assuming provincial documents alone complete the federal application."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Submit the federal PR application",
+            "description": "Submit the separate non-Express Entry PNP permanent residence application through IRCC's PR Portal and pay the required fees before the Alberta nomination expires.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "IRCC fee payment receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR after a non-Express Entry nomination",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-21"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "submit-before-expiry",
+                    "text": "Submit while the AAIP nomination is valid; Alberta states a six-month validity period."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the portal submission confirmation and later AOR or file number."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Alberta: After an Alberta Opportunity Stream nomination",
+                    "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-after-you-are-nominated",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "IRCC: Apply for PR after a non-Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming AAIP submission also applies for federal permanent residence.",
+                "Submitting an incomplete federal application."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "ircc",
+            "title": "Respond to IRCC biometrics and medical instructions",
+            "description": "After submission, IRCC checks completeness and may issue biometrics, medical and other requests. Follow each instruction and deadline in the IRCC notice. Keep both IRCC and AAIP informed of relevant changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "watch-ircc",
+                    "text": "Watch for an AOR and any biometrics, medical or document instructions."
+                },
+                {
+                    "id": "respond-on-time",
+                    "text": "Complete each requested action within the deadline given by IRCC."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report relevant family, address or employment changes to the appropriate authorities."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply for PNP permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Alberta: After an Alberta Opportunity Stream nomination",
+                    "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-after-you-are-nominated",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Getting a medical exam before following the instructions that apply to your case.",
+                "Assuming nomination makes federal checks unnecessary."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Receive the federal PR decision",
+            "description": "IRCC makes the final permanent residence decision. If approved, follow its confirmation and landing instructions; keep legal status in Canada while waiting if you live and work there.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-final-instructions",
+                    "text": "Follow IRCC's decision notice and confirmation steps."
+                },
+                {
+                    "id": "keep-records",
+                    "text": "Keep copies of the nomination, PR decision and confirmation documents."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply for PNP permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-21"
+                },
+                {
+                    "label": "Alberta: After an Alberta Opportunity Stream nomination",
+                    "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-after-you-are-nominated",
+                    "verifiedAt": "2026-09-21"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming an AAIP nomination guarantees a positive IRCC decision."
+            ]
+        }
+    ]
+}

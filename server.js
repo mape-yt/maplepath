@@ -15,6 +15,7 @@ const analyticsRoutes = require("./routes/analyticsRoutes");
 const optionsRoutes = require("./routes/optionsRoutes");
 
 const connectDB = require("./config/db");
+const { requireAuth, requireSameOrigin } = require("./middleware/auth");
 
 
 const app = express();
@@ -38,15 +39,15 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRoutes);
 
-app.use("/api/profile", profileRoutes);
+app.use("/api/profile", requireSameOrigin, requireAuth, profileRoutes);
 
-app.use("/api/tasks", taskRoutes);
+app.use("/api/tasks", requireSameOrigin, requireAuth, taskRoutes);
 
-app.use("/api/journey", journeyRoutes);
+app.use("/api/journey", requireSameOrigin, requireAuth, journeyRoutes);
 
-app.use("/api/timeline", timelineRoutes);
+app.use("/api/timeline", requireSameOrigin, requireAuth, timelineRoutes);
 
-app.use("/api/analytics", analyticsRoutes);
+app.use("/api/analytics", requireSameOrigin, requireAuth, analyticsRoutes);
 
 app.use("/api/options", optionsRoutes);
 

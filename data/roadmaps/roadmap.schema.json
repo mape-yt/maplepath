@@ -1,0 +1,242 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "MaplePath roadmap (legacy and version 2)",
+    "description": "Additive content contract. Missing enrichment fields are allowed for legacy roadmaps. Validation does not insert defaults.",
+    "type": "object",
+    "required": [
+        "pathway",
+        "stream",
+        "steps"
+    ],
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "minLength": 1
+        },
+        "schemaVersion": {
+            "type": "integer",
+            "enum": [
+                1,
+                2
+            ]
+        },
+        "pathway": {
+            "type": "string",
+            "minLength": 1
+        },
+        "stream": {
+            "type": "string",
+            "minLength": 1
+        },
+        "profileKey": {
+            "type": "string",
+            "minLength": 1
+        },
+        "steps": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/$defs/step"
+            }
+        }
+    },
+    "additionalProperties": false,
+    "$defs": {
+        "officialLink": {
+            "type": "object",
+            "required": [
+                "label",
+                "url",
+                "verifiedAt"
+            ],
+            "properties": {
+                "label": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "^https://"
+                },
+                "verifiedAt": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "additionalProperties": false
+        },
+        "document": {
+            "type": "object",
+            "required": [
+                "id",
+                "title",
+                "requirement"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "title": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "description": {
+                    "type": "string"
+                },
+                "requirement": {
+                    "enum": [
+                        "required",
+                        "conditional",
+                        "optional"
+                    ]
+                },
+                "condition": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "officialLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/officialLink"
+                    }
+                }
+            },
+            "additionalProperties": false
+        },
+        "checklistItem": {
+            "type": "object",
+            "required": [
+                "id",
+                "text"
+            ],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+                },
+                "text": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "condition": {
+                    "type": "string",
+                    "minLength": 1
+                }
+            },
+            "additionalProperties": false
+        },
+        "governmentTimeline": {
+            "type": "object",
+            "required": [
+                "description",
+                "scope",
+                "minimum",
+                "maximum",
+                "unit",
+                "source"
+            ],
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "scope": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "minimum": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "minimum": 0
+                },
+                "maximum": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "minimum": 0
+                },
+                "unit": {
+                    "enum": [
+                        "days",
+                        "weeks",
+                        "months"
+                    ]
+                },
+                "source": {
+                    "$ref": "#/$defs/officialLink"
+                }
+            },
+            "additionalProperties": false
+        },
+        "step": {
+            "type": "object",
+            "required": [
+                "order",
+                "type",
+                "title"
+            ],
+            "properties": {
+                "order": {
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "type": {
+                    "enum": [
+                        "applicant",
+                        "waiting",
+                        "ircc",
+                        "province"
+                    ]
+                },
+                "title": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "description": {
+                    "type": "string"
+                },
+                "requiredDocuments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/document"
+                    }
+                },
+                "preparationChecklist": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/checklistItem"
+                    }
+                },
+                "officialLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/$defs/officialLink"
+                    }
+                },
+                "governmentTimeline": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "$ref": "#/$defs/governmentTimeline"
+                        }
+                    ]
+                },
+                "commonMistakes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    }
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

@@ -93,27 +93,9 @@ async function initializeJourney(){
     try{
 
 
-        const username =
-            localStorage.getItem(
-                "username"
-            );
-
-
-
-        if(!username){
-
-
-            window.location.href =
-                "auth.html";
-
-
-            return;
-
-
-        }
-
-
-
+        const session = await window.MaplePathSession.require();
+        if(!session) return;
+        const username = session.username;
 
         await loadProfile(
             username
@@ -182,7 +164,7 @@ async function loadProfile(username){
 
     const response =
         await fetch(
-            `/api/profile/${username}`
+            `/api/profile/${encodeURIComponent(username)}`
         );
 
 
@@ -285,6 +267,7 @@ async function loadRoadmap(){
 
     state.roadmap =
         roadmap;
+    state.profileKey = roadmap.profileKey || state.profileKey;
 
 
 
@@ -307,7 +290,7 @@ async function loadJourneyProgress(username){
     const response =
         await fetch(
 
-            `/api/journey/progress/${username}`
+            `/api/journey/progress/${encodeURIComponent(username)}`
 
         );
 
@@ -357,7 +340,7 @@ async function loadTimelineRecords(username){
     const response =
         await fetch(
 
-            `/api/timeline/${username}`
+            `/api/timeline/${encodeURIComponent(username)}`
 
         );
 
@@ -378,7 +361,7 @@ async function loadTimelineRecords(username){
 
 
     state.timelineRecords =
-        await response.json();
+        (await response.json()).filter(record => record.profileKey === state.profileKey);
 
 
 
@@ -861,6 +844,12 @@ function getStageBadge(type){
 
             };
 
+        case "province":
+            return {
+                text:"🏛️ Provincial program",
+                className:"province"
+            };
+
 
 
         default:
@@ -999,14 +988,14 @@ function renderJourneySummary(){
 
                 <h2>
 
-                    ${state.pathway}
+                    ${escapeRoadmapText(state.pathway)}
 
                 </h2>
 
 
                 <span>
 
-                    ${state.stream}
+                    ${escapeRoadmapText(state.stream)}
 
                 </span>
 
@@ -1058,7 +1047,7 @@ function renderJourneySummary(){
                     ${
                         currentStep
                         ?
-                        currentStep.title
+                        escapeRoadmapText(currentStep.title)
                         :
                         "Completed 🎉"
                     }
@@ -1377,7 +1366,7 @@ function createTimelineStage(step){
 
 <h3>
 
-Stage ${step.order}
+Stage ${escapeRoadmapText(step.order)}
 
 </h3>
 
@@ -1385,7 +1374,7 @@ Stage ${step.order}
 
 <h2>
 
-${step.title}
+${escapeRoadmapText(step.title)}
 
 </h2>
 
@@ -1417,12 +1406,14 @@ ${badge.text}
 
 <p>
 
-${step.description}
+${escapeRoadmapText(step.description ?? "")}
 
 </p>
 
 
 
+
+${renderRoadmapDetails(step)}
 
 <div class="stage-section">
 
@@ -1481,6 +1472,10 @@ renderActionButton(
 
 }
 
+${record && record._id
+    ? `<button type="button" class="edit-timeline-btn" data-action="edit-dates" data-step="${escapeRoadmapText(step.order)}">Edit dates</button>`
+    : ""}
+
 
 
 
@@ -1516,6 +1511,93 @@ renderActionButton(
 
 
 
+
+// ============================================
+// OPTIONAL ROADMAP GUIDANCE
+// ============================================
+
+function escapeRoadmapText(value){
+    return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
+    })[character]);
+}
+
+function roadmapItems(value){
+    return Array.isArray(value) ? value : [];
+}
+
+function renderRoadmapLink(link){
+    if(!link || !link.url) return "";
+
+    let url;
+    try{
+        url = new URL(link.url);
+    } catch(error){
+        return "";
+    }
+
+    if(url.protocol !== "https:") return "";
+
+    const label = escapeRoadmapText(link.label || url.hostname);
+    const verified = link.verifiedAt
+        ? ` <small>Checked ${escapeRoadmapText(link.verifiedAt)}</small>`
+        : "";
+
+    return `<a href="${escapeRoadmapText(url.href)}" target="_blank" rel="noopener noreferrer" aria-label="${label} (opens in new tab)">${label} ↗</a>${verified}`;
+}
+
+function renderRoadmapDetails(step){
+    const checklist = roadmapItems(step.preparationChecklist);
+    const documents = roadmapItems(step.requiredDocuments);
+    const mistakes = roadmapItems(step.commonMistakes);
+    const links = roadmapItems(step.officialLinks);
+    const estimate = step.governmentTimeline;
+
+    if(!checklist.length && !documents.length && !mistakes.length && !links.length && !estimate){
+        return "";
+    }
+
+    const sections = [];
+
+    if(checklist.length){
+        sections.push(`<section class="roadmap-section"><h5>Preparation checklist</h5><ul>${checklist.map(item => `<li>${escapeRoadmapText(item.text)}${item.condition ? ` <small>(${escapeRoadmapText(item.condition)})</small>` : ""}</li>`).join("")}</ul></section>`);
+    }
+
+    if(documents.length){
+        sections.push(`<section class="roadmap-section"><h5>Documents to prepare</h5><ul>${documents.map(item => {
+            const condition = item.condition ? `<p>${escapeRoadmapText(item.condition)}</p>` : "";
+            const description = item.description ? `<p>${escapeRoadmapText(item.description)}</p>` : "";
+            const documentLinks = roadmapItems(item.officialLinks).map(renderRoadmapLink).filter(Boolean);
+            return `<li><strong>${escapeRoadmapText(item.title)}</strong> <span class="roadmap-requirement">${escapeRoadmapText(item.requirement)}</span>${condition}${description}${documentLinks.length ? `<div class="roadmap-links">${documentLinks.join(" ")}</div>` : ""}</li>`;
+        }).join("")}</ul></section>`);
+    }
+
+    if(mistakes.length){
+        sections.push(`<section class="roadmap-section"><h5>Common mistakes</h5><ul>${mistakes.map(item => `<li>${escapeRoadmapText(item)}</li>`).join("")}</ul></section>`);
+    }
+
+    if(estimate && typeof estimate === "object"){
+        const bounds = [estimate.minimum, estimate.maximum]
+            .filter(value => typeof value === "number");
+        const duration = bounds.length
+            ? `<p>Published range: ${bounds.map(escapeRoadmapText).join("–")} ${escapeRoadmapText(estimate.unit)}</p>`
+            : "";
+        sections.push(`<section class="roadmap-section"><h5>Government timeline</h5><p>${escapeRoadmapText(estimate.description)}</p><p>Applies to: ${escapeRoadmapText(estimate.scope)}</p>${duration}<div class="roadmap-links">${renderRoadmapLink(estimate.source)}</div></section>`);
+    }
+
+    if(links.length){
+        const sourceLinks = links.map(renderRoadmapLink).filter(Boolean);
+        if(sourceLinks.length){
+            sections.push(`<section class="roadmap-section"><h5>Official sources</h5><ul>${sourceLinks.map(link => `<li>${link}</li>`).join("")}</ul></section>`);
+        }
+    }
+
+    return `<details class="roadmap-details"><summary>Preparation &amp; official guidance</summary><div class="roadmap-details-content">${sections.join("")}</div></details>`;
+}
 
 // ============================================
 // TIMELINE INFORMATION
@@ -1563,6 +1645,14 @@ Completed
 <br>
 
 
+Started: ${formatDate(record.startedAt)}
+
+<br>
+
+Finished: ${formatDate(record.completedAt)}
+
+<br>
+
 Duration:
 
 ${record.durationDays}
@@ -1601,7 +1691,7 @@ average.totalUsers
 
 }
 
-applicant(s)
+timeline(s)
 
 
 
@@ -1699,7 +1789,7 @@ average.totalUsers
 
 }
 
-applicant(s)
+timeline(s)
 
 
 
@@ -1780,7 +1870,7 @@ average.totalUsers
 
 }
 
-applicant(s)
+timeline(s)
 
 
 
@@ -2112,258 +2202,50 @@ Start Step
 
 
 async function handleStepAction(stepOrder){
-
-
-
     try{
-
-
-
-        const username =
-            localStorage.getItem(
-                "username"
-            );
-
-
-
-        const step =
-            state.roadmap.steps.find(
-
-                item =>
-                item.order === stepOrder
-
-            );
-
-
-
-        if(!step){
-
-            return;
-
-        }
-
-
-
-
-
-        const existing =
-            getTimelineRecord(
-                stepOrder
-            );
-
-
-
-
-
-        if(!existing){
-
-
-
-            await fetch(
-
-                "/api/timeline/start",
-
-                {
-
-                    method:"POST",
-
-                    headers:{
-
-                        "Content-Type":
-                        "application/json"
-
-                    },
-
-
-                    body:JSON.stringify({
-
-                        username,
-
-
-                        pathway:
-                        state.pathway,
-
-
-                        stepOrder:
-                        step.order,
-
-
-                        stepTitle:
-                        step.title
-
-
-                    })
-
-
-                }
-
-            );
-
-
-
-        }
-
-
-
-        else if(
-
-            existing.status ===
-            "in-progress"
-
-        ){
-
-
-
-            await fetch(
-
-                "/api/timeline/complete",
-
-                {
-
-                    method:"PUT",
-
-                    headers:{
-
-                        "Content-Type":
-                        "application/json"
-
-                    },
-
-
-                    body:JSON.stringify({
-
-                        username,
-
-
-                        pathway:
-                        state.pathway,
-
-
-                        stepOrder:
-                        step.order
-
-
-                    })
-
-                }
-
-            );
-
-
-
-
-            state.completedSteps.push(
-
-                step.order
-
-            );
-
-
-
+        const step = state.roadmap?.steps.find(item => item.order === stepOrder);
+        if(!step) return;
+        const existing = getTimelineRecord(stepOrder);
+        if(existing?.status === "completed") return;
+
+        const response = await fetch(existing ? "/api/timeline/complete" : "/api/timeline/start", {
+            method:existing ? "PUT" : "POST",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify({
+                pathway:state.pathway,
+                profileKey:state.profileKey,
+                stepOrder:step.order
+            })
+        });
+        const result = await response.json();
+        if(!response.ok) throw new Error(result.message || "Could not update this step.");
+
+        if(existing){
+            state.completedSteps = [...new Set([...state.completedSteps, step.order])];
             await updateJourneyProgress();
-
-
-
         }
-
-
-
-
-
         await reloadJourney();
-
-
-
+        showJourneyNotice("");
+    } catch(error){
+        console.error("Step action failed:", error);
+        showJourneyNotice(error.message || "Could not update this step. Reload Journey and try again.");
     }
-
-
-    catch(error){
-
-
-        console.error(
-
-            "Step action failed:",
-
-            error
-
-        );
-
-
-    }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-// ============================================
-// UPDATE JOURNEY PROGRESS
-// ============================================
-
 
 async function updateJourneyProgress(){
-
-
-
-    const username =
-        localStorage.getItem(
-            "username"
-        );
-
-
-
-    await fetch(
-
-        `/api/journey/progress/${username}`,
-
-        {
-
-            method:"PUT",
-
-
-            headers:{
-
-                "Content-Type":
-                "application/json"
-
-            },
-
-
-            body:JSON.stringify({
-
-                completedSteps:
-                    state.completedSteps,
-
-
-                currentStep:
-                    getCurrentStep()
-
-
-            })
-
-
-        }
-
-    );
-
-
-
+    const username = localStorage.getItem("username");
+    const response = await fetch(`/api/journey/progress/${encodeURIComponent(username)}`, {
+        method:"PUT",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify({
+            profileKey:state.profileKey,
+            completedSteps:state.completedSteps,
+            currentStep:getCurrentStep()
+        })
+    });
+    const result = await response.json();
+    if(!response.ok) throw new Error(result.message || "Could not save Journey progress.");
 }
-
-
-
-
-
-
-
-
 
 // ============================================
 // RELOAD DATA
@@ -2408,101 +2290,153 @@ async function reloadJourney(){
 }
 
 // ============================================
+// TIMELINE DATE EDITOR
+// ============================================
+
+function dateInputValue(value){
+    if(!value) return "";
+    const date = new Date(value);
+    if(Number.isNaN(date.getTime())) return "";
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+}
+
+function dateInputToIso(value){
+    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+    if(!match) return null;
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    const day = Number(match[3]);
+    const localNoon = new Date(year, month - 1, day, 12);
+    if(localNoon.getFullYear() !== year ||
+        localNoon.getMonth() !== month - 1 ||
+        localNoon.getDate() !== day) return null;
+    return localNoon.toISOString();
+}
+
+function showTimelineEditError(message){
+    const error = document.getElementById("timeline-edit-error");
+    error.textContent = message;
+    error.hidden = !message;
+}
+
+function showJourneyNotice(message){
+    const notice = document.getElementById("journey-notice");
+    notice.textContent = message;
+    notice.hidden = !message;
+}
+
+function openTimelineDateEditor(stepOrder){
+    const record = getTimelineRecord(stepOrder);
+    const step = state.roadmap?.steps.find(item => item.order === stepOrder);
+    if(!record || !record._id || !step) return;
+
+    const dialog = document.getElementById("timeline-edit-dialog");
+    const form = document.getElementById("timeline-edit-form");
+    const start = document.getElementById("timeline-start-date");
+    const finish = document.getElementById("timeline-finish-date");
+    const completed = record.status === "completed";
+
+    form.dataset.recordId = record._id;
+    form.dataset.completed = String(completed);
+    document.getElementById("timeline-edit-step").textContent = step.title;
+    start.value = dateInputValue(record.startedAt);
+    finish.value = completed ? dateInputValue(record.completedAt) : "";
+    start.max = dateInputValue(new Date());
+    finish.max = start.max;
+    document.getElementById("timeline-finish-field").hidden = !completed;
+    finish.required = completed;
+    showTimelineEditError("");
+    if(!dialog.open) dialog.showModal();
+}
+
+async function saveTimelineDates(event){
+    event.preventDefault();
+    const form = event.currentTarget;
+    const dialog = document.getElementById("timeline-edit-dialog");
+    const save = document.getElementById("timeline-edit-save");
+    const startValue = document.getElementById("timeline-start-date").value;
+    const finishValue = document.getElementById("timeline-finish-date").value;
+    const completed = form.dataset.completed === "true";
+    const startedAt = dateInputToIso(startValue);
+    const completedAt = completed ? dateInputToIso(finishValue) : null;
+
+    if(!startedAt || (completed && !completedAt)){
+        showTimelineEditError("Enter valid dates.");
+        return;
+    }
+    if(completed && finishValue < startValue){
+        showTimelineEditError("Finish date cannot be before start date.");
+        return;
+    }
+
+    const username = localStorage.getItem("username");
+    if(!username){
+        showTimelineEditError("Sign in again before editing dates.");
+        return;
+    }
+
+    const body = { username, startedAt };
+    if(completed) body.completedAt = completedAt;
+    save.disabled = true;
+    showTimelineEditError("");
+
+    let saved = false;
+    try{
+        const response = await fetch(`/api/timeline/edit/${encodeURIComponent(form.dataset.recordId)}`, {
+            method:"PUT",
+            headers:{ "Content-Type":"application/json" },
+            body:JSON.stringify(body)
+        });
+        const result = await response.json();
+        if(!response.ok) throw new Error(result.message || "Could not save dates.");
+
+        saved = true;
+        dialog.close();
+        await reloadJourney();
+        showJourneyNotice(result.analyticsUpdated === false
+            ? "Dates saved. Community average could not be refreshed; try again later."
+            : "Timeline dates saved.");
+    }
+    catch(error){
+        if(saved){
+            showJourneyNotice("Dates saved, but the Journey page could not refresh. Reload the page.");
+        } else {
+            showTimelineEditError(error.message || "Could not save dates.");
+        }
+    }
+    finally{
+        save.disabled = false;
+    }
+}
+
+// ============================================
 // EVENT LISTENERS
 // ============================================
 
 
 function setupEventListeners(){
+    journeyContainer.addEventListener("click", event => {
+        const button = event.target.closest("button");
+        if(!button) return;
 
-
-    journeyContainer.addEventListener(
-
-        "click",
-
-        event => {
-
-
-
-            const button =
-                event.target.closest(
-                    "button"
-                );
-
-
-
-            if(!button){
-
-                return;
-
-            }
-
-
-
-
-
-            const stepOrder =
-                Number(
-
-                    button.dataset.step
-
-                );
-
-
-
-
-
-            if(
-
-                button.dataset.action ===
-                "start"
-
-            ){
-
-
-
-                handleStepAction(
-                    stepOrder
-                );
-
-
-            }
-
-
-
-
-
-            if(
-
-                button.dataset.action ===
-                "complete"
-
-            ){
-
-
-
-                handleStepAction(
-                    stepOrder
-                );
-
-
-            }
-
-
-
+        const stepOrder = Number(button.dataset.step);
+        if(button.dataset.action === "start" || button.dataset.action === "complete"){
+            handleStepAction(stepOrder);
+        } else if(button.dataset.action === "edit-dates"){
+            openTimelineDateEditor(stepOrder);
         }
+    });
 
-    );
-
-
+    document.getElementById("timeline-edit-form")
+        .addEventListener("submit", saveTimelineDates);
+    document.getElementById("timeline-edit-cancel")
+        .addEventListener("click", () => {
+            document.getElementById("timeline-edit-dialog").close();
+        });
 }
-
-
-
-
-
-
-
-
 
 // ============================================
 // START APPLICATION
