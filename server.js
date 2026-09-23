@@ -39,6 +39,7 @@ const authLimiter = rateLimit({
     limit: 30,
     standardHeaders: "draft-8",
     legacyHeaders: false,
+    skip: req => !["/signup", "/login"].includes(req.path),
     message: {
         message: "Too many sign-in or account requests. Please try again shortly."
     }

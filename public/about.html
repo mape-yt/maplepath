@@ -1,43 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About MaplePath</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn why MaplePath is building a clearer, more transparent way to track Canadian immigration journeys.">
+  <title>Our Story | MaplePath</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<header class="header">
-  <div class="container">
-    <h1 class="logo">🍁 MaplePath</h1>
-    <nav>
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="auth.html" class="nav-link btn-primary">Sign Up / Login</a>
-    </nav>
-  </div>
-</header>
+<body class="public-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<section class="hero">
-  <div class="container">
-    <p>
-    MaplePath helps immigrants navigate the uncertainty of Canadian immigration by providing personalized progress tracking and community-driven timeline estimates.
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="index.html" aria-label="MaplePath home">
+        <span class="brand__mark" aria-hidden="true">🍁</span>
+        <span>MaplePath</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-nav__link" href="index.html">Home</a>
+        <a class="site-nav__link is-active" href="about.html" aria-current="page">Our story</a>
+        <a class="site-nav__link site-nav__link--signin" href="auth.html?mode=login">Sign in</a>
+        <a class="button button--small" href="auth.html?mode=signup">Build my roadmap</a>
+      </nav>
+    </div>
+  </header>
 
-    Our mission is to make the immigration process more transparent, organized, and less stressful for everyone.
-    </p>
+  <main id="main-content">
+    <section class="story-hero">
+      <div class="shell story-hero__grid">
+        <div>
+          <p class="eyebrow eyebrow--light"><span></span> Why MaplePath exists</p>
+          <h1>Immigration is complex. Your view of it shouldn’t be.</h1>
+        </div>
+        <div class="story-hero__statement">
+          <p>MaplePath helps people turn a long, uncertain Canadian immigration process into a journey they can understand, track, and act on.</p>
+          <a class="text-link text-link--light" href="auth.html?mode=signup">Create your roadmap <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
 
-    <p>
-    The first release focuses on the Manitoba Provincial Nominee Program (MPNP), with support for additional immigration pathways planned in future updates.
-    </p>
-  </div>
-</section>
+    <section class="section story-intro">
+      <div class="shell story-intro__grid">
+        <div class="story-quote">
+          <span class="story-quote__mark" aria-hidden="true">“</span>
+          <blockquote>People deserve to know where they are, what comes next, and which information they can trust.</blockquote>
+        </div>
+        <div class="prose-block">
+          <p class="eyebrow"><span></span> The problem we are solving</p>
+          <h2>A process scattered across tabs, documents, and dates.</h2>
+          <p>Canadian immigration guidance is extensive, and each pathway follows its own sequence. Applicants often piece together official pages, personal notes, spreadsheets, forum posts, and calendar reminders just to maintain a working picture of their case.</p>
+          <p>MaplePath brings that picture into one place. A selected pathway becomes a structured roadmap with preparation guidance, document lists, official references, editable dates, and personal progress.</p>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2026 MaplePath. All rights reserved. | 
-       <a href="aboutdev.html" class="dev-link">About the Developer</a>
-    </p>
-  </div>
-</footer>
+    <section class="section section--light" id="coverage">
+      <div class="shell">
+        <div class="section-heading section-heading--left">
+          <p class="eyebrow"><span></span> Current coverage</p>
+          <h2>Focused roadmaps, expanded carefully.</h2>
+          <p>Every new route is separated for accurate progress and analytics, with source information reviewed against official government guidance.</p>
+        </div>
+
+        <div class="coverage-grid">
+          <article class="coverage-card">
+            <span class="coverage-card__index">01</span>
+            <p class="mini-label">FEDERAL</p>
+            <h3>Express Entry</h3>
+            <ul>
+              <li>Canadian Experience Class</li>
+              <li>Federal Skilled Worker Program</li>
+              <li>Federal Skilled Trades Program</li>
+            </ul>
+          </article>
+          <article class="coverage-card coverage-card--accent">
+            <span class="coverage-card__index">02</span>
+            <p class="mini-label">PROVINCIAL</p>
+            <h3>Provincial Nominee Programs</h3>
+            <ul>
+              <li>Alberta Opportunity Stream</li>
+              <li>Manitoba Skilled Worker in Manitoba</li>
+              <li>BC PNP Skilled Worker</li>
+              <li>Ontario Workforce Priority</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principles-section">
+      <div class="shell split-heading">
+        <div>
+          <p class="eyebrow"><span></span> Product principles</p>
+          <h2>Built to earn clarity, not assume it.</h2>
+        </div>
+        <p>MaplePath is still growing. These principles guide how features and pathway information are added.</p>
+      </div>
+
+      <div class="shell principles-grid">
+        <article>
+          <span aria-hidden="true">◎</span>
+          <h3>Official sources first</h3>
+          <p>Roadmaps point users back to government guidance and display when program information was reviewed.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">◇</span>
+          <h3>Privacy by restraint</h3>
+          <p>MaplePath asks for the information needed to organize a journey, without requesting immigration document uploads.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">↗</span>
+          <h3>Community data with context</h3>
+          <p>Timeline averages stay separated by immigration route so different programs are not compared as if they were the same.</p>
+        </article>
+        <article>
+          <span aria-hidden="true">+</span>
+          <h3>Useful before predictive</h3>
+          <p>Reliable tracking and clean data come first. Better analytics and responsible predictions can grow from that foundation.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section maker-banner">
+      <div class="shell maker-banner__inner">
+        <div>
+          <p class="eyebrow eyebrow--light"><span></span> The person behind the product</p>
+          <h2>Built from a family’s immigration experience.</h2>
+        </div>
+        <a class="button button--light" href="aboutdev.html">Meet the developer <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="shell final-cta__inner">
+        <div>
+          <p class="eyebrow"><span></span> Start where you are</p>
+          <h2>Your journey deserves a clear view.</h2>
+          <p>Create your account, choose your pathway, and see the process take shape.</p>
+        </div>
+        <a class="button button--large" href="auth.html?mode=signup">Build my roadmap <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer__top">
+      <a class="brand brand--footer" href="index.html"><span class="brand__mark" aria-hidden="true">🍁</span><span>MaplePath</span></a>
+      <p>A clearer way to navigate your Canadian immigration journey.</p>
+      <nav aria-label="Footer navigation">
+        <a href="about.html">Our story</a>
+        <a href="aboutdev.html">Developer</a>
+        <a href="auth.html?mode=login">Sign in</a>
+      </nav>
+    </div>
+    <div class="shell site-footer__bottom">
+      <span>© 2026 MaplePath</span>
+      <span>General information only — not legal advice.</span>
+    </div>
+  </footer>
 </body>
 </html>

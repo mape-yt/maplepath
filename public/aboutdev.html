@@ -1,46 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About the Developer | MaplePath</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet Seungyun Lim, the developer building MaplePath from his family's Canadian immigration experience.">
+  <title>Meet the Developer | MaplePath</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<header class="header">
-  <div class="container">
-    <h1 class="logo">🍁 MaplePath</h1>
-    <nav>
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="auth.html" class="nav-link btn-primary">Sign Up / Login</a>
-    </nav>
-  </div>
-</header>
+<body class="public-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<section class="hero">
-  <div class="container">
-    <h2>About the Developer</h2>
-      <p>
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="index.html" aria-label="MaplePath home">
+        <span class="brand__mark" aria-hidden="true">🍁</span>
+        <span>MaplePath</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-nav__link" href="index.html">Home</a>
+        <a class="site-nav__link" href="about.html">Our story</a>
+        <a class="site-nav__link site-nav__link--signin" href="auth.html?mode=login">Sign in</a>
+        <a class="button button--small" href="auth.html?mode=signup">Build my roadmap</a>
+      </nav>
+    </div>
+  </header>
 
-      Hello!
+  <main id="main-content">
+    <section class="developer-hero">
+      <div class="shell developer-hero__grid">
+        <div class="developer-monogram" aria-hidden="true">
+          <span>SL</span>
+          <small>CANADA · MAPLEPATH</small>
+        </div>
+        <div class="developer-hero__copy">
+          <p class="eyebrow eyebrow--light"><span></span> Founder & developer</p>
+          <h1>Hi, I’m Seungyun. I’m building the tool I wish my family had.</h1>
+          <p>MaplePath began with a personal question: how can technology make a family’s immigration journey feel more understandable and less overwhelming?</p>
+        </div>
+      </div>
+    </section>
 
-      My name is Seungyun Lim.
+    <section class="section developer-story">
+      <div class="shell developer-story__grid">
+        <aside class="story-aside">
+          <p class="mini-label">THE STARTING POINT</p>
+          <strong>One lived experience.<br>One practical idea.</strong>
+        </aside>
+        <div class="prose-block prose-block--large">
+          <p>My own family’s immigration journey to Canada showed me how much work happens outside the application itself. There are requirements to interpret, documents to coordinate, waiting periods to understand, and dozens of small decisions that are easy to lose track of.</p>
+          <p>I started MaplePath to turn that uncertainty into something visible: a roadmap that tells you where you are, what to prepare, and what comes next. The product combines my interest in software with a problem that is deeply personal to me.</p>
+          <p>MaplePath is being built step by step. The current platform supports user accounts, pathway-specific roadmaps, editable timelines, community averages, and official source references. The longer-term goal is to use carefully structured anonymous data to make immigration timelines more transparent and useful.</p>
+        </div>
+      </div>
+    </section>
 
-      I created MaplePath after experiencing my own family's immigration journey to Canada.
+    <section class="section section--light">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> How I build MaplePath</p>
+          <h2>Careful with the details that matter.</h2>
+          <p>The project grows through small, testable improvements rather than sweeping rewrites.</p>
+        </div>
+        <div class="builder-grid">
+          <article>
+            <span class="builder-grid__number">01</span>
+            <h3>Read the existing system</h3>
+            <p>New work starts by understanding the current product and preserving features people already rely on.</p>
+          </article>
+          <article>
+            <span class="builder-grid__number">02</span>
+            <h3>Check the source</h3>
+            <p>Immigration guidance is researched against official government information before it enters a roadmap.</p>
+          </article>
+          <article>
+            <span class="builder-grid__number">03</span>
+            <h3>Test the full journey</h3>
+            <p>Changes are checked through the API, database, and real browser experience before they are published.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-      My goal is to build technology that helps future immigrants better understand the immigration process through community-driven data and modern web technologies.
+    <section class="section project-stack">
+      <div class="shell project-stack__inner">
+        <div>
+          <p class="eyebrow"><span></span> Built in the open</p>
+          <h2>A focused full-stack foundation.</h2>
+        </div>
+        <div class="stack-list" aria-label="MaplePath technologies">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>Express</span><span>MongoDB</span>
+        </div>
+      </div>
+    </section>
 
-      </p>
-  </div>
-</section>
+    <section class="section final-cta">
+      <div class="shell final-cta__inner">
+        <div>
+          <p class="eyebrow"><span></span> Follow the journey</p>
+          <h2>MaplePath is just getting started.</h2>
+          <p>Try the current platform and see what a clearer immigration roadmap can feel like.</p>
+        </div>
+        <a class="button button--large" href="auth.html?mode=signup">Try MaplePath <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
 
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2026 MaplePath. All rights reserved. | 
-       <a href="aboutdev.html" class="dev-link">About the Developer</a>
-    </p>
-  </div>
-</footer>
+  <footer class="site-footer">
+    <div class="shell site-footer__top">
+      <a class="brand brand--footer" href="index.html"><span class="brand__mark" aria-hidden="true">🍁</span><span>MaplePath</span></a>
+      <p>A clearer way to navigate your Canadian immigration journey.</p>
+      <nav aria-label="Footer navigation">
+        <a href="about.html">Our story</a>
+        <a href="aboutdev.html" aria-current="page">Developer</a>
+        <a href="auth.html?mode=login">Sign in</a>
+      </nav>
+    </div>
+    <div class="shell site-footer__bottom">
+      <span>© 2026 MaplePath</span>
+      <span>General information only — not legal advice.</span>
+    </div>
+  </footer>
 </body>
 </html>

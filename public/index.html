@@ -3,74 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaplePath</title>
+  <meta name="description" content="MaplePath turns your Canadian immigration pathway into a clear, personal roadmap with progress tracking and community timelines.">
+  <title>MaplePath | Your Canadian immigration journey, mapped</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <!-- Header / Navbar -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">🍁 MaplePath</h1>
-      <nav>
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="auth.html" class="nav-link btn-primary">Sign Up / Login</a> <!-- single auth button -->
+<body class="public-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="index.html" aria-label="MaplePath home">
+        <span class="brand__mark" aria-hidden="true">🍁</span>
+        <span>MaplePath</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-nav__link is-active" href="index.html" aria-current="page">Home</a>
+        <a class="site-nav__link" href="about.html">Our story</a>
+        <a class="site-nav__link site-nav__link--signin" href="auth.html?mode=login">Sign in</a>
+        <a class="button button--small" href="auth.html?mode=signup">Build my roadmap</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h2>Your Journey to Canada, Clearly Tracked.</h2>
+  <main id="main-content">
+    <section class="home-hero">
+      <div class="hero-orbit hero-orbit--one" aria-hidden="true"></div>
+      <div class="hero-orbit hero-orbit--two" aria-hidden="true"></div>
 
-      <p>
-      Track your Canadian immigration progress,
-      estimate timelines,
-      and learn from real community experiences.
-      </p>
+      <div class="shell home-hero__grid">
+        <div class="home-hero__copy">
+          <p class="eyebrow"><span></span> Canadian immigration, made navigable</p>
+          <h1>Your next step should feel <em>clear.</em></h1>
+          <p class="home-hero__lead">
+            Turn a complicated immigration process into a personal roadmap. Track every milestone,
+            organize what comes next, and compare your timeline with the MaplePath community.
+          </p>
 
-      <a href="auth.html" class="btn-primary">
-      Get Started
-      </a>
-    </div>
-  </section>
+          <div class="hero-actions">
+            <a class="button button--large" href="auth.html?mode=signup">Create your roadmap <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+          </div>
 
-  <!-- Features Section -->
-  <section class="features">
-    <div class="container">
-      <h2>Features</h2>
-      <div class="feature-cards">
-        <div class="card">
-          <h3>Track Your Progress</h3>
-          <p>Input completed stages and see what’s next.</p>
+          <ul class="hero-assurances" aria-label="MaplePath account benefits">
+            <li><span aria-hidden="true">✓</span> No email required</li>
+            <li><span aria-hidden="true">✓</span> Private account workspace</li>
+            <li><span aria-hidden="true">✓</span> Official sources included</li>
+          </ul>
         </div>
-        <div class="card">
-          <h3>Estimate Timelines</h3>
-          <p>See estimated durations for each stage based on recent user data.</p>
-        </div>
-        <div class="card">
-          <h3>Privacy Focused</h3>
-          <p>No sensitive personal information is required.</p>
+
+        <div class="roadmap-preview" aria-label="Example immigration roadmap">
+          <div class="roadmap-preview__topbar">
+            <div>
+              <span class="window-dot window-dot--red"></span>
+              <span class="window-dot window-dot--gold"></span>
+              <span class="window-dot window-dot--green"></span>
+            </div>
+            <span class="roadmap-preview__label">MY JOURNEY</span>
+          </div>
+
+          <div class="roadmap-preview__heading">
+            <div>
+              <span class="mini-label">Express Entry</span>
+              <h2>Canadian Experience Class</h2>
+            </div>
+            <div class="progress-ring" aria-label="Journey 42 percent complete"><span>42%</span></div>
+          </div>
+
+          <ol class="preview-steps">
+            <li class="preview-step is-complete">
+              <span class="preview-step__marker" aria-hidden="true">✓</span>
+              <div><strong>Check eligibility</strong><small>Completed · 2 days</small></div>
+              <span class="preview-step__status">Done</span>
+            </li>
+            <li class="preview-step is-current">
+              <span class="preview-step__marker" aria-hidden="true">2</span>
+              <div><strong>Prepare language results</strong><small>Your current stage</small></div>
+              <span class="preview-step__status">Active</span>
+            </li>
+            <li class="preview-step">
+              <span class="preview-step__marker" aria-hidden="true">3</span>
+              <div><strong>Create Express Entry profile</strong><small>Up next</small></div>
+              <span class="preview-step__status">Soon</span>
+            </li>
+          </ol>
+
+          <div class="community-signal">
+            <div class="community-signal__icon" aria-hidden="true">↗</div>
+            <div><strong>Community context</strong><span>See how your pace compares at every stage.</span></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Call to Action -->
-  <section class="cta">
-    <div class="container">
-      <h2>Start Your Journey Today</h2>
-      <a href="auth.html" class="btn-primary">Sign Up Now</a>
-    </div>
-  </section>
+    <section class="proof-bar" aria-label="Current MaplePath coverage">
+      <div class="shell proof-bar__grid">
+        <div><strong>3</strong><span>Express Entry streams</span></div>
+        <div><strong>4</strong><span>provincial programs</span></div>
+        <div><strong>1</strong><span>journey, kept in one place</span></div>
+      </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 MaplePath. All rights reserved. | 
-         <a href="aboutdev.html" class="dev-link">About the Developer</a>
-      </p>
+    <section class="section section--light" id="features">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow"><span></span> Built for the whole journey</p>
+          <h2>Less guessing. More forward motion.</h2>
+          <p>MaplePath brings the steps, evidence, dates, and context you need into one calm workspace.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card feature-card--wide feature-card--navy">
+            <div class="feature-card__icon" aria-hidden="true">⌁</div>
+            <div>
+              <p class="mini-label">PERSONAL ROADMAP</p>
+              <h3>A pathway that responds to your choice</h3>
+              <p>Select your immigration stream and MaplePath builds an ordered journey from preparation through the final federal decision.</p>
+            </div>
+            <div class="route-line" aria-hidden="true">
+              <span class="is-filled"></span><span class="is-filled"></span><span class="is-active"></span><span></span><span></span>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card__icon feature-card__icon--red" aria-hidden="true">✓</div>
+            <p class="mini-label">DOCUMENT READY</p>
+            <h3>Know what to prepare</h3>
+            <p>Open each step for document lists, preparation checks, official links, and common mistakes.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card__icon feature-card__icon--green" aria-hidden="true">◷</div>
+            <p class="mini-label">REAL TIMELINES</p>
+            <h3>Track dates that match reality</h3>
+            <p>Start, finish, and correct step dates while keeping your progress and durations organized.</p>
+          </article>
+
+          <article class="feature-card feature-card--wide feature-card--cream">
+            <div>
+              <p class="mini-label">COMMUNITY INTELLIGENCE</p>
+              <h3>Your timeline gains context</h3>
+              <p>Anonymous timeline records power pathway-specific averages, helping you understand your pace without mixing unrelated streams.</p>
+            </div>
+            <div class="mini-chart" aria-label="Decorative timeline comparison chart">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span class="is-highlighted"></span>
+              <span></span>
+              <span></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="shell split-heading">
+        <div>
+          <p class="eyebrow"><span></span> How it works</p>
+          <h2>From uncertainty to a working plan.</h2>
+        </div>
+        <p>Start with the pathway you know, then let MaplePath organize the details into manageable stages.</p>
+      </div>
+
+      <div class="shell steps-grid">
+        <article class="how-step">
+          <span class="how-step__number">01</span>
+          <h3>Choose your route</h3>
+          <p>Select an Express Entry or supported provincial pathway and tell MaplePath where you are starting.</p>
+        </article>
+        <article class="how-step">
+          <span class="how-step__number">02</span>
+          <h3>Work the roadmap</h3>
+          <p>Review the guidance, prepare documents, and record real start and completion dates for each stage.</p>
+        </article>
+        <article class="how-step">
+          <span class="how-step__number">03</span>
+          <h3>Understand your pace</h3>
+          <p>Watch your overall progress and compare completed stages with community timelines from the same route.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section--pathways">
+      <div class="shell pathway-panel">
+        <div class="pathway-panel__copy">
+          <p class="eyebrow eyebrow--light"><span></span> Growing pathway library</p>
+          <h2>Start with the route that fits your journey.</h2>
+          <p>Current roadmap coverage includes Express Entry and selected provincial nominee programs, with more Canadian pathways planned.</p>
+          <a class="button button--light" href="about.html#coverage">Explore current coverage <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="pathway-list" aria-label="Supported pathway examples">
+          <span>Canadian Experience Class</span>
+          <span>Federal Skilled Worker</span>
+          <span>Federal Skilled Trades</span>
+          <span>Alberta Opportunity Stream</span>
+          <span>BC PNP Skilled Worker</span>
+          <span>Manitoba Skilled Worker</span>
+          <span>Ontario Workforce Priority</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="shell final-cta__inner">
+        <div>
+          <p class="eyebrow"><span></span> Your path starts here</p>
+          <h2>Make the next step the clear one.</h2>
+          <p>Create a private MaplePath account and turn your immigration process into a journey you can see.</p>
+        </div>
+        <a class="button button--large" href="auth.html?mode=signup">Start tracking <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer__top">
+      <a class="brand brand--footer" href="index.html"><span class="brand__mark" aria-hidden="true">🍁</span><span>MaplePath</span></a>
+      <p>A clearer way to navigate your Canadian immigration journey.</p>
+      <nav aria-label="Footer navigation">
+        <a href="about.html">Our story</a>
+        <a href="aboutdev.html">Developer</a>
+        <a href="auth.html?mode=login">Sign in</a>
+      </nav>
+    </div>
+    <div class="shell site-footer__bottom">
+      <span>© 2026 MaplePath</span>
+      <span>General information only — not legal advice.</span>
     </div>
   </footer>
 </body>
