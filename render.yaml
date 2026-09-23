@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: maplepath
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: MONGO_URI
+        sync: false
