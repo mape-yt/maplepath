@@ -21,21 +21,27 @@ TLS verification to work around a certificate error.
 
 ## Current journey support
 
-The Journey page loads Express Entry CEC, FSWP, and FSTP roadmaps, plus the
-Alberta Opportunity Stream and Manitoba Skilled Worker in Manitoba PNP
-roadmaps. Supported streams and stable analytics keys are registered in
+The Journey page loads Express Entry CEC, FSWP, and FSTP roadmaps, plus Alberta
+Opportunity, Skilled Worker in Manitoba, BC PNP Skilled Worker, and Ontario
+Workforce Priority TEER 0–3 PNP roadmaps. BC and Ontario provide separate base
+and Express Entry variants so the provincial nomination and federal application
+steps cannot be mixed. Supported streams and stable analytics keys are
+registered in
 `data/roadmaps/registry.js`; adding a name to the profile options alone does
-not create a working roadmap. CEC and the two PNP roadmaps have guidance with
-official government links. FSWP and FSTP have the richer structure, but their
+not create a working roadmap. CEC and all six PNP route variants have guidance
+with official government links. FSWP and FSTP have the richer structure, but their
 detailed guidance still needs review and authoring.
 
 Saved Journey progress is keyed by the selected stream. Existing Express Entry
 progress is associated with the user's selected Express Entry stream the first
 time they open Journey or edit their profile after this update. Existing timeline
 records and community averages keep their established EE profile keys. PNP
-records use separate `PNP-AAIP-AOS` and `PNP-MPNP-SWM` keys. The new PNP roadmaps
-follow the provincial nomination stage with the federal non-Express Entry PR
-process; neither nomination guarantees PR approval. Manitoba nominees whose
+records use separate stable keys for every PNP and federal-route variant. The
+Journey summary shows the program status observed at the last official-source
+review, review date, federal application route, and primary government page.
+These details are dated guidance rather than a live eligibility decision.
+Neither provincial nomination nor invitation guarantees PR approval. Manitoba
+nominees whose
 nomination is linked to Express Entry must follow IRCC's Express Entry PNP
 federal process instead of the non-Express Entry stages shown here.
 

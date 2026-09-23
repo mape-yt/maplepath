@@ -1,0 +1,789 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "BC PNP Skilled Worker (Base)",
+    "profileKey": "PNP-BC-SW-BASE",
+    "province": "British Columbia",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-22",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "B.C.: Skills Immigration for workers",
+        "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+        "verifiedAt": "2026-09-22"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Confirm Skilled Worker and base BC PNP eligibility",
+            "description": "Check the BC PNP Skilled Worker requirements for the base option. Review the job offer, employer support, qualifications, work experience, language, wage, family-income and immigration-status rules that apply to you.",
+            "requiredDocuments": [
+                {
+                    "id": "bc-job-offer",
+                    "title": "Eligible B.C. job offer",
+                    "requirement": "required",
+                    "description": "Normally full-time and indeterminate in a TEER 0, 1, 2 or 3 occupation; the current guide lists exceptions and ineligible occupations.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-declaration",
+                    "title": "Completed Employer Declaration Form",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: BC PNP documents",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program/documents",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-experience",
+                    "title": "Evidence of qualifying skilled work experience",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-result",
+                    "title": "Approved language test result",
+                    "requirement": "conditional",
+                    "condition": "Required when the program guide requires language evidence for your situation.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "licence",
+                    "title": "Licence, registration or certification",
+                    "requirement": "conditional",
+                    "condition": "Required when the offered occupation is regulated.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-noc",
+                    "text": "Confirm the offered occupation's NOC and TEER and make sure it is not on the current ineligible-occupation list."
+                },
+                {
+                    "id": "check-employer",
+                    "text": "Ask the employer to confirm it meets the current BC PNP requirements and will support the application."
+                },
+                {
+                    "id": "check-route",
+                    "text": "Confirm you intend to use the base BC PNP route before registering."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Program Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming every TEER 0–3 occupation or employer is eligible without checking the current guide.",
+                "Counting work experience or qualifications that do not meet the published rules."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Prepare registration and application evidence",
+            "description": "Gather the job-offer, employer, work-experience, education, language, status, wage and family-income evidence needed to support the information you will enter. Registration claims can be verified if you are invited.",
+            "requiredDocuments": [
+                {
+                    "id": "bc-job-offer",
+                    "title": "Eligible B.C. job offer",
+                    "requirement": "required",
+                    "description": "Normally full-time and indeterminate in a TEER 0, 1, 2 or 3 occupation; the current guide lists exceptions and ineligible occupations.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-declaration",
+                    "title": "Completed Employer Declaration Form",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: BC PNP documents",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program/documents",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-experience",
+                    "title": "Evidence of qualifying skilled work experience",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-result",
+                    "title": "Approved language test result",
+                    "requirement": "conditional",
+                    "condition": "Required when the program guide requires language evidence for your situation.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "licence",
+                    "title": "Licence, registration or certification",
+                    "requirement": "conditional",
+                    "condition": "Required when the offered occupation is regulated.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "match-records",
+                    "text": "Make names, dates, duties, hours, wage and NOC information consistent across the records."
+                },
+                {
+                    "id": "scan-files",
+                    "text": "Prepare clear scans in the file formats and size limits in the current application guide."
+                },
+                {
+                    "id": "review-claims",
+                    "text": "Keep evidence for every registration factor for which you claim points."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration Application Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-technical-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: BC PNP documents",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program/documents",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Entering a registration score that cannot be supported later.",
+                "Uploading an outdated Employer Declaration Form."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Register under Skills Immigration – Skilled Worker",
+            "description": "Create a profile in BCPNP Online, select the base Skills Immigration Skilled Worker option, enter accurate information and submit the registration. Registration places you in a scored pool and is not a provincial application.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "choose-correct-option",
+                    "text": "Select Skills Immigration – Skilled Worker in the portal."
+                },
+                {
+                    "id": "save-registration",
+                    "text": "Save the registration confirmation and score."
+                },
+                {
+                    "id": "monitor-changes",
+                    "text": "Update or withdraw the registration if your circumstances make it inaccurate."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Application Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-technical-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Choosing the wrong federal-route option.",
+                "Treating registration as a guarantee of invitation or nomination."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "waiting",
+            "title": "Wait for a BC PNP invitation to apply",
+            "description": "The registration remains in the pool for up to 12 months or until an invitation is issued. B.C. may target invitations based on current priorities, and meeting eligibility or having a score does not guarantee an invitation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "watch-account",
+                    "text": "Monitor the portal and the email attached to your account."
+                },
+                {
+                    "id": "keep-eligible",
+                    "text": "Keep the job offer, employer support and immigration status valid."
+                },
+                {
+                    "id": "track-expiry",
+                    "text": "Track the registration expiry date and current invitation information."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Program Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a registration will automatically lead to an invitation.",
+                "Failing to update material changes while in the pool."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Prepare the invited BC PNP application",
+            "description": "If invited, review the invitation and current guides immediately. B.C. currently allows up to 30 calendar days from the invitation date to submit a complete application, supporting documents and fee.",
+            "requiredDocuments": [
+                {
+                    "id": "bc-job-offer",
+                    "title": "Eligible B.C. job offer",
+                    "requirement": "required",
+                    "description": "Normally full-time and indeterminate in a TEER 0, 1, 2 or 3 occupation; the current guide lists exceptions and ineligible occupations.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-declaration",
+                    "title": "Completed Employer Declaration Form",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: BC PNP documents",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/about-the-bc-provincial-nominee-program/documents",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-experience",
+                    "title": "Evidence of qualifying skilled work experience",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-result",
+                    "title": "Approved language test result",
+                    "requirement": "conditional",
+                    "condition": "Required when the program guide requires language evidence for your situation.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "licence",
+                    "title": "Licence, registration or certification",
+                    "requirement": "conditional",
+                    "condition": "Required when the offered occupation is regulated.",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Program Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-deadline",
+                    "text": "Record the exact 30-calendar-day deadline shown in the portal."
+                },
+                {
+                    "id": "verify-registration",
+                    "text": "Confirm every scored registration claim remains accurate."
+                },
+                {
+                    "id": "finalize-employer-files",
+                    "text": "Obtain the signed current employer documents and supporting records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Application Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-technical-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Waiting until the deadline to request employer documents.",
+                "Submitting after facts used for the invitation have changed without checking the rules."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Submit and pay for the BC PNP application",
+            "description": "Complete every section in BCPNP Online, upload the required evidence, review the declarations, pay the current application fee in the portal and submit before the invitation expires.",
+            "requiredDocuments": [
+                {
+                    "id": "application-evidence",
+                    "title": "Complete Skills Immigration supporting-document package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Application Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-technical-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "BC PNP payment confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration for workers",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-submission",
+                    "text": "Review answers, uploads and declarations before submitting."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the application number, payment receipt and submission confirmation."
+                },
+                {
+                    "id": "retain-copies",
+                    "text": "Keep a copy of the exact application package submitted."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Application Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-technical-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Paying outside the official portal.",
+                "Submitting incomplete, unreadable or inconsistent evidence."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "province",
+            "title": "Wait for the BC PNP decision and respond to requests",
+            "description": "B.C. assesses the applicant, employer and job offer and may request information or conduct verification. Report material changes and respond by each stated deadline. A submitted application does not guarantee nomination.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-requests",
+                    "text": "Monitor the portal and email for requests or a decision."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes to employment, status, family or contact details as required."
+                },
+                {
+                    "id": "maintain-conditions",
+                    "text": "Continue meeting the stream and employer-supported conditions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Program Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": {
+                "description": "B.C. reports that around 80% of BC PNP applications are processed in approximately 3 months; individual cases vary.",
+                "scope": "Provincial application processing after B.C. receives a complete application",
+                "minimum": 3,
+                "maximum": 3,
+                "unit": "months",
+                "source": {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                }
+            },
+            "commonMistakes": [
+                "Ignoring a request because the application appears complete.",
+                "Failing to report a material employment change."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Review the B.C. nomination package and conditions",
+            "description": "If approved, check the Confirmation of Nomination, expiry date and conditions. Continue meeting the job-offer and employment conditions and use the post-nomination guide for changes or support requests.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-package",
+                    "title": "BC PNP nomination package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "B.C.: Skills Immigration Post-Nomination Guide",
+                            "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-post-nomination-guide-pdf",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-details",
+                    "text": "Check all personal, employer and occupation details."
+                },
+                {
+                    "id": "record-expiry",
+                    "text": "Record the nomination expiry date."
+                },
+                {
+                    "id": "review-conditions",
+                    "text": "Review the conditions and change-reporting duties."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "B.C.: Skills Immigration for workers",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/for-workers",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Post-Nomination Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-post-nomination-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating nomination as permanent residence approval.",
+                "Waiting until the nomination is close to expiry to prepare the federal application."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry federal PR application",
+            "description": "Use IRCC's current non-Express Entry PNP checklist and PR Portal instructions. Prepare the nomination confirmation, forms, passports, identity and civil-status records, photos, police certificates and applicable family documents.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-confirmation",
+                    "title": "Confirmation of nomination",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "ircc-forms",
+                    "title": "Current IRCC PNP forms and checklist",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "identity-civil-documents",
+                    "title": "Passport, identity and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificates",
+                    "title": "Police certificates",
+                    "requirement": "conditional",
+                    "condition": "Required according to IRCC's residence-history rules.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "use-current-checklist",
+                    "text": "Open the current IRCC checklist when preparing the package."
+                },
+                {
+                    "id": "check-translations",
+                    "text": "Follow IRCC translation requirements."
+                },
+                {
+                    "id": "check-signatures",
+                    "text": "Check every form and signature requirement."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Post-Nomination Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-post-nomination-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry forms for a base nomination.",
+                "Submitting expired, unsigned or incomplete records."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Submit the non-Express Entry permanent residence application",
+            "description": "Apply online through IRCC's PR Portal before the B.C. nomination expires. Complete all forms, upload the required documents and fee receipt, and save proof of submission.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "IRCC fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP process",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "complete-federal-package",
+                    "title": "Complete PR Portal application package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP process",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "submit-before-expiry",
+                    "text": "Submit before the nomination expiry date."
+                },
+                {
+                    "id": "save-submission",
+                    "text": "Save the submitted application and confirmation."
+                },
+                {
+                    "id": "track-aor",
+                    "text": "Track the acknowledgement and file number when issued."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply through the non-Express Entry PNP process",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Post-Nomination Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-post-nomination-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the provincial application also submitted a federal PR application.",
+                "Missing the nomination expiry date."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "ircc",
+            "title": "Complete IRCC biometrics, medical and document requests",
+            "description": "IRCC checks completeness and admissibility and may issue biometrics, medical or additional-document instructions. Follow the notice-specific deadlines and keep B.C. and IRCC informed of relevant changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "follow-biometrics",
+                    "text": "Give biometrics only as directed and within the letter's deadline."
+                },
+                {
+                    "id": "follow-medical",
+                    "text": "Use an approved panel physician when instructed."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report relevant family, address, status or employment changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After a non-Express Entry PNP application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Post-Nomination Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-post-nomination-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing a deadline because only one account was monitored.",
+                "Completing an exam with a provider IRCC does not accept."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC makes the final permanent residence decision. If approved, follow the confirmation and landing instructions and continue complying with the B.C. nomination conditions until permanent residence is granted.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Read the full IRCC decision and instructions."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the confirmation or landing process."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep copies of the provincial and federal records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After a non-Express Entry PNP application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "B.C.: Skills Immigration Post-Nomination Guide",
+                    "url": "https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-post-nomination-guide-pdf",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming provincial nomination guarantees federal approval."
+            ]
+        }
+    ]
+}

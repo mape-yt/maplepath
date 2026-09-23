@@ -17,7 +17,8 @@ an expandable guidance section when a step has it; older roadmaps remain valid.
   separate migration plan.
 - Keep profile keys `EE-CEC`, `EE-FSWP`, and `EE-FSTP` stable. The new roadmap
   `profileKey` documents the existing mapping. New PNP keys are
-  `PNP-AAIP-AOS` and `PNP-MPNP-SWM`; keep them stable as well.
+  `PNP-AAIP-AOS`, `PNP-MPNP-SWM`, `PNP-BC-SW-BASE`, `PNP-BC-SW-EEBC`,
+  `PNP-OINP-OWP03-BASE`, and `PNP-OINP-OWP03-EE`; keep them stable as well.
 - Register every supported pathway/stream in `registry.js` and the options API.
   The registry also supplies the province for PNP streams.
 - `schemaVersion: 2` describes the content format, not a new user journey.
@@ -37,6 +38,11 @@ an expandable guidance section when a step has it; older roadmaps remain valid.
 | `officialLinks` | Array of `{ label, url, verifiedAt }`. Use verified official government HTTPS URLs; review dates use `YYYY-MM-DD`. |
 | `governmentTimeline` | `null`, or `{ description, scope, minimum, maximum, unit, source }`. Source has the official-link shape. Units are `days`, `weeks`, or `months`; bounds can be null when unknown. |
 | `commonMistakes` | Array of plain-text strings. |
+| `province` | Province that administers a PNP roadmap. |
+| `programStatus` | Status observed during the source review: `active`, `limited`, `paused`, or `closed`. It is a dated observation, not a live guarantee. |
+| `lastVerifiedAt` | Date the top-level program and route details were checked against official sources. |
+| `federalApplicationRoute` | `express-entry`, `non-express-entry`, or `route-dependent`. Use separate roadmap/profile keys when the federal steps diverge. |
+| `officialProgramPage` | Primary official government page, using the official-link shape. |
 
 All new fields are optional in the schema to support legacy files. Empty means
 **not yet curated**, not that no documents or preparation are needed. The CEC
@@ -45,11 +51,20 @@ new fields and their descriptions have not been newly reviewed for legal
 accuracy.
 
 The Alberta Opportunity Stream and Skilled Worker in Manitoba roadmaps were
-reviewed against Alberta, Manitoba, and IRCC sources on 2026-09-21. Their
+reviewed against Alberta, Manitoba, and IRCC sources again on 2026-09-22. Their
 `governmentTimeline` fields remain null: invitation selection and application
 processing times are not fixed promises. The roadmaps describe non-Express
 Entry federal PR steps after provincial nomination. Other AAIP and MPNP
 streams are not yet represented by these two roadmaps.
+
+The BC PNP Skilled Worker and Ontario Workforce Priority TEER 0–3 programs have
+separate base and Express Entry variants because their federal steps diverge
+after provincial approval. The variants share provincial eligibility and
+application rules but use different stable profile keys, saved progress,
+timeline records, analytics, nomination acceptance, and federal application
+steps. These roadmaps were checked on 2026-09-22 against the current B.C.,
+Ontario, and IRCC guidance. Ontario's former eight OINP streams closed in June
+2026 and must not be reintroduced as current pathway options.
 
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that

@@ -603,8 +603,30 @@ function formatDate(date){
 
 
 
-    const formatted =
-        new Date(date);
+    const dateOnlyMatch =
+        typeof date === "string"
+            ? date.match(/^(\d{4})-(\d{2})-(\d{2})$/)
+            : null;
+
+
+
+    const formatted = dateOnlyMatch
+        ? new Date(
+            Number(dateOnlyMatch[1]),
+            Number(dateOnlyMatch[2]) - 1,
+            Number(dateOnlyMatch[3])
+        )
+        : new Date(date);
+
+
+
+    if(Number.isNaN(formatted.getTime())){
+
+
+        return "N/A";
+
+
+    }
 
 
 
@@ -1025,6 +1047,9 @@ function renderJourneySummary(){
 
 
         </div>
+
+
+        ${renderRoadmapMetadata(state.roadmap)}
 
 
 
@@ -1528,6 +1553,39 @@ function escapeRoadmapText(value){
 
 function roadmapItems(value){
     return Array.isArray(value) ? value : [];
+}
+
+function renderRoadmapMetadata(roadmap){
+    if(!roadmap?.lastVerifiedAt && !roadmap?.federalApplicationRoute && !roadmap?.officialProgramPage){
+        return "";
+    }
+
+    const statusLabels = {
+        active:"Active when reviewed",
+        limited:"Limited intake when reviewed",
+        paused:"Paused when reviewed",
+        closed:"Closed when reviewed"
+    };
+    const routeLabels = {
+        "express-entry":"Express Entry federal route",
+        "non-express-entry":"Non-Express Entry federal route",
+        "route-dependent":"Federal route depends on the nomination"
+    };
+    const status = statusLabels[roadmap.programStatus] || "Program status not recorded";
+    const route = routeLabels[roadmap.federalApplicationRoute] || "Federal route not recorded";
+    const checked = roadmap.lastVerifiedAt
+        ? `<span>Official guidance reviewed <time datetime="${escapeRoadmapText(roadmap.lastVerifiedAt)}">${escapeRoadmapText(roadmap.lastVerifiedAt)}</time></span>`
+        : "";
+    const official = renderRoadmapLink(roadmap.officialProgramPage);
+
+    return `<aside class="roadmap-metadata" aria-label="Roadmap source information">
+        <div class="roadmap-metadata-copy">
+            <span class="program-status program-status-${escapeRoadmapText(roadmap.programStatus || "unknown")}">${escapeRoadmapText(status)}</span>
+            <strong>${escapeRoadmapText(route)}</strong>
+            ${checked}
+        </div>
+        ${official ? `<div class="roadmap-metadata-link">${official}</div>` : ""}
+    </aside>`;
 }
 
 function renderRoadmapLink(link){

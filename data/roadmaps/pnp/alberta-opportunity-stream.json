@@ -4,6 +4,15 @@
     "pathway": "Provincial Nominee Program",
     "stream": "Alberta Opportunity Stream (AAIP)",
     "profileKey": "PNP-AAIP-AOS",
+    "province": "Alberta",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-22",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Alberta: Alberta Opportunity Stream",
+        "url": "https://www.alberta.ca/aaip-alberta-opportunity-stream-eligibility",
+        "verifiedAt": "2026-09-22"
+    },
     "steps": [
         {
             "order": 1,

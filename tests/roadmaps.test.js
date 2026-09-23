@@ -24,22 +24,36 @@ test("every advertised Express Entry and PNP stream has a distinct registered ro
     assert.equal(keys.size, roadmaps.length);
     assert.equal(options.streamProvinces["Alberta Opportunity Stream (AAIP)"], "Alberta");
     assert.equal(options.streamProvinces["Skilled Worker in Manitoba (MPNP)"], "Manitoba");
+    assert.equal(options.streamProvinces["BC PNP Skilled Worker (Base)"], "British Columbia");
+    assert.equal(options.streamProvinces["BC PNP Skilled Worker – Express Entry BC"], "British Columbia");
+    assert.equal(options.streamProvinces["Ontario Workforce Priority: TEER 0–3 (Base)"], "Ontario");
+    assert.equal(options.streamProvinces["Ontario Workforce Priority: TEER 0–3 (Express Entry)"], "Ontario");
 });
 
 test("new provincial guidance has official sources and valid content identifiers", () => {
-    const trustedHosts = new Set(["www.alberta.ca", "immigratemanitoba.com", "www.canada.ca"]);
+    const trustedHosts = new Set([
+        "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
+        "www.welcomebc.ca", "www.ontario.ca"
+    ]);
     for(const definition of roadmaps.filter(item => item.pathway === "Provincial Nominee Program")){
         const roadmap = loadRoadmap(definition);
         assert.equal(roadmap.schemaVersion, 2);
-        assert.equal(roadmap.steps.length, 12);
+        assert.ok(roadmap.steps.length >= 12);
+        assert.equal(roadmap.province, definition.province);
+        assert.equal(roadmap.programStatus, "active");
+        assert.match(roadmap.lastVerifiedAt, /^\d{4}-\d{2}-\d{2}$/);
+        assert.ok(["express-entry", "non-express-entry", "route-dependent"]
+            .includes(roadmap.federalApplicationRoute));
+        assert.ok(roadmap.officialProgramPage);
         for(const step of roadmap.steps){
             assert.ok(["applicant", "waiting", "province", "ircc"].includes(step.type));
             assert.ok(step.description);
             assert.ok(step.officialLinks.length > 0, `${definition.profileKey} step ${step.order}`);
-            assert.equal(step.governmentTimeline, null);
             const links = [
+                roadmap.officialProgramPage,
                 ...step.officialLinks,
-                ...step.requiredDocuments.flatMap(document => document.officialLinks || [])
+                ...step.requiredDocuments.flatMap(document => document.officialLinks || []),
+                ...(step.governmentTimeline?.source ? [step.governmentTimeline.source] : [])
             ];
             for(const link of links){
                 const url = new URL(link.url);
@@ -59,6 +73,32 @@ test("new provincial guidance has official sources and valid content identifiers
     const manitoba = loadRoadmap(findRoadmap("Provincial Nominee Program", "Skilled Worker in Manitoba (MPNP)"));
     assert.match(manitoba.steps[7].description, /enhanced Express Entry nomination needs different federal steps/);
     assert.match(manitoba.steps[8].description, /not linked to Express Entry/);
+});
+
+test("base and Express Entry variants use separate profile keys and federal steps", () => {
+    const pairs = [
+        ["BC PNP Skilled Worker (Base)", "BC PNP Skilled Worker – Express Entry BC"],
+        ["Ontario Workforce Priority: TEER 0–3 (Base)", "Ontario Workforce Priority: TEER 0–3 (Express Entry)"]
+    ];
+    for(const [baseName, expressName] of pairs){
+        const baseDefinition = findRoadmap("Provincial Nominee Program", baseName);
+        const expressDefinition = findRoadmap("Provincial Nominee Program", expressName);
+        assert.notEqual(baseDefinition.profileKey, expressDefinition.profileKey);
+
+        const base = loadRoadmap(baseDefinition);
+        const express = loadRoadmap(expressDefinition);
+        assert.equal(base.federalApplicationRoute, "non-express-entry");
+        assert.equal(express.federalApplicationRoute, "express-entry");
+        assert.ok(base.steps.some(step => /non-Express Entry permanent residence application/.test(step.title)));
+        assert.ok(!base.steps.some(step => /Accept the electronic/.test(step.title)));
+        assert.ok(express.steps.some(step => /Accept the electronic/.test(step.title)));
+        assert.ok(express.steps.some(step => /Express Entry permanent residence application/.test(step.title)));
+        assert.deepEqual(express.steps.map(step => step.order),
+            express.steps.map((_, index) => index + 1));
+    }
+
+    assert.ok(!options.streams["Provincial Nominee Program"]
+        .some(stream => /Human Capital Priorities|Employer Job Offer: Foreign Worker/.test(stream)));
 });
 
 test("legacy Express Entry progress migrates once and PNP streams stay separate", () => {

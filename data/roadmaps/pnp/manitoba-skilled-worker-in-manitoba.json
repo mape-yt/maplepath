@@ -4,6 +4,15 @@
     "pathway": "Provincial Nominee Program",
     "stream": "Skilled Worker in Manitoba (MPNP)",
     "profileKey": "PNP-MPNP-SWM",
+    "province": "Manitoba",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-22",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Manitoba: Skilled Worker in Manitoba",
+        "url": "https://immigratemanitoba.com/mpnp/skilled-worker/swm/eligibility/",
+        "verifiedAt": "2026-09-22"
+    },
     "steps": [
         {
             "order": 1,

@@ -529,6 +529,63 @@ body{
 
 }
 
+.roadmap-metadata{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin:-8px 0 26px;
+    padding:15px 18px;
+    border:1px solid #d9e8dc;
+    border-radius:12px;
+    background:#f7fbf8;
+}
+
+.roadmap-metadata-copy{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px 14px;
+    color:#526057;
+    font-size:13px;
+}
+
+.roadmap-metadata-copy strong{
+    color:#263d2b;
+}
+
+.program-status{
+    padding:4px 9px;
+    border-radius:999px;
+    font-weight:700;
+}
+
+.program-status-active{
+    color:#1f6b31;
+    background:#dff3e4;
+}
+
+.program-status-limited,
+.program-status-paused{
+    color:#7a4b05;
+    background:#fff0c9;
+}
+
+.program-status-closed{
+    color:#8b2424;
+    background:#fde2e2;
+}
+
+.roadmap-metadata-link a{
+    color:#1d5f9e;
+    font-weight:700;
+    white-space:nowrap;
+}
+
+.roadmap-metadata-link small{
+    display:none;
+}
+
 .stage-badge.province{
     background:#6d4c41;
 }
@@ -991,4 +1048,15 @@ body{
 
 .roadmap-links{
     margin-top:6px;
+}
+
+@media (max-width:700px){
+    .roadmap-metadata{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .roadmap-metadata-link a{
+        white-space:normal;
+    }
 }

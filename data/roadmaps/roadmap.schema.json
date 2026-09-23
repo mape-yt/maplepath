@@ -32,6 +32,32 @@
             "type": "string",
             "minLength": 1
         },
+        "province": {
+            "type": "string",
+            "minLength": 1
+        },
+        "programStatus": {
+            "enum": [
+                "active",
+                "limited",
+                "paused",
+                "closed"
+            ]
+        },
+        "lastVerifiedAt": {
+            "type": "string",
+            "format": "date"
+        },
+        "federalApplicationRoute": {
+            "enum": [
+                "express-entry",
+                "non-express-entry",
+                "route-dependent"
+            ]
+        },
+        "officialProgramPage": {
+            "$ref": "#/$defs/officialLink"
+        },
         "steps": {
             "type": "array",
             "minItems": 1,

@@ -24,7 +24,11 @@ const immigrationOptions = {
 
         "Provincial Nominee Program": [
             "Alberta Opportunity Stream (AAIP)",
-            "Skilled Worker in Manitoba (MPNP)"
+            "Skilled Worker in Manitoba (MPNP)",
+            "BC PNP Skilled Worker (Base)",
+            "BC PNP Skilled Worker – Express Entry BC",
+            "Ontario Workforce Priority: TEER 0–3 (Base)",
+            "Ontario Workforce Priority: TEER 0–3 (Express Entry)"
         ],
 
         "Express Entry": [
@@ -44,7 +48,11 @@ const immigrationOptions = {
 
     streamProvinces: {
         "Alberta Opportunity Stream (AAIP)": "Alberta",
-        "Skilled Worker in Manitoba (MPNP)": "Manitoba"
+        "Skilled Worker in Manitoba (MPNP)": "Manitoba",
+        "BC PNP Skilled Worker (Base)": "British Columbia",
+        "BC PNP Skilled Worker – Express Entry BC": "British Columbia",
+        "Ontario Workforce Priority: TEER 0–3 (Base)": "Ontario",
+        "Ontario Workforce Priority: TEER 0–3 (Express Entry)": "Ontario"
     },
 
     provinces: [

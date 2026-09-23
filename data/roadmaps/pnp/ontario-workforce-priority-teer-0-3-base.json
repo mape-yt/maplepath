@@ -1,0 +1,788 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "Ontario Workforce Priority: TEER 0–3 (Base)",
+    "profileKey": "PNP-OINP-OWP03-BASE",
+    "province": "Ontario",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-22",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Ontario: Ontario Workforce Priority stream",
+        "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+        "verifiedAt": "2026-09-22"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check Workforce Priority TEER 0–3 and non-Express Entry eligibility",
+            "description": "Confirm that the job offer, work experience or licence, language, education, legal status and intent meet Ontario's TEER 0–3 rules. Choose the base route if you will apply through IRCC's non-Express Entry PNP process after nomination.",
+            "requiredDocuments": [
+                {
+                    "id": "ontario-job-offer",
+                    "title": "Full-time, permanent Ontario job offer in TEER 0, 1, 2 or 3",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-experience-or-licence",
+                    "title": "Qualifying work-experience evidence or mandatory licence",
+                    "requirement": "required",
+                    "description": "Use the exact option that applies to your job-offer occupation and circumstances.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-evidence",
+                    "title": "Approved language result or eligible recent Ontario credential",
+                    "requirement": "required",
+                    "description": "The required evidence depends on the occupation and the exemption rules on the official page.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-or-licence",
+                    "title": "Qualifying education, ECA or mandatory licence evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "status-document",
+                    "title": "Canadian status document",
+                    "requirement": "conditional",
+                    "condition": "Required when you are applying from inside Canada.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Workforce Priority applicant checklist",
+                            "url": "https://www.ontario.ca/document/oinp-document-checklists/applicant-checklist-ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-teer",
+                    "text": "Confirm the second digit of the five-digit NOC places the job in TEER 0, 1, 2 or 3."
+                },
+                {
+                    "id": "choose-work-option",
+                    "text": "Identify the exact work-experience or mandatory-licence option you meet."
+                },
+                {
+                    "id": "check-employer",
+                    "text": "Ask the employer to confirm it meets Ontario's employer and job-offer requirements."
+                },
+                {
+                    "id": "choose-route",
+                    "text": "Confirm you intend to use the non-Express Entry federal route."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: 2026 OINP program updates",
+                    "url": "https://www.ontario.ca/page/2026-ontario-immigrant-nominee-program-updates",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using requirements from one of Ontario's eight streams closed in June 2026.",
+                "Assuming the same language or education rule applies to every TEER 0–3 occupation."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Prepare OINP applicant and employer evidence",
+            "description": "Use the current Workforce Priority applicant checklist and employer guide. Prepare identity, status, education, language, work-history, licensing, pay, résumé, Ontario-intent and EOI-scoring evidence, while the employer prepares its business and position records.",
+            "requiredDocuments": [
+                {
+                    "id": "ontario-job-offer",
+                    "title": "Full-time, permanent Ontario job offer in TEER 0, 1, 2 or 3",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-experience-or-licence",
+                    "title": "Qualifying work-experience evidence or mandatory licence",
+                    "requirement": "required",
+                    "description": "Use the exact option that applies to your job-offer occupation and circumstances.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-evidence",
+                    "title": "Approved language result or eligible recent Ontario credential",
+                    "requirement": "required",
+                    "description": "The required evidence depends on the occupation and the exemption rules on the official page.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-or-licence",
+                    "title": "Qualifying education, ECA or mandatory licence evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "status-document",
+                    "title": "Canadian status document",
+                    "requirement": "conditional",
+                    "condition": "Required when you are applying from inside Canada.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Workforce Priority applicant checklist",
+                            "url": "https://www.ontario.ca/document/oinp-document-checklists/applicant-checklist-ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "prepare-applicant-consent",
+                    "text": "Plan to complete the Applicant Consent Form after invitation and final application review."
+                },
+                {
+                    "id": "prepare-work-records",
+                    "text": "Collect detailed reference letters and compensation evidence for claimed experience."
+                },
+                {
+                    "id": "prepare-employer-records",
+                    "text": "Ask the employer to prepare the portal, job-offer and position-approval evidence."
+                },
+                {
+                    "id": "redact-cards",
+                    "text": "Remove credit-card numbers from financial documents as Ontario instructs."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Workforce Priority applicant checklist",
+                    "url": "https://www.ontario.ca/document/oinp-document-checklists/applicant-checklist-ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: OINP employer guide",
+                    "url": "https://www.ontario.ca/page/oinp-employer-guide",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Uploading extra non-mandatory records that delay review.",
+                "Using vague employment letters without duties, hours, dates or compensation."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Have the employer submit the job offer in the Employer Portal",
+            "description": "The Ontario employer starts the process by registering its business and submitting the job-offer details in the Employer Portal. Ontario then sends the applicant a job-offer ID for the EOI.",
+            "requiredDocuments": [
+                {
+                    "id": "job-offer-id",
+                    "title": "OINP job-offer ID",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-job-offer",
+                    "title": "Employer's full-time permanent job-offer record",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: OINP employer guide",
+                            "url": "https://www.ontario.ca/page/oinp-employer-guide",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-employer-email",
+                    "text": "Confirm the employer uses accurate applicant contact details."
+                },
+                {
+                    "id": "save-job-offer-id",
+                    "text": "Save the job-offer ID when Ontario issues it."
+                },
+                {
+                    "id": "review-position",
+                    "text": "Check the occupation, location, wage and duties before EOI registration."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: OINP employer guide",
+                    "url": "https://www.ontario.ca/page/oinp-employer-guide",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Registering an EOI before the employer-generated job-offer ID exists.",
+                "Allowing employer and applicant records to describe different positions."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Register the Ontario Workforce Priority EOI",
+            "description": "Register an expression of interest using the employer-generated job-offer ID within 30 calendar days of the employer's job-offer submission. Enter accurate scoring information and select the TEER 0–3 pathway.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "record-eoi-deadline",
+                    "text": "Record the 30-calendar-day registration deadline."
+                },
+                {
+                    "id": "select-teer-pathway",
+                    "text": "Select the Workforce Priority TEER 0–3 pathway."
+                },
+                {
+                    "id": "review-score-claims",
+                    "text": "Keep evidence for every claimed EOI scoring factor."
+                },
+                {
+                    "id": "save-eoi",
+                    "text": "Save the EOI number and confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the 30-day EOI registration period.",
+                "Treating EOI points as substitutes for the stream's minimum criteria."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "waiting",
+            "title": "Wait for an OINP invitation to apply",
+            "description": "Ontario may invite candidates from the EOI pool based on scores and provincial priorities. Keep the EOI and job-offer facts accurate and monitor both applicant and employer email. Registration does not guarantee an invitation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-notices",
+                    "text": "Monitor the OINP account and email."
+                },
+                {
+                    "id": "maintain-offer",
+                    "text": "Keep the job offer and employer support valid."
+                },
+                {
+                    "id": "update-changes",
+                    "text": "Follow OINP instructions for material changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: 2026 OINP program updates",
+                    "url": "https://www.ontario.ca/page/2026-ontario-immigrant-nominee-program-updates",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming meeting the minimum criteria guarantees an invitation.",
+                "Ignoring changes that affect the EOI score or eligibility."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Coordinate the employer and applicant applications",
+            "description": "If invited, the employer must submit its employment-position approval application within 14 calendar days. The applicant must submit and pay within 17 calendar days, after the employer submits its application. Follow the exact deadlines in the invitation.",
+            "requiredDocuments": [
+                {
+                    "id": "oinp-invitation",
+                    "title": "OINP invitation to apply",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-position-application",
+                    "title": "Employer application for position approval",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: OINP employer guide",
+                            "url": "https://www.ontario.ca/page/oinp-employer-guide",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "applicant-package",
+                    "title": "Complete applicant document package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Workforce Priority applicant checklist",
+                            "url": "https://www.ontario.ca/document/oinp-document-checklists/applicant-checklist-ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-both-deadlines",
+                    "text": "Record the employer's 14-day and applicant's 17-day deadlines."
+                },
+                {
+                    "id": "employer-submits-first",
+                    "text": "Confirm the employer submits before the applicant attempts final submission."
+                },
+                {
+                    "id": "sign-consent",
+                    "text": "Complete and personally sign the Applicant Consent Form."
+                },
+                {
+                    "id": "save-submissions",
+                    "text": "Save both application references and the applicant payment receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: Workforce Priority applicant checklist",
+                    "url": "https://www.ontario.ca/document/oinp-document-checklists/applicant-checklist-ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: OINP employer guide",
+                    "url": "https://www.ontario.ca/page/oinp-employer-guide",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Applicant submission before the employer submits its position application.",
+                "Missing either linked deadline.",
+                "Having a representative sign the Applicant Consent Form."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "province",
+            "title": "Wait for the linked OINP decisions",
+            "description": "OINP assesses the applicant's nomination application and the employer's position-approval application. Both must be approved for nomination. Respond to requests, keep required employment and status valid, and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-both-files",
+                    "text": "Monitor communications about both the applicant and employer applications."
+                },
+                {
+                    "id": "respond-on-time",
+                    "text": "Respond to each information request by its stated deadline."
+                },
+                {
+                    "id": "maintain-employment",
+                    "text": "If already working in the approved position, continue meeting Ontario's employment condition."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes to duties, wage, hours, location, employer or personal circumstances."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: OINP employer guide",
+                    "url": "https://www.ontario.ca/page/oinp-employer-guide",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming applicant approval can proceed without employer position approval.",
+                "Failing to report a change to the approved employment position."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Review the Ontario nomination and employment conditions",
+            "description": "If approved, check the nomination approval letter, certificate and any work-permit support letter. Ontario says the federal permanent residence application must be made within six months. Continue meeting the approved employment conditions.",
+            "requiredDocuments": [
+                {
+                    "id": "ontario-nomination",
+                    "title": "OINP nomination approval letter and certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-permit-support",
+                    "title": "OINP work-permit support letter",
+                    "requirement": "conditional",
+                    "condition": "Include it if Ontario issued one and you need to use it.",
+                    "officialLinks": [
+                        {
+                            "label": "Ontario: Ontario Workforce Priority stream",
+                            "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-details",
+                    "text": "Check the nomination and approved-position details."
+                },
+                {
+                    "id": "record-six-month-deadline",
+                    "text": "Record the six-month federal application deadline."
+                },
+                {
+                    "id": "maintain-employment",
+                    "text": "Continue meeting the approved employment conditions."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report relevant changes to OINP."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating nomination as federal permanent residence approval.",
+                "Ending the approved employment without understanding the effect on nomination."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry federal PR application",
+            "description": "Use IRCC's current non-Express Entry PNP document checklist and PR Portal instructions. Prepare the nomination confirmation, forms, passports, identity and civil-status documents, photos, police certificates and applicable family records.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-confirmation",
+                    "title": "Ontario nomination confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "ircc-forms",
+                    "title": "Current IRCC PNP forms and checklist",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "identity-civil-documents",
+                    "title": "Passport, identity and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificates",
+                    "title": "Police certificates",
+                    "requirement": "conditional",
+                    "condition": "Required according to IRCC's residence-history rules.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "use-current-checklist",
+                    "text": "Open the current IRCC checklist."
+                },
+                {
+                    "id": "check-translations",
+                    "text": "Follow IRCC translation rules."
+                },
+                {
+                    "id": "check-signatures",
+                    "text": "Review form and signature requirements."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry instructions for a base nomination.",
+                "Submitting incomplete or unsigned forms."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Submit the non-Express Entry permanent residence application",
+            "description": "Apply online through IRCC's PR Portal within Ontario's six-month nomination deadline. Complete all forms, upload the required evidence and fee receipt, and save proof of submission.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-package",
+                    "title": "Complete PR Portal application package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP process",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "IRCC fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP process",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-22"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "submit-in-time",
+                    "text": "Submit within six months of nomination and before any certificate expiry."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the application and submission confirmation."
+                },
+                {
+                    "id": "track-aor",
+                    "text": "Track the acknowledgement and federal file number."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply through the non-Express Entry PNP process",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the OINP application automatically starts the federal application.",
+                "Missing the provincial nomination deadline."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "ircc",
+            "title": "Complete IRCC biometrics, medical and document requests",
+            "description": "IRCC checks completeness and admissibility and may issue biometrics, medical or additional-document instructions. Follow each notice and keep both OINP and IRCC informed of relevant changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "follow-biometrics",
+                    "text": "Complete biometrics as directed."
+                },
+                {
+                    "id": "follow-medical",
+                    "text": "Use an approved panel physician when instructed."
+                },
+                {
+                    "id": "maintain-conditions",
+                    "text": "Continue meeting Ontario's approved employment conditions."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report relevant changes to both authorities."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After a non-Express Entry PNP application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing a deadline because only one account was monitored.",
+                "Reporting a change to only one authority."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC makes the final permanent residence decision. If approved, follow the confirmation instructions and continue meeting Ontario's nomination conditions until permanent residence is granted.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Read and follow the IRCC decision."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the confirmation or landing process."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep provincial and federal records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After a non-Express Entry PNP application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-22"
+                },
+                {
+                    "label": "Ontario: Ontario Workforce Priority stream",
+                    "url": "https://www.ontario.ca/page/ontario-workforce-priority-stream",
+                    "verifiedAt": "2026-09-22"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming provincial nomination guarantees federal approval."
+            ]
+        }
+    ]
+}
