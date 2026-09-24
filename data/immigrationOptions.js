@@ -28,7 +28,10 @@ const immigrationOptions = {
             "BC PNP Skilled Worker (Base)",
             "BC PNP Skilled Worker – Express Entry BC",
             "Ontario Workforce Priority: TEER 0–3 (Base)",
-            "Ontario Workforce Priority: TEER 0–3 (Express Entry)"
+            "Ontario Workforce Priority: TEER 0–3 (Express Entry)",
+            "SINP International Skilled Worker: Saskatchewan Express Entry",
+            "SINP International Skilled Worker: Occupations In-Demand",
+            "SINP International Skilled Worker: Employment Offer"
         ],
 
         "Express Entry": [
@@ -52,7 +55,10 @@ const immigrationOptions = {
         "BC PNP Skilled Worker (Base)": "British Columbia",
         "BC PNP Skilled Worker – Express Entry BC": "British Columbia",
         "Ontario Workforce Priority: TEER 0–3 (Base)": "Ontario",
-        "Ontario Workforce Priority: TEER 0–3 (Express Entry)": "Ontario"
+        "Ontario Workforce Priority: TEER 0–3 (Express Entry)": "Ontario",
+        "SINP International Skilled Worker: Saskatchewan Express Entry": "Saskatchewan",
+        "SINP International Skilled Worker: Occupations In-Demand": "Saskatchewan",
+        "SINP International Skilled Worker: Employment Offer": "Saskatchewan"
     },
 
     provinces: [

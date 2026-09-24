@@ -1,0 +1,676 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "SINP International Skilled Worker: Employment Offer",
+    "profileKey": "PNP-SINP-ISW-EO",
+    "province": "Saskatchewan",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-23",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+        "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+        "verifiedAt": "2026-09-23"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check Employment Offer eligibility",
+            "description": "Confirm you have at least 60 SINP points, at least one year of related work experience in the past 10 years, at least CLB 4, any required Saskatchewan licensing, and an eligible permanent full-time Saskatchewan job offer. Check occupation exclusions and current sector restrictions.",
+            "requiredDocuments": [
+                {
+                    "id": "points-assessment",
+                    "title": "SINP point assessment showing at least 60 points",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-result",
+                    "title": "Valid approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-occupation",
+                    "text": "Confirm the offer is in an eligible TEER 0, 1, 2 or 3 occupation and not directed to another SINP pathway."
+                },
+                {
+                    "id": "check-sector",
+                    "text": "Review current priority and capped-sector restrictions."
+                },
+                {
+                    "id": "confirm-intent",
+                    "text": "Confirm you genuinely intend to live and work in Saskatchewan."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "Saskatchewan: SINP processing and sector information",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/sinp-processing-statistics",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming every Saskatchewan job offer qualifies.",
+                "Ignoring a higher regulator or employer language requirement.",
+                "Using requirements from the Existing Work Permit or Health Talent pathway."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Obtain an eligible permanent full-time Saskatchewan job offer",
+            "description": "Work with the Saskatchewan employer to obtain a signed offer on company letterhead stating the job title, duties, wage, benefits, work location and employer contact information. The position must meet Saskatchewan wage and working-condition standards.",
+            "requiredDocuments": [
+                {
+                    "id": "job-offer",
+                    "title": "Signed permanent full-time Saskatchewan job-offer letter",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-job-details",
+                    "text": "Confirm the title, duties, wage, benefits and location are complete."
+                },
+                {
+                    "id": "match-occupation",
+                    "text": "Confirm the duties match the selected NOC."
+                },
+                {
+                    "id": "verify-employer",
+                    "text": "Ensure the employer will complete the SINP employer-position process."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Accepting an offer without complete duties, wage or location details.",
+                "Choosing a NOC from the title alone instead of the duties.",
+                "Paying an employer or recruiter for a job offer."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "province",
+            "title": "Employer submits the Employer Position Assessment",
+            "description": "The supporting employer registers with SINP and submits an Employer Position Assessment (EPA) for the position. Saskatchewan reviews whether the employer and position qualify before the applicant can complete the provincial application.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "coordinate-employer",
+                    "text": "Confirm the employer has submitted the correct position and applicant details."
+                },
+                {
+                    "id": "monitor-notice",
+                    "text": "Watch for the OASIS notification that the EPA is conditionally approved."
+                },
+                {
+                    "id": "check-expiry",
+                    "text": "Track any EPA expiry or sector-intake condition."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "Saskatchewan: SINP processing statistics",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/sinp-processing-statistics",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": {
+                "description": "Saskatchewan reports a six-week service goal for complete Employer Position Assessments; Quarter 2 of 2026 averaged three weeks. Times can change.",
+                "scope": "Employer Position Assessment processing",
+                "minimum": null,
+                "maximum": 6,
+                "unit": "weeks",
+                "source": {
+                    "label": "Saskatchewan: SINP processing statistics",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/sinp-processing-statistics",
+                    "verifiedAt": "2026-09-23"
+                }
+            },
+            "commonMistakes": [
+                "Submitting the worker application before the position is approved.",
+                "Assuming an employer document replaces OASIS position validation."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Validate the conditionally approved position in OASIS",
+            "description": "When Saskatchewan notifies you that the EPA is conditionally approved, log in to OASIS and confirm the employer-submitted information within 10 days or before the EPA expires, whichever comes first.",
+            "requiredDocuments": [
+                {
+                    "id": "oasis-epa-notice",
+                    "title": "OASIS conditional EPA notification",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-employer-data",
+                    "text": "Check the employer, job, wage, location and duties."
+                },
+                {
+                    "id": "validate-position",
+                    "text": "Confirm the information in OASIS within the applicable deadline."
+                },
+                {
+                    "id": "save-validation",
+                    "text": "Save evidence of the validated position."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Waiting for an employer approval letter that Saskatchewan says is not issued.",
+                "Missing the 10-day validation period.",
+                "Confirming incorrect job information without resolving it."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Prepare the complete SINP evidence package",
+            "description": "Collect identity and civil records, language results, education and ECA evidence, work references, licensing evidence when applicable, the job offer and all current forms. Evidence must support the eligibility and points claimed.",
+            "requiredDocuments": [
+                {
+                    "id": "identity-civil-records",
+                    "title": "Identity, passport and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-records",
+                    "title": "Education credentials, transcripts and ECA",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-references",
+                    "title": "Detailed work-experience reference letters",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "licensing-evidence",
+                    "title": "Saskatchewan licensing or eligibility evidence",
+                    "requirement": "conditional",
+                    "condition": "Required for a regulated occupation or compulsory apprenticeship trade.",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "translations",
+                    "title": "Certified translations and translator affidavit",
+                    "requirement": "conditional",
+                    "condition": "Required for documents not in English or French.",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "prove-points",
+                    "text": "Match each points claim to supporting evidence."
+                },
+                {
+                    "id": "verify-language-validity",
+                    "text": "Confirm the language result remains valid and meets any higher applicable requirement."
+                },
+                {
+                    "id": "review-current-list",
+                    "text": "Use the current program page and OASIS checklist."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting incomplete or untranslated records.",
+                "Using generic work letters that omit duties, hours or dates.",
+                "Failing to include an ECA for foreign education when required."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Complete the Employment Offer application in OASIS",
+            "description": "Create or use the appropriate OASIS account, complete every application section and upload the approved position information and complete evidence package. Applicants may have only one active SINP application.",
+            "requiredDocuments": [
+                {
+                    "id": "oasis-application",
+                    "title": "Complete OASIS application and uploads",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker procedures",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/procedures-and-guidelines",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "complete-sections",
+                    "text": "Complete and review every OASIS section."
+                },
+                {
+                    "id": "check-one-application",
+                    "text": "Confirm you do not have another active SINP application."
+                },
+                {
+                    "id": "review-declarations",
+                    "text": "Read the declarations before submission."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "Saskatchewan: International Skilled Worker procedures",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/procedures-and-guidelines",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Creating duplicate active SINP applications.",
+                "Uploading an expired or mismatched EPA/job offer.",
+                "Leaving required OASIS sections incomplete."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Pay and submit the SINP application",
+            "description": "Pay the non-refundable $500 provincial application fee through the official process and submit the complete application. Save the application number, receipt and exact submitted package.",
+            "requiredDocuments": [
+                {
+                    "id": "fee-confirmation",
+                    "title": "SINP fee payment confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "submission-package",
+                    "title": "Final submitted SINP package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                            "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "final-review",
+                    "text": "Review the job, points, uploads and declarations one final time."
+                },
+                {
+                    "id": "pay-officially",
+                    "text": "Pay only through the official application process."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the receipt and submission confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Paying through an unofficial site.",
+                "Submitting before all required records are readable and complete.",
+                "Assuming the fee is refundable if the application is closed."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Wait for SINP assessment and respond to requests",
+            "description": "SINP checks completeness and assesses the worker, employer, position, points and intention to reside in Saskatchewan. Monitor communications, maintain the qualifying job offer and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-oasis",
+                    "text": "Monitor OASIS and email for requests or a decision."
+                },
+                {
+                    "id": "maintain-offer",
+                    "text": "Keep the employer and job information current and qualifying."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes to employment, family, address or immigration status."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker procedures",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/procedures-and-guidelines",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "Saskatchewan: SINP processing statistics",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/sinp-processing-statistics",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": {
+                "description": "For Quarter 2 of 2026, Saskatchewan reported that 80% of finalized Employment Offer applications were processed in two weeks. This historical figure can change and is not a guarantee.",
+                "scope": "Provincial Employment Offer application processing after a complete submission",
+                "minimum": 2,
+                "maximum": 2,
+                "unit": "weeks",
+                "source": {
+                    "label": "Saskatchewan: SINP processing statistics",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/sinp-processing-statistics",
+                    "verifiedAt": "2026-09-23"
+                }
+            },
+            "commonMistakes": [
+                "Ignoring an SINP request.",
+                "Changing or losing the job without promptly checking reporting rules.",
+                "Treating the published historical processing time as a guarantee."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Review the nomination and prepare the federal application",
+            "description": "If Saskatchewan nominates you, review the nomination package, its expiry date and conditions. Prepare the current non-Express Entry Provincial Nominee Program forms and supporting documents for the federal application.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-confirmation",
+                    "title": "Saskatchewan nomination confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-checklist",
+                    "title": "Current federal PNP forms and document checklist",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-expiry",
+                    "text": "Record the nomination expiry date and conditions."
+                },
+                {
+                    "id": "download-current-forms",
+                    "text": "Use the current federal online forms and checklist."
+                },
+                {
+                    "id": "prepare-police-records",
+                    "text": "Prepare police certificates and civil records as instructed."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Saskatchewan: International Skilled Worker – Employment Offer",
+                    "url": "https://www.saskatchewan.ca/residents/moving-to-saskatchewan/live-in-saskatchewan/by-immigrating/saskatchewan-immigrant-nominee-program/browse-sinp-programs/applicants-international-skilled-workers/international-skilled-worker-with-employment-offer",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry instructions for a non-Express Entry nomination.",
+                "Waiting until the nomination is close to expiry to prepare the federal application."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Submit the non-Express Entry permanent residence application",
+            "description": "Apply online through the federal Permanent Residence Portal, upload the nomination confirmation and required documents, pay the applicable federal fees and submit before the nomination expires.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-application",
+                    "title": "Complete non-Express Entry PNP application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "Federal fee payment receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-federal-package",
+                    "text": "Check that every form, signature, upload and fee is complete."
+                },
+                {
+                    "id": "submit-before-expiry",
+                    "text": "Submit while the Saskatchewan nomination remains valid."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the submission confirmation and acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for PR through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting through the Express Entry account instead of the PR Portal.",
+                "Omitting the nomination confirmation or fee receipt.",
+                "Submitting an incomplete application that IRCC returns."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "ircc",
+            "title": "Complete federal medical, biometrics and document requests",
+            "description": "Follow IRCC instructions for biometrics, medical examinations, police certificates, interviews or additional documents. A provincial nomination does not by itself authorize work in Canada, so maintain lawful status separately when applicable.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc",
+                    "text": "Monitor the PR Portal and IRCC communications."
+                },
+                {
+                    "id": "complete-biometrics",
+                    "text": "Complete biometrics within the deadline in the instruction letter when required."
+                },
+                {
+                    "id": "maintain-status",
+                    "text": "Maintain lawful temporary status and work authorization when applicable."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming nomination automatically extends immigration status or work authorization.",
+                "Completing biometrics or medical steps without following IRCC instructions."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC assesses admissibility and makes the final permanent residence decision. If approved, follow the confirmation and landing instructions and continue intending to settle in Saskatchewan.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Read and follow the IRCC decision instructions."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the permanent residence confirmation process."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep the nomination and federal records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial approval as final federal approval.",
+                "Making irreversible decisions before permanent residence is granted."
+            ]
+        }
+    ]
+}

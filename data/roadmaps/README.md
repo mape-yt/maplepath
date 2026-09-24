@@ -18,7 +18,8 @@ an expandable guidance section when a step has it; older roadmaps remain valid.
 - Keep profile keys `EE-CEC`, `EE-FSWP`, and `EE-FSTP` stable. The new roadmap
   `profileKey` documents the existing mapping. New PNP keys are
   `PNP-AAIP-AOS`, `PNP-MPNP-SWM`, `PNP-BC-SW-BASE`, `PNP-BC-SW-EEBC`,
-  `PNP-OINP-OWP03-BASE`, and `PNP-OINP-OWP03-EE`; keep them stable as well.
+  `PNP-OINP-OWP03-BASE`, `PNP-OINP-OWP03-EE`, `PNP-SINP-ISW-EE`,
+  `PNP-SINP-ISW-OID`, and `PNP-SINP-ISW-EO`; keep them stable as well.
 - Register every supported pathway/stream in `registry.js` and the options API.
   The registry also supplies the province for PNP streams.
 - `schemaVersion: 2` describes the content format, not a new user journey.
@@ -65,6 +66,15 @@ timeline records, analytics, nomination acceptance, and federal application
 steps. These roadmaps were checked on 2026-09-22 against the current B.C.,
 Ontario, and IRCC guidance. Ontario's former eight OINP streams closed in June
 2026 and must not be reintroduced as current pathway options.
+
+The Saskatchewan International Skilled Worker roadmaps were checked on
+2026-09-23. Saskatchewan Express Entry and Occupations In-Demand use separate
+Express Entry and non-Express Entry federal routes and therefore separate
+profile keys. Both are marked `limited`: Saskatchewan accepts EOI profiles but
+reported no scheduled EOI draws on the review date. Employment Offer is marked
+`active` and includes the employer-position assessment plus the applicant's
+10-day OASIS validation step. Current sector caps and invitation availability
+remain time-sensitive and must be checked on the official Saskatchewan pages.
 
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that

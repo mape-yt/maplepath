@@ -28,19 +28,22 @@ test("every advertised Express Entry and PNP stream has a distinct registered ro
     assert.equal(options.streamProvinces["BC PNP Skilled Worker – Express Entry BC"], "British Columbia");
     assert.equal(options.streamProvinces["Ontario Workforce Priority: TEER 0–3 (Base)"], "Ontario");
     assert.equal(options.streamProvinces["Ontario Workforce Priority: TEER 0–3 (Express Entry)"], "Ontario");
+    assert.equal(options.streamProvinces["SINP International Skilled Worker: Saskatchewan Express Entry"], "Saskatchewan");
+    assert.equal(options.streamProvinces["SINP International Skilled Worker: Occupations In-Demand"], "Saskatchewan");
+    assert.equal(options.streamProvinces["SINP International Skilled Worker: Employment Offer"], "Saskatchewan");
 });
 
 test("new provincial guidance has official sources and valid content identifiers", () => {
     const trustedHosts = new Set([
         "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
-        "www.welcomebc.ca", "www.ontario.ca"
+        "www.welcomebc.ca", "www.ontario.ca", "www.saskatchewan.ca"
     ]);
     for(const definition of roadmaps.filter(item => item.pathway === "Provincial Nominee Program")){
         const roadmap = loadRoadmap(definition);
         assert.equal(roadmap.schemaVersion, 2);
         assert.ok(roadmap.steps.length >= 12);
         assert.equal(roadmap.province, definition.province);
-        assert.equal(roadmap.programStatus, "active");
+        assert.ok(["active", "limited"].includes(roadmap.programStatus));
         assert.match(roadmap.lastVerifiedAt, /^\d{4}-\d{2}-\d{2}$/);
         assert.ok(["express-entry", "non-express-entry", "route-dependent"]
             .includes(roadmap.federalApplicationRoute));
@@ -73,12 +76,23 @@ test("new provincial guidance has official sources and valid content identifiers
     const manitoba = loadRoadmap(findRoadmap("Provincial Nominee Program", "Skilled Worker in Manitoba (MPNP)"));
     assert.match(manitoba.steps[7].description, /enhanced Express Entry nomination needs different federal steps/);
     assert.match(manitoba.steps[8].description, /not linked to Express Entry/);
+
+    const sinpExpress = loadRoadmap(findRoadmap("Provincial Nominee Program", "SINP International Skilled Worker: Saskatchewan Express Entry"));
+    const sinpDemand = loadRoadmap(findRoadmap("Provincial Nominee Program", "SINP International Skilled Worker: Occupations In-Demand"));
+    const sinpOffer = loadRoadmap(findRoadmap("Provincial Nominee Program", "SINP International Skilled Worker: Employment Offer"));
+    assert.equal(sinpExpress.programStatus, "limited");
+    assert.equal(sinpDemand.programStatus, "limited");
+    assert.equal(sinpOffer.programStatus, "active");
+    assert.match(sinpExpress.steps[4].description, /no scheduled EOI draws/);
+    assert.match(sinpDemand.steps[4].description, /no scheduled EOI draws/);
+    assert.match(sinpOffer.steps[3].description, /within 10 days/);
 });
 
 test("base and Express Entry variants use separate profile keys and federal steps", () => {
     const pairs = [
         ["BC PNP Skilled Worker (Base)", "BC PNP Skilled Worker – Express Entry BC"],
-        ["Ontario Workforce Priority: TEER 0–3 (Base)", "Ontario Workforce Priority: TEER 0–3 (Express Entry)"]
+        ["Ontario Workforce Priority: TEER 0–3 (Base)", "Ontario Workforce Priority: TEER 0–3 (Express Entry)"],
+        ["SINP International Skilled Worker: Occupations In-Demand", "SINP International Skilled Worker: Saskatchewan Express Entry"]
     ];
     for(const [baseName, expressName] of pairs){
         const baseDefinition = findRoadmap("Provincial Nominee Program", baseName);

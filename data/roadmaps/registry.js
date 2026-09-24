@@ -12,7 +12,10 @@ const roadmaps = [
     { pathway:"Provincial Nominee Program", stream:"BC PNP Skilled Worker (Base)", province:"British Columbia", profileKey:"PNP-BC-SW-BASE", file:"pnp/british-columbia-skilled-worker-base.json" },
     { pathway:"Provincial Nominee Program", stream:"BC PNP Skilled Worker – Express Entry BC", province:"British Columbia", profileKey:"PNP-BC-SW-EEBC", file:"pnp/british-columbia-skilled-worker-express-entry.json" },
     { pathway:"Provincial Nominee Program", stream:"Ontario Workforce Priority: TEER 0–3 (Base)", province:"Ontario", profileKey:"PNP-OINP-OWP03-BASE", file:"pnp/ontario-workforce-priority-teer-0-3-base.json" },
-    { pathway:"Provincial Nominee Program", stream:"Ontario Workforce Priority: TEER 0–3 (Express Entry)", province:"Ontario", profileKey:"PNP-OINP-OWP03-EE", file:"pnp/ontario-workforce-priority-teer-0-3-express-entry.json" }
+    { pathway:"Provincial Nominee Program", stream:"Ontario Workforce Priority: TEER 0–3 (Express Entry)", province:"Ontario", profileKey:"PNP-OINP-OWP03-EE", file:"pnp/ontario-workforce-priority-teer-0-3-express-entry.json" },
+    { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Saskatchewan Express Entry", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-EE", file:"pnp/saskatchewan-international-skilled-worker-express-entry.json" },
+    { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Occupations In-Demand", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-OID", file:"pnp/saskatchewan-international-skilled-worker-occupations-in-demand.json" },
+    { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Employment Offer", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-EO", file:"pnp/saskatchewan-international-skilled-worker-employment-offer.json" }
 ];
 
 function findRoadmap(pathway, stream){
