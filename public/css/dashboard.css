@@ -64,7 +64,7 @@ header {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
     margin-bottom: 40px;
 }
@@ -106,6 +106,35 @@ header {
     margin-bottom: 12px;
 }
 
+.task-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.task-list-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.task-delete-btn {
+    flex: 0 0 auto;
+    padding: 5px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.task-delete-btn:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+}
+
 .progress-bar{
 
     width:100%;
@@ -123,7 +152,7 @@ header {
 
 .progress-fill{
 
-    width:35%;
+    width:0;
 
     height:100%;
 
@@ -322,4 +351,85 @@ header {
     background:#1d4ed8;
 
 
+}
+
+@media (max-width: 1180px) {
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .profile-card {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-content {
+        padding: 24px 16px 40px;
+    }
+
+    .dashboard-header {
+        align-items: flex-start;
+        gap: 22px;
+        margin-bottom: 28px;
+    }
+
+    .dashboard-header h1 {
+        font-size: clamp(28px, 8vw, 34px);
+    }
+
+    .avatar {
+        width: 56px;
+        height: 56px;
+        font-size: 25px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 24px;
+    }
+
+    .profile-card {
+        grid-column: auto;
+    }
+
+    .card,
+    .tasks {
+        padding: 22px;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .dashboard-header {
+        flex-direction: column;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .task-input {
+        flex-direction: column;
+    }
+
+    .task-input input,
+    .task-input button,
+    .view-btn {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .task-list-item {
+        align-items: flex-start;
+    }
 }

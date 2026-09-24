@@ -140,8 +140,6 @@ async function loadProfile() {
         document.getElementById("welcome-title").textContent =
             `Welcome Back, ${username}!`;
 
-        renderProfile(profile);
-
         loadRecommendation(profile);
 
     }
@@ -349,13 +347,10 @@ async function loadTasks() {
         tasks.forEach(task => {
 
             const li = document.createElement("li");
-
-            li.style.display = "flex";
-            li.style.justifyContent = "space-between";
-            li.style.alignItems = "center";
-            li.style.marginBottom = "12px";
+            li.className = "task-list-item";
 
             const left = document.createElement("div");
+            left.className = "task-list-main";
 
             const checkbox = document.createElement("input");
 
@@ -394,14 +389,9 @@ async function loadTasks() {
             const deleteButton = document.createElement("button");
 
             deleteButton.textContent = "🗑️";
-
-            deleteButton.style.border = "none";
-
-            deleteButton.style.background = "transparent";
-
-            deleteButton.style.cursor = "pointer";
-
-            deleteButton.style.fontSize = "18px";
+            deleteButton.className = "task-delete-btn";
+            deleteButton.type = "button";
+            deleteButton.setAttribute("aria-label", `Delete ${task.title}`);
 
             deleteButton.addEventListener("click", async () => {
 

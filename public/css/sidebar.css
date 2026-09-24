@@ -1,66 +1,146 @@
-/* =================================
-   MaplePath Shared Sidebar
-================================= */
-
+/* MaplePath shared navigation */
 
 .sidebar {
-
-    width:240px;
-
-    min-height:100%;
-
-    height:auto;
-
-    background:#0f172a;
-
-    color:white;
-
-    padding:30px;
-
-    flex-shrink:0;
-
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    min-height: 100vh;
+    height: 100%;
+    padding: 28px 22px;
+    color: #fff;
+    background: #10231a;
 }
 
-
-
-
-.sidebar h2 {
-
-    margin-bottom:40px;
-
+.sidebar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 8px 34px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -.02em;
 }
 
-
-
+.sidebar-brand__mark { font-size: 25px; line-height: 1; }
 
 .sidebar nav {
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-
-
-
-.sidebar a {
-
-    color:white;
-
-    text-decoration:none;
-
-    transition:.3s;
-
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    color: #d8e5dd;
+    font-weight: 650;
+    text-decoration: none;
+    transition: color .18s ease, background .18s ease;
 }
 
+.sidebar nav a:hover,
+.sidebar nav a:focus-visible {
+    color: #fff;
+    background: rgba(255, 255, 255, .1);
+}
 
+.sidebar nav a:focus-visible {
+    outline: 3px solid #8fd19e;
+    outline-offset: 2px;
+}
 
+.sidebar nav a.is-active {
+    color: #10231a;
+    background: #e6f4e9;
+}
 
-.sidebar a:hover {
+.sidebar-link__icon {
+    width: 22px;
+    flex: 0 0 22px;
+    text-align: center;
+}
 
-    color:#60a5fa;
+.sidebar-home-link {
+    margin-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 0 !important;
+    padding-top: 20px !important;
+}
 
+@media (max-width: 900px) {
+    .sidebar {
+        position: static;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        padding: 10px 12px;
+        box-shadow: 0 8px 24px rgba(16, 35, 26, .2);
+    }
+
+    .sidebar-brand {
+        flex: 0 0 auto;
+        margin: 0 12px 0 0;
+        padding: 8px;
+        font-size: 19px;
+    }
+
+    .sidebar nav {
+        flex: 1;
+        flex-direction: row;
+        gap: 4px;
+        min-width: 0;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        overscroll-behavior-inline: contain;
+    }
+
+    .sidebar nav a {
+        flex: 0 0 auto;
+        min-height: 40px;
+        padding: 9px 10px;
+        white-space: nowrap;
+    }
+
+    .sidebar-home-link {
+        margin-top: 0;
+        border-top: 0;
+        border-left: 1px solid rgba(255, 255, 255, .14);
+        border-radius: 0 8px 8px 0 !important;
+        padding-top: 9px !important;
+        padding-left: 14px !important;
+    }
+}
+
+@media (max-width: 540px) {
+    .sidebar {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 8px 10px 10px;
+    }
+
+    .sidebar-brand {
+        align-self: flex-start;
+        margin: 0 0 3px;
+        padding: 6px 8px;
+    }
+
+    .sidebar nav { width: 100%; }
+
+    .sidebar nav a {
+        gap: 7px;
+        padding: 8px 9px;
+        font-size: 14px;
+    }
+
+    .sidebar-link__icon { width: auto; flex-basis: auto; }
 }

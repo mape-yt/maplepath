@@ -138,7 +138,7 @@ body{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+        repeat(4,minmax(0,1fr));
 
     gap:20px;
 
@@ -441,6 +441,8 @@ body{
 
     flex:1;
 
+    min-width:0;
+
 }
 
 .stage-title h3{
@@ -468,6 +470,8 @@ body{
     color:#222;
 
     line-height:1.3;
+
+    overflow-wrap:anywhere;
 
 }
 
@@ -1050,7 +1054,74 @@ body{
     margin-top:6px;
 }
 
-@media (max-width:700px){
+@media (max-width:1100px){
+    .summary-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+}
+
+@media (max-width:900px){
+    .dashboard-header{
+        margin-bottom:24px;
+    }
+
+    .dashboard-header h1{
+        font-size:clamp(28px,8vw,34px);
+    }
+
+    #journey-summary{
+        padding:24px;
+    }
+
+    .summary-title{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:18px;
+        margin-bottom:24px;
+    }
+
+    .summary-title h2{
+        font-size:26px;
+    }
+
+    .summary-progress{
+        text-align:left;
+    }
+
+    #journey-container{
+        padding:22px;
+    }
+
+    .loading{
+        padding:50px 16px;
+    }
+
+    .journey-timeline{
+        gap:28px;
+    }
+
+    .journey-stage{
+        grid-template-columns:42px minmax(0,1fr);
+        gap:14px;
+    }
+
+    .timeline-node{
+        width:24px;
+        height:24px;
+    }
+
+    .stage-card{
+        padding:22px;
+    }
+
+    .stage-card:hover{
+        transform:none;
+    }
+
+    .analytics-highlight{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
     .roadmap-metadata{
         align-items:flex-start;
         flex-direction:column;
@@ -1058,5 +1129,102 @@ body{
 
     .roadmap-metadata-link a{
         white-space:normal;
+    }
+}
+
+@media (max-width:560px){
+    #journey-summary{
+        padding:20px 16px;
+    }
+
+    .summary-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .summary-card{
+        padding:18px;
+    }
+
+    .summary-card p{
+        font-size:21px;
+        overflow-wrap:anywhere;
+    }
+
+    #journey-container{
+        padding:18px 10px;
+        border-radius:14px;
+    }
+
+    .journey-stage{
+        grid-template-columns:28px minmax(0,1fr);
+        gap:8px;
+    }
+
+    .timeline-node{
+        width:20px;
+        height:20px;
+        border-width:3px;
+    }
+
+    .timeline-node.current{
+        box-shadow:0 0 0 5px rgba(245,158,11,.18);
+    }
+
+    .timeline-line{
+        width:3px;
+    }
+
+    .stage-card{
+        padding:18px 14px;
+        border-radius:14px;
+    }
+
+    .stage-header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .stage-title h2{
+        font-size:21px;
+    }
+
+    .stage-badge{
+        align-self:flex-start;
+        white-space:normal;
+    }
+
+    .analytics-highlight{
+        grid-template-columns:1fr;
+    }
+
+    .stage-actions{
+        flex-direction:column;
+    }
+
+    .stage-actions button{
+        width:100%;
+        min-height:44px;
+    }
+
+    .roadmap-metadata{
+        padding:14px;
+    }
+
+    .roadmap-details-content{
+        padding:0 14px 14px;
+    }
+
+    .timeline-edit-dialog{
+        padding:22px 18px;
+    }
+
+    .timeline-edit-actions{
+        flex-direction:column-reverse;
+    }
+
+    .timeline-edit-actions button{
+        width:100%;
+        min-height:44px;
     }
 }
