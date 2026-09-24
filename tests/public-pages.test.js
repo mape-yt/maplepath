@@ -85,3 +85,17 @@ test("onboarding loads pathway and province choices from the options API", () =>
     assert.match(script, /replaceSelectOptions\(\s*provinceInput,\s*OPTIONS\.provinces/);
     assert.match(script, /OPTIONS\.streamProvinces/);
 });
+
+test("homepage coverage counts match and follow the options API", () => {
+    const html = readPublic("index.html");
+    const script = readPublic("js/home.js");
+
+    assert.match(html, /id="express-entry-count">3<\/strong>/);
+    assert.match(html, /id="pnp-province-count">6<\/strong>/);
+    assert.match(html, /<span>PNP provinces<\/span>/);
+    assert.doesNotMatch(html, />4<\/strong><span>provincial programs<\/span>/);
+    assert.match(html, /src="js\/home\.js"/);
+    assert.match(script, /fetch\("\/api\/options"\)/);
+    assert.match(script, /new Set/);
+    assert.match(script, /options\.streamProvinces/);
+});

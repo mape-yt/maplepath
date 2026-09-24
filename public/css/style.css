@@ -29,6 +29,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -38,6 +39,7 @@ body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 body.public-page,
@@ -355,6 +357,13 @@ h3 {
   grid-template-columns: minmax(0, 1fr) minmax(430px, 0.88fr);
   align-items: center;
   gap: clamp(54px, 8vw, 112px);
+}
+
+.home-hero__grid > *,
+.roadmap-preview,
+.roadmap-preview__heading > div:first-child,
+.community-signal > div:last-child {
+  min-width: 0;
 }
 
 .home-hero h1 {
@@ -1608,6 +1617,40 @@ h3 {
   .site-footer__top { grid-template-columns: 1fr; gap: 24px; }
   .site-footer nav { flex-wrap: wrap; }
   .site-footer__bottom { flex-direction: column; }
+}
+
+@media (max-width: 520px) {
+  .site-header__inner { gap: 10px; }
+  .brand { flex: 0 1 auto; gap: 8px; font-size: 0.98rem; }
+  .brand__mark { flex: 0 0 auto; }
+  .site-nav { min-width: 0; gap: 0; }
+  .site-nav .button {
+    width: 72px;
+    max-width: 72px;
+    min-height: 38px;
+    padding-inline: 10px;
+    font-size: 0;
+    text-align: center;
+    white-space: normal;
+  }
+  .site-nav .button::after { content: "Start"; font-size: 0.75rem; }
+
+  .home-hero__grid { display: block; }
+  .home-hero__copy { width: 100%; max-width: 100%; }
+  .home-hero h1 { font-size: clamp(2.55rem, 13vw, 3.2rem); }
+  .home-hero .eyebrow { gap: 8px; font-size: 0.66rem; letter-spacing: 0.1em; }
+  .home-hero .eyebrow > span { width: 20px; flex: 0 0 auto; }
+  .home-hero__lead { overflow-wrap: anywhere; }
+
+  .roadmap-preview { width: 100%; max-width: 100%; padding: 16px; margin-top: 54px; overflow: hidden; }
+  .roadmap-preview__heading { gap: 12px; }
+  .roadmap-preview__heading h2 { font-size: 1.3rem; }
+  .progress-ring { width: 58px; height: 58px; }
+  .progress-ring::before { width: 44px; height: 44px; }
+  .preview-step { gap: 10px; padding: 12px 10px; }
+  .preview-step strong { white-space: normal; }
+  .preview-step__status { display: none; }
+  .community-signal span { overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {

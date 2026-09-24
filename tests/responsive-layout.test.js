@@ -62,6 +62,20 @@ test("each signed-in view has page-specific compact layouts", () => {
     assert.match(onboarding, /@media\s*\(max-width:\s*420px\)/);
 });
 
+test("public coverage sections collapse cleanly on phone-sized screens", () => {
+    const style = read("public/css/style.css");
+
+    assert.match(style, /\.proof-bar__grid\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*1fr\)/s);
+    assert.match(style, /@media\s*\(max-width:\s*720px\)[\s\S]*?\.proof-bar__grid\s*\{[^}]*grid-template-columns:\s*1fr/s);
+    assert.match(style, /@media\s*\(max-width:\s*720px\)[\s\S]*?\.coverage-grid[\s\S]*?grid-template-columns:\s*1fr/s);
+    assert.match(style, /@media\s*\(max-width:\s*900px\)[\s\S]*?\.pathway-panel\s*\{[^}]*grid-template-columns:\s*1fr/s);
+    assert.match(style, /html\s*\{[^}]*overflow-x:\s*clip/s);
+    assert.match(style, /@media\s*\(max-width:\s*520px\)[\s\S]*?\.roadmap-preview\s*\{[^}]*width:\s*100%[^}]*overflow:\s*hidden/s);
+    assert.match(style, /@media\s*\(max-width:\s*520px\)[\s\S]*?\.preview-step strong\s*\{[^}]*white-space:\s*normal/s);
+    assert.match(style, /@media\s*\(max-width:\s*520px\)[\s\S]*?\.site-nav \.button\s*\{[^}]*max-width:\s*72px/s);
+    assert.match(style, /@media\s*\(max-width:\s*520px\)[\s\S]*?\.home-hero__grid\s*\{[^}]*display:\s*block/s);
+});
+
 test("sidebar includes only destinations that exist", () => {
     const sidebar = read("public/components/sidebar.html");
     const links = [...sidebar.matchAll(/href="([^"]+\.html)"/g)].map(match => match[1]);
