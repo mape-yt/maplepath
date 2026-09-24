@@ -66,3 +66,22 @@ test("authentication markup preserves the JavaScript contract", () => {
     assert.match(html, /minlength="8"/, "new passwords need the production minimum length");
     assert.match(html, /src="js\/auth\.js"/, "auth.html must load its controller");
 });
+
+test("public coverage lists include every supported PNP province", () => {
+    for(const pageName of ["index.html", "about.html"]){
+        const html = readPublic(pageName);
+        for(const province of [
+            "Alberta", "British Columbia", "Manitoba", "Ontario",
+            "Saskatchewan", "New Brunswick"
+        ]){
+            assert.match(html, new RegExp(province), `${pageName} is missing ${province}`);
+        }
+    }
+});
+
+test("onboarding loads pathway and province choices from the options API", () => {
+    const script = readPublic("js/onboarding.js");
+    assert.match(script, /replaceSelectOptions\(\s*pathwayInput,\s*OPTIONS\.pathways/);
+    assert.match(script, /replaceSelectOptions\(\s*provinceInput,\s*OPTIONS\.provinces/);
+    assert.match(script, /OPTIONS\.streamProvinces/);
+});

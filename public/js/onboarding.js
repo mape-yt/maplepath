@@ -37,6 +37,10 @@ const streamContainer =
     document.getElementById("stream-container");
 
 
+const provinceInput =
+    document.getElementById("province");
+
+
 
 let userJourneyType = "";
 
@@ -63,6 +67,40 @@ async function loadOptions(){
 
     OPTIONS =
         await response.json();
+
+
+    replaceSelectOptions(
+        pathwayInput,
+        OPTIONS.pathways,
+        pathwayInput.value
+    );
+
+
+    replaceSelectOptions(
+        provinceInput,
+        OPTIONS.provinces,
+        provinceInput.value
+    );
+
+}
+
+
+function replaceSelectOptions(select, values, selected){
+
+    select.innerHTML = "";
+
+    values.forEach(value=>{
+
+        const option =
+            document.createElement("option");
+
+        option.value = value;
+        option.textContent = value;
+        option.selected = value === selected;
+
+        select.appendChild(option);
+
+    });
 
 }
 
@@ -259,7 +297,7 @@ pathwayInput.addEventListener(
 
 streamInput.addEventListener("change", () => {
     const province = OPTIONS.streamProvinces?.[streamInput.value];
-    if(province) document.getElementById("province").value = province;
+    if(province) provinceInput.value = province;
 });
 
 
