@@ -19,7 +19,9 @@ an expandable guidance section when a step has it; older roadmaps remain valid.
   `profileKey` documents the existing mapping. New PNP keys are
   `PNP-AAIP-AOS`, `PNP-MPNP-SWM`, `PNP-BC-SW-BASE`, `PNP-BC-SW-EEBC`,
   `PNP-OINP-OWP03-BASE`, `PNP-OINP-OWP03-EE`, `PNP-SINP-ISW-EE`,
-  `PNP-SINP-ISW-OID`, and `PNP-SINP-ISW-EO`; keep them stable as well.
+  `PNP-SINP-ISW-OID`, `PNP-SINP-ISW-EO`, `PNP-NB-SW-EXP`,
+  `PNP-NB-SW-GRAD`, `PNP-NB-SW-PRIORITY`, `PNP-NB-EE-EMP`, and
+  `PNP-NB-EE-INTEREST`; keep them stable as well.
 - Register every supported pathway/stream in `registry.js` and the options API.
   The registry also supplies the province for PNP streams.
 - `schemaVersion: 2` describes the content format, not a new user journey.
@@ -75,6 +77,18 @@ reported no scheduled EOI draws on the review date. Employment Offer is marked
 `active` and includes the employer-position assessment plus the applicant's
 10-day OASIS validation step. Current sector caps and invitation availability
 remain time-sensitive and must be checked on the official Saskatchewan pages.
+
+The New Brunswick roadmaps were checked on 2026-09-23 against current GNB and
+IRCC guidance. The three Skilled Worker pathways use the non-Express Entry
+federal route; the two Express Entry pathways keep separate profile keys and
+federal steps. New Brunswick Experience is marked `limited` because new
+invitations have been restricted to health care, education and construction
+since May 4, 2026. Priority Occupations is also `limited` because it requires a
+job offer resulting directly from a Government of New Brunswick-led recruitment
+mission in a listed occupation. New Brunswick Interest is `limited` because it
+requires a province-issued letter of interest. Current sector exclusions,
+occupation exclusions, invitation priorities and allocation remain
+time-sensitive and must be rechecked on the official New Brunswick notices.
 
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that

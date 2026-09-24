@@ -1,0 +1,848 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NBPNP Skilled Worker: New Brunswick Experience",
+    "profileKey": "PNP-NB-SW-EXP",
+    "province": "New Brunswick",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-23",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "New Brunswick Skilled Worker stream",
+        "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+        "verifiedAt": "2026-09-23"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check New Brunswick Experience eligibility",
+            "description": "Confirm you have lived in New Brunswick for the past six months and have worked full-time, non-seasonally for the same supporting employer for at least six months. Effective May 4, 2026 and until further notice, new invitations are limited to health care, education and construction.",
+            "requiredDocuments": [
+                {
+                    "id": "eligibility-evidence",
+                    "title": "Proof of six months of New Brunswick residence and qualifying work",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-core-rules",
+                    "text": "Confirm you are at least 19, have at least CLB 4 in all four abilities and intend to live in New Brunswick."
+                },
+                {
+                    "id": "check-current-restrictions",
+                    "text": "Review the current sector and occupation restrictions before creating an EOI."
+                },
+                {
+                    "id": "confirm-pathway",
+                    "text": "Confirm you meet the specific New Brunswick Experience pathway rules."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using criteria from a different Skilled Worker pathway.",
+                "Assuming minimum eligibility guarantees an invitation or nomination.",
+                "Ignoring a current sector or occupation restriction."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Confirm the supporting employer and current job qualify",
+            "description": "Confirm you are currently working full-time and non-seasonally for the supporting employer. The eligible employer must have actively operated in New Brunswick for at least 24 months and the job must meet its NOC, legal, wage and licensing requirements.",
+            "requiredDocuments": [
+                {
+                    "id": "employment-letter",
+                    "title": "Current full-time non-seasonal employment confirmation",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-history",
+                    "title": "Proof of at least six months with the same employer",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "residence-evidence",
+                    "title": "Proof of living in New Brunswick for the previous six months",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-employer",
+                    "text": "Confirm the employer has actively operated in New Brunswick for at least 24 months."
+                },
+                {
+                    "id": "confirm-sector",
+                    "text": "Confirm the job is in health care, education or construction while the temporary invitation limit remains in effect."
+                },
+                {
+                    "id": "match-noc",
+                    "text": "Match the actual duties to the correct NOC and job requirements."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Counting part-time or seasonal work toward the six-month requirement.",
+                "Changing supporting employers without rechecking eligibility.",
+                "Assuming any industry is currently receiving invitations."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Complete language, education and occupation preparation",
+            "description": "Obtain valid approved language results, prove at least a Canadian high school education or equivalent, and confirm that you meet the NOC employment requirements and any licensing rules for the offered occupation.",
+            "requiredDocuments": [
+                {
+                    "id": "language-results",
+                    "title": "Valid approved language test results",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-records",
+                    "title": "Canadian education credential or foreign credential and ECA",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "licensing-evidence",
+                    "title": "New Brunswick licensing or certification evidence",
+                    "requirement": "conditional",
+                    "condition": "Required when the occupation is regulated or certification is needed to perform the job.",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-language",
+                    "text": "Confirm every language ability meets the pathway requirement and the result remains valid."
+                },
+                {
+                    "id": "verify-education",
+                    "text": "Obtain an ECA when using a foreign credential."
+                },
+                {
+                    "id": "check-regulator",
+                    "text": "Contact the New Brunswick regulator early if the occupation is regulated."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using an expired language result or ECA.",
+                "Assuming a foreign licence automatically permits work in New Brunswick.",
+                "Selecting a NOC from the job title instead of the duties."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Prepare the provincial forms and evidence package",
+            "description": "Collect identity, civil-status, employment, education and language evidence. Complete the current New Brunswick forms, including NB-004 Employment Information and NB-005 Consent and Declaration, plus every conditional form that applies.",
+            "requiredDocuments": [
+                {
+                    "id": "identity-civil-records",
+                    "title": "Passports, identity and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "nb-004",
+                    "title": "NB-004 Employment Information form",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "nb-005",
+                    "title": "NB-005 Consent and Declaration form",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "conditional-forms",
+                    "title": "Applicable representative, common-law, non-accompanying-parent or other conditional forms",
+                    "requirement": "conditional",
+                    "condition": "Required only when the applicant's circumstances match the form instructions.",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "translations",
+                    "title": "Certified translations",
+                    "requirement": "conditional",
+                    "condition": "Required for documents that are not in English or French.",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "use-current-forms",
+                    "text": "Download the current forms from the official program page."
+                },
+                {
+                    "id": "match-records",
+                    "text": "Ensure names, dates, NOC details and family information agree across records."
+                },
+                {
+                    "id": "scan-clearly",
+                    "text": "Prepare complete, legible scans and translations."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using an old form saved from another application.",
+                "Omitting NB-004 or NB-005.",
+                "Submitting incomplete translations or unreadable scans."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Submit a New Brunswick expression of interest",
+            "description": "Create an accurate expression of interest in the INB portal for this pathway. An EOI is free, enters the candidate pool for up to 365 days and is not a nomination application or a guarantee of selection.",
+            "requiredDocuments": [
+                {
+                    "id": "eoi-information",
+                    "title": "Accurate eligibility, employment and contact information",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Provincial Nominee Program",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-pathway",
+                    "text": "Select the New Brunswick Experience pathway."
+                },
+                {
+                    "id": "verify-eoi",
+                    "text": "Verify every answer before submission."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the EOI confirmation and expiry date."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Provincial Nominee Program",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating an EOI as a complete nomination application.",
+                "Submitting information that the supporting evidence cannot prove.",
+                "Keeping conflicting active New Brunswick applications."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "waiting",
+            "title": "Keep the EOI current and wait for an invitation",
+            "description": "New Brunswick selects candidates according to labour needs, allocation and current priorities rather than first come, first served. New invitations under this pathway are currently limited to health care, education and construction, so selection outside those sectors is unavailable until the province changes the notice.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-inb",
+                    "text": "Monitor the INB account, email and official invitation-round page."
+                },
+                {
+                    "id": "track-validity",
+                    "text": "Track the 365-day EOI validity and document expiry dates."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Update or replace the EOI as instructed when eligibility information changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Provincial Nominee Program",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Invitation rounds",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/invitation-selection-rounds.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the pool operates first come, first served.",
+                "Letting the EOI or supporting evidence expire.",
+                "Relying on a previous draw as a promise of another invitation."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Prepare the complete application after invitation",
+            "description": "If invited, follow the invitation letter and current pathway guide to complete every INB section and upload evidence for all eligibility claims before the deadline shown in the invitation.",
+            "requiredDocuments": [
+                {
+                    "id": "provincial-invitation",
+                    "title": "New Brunswick invitation to apply",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "complete-provincial-package",
+                    "title": "Complete provincial forms and supporting evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-deadline",
+                    "text": "Record the exact deadline shown in the invitation."
+                },
+                {
+                    "id": "recheck-eligibility",
+                    "text": "Confirm that eligibility and job conditions still apply."
+                },
+                {
+                    "id": "review-package",
+                    "text": "Review every form, upload and declaration for completeness."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the invitation deadline.",
+                "Uploading evidence that does not support the EOI information.",
+                "Leaving a required field or form incomplete."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "applicant",
+            "title": "Pay and submit the provincial application",
+            "description": "Pay the non-refundable $250 provincial fee through the official process and submit the complete nomination application in INB before the invitation deadline.",
+            "requiredDocuments": [
+                {
+                    "id": "application-package",
+                    "title": "Complete INB nomination application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Experience pathway guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "New Brunswick application fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Skilled Worker stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-declarations",
+                    "text": "Review the declarations before signing and submitting."
+                },
+                {
+                    "id": "pay-officially",
+                    "text": "Use only the official payment process."
+                },
+                {
+                    "id": "save-submission",
+                    "text": "Save the application number, receipt and submission confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the fee will be refunded after refusal or withdrawal.",
+                "Paying a representative instead of confirming the official fee transaction.",
+                "Submitting an incomplete package near the deadline."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "province",
+            "title": "Wait for provincial assessment and respond to requests",
+            "description": "New Brunswick assesses eligibility, employer support, documents and the intention to reside in the province. The province does not publish an individual processing-time guarantee; monitor messages, meet every response deadline and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-messages",
+                    "text": "Monitor INB and email for requests or a decision."
+                },
+                {
+                    "id": "respond-completely",
+                    "text": "Respond completely within each stated deadline."
+                },
+                {
+                    "id": "maintain-status",
+                    "text": "Maintain valid temporary status and work authorization when applicable."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Skilled Worker stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/skilled-worker-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Experience pathway guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/guide-new-brunswick-experience.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the application will finish before a work permit expires.",
+                "Ignoring a request because the original package was complete.",
+                "Failing to report changes in work, family, address or immigration status."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Review the nomination and prepare the federal application",
+            "description": "If nominated, review the certificate, conditions and expiry date. Prepare the current federal non-Express Entry Provincial Nominee Program forms and evidence, and submit before the nomination expires.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-certificate",
+                    "title": "New Brunswick nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick: Post-nomination guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/NBPNP-post-nomination-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-checklist",
+                    "title": "Current federal non-Express Entry PNP checklist and documents",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-expiry",
+                    "text": "Record the nomination expiry date and conditions."
+                },
+                {
+                    "id": "use-current-federal-forms",
+                    "text": "Use the current IRCC forms and personalized checklist."
+                },
+                {
+                    "id": "maintain-conditions",
+                    "text": "Continue meeting the nomination conditions and report changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick: Post-nomination guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/NBPNP-post-nomination-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry instructions for this base nomination.",
+                "Waiting until the nomination is close to expiry.",
+                "Assuming nomination grants permanent residence or extends temporary status."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "applicant",
+            "title": "Submit the non-Express Entry permanent residence application",
+            "description": "Apply online through the federal Permanent Residence Portal, upload the nomination and required documents, pay the federal fees and submit the complete application before the nomination expires.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-application",
+                    "title": "Complete non-Express Entry PNP application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "Federal fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-federal-package",
+                    "text": "Check every form, signature, upload and fee."
+                },
+                {
+                    "id": "submit-before-expiry",
+                    "text": "Submit while the nomination remains valid."
+                },
+                {
+                    "id": "save-aor",
+                    "text": "Save the submission confirmation and acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting through the Express Entry account.",
+                "Omitting the nomination certificate or fee receipt.",
+                "Submitting an incomplete application that IRCC returns."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Complete federal medical, biometrics and document requests",
+            "description": "Follow IRCC instructions for medical examinations, biometrics, police certificates, interviews or additional documents. Continue meeting the provincial nomination conditions and maintain temporary status separately when applicable.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc",
+                    "text": "Monitor the PR Portal and IRCC communications."
+                },
+                {
+                    "id": "follow-deadlines",
+                    "text": "Complete each request within its stated deadline."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report material changes to both New Brunswick and IRCC as required."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick: Post-nomination guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/NBPNP-post-nomination-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Completing an instruction-dependent step before IRCC requests it.",
+                "Reporting a material change to only one authority.",
+                "Assuming nomination itself authorizes work in Canada."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC assesses admissibility and makes the final permanent residence decision. If approved, follow the confirmation and landing instructions and continue intending to settle in New Brunswick.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Read and follow every instruction in the decision."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the permanent residence confirmation process."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep the provincial and federal application records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial nomination as the final federal decision.",
+                "Making irreversible plans before IRCC grants permanent residence."
+            ]
+        }
+    ]
+}

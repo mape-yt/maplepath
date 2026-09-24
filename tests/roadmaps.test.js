@@ -31,12 +31,18 @@ test("every advertised Express Entry and PNP stream has a distinct registered ro
     assert.equal(options.streamProvinces["SINP International Skilled Worker: Saskatchewan Express Entry"], "Saskatchewan");
     assert.equal(options.streamProvinces["SINP International Skilled Worker: Occupations In-Demand"], "Saskatchewan");
     assert.equal(options.streamProvinces["SINP International Skilled Worker: Employment Offer"], "Saskatchewan");
+    assert.equal(options.streamProvinces["NBPNP Skilled Worker: New Brunswick Experience"], "New Brunswick");
+    assert.equal(options.streamProvinces["NBPNP Skilled Worker: New Brunswick Graduates"], "New Brunswick");
+    assert.equal(options.streamProvinces["NBPNP Skilled Worker: New Brunswick Priority Occupations"], "New Brunswick");
+    assert.equal(options.streamProvinces["NBPNP Express Entry: Employment in New Brunswick"], "New Brunswick");
+    assert.equal(options.streamProvinces["NBPNP Express Entry: New Brunswick Interest"], "New Brunswick");
 });
 
 test("new provincial guidance has official sources and valid content identifiers", () => {
     const trustedHosts = new Set([
         "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
-        "www.welcomebc.ca", "www.ontario.ca", "www.saskatchewan.ca"
+        "www.welcomebc.ca", "www.ontario.ca", "www.saskatchewan.ca",
+        "www.gnb.ca", "www2.gnb.ca"
     ]);
     for(const definition of roadmaps.filter(item => item.pathway === "Provincial Nominee Program")){
         const roadmap = loadRoadmap(definition);
@@ -86,6 +92,45 @@ test("new provincial guidance has official sources and valid content identifiers
     assert.match(sinpExpress.steps[4].description, /no scheduled EOI draws/);
     assert.match(sinpDemand.steps[4].description, /no scheduled EOI draws/);
     assert.match(sinpOffer.steps[3].description, /within 10 days/);
+
+    const nbExperience = loadRoadmap(findRoadmap("Provincial Nominee Program", "NBPNP Skilled Worker: New Brunswick Experience"));
+    const nbGraduate = loadRoadmap(findRoadmap("Provincial Nominee Program", "NBPNP Skilled Worker: New Brunswick Graduates"));
+    const nbPriority = loadRoadmap(findRoadmap("Provincial Nominee Program", "NBPNP Skilled Worker: New Brunswick Priority Occupations"));
+    const nbEmployment = loadRoadmap(findRoadmap("Provincial Nominee Program", "NBPNP Express Entry: Employment in New Brunswick"));
+    const nbInterest = loadRoadmap(findRoadmap("Provincial Nominee Program", "NBPNP Express Entry: New Brunswick Interest"));
+    assert.equal(nbExperience.programStatus, "limited");
+    assert.equal(nbGraduate.programStatus, "active");
+    assert.equal(nbPriority.programStatus, "limited");
+    assert.equal(nbEmployment.programStatus, "active");
+    assert.equal(nbInterest.programStatus, "limited");
+    assert.match(nbExperience.steps[0].description, /health care, education and construction/);
+    assert.match(nbPriority.steps[0].description, /Government of New Brunswick-led recruitment mission/);
+    assert.match(nbEmployment.steps[0].description, /past 12 months/);
+    assert.match(nbInterest.steps[0].description, /letter of interest/);
+});
+
+test("New Brunswick base and Express Entry pathways keep their federal routes separate", () => {
+    const skilledStreams = [
+        "NBPNP Skilled Worker: New Brunswick Experience",
+        "NBPNP Skilled Worker: New Brunswick Graduates",
+        "NBPNP Skilled Worker: New Brunswick Priority Occupations"
+    ];
+    const expressStreams = [
+        "NBPNP Express Entry: Employment in New Brunswick",
+        "NBPNP Express Entry: New Brunswick Interest"
+    ];
+    for(const stream of skilledStreams){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "non-express-entry");
+        assert.ok(roadmap.steps.some(step => /non-Express Entry permanent residence application/.test(step.title)));
+        assert.ok(!roadmap.steps.some(step => /Accept the electronic/.test(step.title)));
+    }
+    for(const stream of expressStreams){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "express-entry");
+        assert.ok(roadmap.steps.some(step => /Accept the electronic/.test(step.title)));
+        assert.ok(roadmap.steps.some(step => /Express Entry permanent residence application/.test(step.title)));
+    }
 });
 
 test("base and Express Entry variants use separate profile keys and federal steps", () => {

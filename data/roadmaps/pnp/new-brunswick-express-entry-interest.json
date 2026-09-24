@@ -1,0 +1,887 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NBPNP Express Entry: New Brunswick Interest",
+    "profileKey": "PNP-NB-EE-INTEREST",
+    "province": "New Brunswick",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-23",
+    "federalApplicationRoute": "express-entry",
+    "officialProgramPage": {
+        "label": "New Brunswick Express Entry stream",
+        "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+        "verifiedAt": "2026-09-23"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check New Brunswick Interest eligibility",
+            "description": "Confirm the Government of New Brunswick sent a letter of interest to your federal Express Entry account. You must meet the letter's instructions, maintain the valid federal profile, score at least 67 selection points and meet federal settlement-fund requirements.",
+            "requiredDocuments": [
+                {
+                    "id": "pathway-evidence",
+                    "title": "New Brunswick letter of interest in the federal Express Entry account",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-core-rules",
+                    "text": "Confirm you are age 19–55, have at least CLB 7 in all abilities and at least a Canadian high school credential or equivalent."
+                },
+                {
+                    "id": "confirm-work-experience",
+                    "text": "Confirm at least one year of continuous qualifying TEER 0, 1, 2 or 3 work experience in the previous 10 years."
+                },
+                {
+                    "id": "check-restrictions",
+                    "text": "Review current sector and occupation restrictions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using criteria from the other New Brunswick Express Entry pathway.",
+                "Assuming a valid federal profile alone qualifies for provincial selection.",
+                "Ignoring a current sector or occupation restriction."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Create or maintain a valid federal Express Entry profile",
+            "description": "Create an eligible federal Express Entry profile, retain the profile number and Job Seeker Validation Code, and ensure the profile information matches the evidence supplied to New Brunswick.",
+            "requiredDocuments": [
+                {
+                    "id": "express-entry-profile",
+                    "title": "Valid Express Entry profile number",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "job-seeker-code",
+                    "title": "Job Seeker Validation Code",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-federal-eligibility",
+                    "text": "Confirm eligibility for at least one federal Express Entry program."
+                },
+                {
+                    "id": "match-profile",
+                    "text": "Make the federal and provincial profile information consistent."
+                },
+                {
+                    "id": "track-expiry",
+                    "text": "Track the federal profile and supporting-document expiry dates."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Creating a provincial EOI with an expired or ineligible federal profile.",
+                "Using inconsistent work history or family information.",
+                "Failing to update both systems after a change."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Prepare language, education, work and pathway evidence",
+            "description": "Obtain valid language results, education evidence and detailed work records supporting at least 67 selection points and a qualifying federal Express Entry program. Prepare current federal proof of settlement funds unless an applicable IRCC exemption applies.",
+            "requiredDocuments": [
+                {
+                    "id": "letter-of-interest",
+                    "title": "New Brunswick letter of interest",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-results",
+                    "title": "Valid language results at CLB 7 or higher in every ability",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-eca",
+                    "title": "Canadian education credential or foreign credential and ECA",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-references",
+                    "title": "Detailed proof of qualifying skilled work experience",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "settlement-funds",
+                    "title": "Current federal proof of settlement funds",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "calculate-points",
+                    "text": "Confirm at least 67 points under the stream's selection factors."
+                },
+                {
+                    "id": "follow-letter",
+                    "text": "Follow the pathway and deadline instructions in the letter of interest."
+                },
+                {
+                    "id": "verify-funds",
+                    "text": "Check the current federal family-size amount and acceptable proof-of-funds rules."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting under this pathway without a provincial letter of interest.",
+                "Confusing the letter of interest with an invitation to apply or nomination.",
+                "Using borrowed or otherwise ineligible settlement funds."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Prepare the provincial forms and supporting records",
+            "description": "Collect identity, civil-status and Express Entry records. Complete NB-005 Consent and Declaration, NB-004 Employment Information when employment support applies, and every conditional form required by your circumstances.",
+            "requiredDocuments": [
+                {
+                    "id": "identity-civil-records",
+                    "title": "Passports, identity and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "nb-005",
+                    "title": "NB-005 Consent and Declaration form",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "nb-004",
+                    "title": "NB-004 Employment Information form",
+                    "requirement": "conditional",
+                    "condition": "Required when the pathway or application relies on New Brunswick employment or an employer.",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "conditional-forms",
+                    "title": "Applicable representative, common-law or family forms",
+                    "requirement": "conditional",
+                    "condition": "Required when the applicant's circumstances match the form instructions.",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "translations",
+                    "title": "Certified translations",
+                    "requirement": "conditional",
+                    "condition": "Required for records not in English or French.",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "use-current-forms",
+                    "text": "Download current forms from the official page."
+                },
+                {
+                    "id": "match-records",
+                    "text": "Match names, dates, NOC history and family information across records."
+                },
+                {
+                    "id": "scan-clearly",
+                    "text": "Prepare complete, legible scans and translations."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using an outdated provincial form.",
+                "Omitting NB-005 or an applicable conditional form.",
+                "Uploading unreadable or incomplete records."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Submit a New Brunswick expression of interest",
+            "description": "Submit an accurate EOI in the INB portal for this pathway. The EOI is free, remains in the candidate pool for up to 365 days and does not guarantee an invitation or nomination.",
+            "requiredDocuments": [
+                {
+                    "id": "eoi-information",
+                    "title": "Accurate Express Entry, eligibility and contact information",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Provincial Nominee Program",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-pathway",
+                    "text": "Select the New Brunswick Interest pathway."
+                },
+                {
+                    "id": "verify-eoi",
+                    "text": "Verify every answer and declared fact."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the EOI confirmation and expiry date."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Provincial Nominee Program",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating the EOI as a nomination application.",
+                "Claiming facts that supporting records cannot prove.",
+                "Allowing the linked federal profile to become invalid."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "waiting",
+            "title": "Keep the EOI current and wait for an invitation",
+            "description": "This pathway first depends on New Brunswick choosing a federal Express Entry profile and issuing a letter of interest. The province controls targeting according to labour needs and allocation; maintaining a federal profile does not guarantee that letter or a provincial invitation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-inb",
+                    "text": "Monitor INB, email, the federal account and official draw notices."
+                },
+                {
+                    "id": "track-validity",
+                    "text": "Track the EOI, federal profile and document expiry dates."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Update both systems as instructed when information changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Provincial Nominee Program",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Invitation rounds",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/invitation-selection-rounds.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming an EOI guarantees selection.",
+                "Letting the EOI or federal profile expire.",
+                "Relying on previous draw details as a future promise."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Prepare the complete application after invitation",
+            "description": "If invited, follow the invitation letter and current Express Entry guide to complete every INB section and upload evidence for all eligibility claims before the stated deadline.",
+            "requiredDocuments": [
+                {
+                    "id": "provincial-invitation",
+                    "title": "New Brunswick invitation to apply",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "complete-provincial-package",
+                    "title": "Complete provincial forms and supporting evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-deadline",
+                    "text": "Record the exact deadline shown in the invitation."
+                },
+                {
+                    "id": "recheck-profiles",
+                    "text": "Confirm both the federal profile and provincial eligibility remain valid."
+                },
+                {
+                    "id": "review-package",
+                    "text": "Review every form, upload and declaration."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the invitation deadline.",
+                "Submitting evidence inconsistent with the federal profile.",
+                "Leaving a required field or upload incomplete."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "applicant",
+            "title": "Pay and submit the provincial application",
+            "description": "Pay the non-refundable $250 provincial fee through the official process and submit the complete nomination application in INB before the invitation deadline.",
+            "requiredDocuments": [
+                {
+                    "id": "application-package",
+                    "title": "Complete INB nomination application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        },
+                        {
+                            "label": "New Brunswick Express Entry stream guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "New Brunswick application fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick Express Entry stream",
+                            "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-declarations",
+                    "text": "Review the declarations before signing and submitting."
+                },
+                {
+                    "id": "pay-officially",
+                    "text": "Use only the official payment process."
+                },
+                {
+                    "id": "save-submission",
+                    "text": "Save the application number, receipt and confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming the application fee is refundable.",
+                "Using an unofficial payment channel.",
+                "Submitting an incomplete package near the deadline."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "province",
+            "title": "Wait for provincial assessment and respond to requests",
+            "description": "New Brunswick assesses eligibility, Express Entry status and supporting documents. It does not publish an individual processing-time guarantee; monitor communications, meet every deadline and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-messages",
+                    "text": "Monitor INB, email and the IRCC account."
+                },
+                {
+                    "id": "respond-completely",
+                    "text": "Respond completely within each stated deadline."
+                },
+                {
+                    "id": "maintain-eligibility",
+                    "text": "Keep the federal profile eligible and maintain lawful status when applicable."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick Express Entry stream",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/provincial-nominee-program/express-entry-stream.html",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick Express Entry stream guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/express-entry-program-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "New Brunswick immigration: Important notices",
+                    "url": "https://www.gnb.ca/en/topic/family-home-community/immigration/important-notices.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming processing will finish before a permit or profile expires.",
+                "Ignoring a document request.",
+                "Failing to report changed employment, family or immigration status."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Accept the electronic Express Entry nomination",
+            "description": "If nominated, review the conditions and accept the electronic nomination in the IRCC account within 30 calendar days. Acceptance adds the provincial nomination points to the federal profile.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-package",
+                    "title": "New Brunswick nomination package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "New Brunswick: Post-nomination guide",
+                            "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/NBPNP-post-nomination-guide.pdf",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "electronic-nomination",
+                    "title": "IRCC electronic nomination message",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Confirm an Express Entry nomination",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/get-confirm-nomination.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-nomination",
+                    "text": "Check the nomination details and conditions."
+                },
+                {
+                    "id": "accept-within-thirty",
+                    "text": "Accept the nomination within 30 calendar days."
+                },
+                {
+                    "id": "save-records",
+                    "text": "Save the certificate and IRCC confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick: Post-nomination guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/NBPNP-post-nomination-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: Confirm an Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/get-confirm-nomination.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the 30-day response period.",
+                "Assuming nomination is the final permanent residence decision.",
+                "Rejecting the nomination without understanding the consequence."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "waiting",
+            "title": "Wait for a federal Express Entry invitation",
+            "description": "Keep the Express Entry profile accurate and eligible while waiting for IRCC to issue an invitation to apply. The nomination raises the profile score but does not itself grant permanent residence.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc",
+                    "text": "Monitor the IRCC account for an invitation."
+                },
+                {
+                    "id": "maintain-profile",
+                    "text": "Keep the profile and supporting documents valid."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report relevant changes to New Brunswick and IRCC."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Confirm an Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/get-confirm-nomination.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Letting the profile or supporting documents expire.",
+                "Treating nomination as authorization to work or remain in Canada."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "applicant",
+            "title": "Submit the Express Entry permanent residence application",
+            "description": "After IRCC issues an invitation, confirm continued eligibility, upload the required evidence, pay the fees and submit the complete electronic application within 60 calendar days.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-invitation",
+                    "title": "IRCC invitation to apply",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR through Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-document-package",
+                    "title": "Personalized Express Entry document package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR through Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-23"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-federal-deadline",
+                    "text": "Record the 60-calendar-day deadline."
+                },
+                {
+                    "id": "recalculate-score",
+                    "text": "Recalculate the score if circumstances changed."
+                },
+                {
+                    "id": "save-aor",
+                    "text": "Save the submission confirmation and acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for PR through Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Applying after a change invalidates the invited score or eligibility.",
+                "Missing the 60-day federal deadline.",
+                "Omitting evidence for information carried from the Express Entry profile."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "ircc",
+            "title": "Complete federal medical, biometrics and document requests",
+            "description": "Follow IRCC instructions for medical examinations, biometrics, police certificates, interviews or additional documents, and continue meeting the New Brunswick nomination conditions.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "follow-instructions",
+                    "text": "Use the providers, forms and deadlines specified by IRCC."
+                },
+                {
+                    "id": "monitor-authorities",
+                    "text": "Monitor both IRCC and New Brunswick communications."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes in family composition, address, employment or status."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "New Brunswick: Post-nomination guide",
+                    "url": "https://www2.gnb.ca/content/dam/gnb/Corporate/Promo/Immigration/NBPNP-post-nomination-guide.pdf",
+                    "verifiedAt": "2026-09-23"
+                },
+                {
+                    "label": "IRCC: Apply for PR through Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Completing an instruction-dependent step before IRCC requests it.",
+                "Reporting a material change to only one authority."
+            ]
+        },
+        {
+            "order": 14,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC makes the final admissibility and permanent residence decision. If approved, follow the confirmation and landing instructions and continue intending to settle in New Brunswick.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Read and follow every instruction in the decision."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the permanent residence confirmation process."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep the provincial and federal records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for PR through Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-23"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial nomination as federal approval.",
+                "Making irreversible plans before IRCC grants permanent residence."
+            ]
+        }
+    ]
+}

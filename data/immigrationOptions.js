@@ -31,7 +31,12 @@ const immigrationOptions = {
             "Ontario Workforce Priority: TEER 0–3 (Express Entry)",
             "SINP International Skilled Worker: Saskatchewan Express Entry",
             "SINP International Skilled Worker: Occupations In-Demand",
-            "SINP International Skilled Worker: Employment Offer"
+            "SINP International Skilled Worker: Employment Offer",
+            "NBPNP Skilled Worker: New Brunswick Experience",
+            "NBPNP Skilled Worker: New Brunswick Graduates",
+            "NBPNP Skilled Worker: New Brunswick Priority Occupations",
+            "NBPNP Express Entry: Employment in New Brunswick",
+            "NBPNP Express Entry: New Brunswick Interest"
         ],
 
         "Express Entry": [
@@ -58,7 +63,12 @@ const immigrationOptions = {
         "Ontario Workforce Priority: TEER 0–3 (Express Entry)": "Ontario",
         "SINP International Skilled Worker: Saskatchewan Express Entry": "Saskatchewan",
         "SINP International Skilled Worker: Occupations In-Demand": "Saskatchewan",
-        "SINP International Skilled Worker: Employment Offer": "Saskatchewan"
+        "SINP International Skilled Worker: Employment Offer": "Saskatchewan",
+        "NBPNP Skilled Worker: New Brunswick Experience": "New Brunswick",
+        "NBPNP Skilled Worker: New Brunswick Graduates": "New Brunswick",
+        "NBPNP Skilled Worker: New Brunswick Priority Occupations": "New Brunswick",
+        "NBPNP Express Entry: Employment in New Brunswick": "New Brunswick",
+        "NBPNP Express Entry: New Brunswick Interest": "New Brunswick"
     },
 
     provinces: [

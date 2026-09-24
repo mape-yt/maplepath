@@ -15,7 +15,12 @@ const roadmaps = [
     { pathway:"Provincial Nominee Program", stream:"Ontario Workforce Priority: TEER 0–3 (Express Entry)", province:"Ontario", profileKey:"PNP-OINP-OWP03-EE", file:"pnp/ontario-workforce-priority-teer-0-3-express-entry.json" },
     { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Saskatchewan Express Entry", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-EE", file:"pnp/saskatchewan-international-skilled-worker-express-entry.json" },
     { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Occupations In-Demand", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-OID", file:"pnp/saskatchewan-international-skilled-worker-occupations-in-demand.json" },
-    { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Employment Offer", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-EO", file:"pnp/saskatchewan-international-skilled-worker-employment-offer.json" }
+    { pathway:"Provincial Nominee Program", stream:"SINP International Skilled Worker: Employment Offer", province:"Saskatchewan", profileKey:"PNP-SINP-ISW-EO", file:"pnp/saskatchewan-international-skilled-worker-employment-offer.json" },
+    { pathway:"Provincial Nominee Program", stream:"NBPNP Skilled Worker: New Brunswick Experience", province:"New Brunswick", profileKey:"PNP-NB-SW-EXP", file:"pnp/new-brunswick-skilled-worker-experience.json" },
+    { pathway:"Provincial Nominee Program", stream:"NBPNP Skilled Worker: New Brunswick Graduates", province:"New Brunswick", profileKey:"PNP-NB-SW-GRAD", file:"pnp/new-brunswick-skilled-worker-graduates.json" },
+    { pathway:"Provincial Nominee Program", stream:"NBPNP Skilled Worker: New Brunswick Priority Occupations", province:"New Brunswick", profileKey:"PNP-NB-SW-PRIORITY", file:"pnp/new-brunswick-skilled-worker-priority-occupations.json" },
+    { pathway:"Provincial Nominee Program", stream:"NBPNP Express Entry: Employment in New Brunswick", province:"New Brunswick", profileKey:"PNP-NB-EE-EMP", file:"pnp/new-brunswick-express-entry-employment.json" },
+    { pathway:"Provincial Nominee Program", stream:"NBPNP Express Entry: New Brunswick Interest", province:"New Brunswick", profileKey:"PNP-NB-EE-INTEREST", file:"pnp/new-brunswick-express-entry-interest.json" }
 ];
 
 function findRoadmap(pathway, stream){
