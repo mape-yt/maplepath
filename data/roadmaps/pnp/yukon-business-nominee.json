@@ -1,0 +1,573 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "Yukon Business Nominee Program",
+    "profileKey": "PNP-YT-BIZ",
+    "province": "Yukon",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Yukon Business Nominee Program",
+        "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Confirm Yukon Business Nominee eligibility",
+            "description": "Score at least 65 points, have high-school education, at least three years of entrepreneurial or management experience and five years of relevant work experience. You need at least $500,000 net worth and $300,000 liquid assets verified by a Yukon accounting firm, and must intend to live in Yukon.",
+            "requiredDocuments": [
+                {
+                    "id": "business-eligibility",
+                    "title": "Education, experience, net-worth and liquid-asset evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/find-eligibility-requirements-apply-run-your-business",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/find-eligibility-requirements-apply-run-your-business",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Develop an eligible Yukon business concept",
+            "description": "Plan a new or purchased Yukon business that you have not started or bought before program acceptance. You must hold a TEER 0 or 1 role and show at least $300,000 in qualifying capital investment during the first two years.",
+            "requiredDocuments": [
+                {
+                    "id": "business-concept",
+                    "title": "Yukon business concept and investment plan",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/find-eligibility-requirements-apply-run-your-business",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/find-eligibility-requirements-apply-run-your-business",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Prepare language and assessment-grid evidence",
+            "description": "Meet the current language requirement and document every claim on the assessment grid. The official application page currently specifies IELTS level 6 or TEF Canada level 4 and requires at least 65 points.",
+            "requiredDocuments": [
+                {
+                    "id": "business-language-result",
+                    "title": "Accepted language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Submit the original Yukon business application",
+            "description": "Complete and submit the signed YBNP application using the official delivery instructions. Initial review determines whether eligibility, points and the business concept allow entry to the candidate pool.",
+            "requiredDocuments": [
+                {
+                    "id": "ybnp-application",
+                    "title": "Yukon Business Nominee Program application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "waiting",
+            "title": "Enter the six-month candidate pool",
+            "description": "Eligible applications with at least 65 points and an approved concept enter a potential-candidate pool for six months. Meeting the threshold does not guarantee selection.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Submit verification documents when selected",
+            "description": "If selected from the pool, submit the records requested to verify application claims, lawful source of funds and the business plan.",
+            "requiredDocuments": [
+                {
+                    "id": "claim-verification",
+                    "title": "Documents verifying points and business-plan claims",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Complete the exploratory visit and interview",
+            "description": "Travel to Yukon when invited, investigate the market and attend the in-person interview. Be ready to explain the concept, investment, management role and settlement plan.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Receive conditional business approval",
+            "description": "If approved after interview, review the territorial conditions and obtain Yukon's support for a two-year federal work permit. This is not yet the permanent residence nomination.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Apply for the supported two-year work permit",
+            "description": "Apply to IRCC with Yukon's support. IRCC decides the work permit. Follow the arrival and reporting instructions after approval.",
+            "requiredDocuments": [
+                {
+                    "id": "ybnp-support-letter",
+                    "title": "Yukon work-permit support letter",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit/temporary/apply.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit/temporary/apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Establish and actively operate the Yukon business",
+            "description": "Settle in Yukon with accompanying family, make the approved capital investment, establish or purchase the business and actively manage it during the two-year work-permit period.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "province",
+            "title": "Demonstrate completion of business requirements",
+            "description": "Provide operating, investment, residence, tax and management evidence showing the approved business plan and program conditions were fulfilled.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "province",
+            "title": "Receive the Yukon business nomination",
+            "description": "If Yukon confirms the requirements were met, it issues the nomination for permanent residence. Nomination is not federal permanent resident status.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-business-nominee-program/apply-run-your-own-business-yukon-foreign-entrepreneurs",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry permanent residence application",
+            "description": "Use IRCC's current PNP checklist and include the Yukon nomination. Territorial nomination and federal permanent residence are separate decisions.",
+            "requiredDocuments": [
+                {
+                    "id": "territorial-nomination",
+                    "title": "Yukon nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 14,
+            "type": "applicant",
+            "title": "Submit the federal permanent residence application",
+            "description": "Submit the complete non-Express Entry PNP application through the method required by IRCC, pay federal fees and retain proof of submission.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 15,
+            "type": "ircc",
+            "title": "Complete federal processing requirements",
+            "description": "Respond to IRCC requests and complete biometrics, medical examinations, police certificates and other admissibility checks when instructed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 16,
+            "type": "ircc",
+            "title": "Receive the permanent residence decision",
+            "description": "IRCC makes the final decision. If approved, follow confirmation and landing instructions and continue intending to settle in Yukon.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        }
+    ]
+}

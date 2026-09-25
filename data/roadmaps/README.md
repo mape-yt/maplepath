@@ -129,6 +129,28 @@ PNP-NL-EE-SW, PNP-NL-SW, PNP-NL-IG, PNP-NL-ENT, and PNP-NL-IGE.
 Do not rename or reuse them because saved progress, timeline records and
 community averages use the profile key.
 
+Yukon is represented by Skilled Worker, Critical Impact Worker, Yukon Express
+Entry, and the Yukon Business Nominee Program. The three employer-driven
+worker routes use the territory's 2026 EOI and invitation process. Both
+published 2026 intake periods were closed when reviewed, so those roadmaps are
+marked limited. The business route remains separate because candidates enter
+a six-month pool, obtain a supported two-year work permit, establish the
+business, and meet the territorial conditions before nomination.
+
+The Northwest Territories is represented by the Employer-Driven Skilled
+Worker, Entry Level/Semi-Skilled and NWT Express Entry categories, plus the
+Francophone and Business streams. The Employer-Driven roadmaps use the 2026
+EOI system and are marked limited. The Francophone and Business streams
+continue to accept applications separately on a first-come, first-served basis
+and are marked active. The current Business Stream page lists minimum equity
+investments of $200,000 within Yellowknife or $100,000 outside Yellowknife;
+these current figures replace older amounts still visible in a 2023 PDF.
+
+The new stable profile keys are PNP-YT-SW, PNP-YT-CIW, PNP-YT-EE,
+PNP-YT-BIZ, PNP-NT-SW, PNP-NT-ELSS, PNP-NT-EE, PNP-NT-FR, and
+PNP-NT-BIZ. These Yukon and Northwest Territories roadmaps were reviewed
+against official territorial and IRCC sources on 2026-09-24.
+
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that
 the Express Entry medical exam normally occurs after invitation and before the

@@ -1,0 +1,557 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NTNP Employer-Driven: Entry Level/Semi-Skilled",
+    "profileKey": "PNP-NT-ELSS",
+    "province": "Northwest Territories",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "NTNP Employer-Driven: Entry Level/Semi-Skilled",
+        "url": "https://www.immigratenwt.ca/employer-driven-stream",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Confirm the NTNP category and worker eligibility",
+            "description": "The permanent, non-seasonal NWT offer must be TEER 4 or 5 and at least 30 hours weekly. The worker must have worked full-time in the same position for the nominating employer for at least 12 months immediately before applying, meet CLB/NCLC 4 and provide the required settlement-fund evidence.",
+            "requiredDocuments": [
+                {
+                    "id": "worker-eligibility",
+                    "title": "Evidence supporting category eligibility",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Confirm the permanent NWT job offer",
+            "description": "The job must be permanent, non-seasonal, full-time and performed in the Northwest Territories. Remote work outside the NWT is not eligible. Duties must match the chosen NOC and wages must meet program standards.",
+            "requiredDocuments": [
+                {
+                    "id": "nwt-job-offer",
+                    "title": "Signed NWT employment contract and job description",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Confirm the NWT employer is eligible",
+            "description": "The employer must operate year-round from an NWT establishment, generally have operated full-time for at least one year, and remain in good standing with WSCC and Employment Standards or the applicable collective agreement.",
+            "requiredDocuments": [
+                {
+                    "id": "employer-compliance",
+                    "title": "Employer registration and compliance evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Complete recruitment and LMIA checks",
+            "description": "The employer provides a positive LMIA or the required local and national advertising evidence. The exact advertising period depends on the category, and the advertised duties and wage must match the offered job.",
+            "requiredDocuments": [
+                {
+                    "id": "labour-market-evidence",
+                    "title": "LMIA or required advertising and recruitment results",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Prepare personal, education and language evidence",
+            "description": "Collect passport and civil records, work permit or maintained-status evidence if in Canada, three months of financial records and pay stubs where applicable, education or ECA, licences, work history and valid language results.",
+            "requiredDocuments": [
+                {
+                    "id": "applicant-documents",
+                    "title": "Personal, education, work, language and settlement evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Create the Employer-Driven Expression of Interest",
+            "description": "After the employer registers in the portal, the foreign worker completes the EOI survey. It is a profile, not an application, and remains in the pool for up to 12 months if not selected.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/expression-interest",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "waiting",
+            "title": "Wait for an NTNP EOI draw",
+            "description": "Selection is based on the current ranking system and territorial priorities. The final published 2026 draw is scheduled for September 25 and its September 22 profile cutoff has passed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/expression-interest",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "applicant",
+            "title": "Submit the invited NTNP application",
+            "description": "Only invited employers can submit the full application. Complete all applicant and employer sections, upload current supporting evidence and submit within the invitation instructions.",
+            "requiredDocuments": [
+                {
+                    "id": "ntnp-application",
+                    "title": "Complete Employer-Driven NTNP application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/employer-driven-stream",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/employer-driven-stream",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "province",
+            "title": "Complete NTNP assessment",
+            "description": "Program staff assess employer compliance, recruitment, job terms, worker eligibility and settlement intent. Respond to verification or interview requests and maintain legal status and qualifying employment.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "province",
+            "title": "Sign the NTNP Memorandum of Understanding",
+            "description": "After approval, the employer, nominee and territorial department sign the MOU and must continue meeting its terms until the federal permanent residence decision.",
+            "requiredDocuments": [
+                {
+                    "id": "ntnp-mou",
+                    "title": "NTNP Memorandum of Understanding",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "province",
+            "title": "Receive the NWT nomination",
+            "description": "Review the nomination and work-permit support instructions. Apply for federal permanent residence within the six-month nomination validity period and report employment or family changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/ntnp_program_guidelines_-_employer_driven_stream_0.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry permanent residence application",
+            "description": "Use IRCC's current PNP checklist and include the Northwest Territories nomination. Territorial nomination and federal permanent residence are separate decisions.",
+            "requiredDocuments": [
+                {
+                    "id": "territorial-nomination",
+                    "title": "Northwest Territories nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "applicant",
+            "title": "Submit the federal permanent residence application",
+            "description": "Submit the complete non-Express Entry PNP application through the method required by IRCC, pay federal fees and retain proof of submission.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 14,
+            "type": "ircc",
+            "title": "Complete federal processing requirements",
+            "description": "Respond to IRCC requests and complete biometrics, medical examinations, police certificates and other admissibility checks when instructed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 15,
+            "type": "ircc",
+            "title": "Receive the permanent residence decision",
+            "description": "IRCC makes the final decision. If approved, follow confirmation and landing instructions and continue intending to settle in Northwest Territories.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        }
+    ]
+}

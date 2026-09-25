@@ -47,7 +47,8 @@ test("new provincial guidance has official sources and valid content identifiers
         "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
         "www.welcomebc.ca", "www.ontario.ca", "www.saskatchewan.ca",
         "www.gnb.ca", "www2.gnb.ca", "liveinnovascotia.com",
-        "www.princeedwardisland.ca", "www.gov.nl.ca"
+        "www.princeedwardisland.ca", "www.gov.nl.ca",
+        "yukon.ca", "www.immigratenwt.ca"
     ]);
     for(const definition of roadmaps.filter(item => item.pathway === "Provincial Nominee Program")){
         const roadmap = loadRoadmap(definition);
@@ -178,6 +179,44 @@ test("PEI and Newfoundland and Labrador roadmaps preserve their federal routes",
     assert.match(nlSkilled.steps[5].description, /60-day/);
     const nlGraduate = loadRoadmap(findRoadmap("Provincial Nominee Program", "NLPNP International Graduate"));
     assert.match(nlGraduate.steps[0].description, /PGWP/);
+});
+
+test("Yukon and Northwest Territories roadmaps preserve program and federal routes", () => {
+    const expressStreams = [
+        "Yukon Express Entry",
+        "NTNP Employer-Driven: NWT Express Entry"
+    ];
+    const baseStreams = [
+        "Yukon Nominee Program Skilled Worker",
+        "Yukon Nominee Program Critical Impact Worker",
+        "Yukon Business Nominee Program",
+        "NTNP Employer-Driven: Skilled Worker",
+        "NTNP Employer-Driven: Entry Level/Semi-Skilled",
+        "NTNP Francophone Stream",
+        "NTNP Business Stream"
+    ];
+
+    for(const stream of expressStreams){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "express-entry");
+        assert.ok(roadmap.steps.some(step => /Accept the electronic/.test(step.title)));
+    }
+    for(const stream of baseStreams){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "non-express-entry");
+        assert.ok(roadmap.steps.some(step => /non-Express Entry permanent residence application/.test(step.title)));
+    }
+
+    const yukonWorker = loadRoadmap(findRoadmap("Provincial Nominee Program", "Yukon Nominee Program Skilled Worker"));
+    assert.match(yukonWorker.steps[4].description, /2026 EOI intakes are closed/);
+    const yukonBusiness = loadRoadmap(findRoadmap("Provincial Nominee Program", "Yukon Business Nominee Program"));
+    assert.match(yukonBusiness.steps[1].description, /\$300,000/);
+    const nwtEntry = loadRoadmap(findRoadmap("Provincial Nominee Program", "NTNP Employer-Driven: Entry Level\/Semi-Skilled"));
+    assert.match(nwtEntry.steps[0].description, /12 months/);
+    const nwtFrancophone = loadRoadmap(findRoadmap("Provincial Nominee Program", "NTNP Francophone Stream"));
+    assert.match(nwtFrancophone.steps[1].description, /CLB\/NCLC 5 in French and CLB 4 in English/);
+    const nwtBusiness = loadRoadmap(findRoadmap("Provincial Nominee Program", "NTNP Business Stream"));
+    assert.match(nwtBusiness.steps[1].description, /\$200,000/);
 });
 
 test("New Brunswick base and Express Entry pathways keep their federal routes separate", () => {

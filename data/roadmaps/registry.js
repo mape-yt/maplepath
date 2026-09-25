@@ -37,7 +37,16 @@ const roadmaps = [
     { pathway:"Provincial Nominee Program", stream:"NLPNP Skilled Worker", province:"Newfoundland and Labrador", profileKey:"PNP-NL-SW", file:"pnp/newfoundland-labrador-skilled-worker.json" },
     { pathway:"Provincial Nominee Program", stream:"NLPNP International Graduate", province:"Newfoundland and Labrador", profileKey:"PNP-NL-IG", file:"pnp/newfoundland-labrador-international-graduate.json" },
     { pathway:"Provincial Nominee Program", stream:"NLPNP International Entrepreneur", province:"Newfoundland and Labrador", profileKey:"PNP-NL-ENT", file:"pnp/newfoundland-labrador-international-entrepreneur.json" },
-    { pathway:"Provincial Nominee Program", stream:"NLPNP International Graduate Entrepreneur", province:"Newfoundland and Labrador", profileKey:"PNP-NL-IGE", file:"pnp/newfoundland-labrador-international-graduate-entrepreneur.json" }
+    { pathway:"Provincial Nominee Program", stream:"NLPNP International Graduate Entrepreneur", province:"Newfoundland and Labrador", profileKey:"PNP-NL-IGE", file:"pnp/newfoundland-labrador-international-graduate-entrepreneur.json" },
+    { pathway:"Provincial Nominee Program", stream:"Yukon Nominee Program Skilled Worker", province:"Yukon", profileKey:"PNP-YT-SW", file:"pnp/yukon-skilled-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"Yukon Nominee Program Critical Impact Worker", province:"Yukon", profileKey:"PNP-YT-CIW", file:"pnp/yukon-critical-impact-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"Yukon Express Entry", province:"Yukon", profileKey:"PNP-YT-EE", file:"pnp/yukon-express-entry.json" },
+    { pathway:"Provincial Nominee Program", stream:"Yukon Business Nominee Program", province:"Yukon", profileKey:"PNP-YT-BIZ", file:"pnp/yukon-business-nominee.json" },
+    { pathway:"Provincial Nominee Program", stream:"NTNP Employer-Driven: Skilled Worker", province:"Northwest Territories", profileKey:"PNP-NT-SW", file:"pnp/northwest-territories-skilled-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"NTNP Employer-Driven: Entry Level/Semi-Skilled", province:"Northwest Territories", profileKey:"PNP-NT-ELSS", file:"pnp/northwest-territories-entry-level-semi-skilled.json" },
+    { pathway:"Provincial Nominee Program", stream:"NTNP Employer-Driven: NWT Express Entry", province:"Northwest Territories", profileKey:"PNP-NT-EE", file:"pnp/northwest-territories-express-entry.json" },
+    { pathway:"Provincial Nominee Program", stream:"NTNP Francophone Stream", province:"Northwest Territories", profileKey:"PNP-NT-FR", file:"pnp/northwest-territories-francophone.json" },
+    { pathway:"Provincial Nominee Program", stream:"NTNP Business Stream", province:"Northwest Territories", profileKey:"PNP-NT-BIZ", file:"pnp/northwest-territories-business.json" }
 ];
 
 function findRoadmap(pathway, stream){

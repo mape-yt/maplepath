@@ -1,0 +1,557 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "Yukon Nominee Program Critical Impact Worker",
+    "profileKey": "PNP-YT-CIW",
+    "province": "Yukon",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Yukon Nominee Program Critical Impact Worker",
+        "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Confirm the Yukon stream and worker eligibility",
+            "description": "The offered job must be TEER 4 or 5. The foreign worker needs at least six months of full-time relevant experience in the prior 10 years, suitable education and licensing, valid status if in Canada, CLB/NCLC 4 in all abilities, and intent to live in Yukon.",
+            "requiredDocuments": [
+                {
+                    "id": "worker-eligibility",
+                    "title": "Evidence supporting worker eligibility",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Confirm the full-time, year-round Yukon job offer",
+            "description": "The offer must be a genuine full-time, year-round position with an eligible Yukon employer, normally 35 to 40 hours per week, at the Yukon median wage for the NOC.",
+            "requiredDocuments": [
+                {
+                    "id": "guaranteed-employment-offer",
+                    "title": "Guaranteed Employment Offer and contract",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Confirm employer eligibility and recruitment",
+            "description": "The employer must meet Yukon operating, registration and licensing rules and show unsuccessful recruitment of Canadians or permanent residents. The position must be advertised for at least four weeks in at least three places, including Job Bank and two local media.",
+            "requiredDocuments": [
+                {
+                    "id": "recruitment-evidence",
+                    "title": "Job advertisements and recruitment results",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Prepare language, education and work evidence",
+            "description": "Collect valid language results from a designated organization, education records, relevant work references, status documents and occupational licence or certification where required.",
+            "requiredDocuments": [
+                {
+                    "id": "worker-documents",
+                    "title": "Language, education, experience and status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/doing-business/yukon-nominee-program/find-immigration-form",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/doing-business/yukon-nominee-program/find-immigration-form",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "waiting",
+            "title": "Wait for the next Yukon EOI intake",
+            "description": "Yukon's two published 2026 EOI intakes are closed. A new EOI is required for each intake and previous submissions do not automatically carry over.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/yukon-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Have the employer submit the Yukon Expression of Interest",
+            "description": "The employer submits one EOI for the foreign worker during an announced intake. The EOI is scored against current priorities and is not a program application.",
+            "requiredDocuments": [
+                {
+                    "id": "eoi-consent",
+                    "title": "EOI and consent-to-share-information forms",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/yukon-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/yukon-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "waiting",
+            "title": "Receive a Yukon Invitation to Apply",
+            "description": "Highest-ranking employers are invited according to annual allocation and priorities. An invited employer must attend the information session and follow the application deadline in the invitation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/yukon-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "applicant",
+            "title": "Complete the invited Yukon application",
+            "description": "The employer and foreign worker complete their sections, provide current certified copies and translations, and substantiate every EOI claim. The employer submits the complete package.",
+            "requiredDocuments": [
+                {
+                    "id": "yukon-application",
+                    "title": "Yukon Nominee Program application package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/doing-business/yukon-nominee-program/find-immigration-form",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/doing-business/yukon-nominee-program/find-immigration-form",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "province",
+            "title": "Complete Yukon assessment and screening",
+            "description": "The Immigration Branch checks the employer, recruitment, job, worker qualifications and documents. Attend a screening interview if requested and provide additional information by the stated deadline.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/immigration/yukon-nominee-program/apply-skilled-worker-and-critical-impact-worker-streams-hire-foreign-worker",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "province",
+            "title": "Sign the Yukon Tripartite Agreement",
+            "description": "After approval, the employer, nominee and Government of Yukon sign the Tripartite Agreement. Both parties must continue meeting its employment and settlement commitments.",
+            "requiredDocuments": [
+                {
+                    "id": "tripartite-agreement",
+                    "title": "Yukon Tripartite Agreement",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://yukon.ca/en/yukon-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/yukon-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "province",
+            "title": "Receive the Yukon nomination",
+            "description": "Review the nomination and any work-permit support instructions. The nominee must submit the federal permanent residence application within six months of Yukon approval.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://yukon.ca/en/yukon-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry permanent residence application",
+            "description": "Use IRCC's current PNP checklist and include the Yukon nomination. Territorial nomination and federal permanent residence are separate decisions.",
+            "requiredDocuments": [
+                {
+                    "id": "territorial-nomination",
+                    "title": "Yukon nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "applicant",
+            "title": "Submit the federal permanent residence application",
+            "description": "Submit the complete non-Express Entry PNP application through the method required by IRCC, pay federal fees and retain proof of submission.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 14,
+            "type": "ircc",
+            "title": "Complete federal processing requirements",
+            "description": "Respond to IRCC requests and complete biometrics, medical examinations, police certificates and other admissibility checks when instructed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 15,
+            "type": "ircc",
+            "title": "Receive the permanent residence decision",
+            "description": "IRCC makes the final decision. If approved, follow confirmation and landing instructions and continue intending to settle in Yukon.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        }
+    ]
+}

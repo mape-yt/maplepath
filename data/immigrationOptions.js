@@ -53,7 +53,16 @@ const immigrationOptions = {
             "NLPNP Skilled Worker",
             "NLPNP International Graduate",
             "NLPNP International Entrepreneur",
-            "NLPNP International Graduate Entrepreneur"
+            "NLPNP International Graduate Entrepreneur",
+            "Yukon Nominee Program Skilled Worker",
+            "Yukon Nominee Program Critical Impact Worker",
+            "Yukon Express Entry",
+            "Yukon Business Nominee Program",
+            "NTNP Employer-Driven: Skilled Worker",
+            "NTNP Employer-Driven: Entry Level/Semi-Skilled",
+            "NTNP Employer-Driven: NWT Express Entry",
+            "NTNP Francophone Stream",
+            "NTNP Business Stream"
         ],
 
         "Express Entry": [
@@ -102,7 +111,16 @@ const immigrationOptions = {
         "NLPNP Skilled Worker": "Newfoundland and Labrador",
         "NLPNP International Graduate": "Newfoundland and Labrador",
         "NLPNP International Entrepreneur": "Newfoundland and Labrador",
-        "NLPNP International Graduate Entrepreneur": "Newfoundland and Labrador"
+        "NLPNP International Graduate Entrepreneur": "Newfoundland and Labrador",
+        "Yukon Nominee Program Skilled Worker": "Yukon",
+        "Yukon Nominee Program Critical Impact Worker": "Yukon",
+        "Yukon Express Entry": "Yukon",
+        "Yukon Business Nominee Program": "Yukon",
+        "NTNP Employer-Driven: Skilled Worker": "Northwest Territories",
+        "NTNP Employer-Driven: Entry Level/Semi-Skilled": "Northwest Territories",
+        "NTNP Employer-Driven: NWT Express Entry": "Northwest Territories",
+        "NTNP Francophone Stream": "Northwest Territories",
+        "NTNP Business Stream": "Northwest Territories"
     },
 
     provinces: [

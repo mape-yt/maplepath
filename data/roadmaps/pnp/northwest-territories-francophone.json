@@ -1,0 +1,498 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NTNP Francophone Stream",
+    "profileKey": "PNP-NT-FR",
+    "province": "Northwest Territories",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "NTNP Francophone Stream",
+        "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Confirm Francophone Stream eligibility",
+            "description": "Have a genuine permanent, full-time NWT job offer in TEER 0 through 5, at least Canadian high-school equivalency, required occupational qualifications, and either one year of full-time experience in the occupation during the last 10 years or six months of full-time NWT experience in that occupation.",
+            "requiredDocuments": [
+                {
+                    "id": "francophone-eligibility",
+                    "title": "Education, experience and occupational evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Meet both official-language requirements",
+            "description": "Submit two valid approved tests from single sittings per language. The minimum is CLB/NCLC 5 in French and CLB 4 in English across all four abilities. Results are valid for two years.",
+            "requiredDocuments": [
+                {
+                    "id": "french-language-result",
+                    "title": "Approved French language result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "english-language-result",
+                    "title": "Approved English language result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Confirm the permanent NWT job offer",
+            "description": "The job must be permanent with no end date, year-round, at least 30 hours weekly and performed in the NWT. It must provide economic benefit and meet the applicable wage and employment standards.",
+            "requiredDocuments": [
+                {
+                    "id": "francophone-job-offer",
+                    "title": "Signed NWT job offer and job description",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Confirm employer eligibility and declarations",
+            "description": "The employer must operate year-round in the NWT, generally for at least one year, maintain an NWT workplace, remain in good standing, and complete the Francophone Stream Employer Information and Declaration Form.",
+            "requiredDocuments": [
+                {
+                    "id": "employer-declaration",
+                    "title": "Francophone Stream Employer Information and Declaration",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Prepare the complete Francophone application",
+            "description": "Collect certified personal and family records, three months of bank statements and pay stubs where applicable, education or ECA, licensing, work experience, both language tests and legal-status evidence.",
+            "requiredDocuments": [
+                {
+                    "id": "francophone-documents",
+                    "title": "Complete Francophone Stream supporting documents",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Submit directly through the NTNP portal",
+            "description": "The Francophone Stream remains separate from the Employer-Driven EOI and accepts applications first-come, first-served. Submit the complete application through the current online process.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "province",
+            "title": "Complete NTNP assessment and employer verification",
+            "description": "Respond to requests while the territory verifies the applicant, job and employer. Maintain qualifying employment and legal work status if in Canada.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Sign the Memorandum of Understanding",
+            "description": "After approval, the applicant, employer and territorial department sign the MOU and continue meeting its terms.",
+            "requiredDocuments": [
+                {
+                    "id": "francophone-mou",
+                    "title": "Francophone Stream Memorandum of Understanding",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "province",
+            "title": "Receive the NWT nomination",
+            "description": "Review the nomination and any work-permit support letter. Apply for federal permanent residence within six months and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.immigratenwt.ca/sites/immigratenwt/files/resources/2025_-_11_-_ntnp_program_guidelines_-_francophone_stream-_final.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Prepare the non-Express Entry permanent residence application",
+            "description": "Use IRCC's current PNP checklist and include the Northwest Territories nomination. Territorial nomination and federal permanent residence are separate decisions.",
+            "requiredDocuments": [
+                {
+                    "id": "territorial-nomination",
+                    "title": "Northwest Territories nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Official guidance",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "applicant",
+            "title": "Submit the federal permanent residence application",
+            "description": "Submit the complete non-Express Entry PNP application through the method required by IRCC, pay federal fees and retain proof of submission.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Complete federal processing requirements",
+            "description": "Respond to IRCC requests and complete biometrics, medical examinations, police certificates and other admissibility checks when instructed.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "ircc",
+            "title": "Receive the permanent residence decision",
+            "description": "IRCC makes the final decision. If approved, follow confirmation and landing instructions and continue intending to settle in Northwest Territories.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-current-guidance",
+                    "text": "Read the current official instructions for this stage."
+                },
+                {
+                    "id": "save-stage-records",
+                    "text": "Keep copies of submissions, confirmations and messages."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Official guidance",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated requirements or forms.",
+                "Missing a deadline or failing to report a material change."
+            ]
+        }
+    ]
+}
