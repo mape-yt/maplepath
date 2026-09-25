@@ -1,0 +1,844 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NSNP Nova Scotia: Express Entry",
+    "profileKey": "PNP-NS-EE",
+    "province": "Nova Scotia",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "express-entry",
+    "officialProgramPage": {
+        "label": "Nova Scotia: Express Entry",
+        "url": "https://liveinnovascotia.com/express-entry",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Choose the applicable Nova Scotia Express Entry criteria",
+            "description": "Confirm you have a valid federal Express Entry profile and fit one current route: at least one year of qualifying skilled work in Nova Scotia, the Physician criteria with an approved NSH or IWK opportunity and Letter of Interest, or another province-issued Letter of Interest with the criteria stated for that round.",
+            "requiredDocuments": [
+                {
+                    "id": "criteria-evidence",
+                    "title": "Evidence for the selected Express Entry criteria",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-criteria",
+                    "text": "Choose skilled Nova Scotia experience, Physician or Letter of Interest criteria."
+                },
+                {
+                    "id": "check-sector",
+                    "text": "Confirm the work is not affected by the accommodation and food services intake pause."
+                },
+                {
+                    "id": "check-priorities",
+                    "text": "Review current selection priorities and any Letter of Interest conditions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Express Entry guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Four consolidated NSNP streams",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-four-consolidated-streams",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Current nominee program priorities",
+                    "url": "https://liveinnovascotia.com/resources/nominee-program-priorities-nova-scotia",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using a retired pre-consolidation stream name.",
+                "Assuming a federal profile alone creates provincial eligibility.",
+                "Ignoring criteria attached to a Letter of Interest."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Create or maintain an eligible federal Express Entry profile",
+            "description": "Maintain an active federal Express Entry profile and eligibility for a federal Express Entry program. Keep the profile number, Job Seeker Validation Code and all profile information consistent with the Nova Scotia submission.",
+            "requiredDocuments": [
+                {
+                    "id": "express-entry-profile",
+                    "title": "Valid Express Entry profile number and Job Seeker Validation Code",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-federal-eligibility",
+                    "text": "Confirm eligibility for a federal Express Entry program."
+                },
+                {
+                    "id": "match-profile",
+                    "text": "Match work, education and family information across both systems."
+                },
+                {
+                    "id": "track-expiry",
+                    "text": "Track the federal profile and document expiry dates."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Express Entry guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using an expired or ineligible Express Entry profile.",
+                "Providing inconsistent information to Nova Scotia and IRCC.",
+                "Failing to update both systems after a change."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Prepare work, language, education and criteria evidence",
+            "description": "For Nova Scotia skilled experience, prove at least one year of qualifying authorized TEER 0–3 work in the province, age 21–55, education and the applicable language level: CLB 7 for TEER 0–1 or CLB 5 for TEER 2–3. Physician and other Letter of Interest candidates must meet the criteria in their letter and qualifying federal program.",
+            "requiredDocuments": [
+                {
+                    "id": "work-evidence",
+                    "title": "Detailed qualifying work-experience evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-results",
+                    "title": "Valid approved language results",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-evidence",
+                    "title": "Canadian credential or foreign credential and ECA",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "letter-of-interest",
+                    "title": "Nova Scotia Letter of Interest",
+                    "requirement": "conditional",
+                    "condition": "Required for Physician and other Letter of Interest criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "physician-package",
+                    "title": "Approved NSH or IWK opportunity and Return for Service Agreement",
+                    "requirement": "conditional",
+                    "condition": "Required under the Physician criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-work",
+                    "text": "Confirm the work was authorized and meets the selected TEER and timing rules."
+                },
+                {
+                    "id": "verify-language",
+                    "text": "Confirm every language ability meets the applicable CLB."
+                },
+                {
+                    "id": "verify-letter",
+                    "text": "Record the criteria and deadline in any Letter of Interest."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Express Entry guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Counting unauthorized or ineligible work.",
+                "Using an incorrect CLB threshold for the TEER.",
+                "Missing the physician Letter of Interest's 30-calendar-day submission deadline."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Prepare the complete Nova Scotia evidence package",
+            "description": "Collect identity, civil-status, Express Entry and criteria-specific records. Complete the online NSNP submission and any representative or information-release forms that apply.",
+            "requiredDocuments": [
+                {
+                    "id": "identity-civil-records",
+                    "title": "Passports, identity and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "online-submission",
+                    "title": "Complete online NSNP submission",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "representative-form",
+                    "title": "NSNP 50 Use of a Representative",
+                    "requirement": "conditional",
+                    "condition": "Required when using a representative.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "release-form",
+                    "title": "NSNP 60 Authority to Release Personal Information",
+                    "requirement": "conditional",
+                    "condition": "Required when authorizing information release.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "translations",
+                    "title": "Certified translations",
+                    "requirement": "conditional",
+                    "condition": "Required for records not in English or French.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "use-current-guide",
+                    "text": "Use the February 2026 consolidated-stream guide and current forms."
+                },
+                {
+                    "id": "match-records",
+                    "text": "Ensure all records match the federal profile."
+                },
+                {
+                    "id": "scan-clearly",
+                    "text": "Prepare complete and legible scans."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Express Entry guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using a retired stream form.",
+                "Omitting criteria-specific evidence.",
+                "Uploading unreadable or inconsistent records."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Submit the Nova Scotia Express Entry EOI",
+            "description": "Submit the complete online package as an EOI. It enters a selection pool, is free to submit and normally remains valid for 12 months. Physician candidates must submit within 30 calendar days of their Letter of Interest; other letters may state different criteria or deadlines.",
+            "requiredDocuments": [
+                {
+                    "id": "complete-eoi",
+                    "title": "Complete online EOI and supporting evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Nominee Program",
+                            "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-deadline",
+                    "text": "Record any Letter of Interest deadline."
+                },
+                {
+                    "id": "verify-eoi",
+                    "text": "Verify every answer and upload."
+                },
+                {
+                    "id": "record-expiry",
+                    "text": "Record the 12-month EOI expiry date when applicable."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Nominee Program",
+                    "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI validity and transition measures",
+                    "url": "https://liveinnovascotia.com/resources/expression-interest-eoi-validity-period-and-transition-measures",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing a Letter of Interest deadline.",
+                "Treating the EOI as guaranteed assessment.",
+                "Submitting information inconsistent with the federal profile."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "waiting",
+            "title": "Keep both profiles current and wait for selection",
+            "description": "Nova Scotia selects EOIs based on labour-market priorities, retention, program integrity, allocation and pool volume. There is no guaranteed selection timeline; keep both the provincial submission and federal profile accurate and valid.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-updates",
+                    "text": "Monitor official priorities, draws and both accounts."
+                },
+                {
+                    "id": "maintain-profile",
+                    "text": "Keep the federal profile and documents valid."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Update both systems as instructed after a change."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Current nominee program priorities",
+                    "url": "https://liveinnovascotia.com/resources/nominee-program-priorities-nova-scotia",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI selections",
+                    "url": "https://liveinnovascotia.com/eoi-selection",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI validity and transition measures",
+                    "url": "https://liveinnovascotia.com/resources/expression-interest-eoi-validity-period-and-transition-measures",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming minimum eligibility guarantees selection.",
+                "Letting the federal profile expire.",
+                "Relying on a previous draw as a future promise."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Review, update and pay after selection",
+            "description": "If selected for assessment, review the submission, upload updated documents and pay the non-refundable $1,000 worker-stream fee within 7 calendar days. Missing the documentation or payment deadline closes the EOI.",
+            "requiredDocuments": [
+                {
+                    "id": "selection-notice",
+                    "title": "Nova Scotia selection notice",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Nominee Program",
+                            "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "updated-evidence",
+                    "title": "Updated documents requested in the notice",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Nominee Program",
+                            "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia: Express Entry guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "$1,000 NSNP worker-stream fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: NSNP application fees",
+                            "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-seven-days",
+                    "text": "Record the seven-calendar-day deadline."
+                },
+                {
+                    "id": "recheck-profile",
+                    "text": "Confirm the federal profile and provincial eligibility remain valid."
+                },
+                {
+                    "id": "pay-in-full",
+                    "text": "Pay through the official process and retain the emailed receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Nominee Program",
+                    "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: NSNP application fees",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the seven-day deadline.",
+                "Trying to pre-pay before selection.",
+                "Assuming payment guarantees approval or faster processing."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Wait for NSNP assessment and respond to requests",
+            "description": "Nova Scotia assesses eligibility, Express Entry status and program integrity. No individual processing-time guarantee is published; monitor communications, respond by every deadline and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-messages",
+                    "text": "Monitor Nova Scotia, email and IRCC accounts."
+                },
+                {
+                    "id": "respond-completely",
+                    "text": "Respond completely within each deadline."
+                },
+                {
+                    "id": "maintain-eligibility",
+                    "text": "Keep the federal profile eligible and temporary status valid when applicable."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Express Entry guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova%20Scotia%20Express%20Entry-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Ignoring a document request.",
+                "Letting the federal profile become ineligible.",
+                "Failing to report a material change."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Accept the electronic Express Entry nomination",
+            "description": "If nominated, review the conditions and accept the nomination in the IRCC account within 30 calendar days. Acceptance adds the provincial nomination points to the federal profile.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-package",
+                    "title": "Nova Scotia nomination package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: Express Entry",
+                            "url": "https://liveinnovascotia.com/express-entry",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "electronic-nomination",
+                    "title": "IRCC electronic nomination message",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Confirm an Express Entry nomination",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/get-confirm-nomination.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-nomination",
+                    "text": "Check the nomination details and conditions."
+                },
+                {
+                    "id": "accept-within-thirty",
+                    "text": "Accept within 30 calendar days."
+                },
+                {
+                    "id": "save-records",
+                    "text": "Save the certificate and IRCC confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Express Entry",
+                    "url": "https://liveinnovascotia.com/express-entry",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "IRCC: Confirm an Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/get-confirm-nomination.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the 30-day response period.",
+                "Assuming nomination is final federal approval."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "waiting",
+            "title": "Wait for a federal Express Entry invitation",
+            "description": "Keep the Express Entry profile accurate and eligible while waiting for IRCC to issue an invitation to apply. The nomination raises the profile score but does not grant permanent residence.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc",
+                    "text": "Monitor the IRCC account."
+                },
+                {
+                    "id": "maintain-profile",
+                    "text": "Keep the profile and documents valid."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report relevant changes to Nova Scotia and IRCC."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Confirm an Express Entry nomination",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/get-confirm-nomination.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Letting the profile or supporting documents expire.",
+                "Treating nomination as authorization to work or remain in Canada."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "applicant",
+            "title": "Submit the Express Entry permanent residence application",
+            "description": "After IRCC issues an invitation, confirm continued eligibility, upload the required evidence, pay the fees and submit the complete electronic application within 60 calendar days.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-invitation",
+                    "title": "IRCC invitation to apply",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR through Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-package",
+                    "title": "Personalized Express Entry document package",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for PR through Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-deadline",
+                    "text": "Record the 60-calendar-day deadline."
+                },
+                {
+                    "id": "recalculate-score",
+                    "text": "Recalculate the score after any change."
+                },
+                {
+                    "id": "save-aor",
+                    "text": "Save the submission confirmation and acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for PR through Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the federal deadline.",
+                "Applying after a change invalidates the invited score or eligibility.",
+                "Omitting evidence carried from the profile."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Complete federal medical, biometrics and document requests",
+            "description": "Follow IRCC instructions for medical examinations, biometrics, police certificates, interviews or additional documents, and continue meeting Nova Scotia nomination conditions.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "follow-instructions",
+                    "text": "Use the providers, forms and deadlines specified by IRCC."
+                },
+                {
+                    "id": "monitor-authorities",
+                    "text": "Monitor both IRCC and Nova Scotia communications."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes in family, address, employment or status."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for PR through Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Completing an instruction-dependent step before IRCC asks.",
+                "Reporting a material change to only one authority."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC makes the final admissibility and permanent residence decision. If approved, follow the confirmation and landing instructions and continue intending to settle in Nova Scotia.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Follow every instruction in the decision."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete permanent residence confirmation."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep provincial and federal records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for PR through Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial nomination as federal approval.",
+                "Making irreversible plans before IRCC grants permanent residence."
+            ]
+        }
+    ]
+}

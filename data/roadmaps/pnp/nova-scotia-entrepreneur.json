@@ -1,0 +1,1035 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NSNP Entrepreneur",
+    "profileKey": "PNP-NS-ENT",
+    "province": "Nova Scotia",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Nova Scotia Entrepreneur",
+        "url": "https://liveinnovascotia.com/entrepreneur",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Choose the applicable Entrepreneur criteria",
+            "description": "Choose experienced owner or senior manager criteria, or the Nova Scotia international graduate criteria. The stream is invitation-only and both routes require active day-to-day business management and a genuine intention to live permanently in Nova Scotia.",
+            "requiredDocuments": [
+                {
+                    "id": "criteria-evidence",
+                    "title": "Evidence for the selected Entrepreneur criteria",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-criteria",
+                    "text": "Choose experienced entrepreneur or international graduate criteria."
+                },
+                {
+                    "id": "confirm-management",
+                    "text": "Confirm you will actively manage the Nova Scotia business."
+                },
+                {
+                    "id": "review-business-rules",
+                    "text": "Review eligible and ineligible business rules in the current guide."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Four consolidated NSNP streams",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-four-consolidated-streams",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using the retired International Graduate Entrepreneur stream name as a separate current stream.",
+                "Planning a passive investment.",
+                "Assuming every business type qualifies."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Confirm the financial, experience or graduate requirements",
+            "description": "Experienced candidates must be at least 21, meet the HRM or outside-HRM net-worth and investment thresholds, and have at least three years owning and managing a business or more than five years as a senior manager. Graduate candidates need an eligible two-academic-year Nova Scotia credential, a valid PGWP and at least one continuous year owning at least 33.33% and actively managing the current Nova Scotia business.",
+            "requiredDocuments": [
+                {
+                    "id": "net-worth-evidence",
+                    "title": "Lawfully accumulated net-worth evidence",
+                    "requirement": "conditional",
+                    "condition": "Required for experienced owner or senior manager criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "management-experience",
+                    "title": "Business ownership or senior management evidence",
+                    "requirement": "conditional",
+                    "condition": "Required for experienced owner or senior manager criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "graduate-credential",
+                    "title": "Eligible Nova Scotia degree or diploma",
+                    "requirement": "conditional",
+                    "condition": "Required for international graduate criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "pgwp",
+                    "title": "Valid post-graduation work permit",
+                    "requirement": "conditional",
+                    "condition": "Required for international graduate criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "business-ownership",
+                    "title": "Proof of qualifying Nova Scotia business ownership and management",
+                    "requirement": "conditional",
+                    "condition": "Required for international graduate criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "calculate-thresholds",
+                    "text": "Apply the correct HRM or outside-HRM thresholds."
+                },
+                {
+                    "id": "document-source",
+                    "text": "Document the lawful source and accumulation of net worth."
+                },
+                {
+                    "id": "verify-graduate-history",
+                    "text": "Confirm the study, permit, ownership and one-year operation rules when applying as a graduate."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Applying HRM thresholds to a business outside HRM or vice versa.",
+                "Counting passive investment as active management.",
+                "Using insufficient ownership or business-operation history."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Complete language testing and develop the business plan",
+            "description": "Obtain approved language results at CLB 5 for experienced candidates or CLB 7 for international graduates. Develop a realistic business concept showing ownership, investment, job creation or economic benefit, location and active management.",
+            "requiredDocuments": [
+                {
+                    "id": "language-results",
+                    "title": "Valid approved language test results",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "business-concept",
+                    "title": "Business concept and supporting research",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-clb",
+                    "text": "Meet the CLB level for the selected criteria in every ability."
+                },
+                {
+                    "id": "research-market",
+                    "text": "Research customers, competition, costs and licensing."
+                },
+                {
+                    "id": "check-eligibility",
+                    "text": "Compare the concept with eligible-business restrictions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using academic instead of approved immigration language results.",
+                "Submitting an unsupported business concept.",
+                "Proposing a passive or ineligible business."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Submit the Entrepreneur expression of interest",
+            "description": "Submit an accurate online EOI with the self-declared points and business concept. The EOI enters a selection pool, remains valid for 12 months when submitted on or after May 1, 2026, and does not guarantee an invitation.",
+            "requiredDocuments": [
+                {
+                    "id": "entrepreneur-eoi",
+                    "title": "Complete Entrepreneur EOI and business concept",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "calculate-points",
+                    "text": "Calculate points conservatively."
+                },
+                {
+                    "id": "verify-claims",
+                    "text": "Keep evidence for every claim."
+                },
+                {
+                    "id": "record-expiry",
+                    "text": "Record the EOI submission and expiry dates."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI validity and transition measures",
+                    "url": "https://liveinnovascotia.com/resources/expression-interest-eoi-validity-period-and-transition-measures",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Inflating self-declared points.",
+                "Treating the EOI as a full application.",
+                "Assuming selection is first come, first served."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "waiting",
+            "title": "Keep the EOI current and wait for an invitation",
+            "description": "Nova Scotia selects Entrepreneur EOIs according to score, strategic priorities, allocation and program integrity. There is no guaranteed draw or selection timeline.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-updates",
+                    "text": "Monitor official program and invitation updates."
+                },
+                {
+                    "id": "update-changes",
+                    "text": "Update or replace the EOI as instructed after a change."
+                },
+                {
+                    "id": "keep-evidence-current",
+                    "text": "Keep language, financial and business evidence current."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Current nominee program priorities",
+                    "url": "https://liveinnovascotia.com/resources/nominee-program-priorities-nova-scotia",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI selections",
+                    "url": "https://liveinnovascotia.com/eoi-selection",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming a high score guarantees an invitation.",
+                "Making irreversible investments before understanding the invitation and approval process.",
+                "Letting the EOI expire."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "applicant",
+            "title": "Prepare the invited Entrepreneur application",
+            "description": "If invited, prepare the full application, Business Establishment Plan and all supporting records. Experienced candidates obtain an approved third-party Net Worth Verification Report. Follow the invitation deadline: normally 90 days for a new business or graduate route and 180 days when purchasing an existing business.",
+            "requiredDocuments": [
+                {
+                    "id": "invitation",
+                    "title": "Nova Scotia Invitation to Apply",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "business-plan",
+                    "title": "Business Establishment Plan",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "net-worth-report",
+                    "title": "Approved Net Worth Verification Report",
+                    "requirement": "conditional",
+                    "condition": "Required for experienced owner or senior manager criteria.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "supporting-package",
+                    "title": "Complete financial, education, experience and business records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-deadline",
+                    "text": "Record the 90-day or 180-day invitation deadline."
+                },
+                {
+                    "id": "choose-verifier",
+                    "text": "Use an approved net-worth verifier when required."
+                },
+                {
+                    "id": "review-package",
+                    "text": "Match every EOI claim to evidence."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: NSNP application fees",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the applicable invitation deadline.",
+                "Using an unapproved net-worth verifier.",
+                "Changing the business concept materially without authorization."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Pay and submit the Entrepreneur application",
+            "description": "Pay the non-refundable $2,000 provincial fee within the applicable 90-day or 180-day invitation period and submit the complete application. Payment must be made in one official online transaction and does not guarantee approval.",
+            "requiredDocuments": [
+                {
+                    "id": "application-package",
+                    "title": "Complete Entrepreneur application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "$2,000 NSNP Entrepreneur fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: NSNP application fees",
+                            "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "pay-officially",
+                    "text": "Pay only after invitation through the official process."
+                },
+                {
+                    "id": "retain-receipt",
+                    "text": "Retain the emailed payment receipt."
+                },
+                {
+                    "id": "submit-completely",
+                    "text": "Submit every required form and report before the deadline."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: NSNP application fees",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Trying to pre-pay before invitation.",
+                "Paying in installments or through an unofficial channel.",
+                "Assuming payment speeds assessment."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Complete assessment and any interview",
+            "description": "Nova Scotia assesses the application, business plan, finances, experience and program integrity and may require an interview or more documents. Respond fully by every stated deadline.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-messages",
+                    "text": "Monitor the portal and email."
+                },
+                {
+                    "id": "prepare-interview",
+                    "text": "Be ready to explain the business plan and management experience."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report material personal, financial or business changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Giving answers inconsistent with the business plan.",
+                "Failing to report a material change.",
+                "Assuming invitation or payment guarantees approval."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Sign the Business Performance Agreement",
+            "description": "If approved at the application stage, review and sign the Business Performance Agreement setting the approved business, investment, ownership, location and operating commitments. Nova Scotia may then issue work-permit support documentation.",
+            "requiredDocuments": [
+                {
+                    "id": "performance-agreement",
+                    "title": "Signed Business Performance Agreement",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "work-permit-support",
+                    "title": "Provincial work-permit support letter",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-commitments",
+                    "text": "Understand every performance milestone before signing."
+                },
+                {
+                    "id": "verify-business",
+                    "text": "Confirm the approved business and location."
+                },
+                {
+                    "id": "save-agreement",
+                    "text": "Keep the signed agreement and support letter."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Signing without understanding the performance conditions.",
+                "Changing the approved business without written authorization.",
+                "Treating work-permit support as permanent residence approval."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Obtain a work permit and establish the Nova Scotia business",
+            "description": "Apply to IRCC for the authorized temporary work status, move to Nova Scotia and establish or purchase the approved business. Make only eligible investment expenditures and actively manage daily operations.",
+            "requiredDocuments": [
+                {
+                    "id": "work-permit",
+                    "title": "Valid work permit authorizing the business activity",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "investment-records",
+                    "title": "Business purchase and eligible investment records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "obtain-authorization",
+                    "text": "Obtain work authorization before beginning work."
+                },
+                {
+                    "id": "follow-agreement",
+                    "text": "Follow the approved investment, ownership and location commitments."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep invoices, bank records, payroll and operating records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Working without authorization.",
+                "Counting ineligible expenses toward the investment.",
+                "Operating a materially different business without approval."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "applicant",
+            "title": "Operate and actively manage the business for at least one year",
+            "description": "Live in Nova Scotia and actively manage the approved business for at least one continuous year while meeting the Business Performance Agreement. Maintain detailed evidence of ownership, operations, investment, residence and any job commitments.",
+            "requiredDocuments": [
+                {
+                    "id": "operating-records",
+                    "title": "At least one year of business operating records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "residence-evidence",
+                    "title": "Evidence of residence in Nova Scotia",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "manage-daily",
+                    "text": "Actively manage daily operations."
+                },
+                {
+                    "id": "track-performance",
+                    "text": "Track every agreement milestone."
+                },
+                {
+                    "id": "prepare-financials",
+                    "text": "Maintain reliable accounting and tax records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating the business as a passive investment.",
+                "Falling below approved ownership or investment commitments.",
+                "Keeping incomplete financial and operating records."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "applicant",
+            "title": "Request nomination with business performance evidence",
+            "description": "After meeting the required operating period and agreement conditions, submit the nomination request and required business performance reports. Nova Scotia verifies that the commitments were fulfilled before deciding nomination.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-request",
+                    "title": "Complete nomination request",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "performance-report",
+                    "title": "Required business performance and financial reports",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-one-year",
+                    "text": "Confirm the minimum operating period is complete."
+                },
+                {
+                    "id": "reconcile-investment",
+                    "text": "Reconcile eligible investment with source records."
+                },
+                {
+                    "id": "review-agreement",
+                    "text": "Prove every applicable performance condition."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Entrepreneur guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-ENT-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Requesting nomination before the operating period is complete.",
+                "Claiming unsupported investment or employment results.",
+                "Assuming business-stage approval guarantees nomination."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "applicant",
+            "title": "Review nomination and submit the federal application",
+            "description": "If nominated, review the certificate and apply through the federal non-Express Entry PNP process before the nomination expires. Use current federal forms, include the nomination and pay the applicable IRCC fees.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-certificate",
+                    "title": "Nova Scotia nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Entrepreneur",
+                            "url": "https://liveinnovascotia.com/entrepreneur",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-application",
+                    "title": "Complete non-Express Entry PNP application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "Federal fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-expiry",
+                    "text": "Record the nomination expiry date."
+                },
+                {
+                    "id": "review-federal-package",
+                    "text": "Complete the current federal forms and checklist."
+                },
+                {
+                    "id": "save-aor",
+                    "text": "Save the submission confirmation and acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Entrepreneur",
+                    "url": "https://liveinnovascotia.com/entrepreneur",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "IRCC: Apply through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry instructions.",
+                "Waiting until nomination is near expiry.",
+                "Submitting an incomplete federal package."
+            ]
+        },
+        {
+            "order": 14,
+            "type": "ircc",
+            "title": "Complete federal medical, biometrics and document requests",
+            "description": "Follow IRCC instructions for medical examinations, biometrics, police certificates, interviews or additional documents. Continue meeting nomination conditions and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc",
+                    "text": "Monitor the PR Portal and IRCC communications."
+                },
+                {
+                    "id": "follow-deadlines",
+                    "text": "Complete each request within its deadline."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes to Nova Scotia and IRCC as required."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Completing a step before IRCC instructs it.",
+                "Reporting a material change to only one authority."
+            ]
+        },
+        {
+            "order": 15,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC assesses admissibility and makes the final permanent residence decision. If approved, follow the confirmation and landing instructions and continue operating the Nova Scotia business as required.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Follow every decision instruction."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete permanent residence confirmation."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep business, provincial and federal records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating nomination as federal approval.",
+                "Abandoning nomination or business commitments before finalization."
+            ]
+        }
+    ]
+}

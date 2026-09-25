@@ -36,7 +36,11 @@ const immigrationOptions = {
             "NBPNP Skilled Worker: New Brunswick Graduates",
             "NBPNP Skilled Worker: New Brunswick Priority Occupations",
             "NBPNP Express Entry: Employment in New Brunswick",
-            "NBPNP Express Entry: New Brunswick Interest"
+            "NBPNP Express Entry: New Brunswick Interest",
+            "NSNP Skilled Worker",
+            "NSNP Nova Scotia Graduate",
+            "NSNP Entrepreneur",
+            "NSNP Nova Scotia: Express Entry"
         ],
 
         "Express Entry": [
@@ -68,7 +72,11 @@ const immigrationOptions = {
         "NBPNP Skilled Worker: New Brunswick Graduates": "New Brunswick",
         "NBPNP Skilled Worker: New Brunswick Priority Occupations": "New Brunswick",
         "NBPNP Express Entry: Employment in New Brunswick": "New Brunswick",
-        "NBPNP Express Entry: New Brunswick Interest": "New Brunswick"
+        "NBPNP Express Entry: New Brunswick Interest": "New Brunswick",
+        "NSNP Skilled Worker": "Nova Scotia",
+        "NSNP Nova Scotia Graduate": "Nova Scotia",
+        "NSNP Entrepreneur": "Nova Scotia",
+        "NSNP Nova Scotia: Express Entry": "Nova Scotia"
     },
 
     provinces: [

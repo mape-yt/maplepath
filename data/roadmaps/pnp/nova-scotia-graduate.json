@@ -1,0 +1,939 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Provincial Nominee Program",
+    "stream": "NSNP Nova Scotia Graduate",
+    "profileKey": "PNP-NS-GRAD",
+    "province": "Nova Scotia",
+    "programStatus": "limited",
+    "lastVerifiedAt": "2026-09-24",
+    "federalApplicationRoute": "non-express-entry",
+    "officialProgramPage": {
+        "label": "Nova Scotia Graduate",
+        "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+        "verifiedAt": "2026-09-24"
+    },
+    "steps": [
+        {
+            "order": 1,
+            "type": "applicant",
+            "title": "Check Nova Scotia Graduate eligibility",
+            "description": "Confirm you are age 19–55 and have a full-time permanent Nova Scotia offer in one of the four currently listed NOCs: 32102, 32124, 33102 or 42202. The job must correspond to your recent eligible Nova Scotia field of study.",
+            "requiredDocuments": [
+                {
+                    "id": "eligible-noc",
+                    "title": "Evidence of an eligible listed NOC and corresponding field of study",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-current-nocs",
+                    "text": "Confirm the NOC remains on the current official list."
+                },
+                {
+                    "id": "match-study",
+                    "text": "Match the job to the recent field of study."
+                },
+                {
+                    "id": "check-age",
+                    "text": "Confirm age remains within 19–55 at application."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Graduate",
+                    "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Graduate guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Four consolidated NSNP streams",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-four-consolidated-streams",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: Current nominee program priorities",
+                    "url": "https://liveinnovascotia.com/resources/nominee-program-priorities-nova-scotia",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Relying on an older occupation list.",
+                "Using a job unrelated to the completed program.",
+                "Assuming any Nova Scotia graduate qualifies."
+            ]
+        },
+        {
+            "order": 2,
+            "type": "applicant",
+            "title": "Verify the permanent job and Nova Scotia education",
+            "description": "Confirm the offer is full-time, year-round and has no end date. The eligible Nova Scotia program must have been completed within three years, normally be at least 30 weeks long (24 weeks for NOC 33102), and have at least half completed in Nova Scotia, with the credential type required for the NOC.",
+            "requiredDocuments": [
+                {
+                    "id": "job-offer",
+                    "title": "Full-time permanent Nova Scotia job offer",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "credential",
+                    "title": "Eligible Nova Scotia certificate, diploma or degree",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "transcripts",
+                    "title": "Transcripts and proof of program duration and location",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-support",
+                    "title": "Employer Information form and supporting employment evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-duration",
+                    "text": "Confirm the program meets the applicable 30-week or 24-week minimum."
+                },
+                {
+                    "id": "verify-location",
+                    "text": "Confirm at least 50% was completed in Nova Scotia."
+                },
+                {
+                    "id": "verify-credential",
+                    "text": "Check that the credential type matches the selected NOC."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Graduate",
+                    "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Graduate guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Counting a program completed more than three years ago.",
+                "Using a credential type not accepted for the NOC.",
+                "Accepting a temporary or seasonal offer."
+            ]
+        },
+        {
+            "order": 3,
+            "type": "applicant",
+            "title": "Prepare language, education, licensing and settlement evidence",
+            "description": "Prepare a high school credential, approved language results at CLB 5, the Nova Scotia credential and any certification issued by the relevant Nova Scotia regulatory body. Also prepare settlement-fund evidence.",
+            "requiredDocuments": [
+                {
+                    "id": "high-school",
+                    "title": "High school diploma",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-results",
+                    "title": "Approved language results at CLB 5 or higher",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "regulatory-certification",
+                    "title": "Nova Scotia regulatory certification",
+                    "requirement": "conditional",
+                    "condition": "Required when the listed job requires provincial certification.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "settlement-funds",
+                    "title": "Settlement-fund evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-language",
+                    "text": "Confirm the language evidence meets the selected criteria and remains valid."
+                },
+                {
+                    "id": "verify-education",
+                    "text": "Match the education or training evidence to the program requirement."
+                },
+                {
+                    "id": "check-licensing",
+                    "text": "Complete or document the applicable Nova Scotia licensing process."
+                },
+                {
+                    "id": "prepare-funds",
+                    "text": "Prepare evidence of enough resources to settle in Nova Scotia."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Graduate",
+                    "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Graduate guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using expired language results or an education assessment.",
+                "Assuming foreign licensing automatically permits work in Nova Scotia.",
+                "Providing funds that are borrowed or unavailable for settlement."
+            ]
+        },
+        {
+            "order": 4,
+            "type": "applicant",
+            "title": "Prepare the complete NSNP forms and evidence package",
+            "description": "Collect identity, civil-status, employment and pathway evidence. Complete the online NSNP submission, the employer form when required, and any representative or information-release forms that apply.",
+            "requiredDocuments": [
+                {
+                    "id": "identity-civil-records",
+                    "title": "Passports, identity and civil-status records",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "online-submission",
+                    "title": "Complete online NSNP submission",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "employer-form",
+                    "title": "NSNP 200 Employer Information form",
+                    "requirement": "conditional",
+                    "condition": "Required for employer-supported worker and graduate submissions.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "representative-form",
+                    "title": "NSNP 50 Use of a Representative form",
+                    "requirement": "conditional",
+                    "condition": "Required when using a representative.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "release-form",
+                    "title": "NSNP 60 Authority to Release Personal Information",
+                    "requirement": "conditional",
+                    "condition": "Required when authorizing Nova Scotia to release application information to another person.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "translations",
+                    "title": "Certified translations",
+                    "requirement": "conditional",
+                    "condition": "Required for records not in English or French.",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "use-current-guide",
+                    "text": "Use the current consolidated-stream guide and forms."
+                },
+                {
+                    "id": "match-records",
+                    "text": "Ensure names, dates, NOC details and family information agree across records."
+                },
+                {
+                    "id": "scan-clearly",
+                    "text": "Prepare complete, legible scans and translations."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Graduate",
+                    "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Graduate guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using a pre-consolidation stream form or an outdated guide.",
+                "Omitting the employer form when it applies.",
+                "Uploading unreadable or incomplete documents."
+            ]
+        },
+        {
+            "order": 5,
+            "type": "applicant",
+            "title": "Submit a complete Nova Scotia expression of interest",
+            "description": "Submit the complete online package as an expression of interest. It enters a selection pool rather than a first-come queue, is free to submit, and normally remains valid for 12 months when submitted on or after May 1, 2026.",
+            "requiredDocuments": [
+                {
+                    "id": "complete-eoi",
+                    "title": "Complete online EOI and supporting documents",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Nominee Program",
+                            "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "verify-eoi",
+                    "text": "Verify every answer and upload before submission."
+                },
+                {
+                    "id": "save-confirmation",
+                    "text": "Save the EOI confirmation and submission date."
+                },
+                {
+                    "id": "record-expiry",
+                    "text": "Record the 12-month EOI expiry date."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Nominee Program",
+                    "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI validity and transition measures",
+                    "url": "https://liveinnovascotia.com/resources/expression-interest-eoi-validity-period-and-transition-measures",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting an incomplete package and having the EOI closed.",
+                "Treating the EOI as a nomination application already under assessment.",
+                "Assuming selection is first come, first served."
+            ]
+        },
+        {
+            "order": 6,
+            "type": "waiting",
+            "title": "Keep the EOI current and wait for selection",
+            "description": "Nova Scotia periodically selects EOIs using labour-market priorities, retention factors, program integrity, available allocation and pool volume. Selection is not guaranteed and the province does not provide a selection timeline.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-updates",
+                    "text": "Monitor official priority and selection updates."
+                },
+                {
+                    "id": "update-changes",
+                    "text": "Submit a new or updated EOI as instructed when circumstances change."
+                },
+                {
+                    "id": "track-documents",
+                    "text": "Keep permits, language results and other time-sensitive evidence valid."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia: Current nominee program priorities",
+                    "url": "https://liveinnovascotia.com/resources/nominee-program-priorities-nova-scotia",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI selections",
+                    "url": "https://liveinnovascotia.com/eoi-selection",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI validity and transition measures",
+                    "url": "https://liveinnovascotia.com/resources/expression-interest-eoi-validity-period-and-transition-measures",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming minimum eligibility guarantees selection.",
+                "Relying on an earlier draw as a promise of a future invitation.",
+                "Letting the EOI or supporting evidence expire."
+            ]
+        },
+        {
+            "order": 7,
+            "type": "applicant",
+            "title": "Review, update and pay after selection",
+            "description": "If selected for assessment, follow the notice immediately. Worker-stream candidates have 7 calendar days to review the submission, upload updated documents and pay the non-refundable $1,000 provincial fee. Failure to complete the required actions closes the EOI.",
+            "requiredDocuments": [
+                {
+                    "id": "selection-notice",
+                    "title": "Nova Scotia selection notice",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Nominee Program",
+                            "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "updated-evidence",
+                    "title": "Updated documents requested in the notice",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Nominee Program",
+                            "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "Nova Scotia Graduate guide",
+                            "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "fee-receipt",
+                    "title": "$1,000 NSNP worker-stream fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia: NSNP application fees",
+                            "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-seven-days",
+                    "text": "Record the seven-calendar-day deadline."
+                },
+                {
+                    "id": "review-submission",
+                    "text": "Review all eligibility information and replace expired evidence."
+                },
+                {
+                    "id": "pay-in-full",
+                    "text": "Pay through the official single-payment process and retain the emailed receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Nominee Program",
+                    "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: NSNP application fees",
+                    "url": "https://liveinnovascotia.com/resources/nsnp-update-application-fees-effective-september-1-2026",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Missing the seven-calendar-day deadline.",
+                "Trying to pre-pay before selection.",
+                "Using a screenshot instead of the emailed fee receipt."
+            ]
+        },
+        {
+            "order": 8,
+            "type": "province",
+            "title": "Wait for NSNP assessment and respond to requests",
+            "description": "Nova Scotia checks completeness, eligibility, employer support and program integrity. No individual processing-time guarantee is published; respond to every request by its deadline and report material changes.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-messages",
+                    "text": "Monitor the NSNP portal and email."
+                },
+                {
+                    "id": "respond-completely",
+                    "text": "Respond completely within every stated deadline."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report changes in employment, family, address or immigration status."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Nominee Program",
+                    "url": "https://liveinnovascotia.com/nova-scotia-nominee-program",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia: EOI processing policy",
+                    "url": "https://liveinnovascotia.com/eoi-process",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "Nova Scotia Graduate guide",
+                    "url": "https://liveinnovascotia.com/sites/default/files/2026-02/Guide-NSNP-Nova-Scotia-Graduate-English.pdf",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Assuming fee payment guarantees nomination or faster processing.",
+                "Ignoring a request because the original EOI was complete.",
+                "Failing to report a material change."
+            ]
+        },
+        {
+            "order": 9,
+            "type": "applicant",
+            "title": "Review the nomination and its conditions",
+            "description": "If nominated, review the certificate, conditions and expiry date. Continue intending to settle in Nova Scotia and prepare the current federal non-Express Entry Provincial Nominee Program application.",
+            "requiredDocuments": [
+                {
+                    "id": "nomination-certificate",
+                    "title": "Nova Scotia nomination certificate",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "Nova Scotia Graduate",
+                            "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                            "verifiedAt": "2026-09-24"
+                        },
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-checklist",
+                    "title": "Current federal non-Express Entry PNP checklist",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-expiry",
+                    "text": "Record the nomination expiry date and conditions."
+                },
+                {
+                    "id": "use-current-federal-forms",
+                    "text": "Use the current federal forms and checklist."
+                },
+                {
+                    "id": "maintain-conditions",
+                    "text": "Continue meeting nomination conditions and report changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Nova Scotia Graduate",
+                    "url": "https://liveinnovascotia.com/nova-scotia-graduate",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using Express Entry instructions for a base nomination.",
+                "Waiting until the nomination is close to expiry.",
+                "Assuming nomination extends temporary status or work authorization."
+            ]
+        },
+        {
+            "order": 10,
+            "type": "applicant",
+            "title": "Prepare the federal non-Express Entry application",
+            "description": "Complete the current federal forms and gather civil records, police certificates, the nomination, digital photos and other items in the personalized checklist.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-forms",
+                    "title": "Current federal PNP forms",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificates",
+                    "title": "Police certificates",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-photos",
+                    "title": "Digital permanent residence photos",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Non-Express Entry PNP documents",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-validity",
+                    "text": "Confirm documents and passports remain valid."
+                },
+                {
+                    "id": "review-family",
+                    "text": "Include all required family information and records."
+                },
+                {
+                    "id": "review-checklist",
+                    "text": "Match every upload to the personalized checklist."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Using outdated forms.",
+                "Omitting a family member or required police certificate.",
+                "Leaving preparation until the nomination is near expiry."
+            ]
+        },
+        {
+            "order": 11,
+            "type": "applicant",
+            "title": "Submit the non-Express Entry permanent residence application",
+            "description": "Apply online through the federal Permanent Residence Portal, upload the nomination and required documents, pay the federal fees and submit before the nomination expires.",
+            "requiredDocuments": [
+                {
+                    "id": "federal-application",
+                    "title": "Complete non-Express Entry PNP application",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                },
+                {
+                    "id": "federal-fee-receipt",
+                    "title": "Federal fee receipt",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply through the non-Express Entry PNP",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                            "verifiedAt": "2026-09-24"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "review-federal-package",
+                    "text": "Check every form, signature, upload and fee."
+                },
+                {
+                    "id": "submit-before-expiry",
+                    "text": "Submit while the nomination remains valid."
+                },
+                {
+                    "id": "save-aor",
+                    "text": "Save the submission confirmation and acknowledgement of receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
+                    "verifiedAt": "2026-09-24"
+                },
+                {
+                    "label": "IRCC: Non-Express Entry PNP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting through the Express Entry account.",
+                "Omitting the nomination or fee receipt.",
+                "Submitting an incomplete application that IRCC returns."
+            ]
+        },
+        {
+            "order": 12,
+            "type": "ircc",
+            "title": "Complete federal medical, biometrics and document requests",
+            "description": "Follow IRCC instructions for medical examinations, biometrics, police certificates, interviews or additional documents. Maintain temporary status separately when applicable.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc",
+                    "text": "Monitor the PR Portal and IRCC communications."
+                },
+                {
+                    "id": "follow-deadlines",
+                    "text": "Complete each request within its stated deadline."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report material changes to Nova Scotia and IRCC as required."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Completing an instruction-dependent step before IRCC requests it.",
+                "Reporting a material change to only one authority.",
+                "Assuming nomination itself authorizes work in Canada."
+            ]
+        },
+        {
+            "order": 13,
+            "type": "ircc",
+            "title": "Receive the federal permanent residence decision",
+            "description": "IRCC assesses admissibility and makes the final permanent residence decision. If approved, follow the confirmation and landing instructions and continue intending to settle in Nova Scotia.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "review-decision",
+                    "text": "Read and follow every instruction in the decision."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the permanent residence confirmation process."
+                },
+                {
+                    "id": "retain-records",
+                    "text": "Keep provincial and federal application records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After applying through the non-Express Entry PNP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-24"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Treating provincial nomination as the final federal decision.",
+                "Making irreversible plans before IRCC grants permanent residence."
+            ]
+        }
+    ]
+}

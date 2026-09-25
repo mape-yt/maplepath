@@ -36,13 +36,17 @@ test("every advertised Express Entry and PNP stream has a distinct registered ro
     assert.equal(options.streamProvinces["NBPNP Skilled Worker: New Brunswick Priority Occupations"], "New Brunswick");
     assert.equal(options.streamProvinces["NBPNP Express Entry: Employment in New Brunswick"], "New Brunswick");
     assert.equal(options.streamProvinces["NBPNP Express Entry: New Brunswick Interest"], "New Brunswick");
+    assert.equal(options.streamProvinces["NSNP Skilled Worker"], "Nova Scotia");
+    assert.equal(options.streamProvinces["NSNP Nova Scotia Graduate"], "Nova Scotia");
+    assert.equal(options.streamProvinces["NSNP Entrepreneur"], "Nova Scotia");
+    assert.equal(options.streamProvinces["NSNP Nova Scotia: Express Entry"], "Nova Scotia");
 });
 
 test("new provincial guidance has official sources and valid content identifiers", () => {
     const trustedHosts = new Set([
         "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
         "www.welcomebc.ca", "www.ontario.ca", "www.saskatchewan.ca",
-        "www.gnb.ca", "www2.gnb.ca"
+        "www.gnb.ca", "www2.gnb.ca", "liveinnovascotia.com"
     ]);
     for(const definition of roadmaps.filter(item => item.pathway === "Provincial Nominee Program")){
         const roadmap = loadRoadmap(definition);
@@ -107,6 +111,32 @@ test("new provincial guidance has official sources and valid content identifiers
     assert.match(nbPriority.steps[0].description, /Government of New Brunswick-led recruitment mission/);
     assert.match(nbEmployment.steps[0].description, /past 12 months/);
     assert.match(nbInterest.steps[0].description, /letter of interest/);
+
+    const nsSkilled = loadRoadmap(findRoadmap("Provincial Nominee Program", "NSNP Skilled Worker"));
+    const nsGraduate = loadRoadmap(findRoadmap("Provincial Nominee Program", "NSNP Nova Scotia Graduate"));
+    const nsEntrepreneur = loadRoadmap(findRoadmap("Provincial Nominee Program", "NSNP Entrepreneur"));
+    const nsExpress = loadRoadmap(findRoadmap("Provincial Nominee Program", "NSNP Nova Scotia: Express Entry"));
+    assert.equal(nsSkilled.programStatus, "limited");
+    assert.equal(nsGraduate.programStatus, "limited");
+    assert.equal(nsEntrepreneur.programStatus, "limited");
+    assert.equal(nsExpress.programStatus, "limited");
+    assert.match(nsSkilled.steps[0].description, /Occupations in Demand category currently lists no occupations/);
+    assert.match(nsGraduate.steps[0].description, /32102, 32124, 33102 or 42202/);
+    assert.match(nsEntrepreneur.steps[6].description, /\$2,000 provincial fee/);
+    assert.match(nsExpress.steps[6].description, /\$1,000 worker-stream fee/);
+});
+
+test("Nova Scotia consolidated streams use the correct federal route", () => {
+    for(const stream of ["NSNP Skilled Worker", "NSNP Nova Scotia Graduate", "NSNP Entrepreneur"]){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "non-express-entry");
+        assert.ok(roadmap.steps.some(step => /non-Express Entry permanent residence application|submit the federal application/.test(step.title)));
+        assert.ok(!roadmap.steps.some(step => /Accept the electronic/.test(step.title)));
+    }
+    const express = loadRoadmap(findRoadmap("Provincial Nominee Program", "NSNP Nova Scotia: Express Entry"));
+    assert.equal(express.federalApplicationRoute, "express-entry");
+    assert.ok(express.steps.some(step => /Accept the electronic/.test(step.title)));
+    assert.ok(express.steps.some(step => /Express Entry permanent residence application/.test(step.title)));
 });
 
 test("New Brunswick base and Express Entry pathways keep their federal routes separate", () => {

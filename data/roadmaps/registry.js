@@ -20,7 +20,11 @@ const roadmaps = [
     { pathway:"Provincial Nominee Program", stream:"NBPNP Skilled Worker: New Brunswick Graduates", province:"New Brunswick", profileKey:"PNP-NB-SW-GRAD", file:"pnp/new-brunswick-skilled-worker-graduates.json" },
     { pathway:"Provincial Nominee Program", stream:"NBPNP Skilled Worker: New Brunswick Priority Occupations", province:"New Brunswick", profileKey:"PNP-NB-SW-PRIORITY", file:"pnp/new-brunswick-skilled-worker-priority-occupations.json" },
     { pathway:"Provincial Nominee Program", stream:"NBPNP Express Entry: Employment in New Brunswick", province:"New Brunswick", profileKey:"PNP-NB-EE-EMP", file:"pnp/new-brunswick-express-entry-employment.json" },
-    { pathway:"Provincial Nominee Program", stream:"NBPNP Express Entry: New Brunswick Interest", province:"New Brunswick", profileKey:"PNP-NB-EE-INTEREST", file:"pnp/new-brunswick-express-entry-interest.json" }
+    { pathway:"Provincial Nominee Program", stream:"NBPNP Express Entry: New Brunswick Interest", province:"New Brunswick", profileKey:"PNP-NB-EE-INTEREST", file:"pnp/new-brunswick-express-entry-interest.json" },
+    { pathway:"Provincial Nominee Program", stream:"NSNP Skilled Worker", province:"Nova Scotia", profileKey:"PNP-NS-SW", file:"pnp/nova-scotia-skilled-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"NSNP Nova Scotia Graduate", province:"Nova Scotia", profileKey:"PNP-NS-GRAD", file:"pnp/nova-scotia-graduate.json" },
+    { pathway:"Provincial Nominee Program", stream:"NSNP Entrepreneur", province:"Nova Scotia", profileKey:"PNP-NS-ENT", file:"pnp/nova-scotia-entrepreneur.json" },
+    { pathway:"Provincial Nominee Program", stream:"NSNP Nova Scotia: Express Entry", province:"Nova Scotia", profileKey:"PNP-NS-EE", file:"pnp/nova-scotia-express-entry.json" }
 ];
 
 function findRoadmap(pathway, stream){

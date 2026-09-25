@@ -21,7 +21,8 @@ an expandable guidance section when a step has it; older roadmaps remain valid.
   `PNP-OINP-OWP03-BASE`, `PNP-OINP-OWP03-EE`, `PNP-SINP-ISW-EE`,
   `PNP-SINP-ISW-OID`, `PNP-SINP-ISW-EO`, `PNP-NB-SW-EXP`,
   `PNP-NB-SW-GRAD`, `PNP-NB-SW-PRIORITY`, `PNP-NB-EE-EMP`, and
-  `PNP-NB-EE-INTEREST`; keep them stable as well.
+  `PNP-NB-EE-INTEREST`, `PNP-NS-SW`, `PNP-NS-GRAD`, `PNP-NS-ENT`, and
+  `PNP-NS-EE`; keep them stable as well.
 - Register every supported pathway/stream in `registry.js` and the options API.
   The registry also supplies the province for PNP streams.
 - `schemaVersion: 2` describes the content format, not a new user journey.
@@ -89,6 +90,17 @@ mission in a listed occupation. New Brunswick Interest is `limited` because it
 requires a province-issued letter of interest. Current sector exclusions,
 occupation exclusions, invitation priorities and allocation remain
 time-sensitive and must be rechecked on the official New Brunswick notices.
+
+Nova Scotia consolidated ten former NSNP streams into four current streams on
+February 18, 2026. MaplePath represents those four current selections and does
+not advertise the retired stream names as separate programs. The Skilled Worker
+roadmap includes its general, Construction and Physician sub-criteria; the
+Entrepreneur roadmap includes experienced and international-graduate criteria;
+and the Express Entry roadmap includes Nova Scotia experience, Physician and
+other Letter of Interest criteria. All four are marked `limited` because EOIs
+are selected according to current priorities, allocation and program capacity.
+These roadmaps were verified on 2026-09-24 and include the 12-month EOI validity
+rule plus the provincial fees effective September 1, 2026.
 
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that
