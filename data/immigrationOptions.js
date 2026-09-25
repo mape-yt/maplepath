@@ -40,7 +40,20 @@ const immigrationOptions = {
             "NSNP Skilled Worker",
             "NSNP Nova Scotia Graduate",
             "NSNP Entrepreneur",
-            "NSNP Nova Scotia: Express Entry"
+            "NSNP Nova Scotia: Express Entry",
+            "PEI PNP Skilled Worker in PEI",
+            "PEI PNP Skilled Worker Outside Canada",
+            "PEI PNP Critical Worker",
+            "PEI PNP International Graduate",
+            "PEI PNP Intermediate Experience",
+            "PEI PNP Occupations in Demand",
+            "PEI PNP Express Entry",
+            "PEI PNP Work Permit Stream",
+            "NLPNP Express Entry Skilled Worker",
+            "NLPNP Skilled Worker",
+            "NLPNP International Graduate",
+            "NLPNP International Entrepreneur",
+            "NLPNP International Graduate Entrepreneur"
         ],
 
         "Express Entry": [
@@ -76,7 +89,20 @@ const immigrationOptions = {
         "NSNP Skilled Worker": "Nova Scotia",
         "NSNP Nova Scotia Graduate": "Nova Scotia",
         "NSNP Entrepreneur": "Nova Scotia",
-        "NSNP Nova Scotia: Express Entry": "Nova Scotia"
+        "NSNP Nova Scotia: Express Entry": "Nova Scotia",
+        "PEI PNP Skilled Worker in PEI": "Prince Edward Island",
+        "PEI PNP Skilled Worker Outside Canada": "Prince Edward Island",
+        "PEI PNP Critical Worker": "Prince Edward Island",
+        "PEI PNP International Graduate": "Prince Edward Island",
+        "PEI PNP Intermediate Experience": "Prince Edward Island",
+        "PEI PNP Occupations in Demand": "Prince Edward Island",
+        "PEI PNP Express Entry": "Prince Edward Island",
+        "PEI PNP Work Permit Stream": "Prince Edward Island",
+        "NLPNP Express Entry Skilled Worker": "Newfoundland and Labrador",
+        "NLPNP Skilled Worker": "Newfoundland and Labrador",
+        "NLPNP International Graduate": "Newfoundland and Labrador",
+        "NLPNP International Entrepreneur": "Newfoundland and Labrador",
+        "NLPNP International Graduate Entrepreneur": "Newfoundland and Labrador"
     },
 
     provinces: [

@@ -46,7 +46,8 @@ test("new provincial guidance has official sources and valid content identifiers
     const trustedHosts = new Set([
         "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
         "www.welcomebc.ca", "www.ontario.ca", "www.saskatchewan.ca",
-        "www.gnb.ca", "www2.gnb.ca", "liveinnovascotia.com"
+        "www.gnb.ca", "www2.gnb.ca", "liveinnovascotia.com",
+        "www.princeedwardisland.ca", "www.gov.nl.ca"
     ]);
     for(const definition of roadmaps.filter(item => item.pathway === "Provincial Nominee Program")){
         const roadmap = loadRoadmap(definition);
@@ -137,6 +138,46 @@ test("Nova Scotia consolidated streams use the correct federal route", () => {
     assert.equal(express.federalApplicationRoute, "express-entry");
     assert.ok(express.steps.some(step => /Accept the electronic/.test(step.title)));
     assert.ok(express.steps.some(step => /Express Entry permanent residence application/.test(step.title)));
+});
+
+test("PEI and Newfoundland and Labrador roadmaps preserve their federal routes", () => {
+    const expressStreams = [
+        "PEI PNP Express Entry",
+        "NLPNP Express Entry Skilled Worker"
+    ];
+    const baseStreams = [
+        "PEI PNP Skilled Worker in PEI",
+        "PEI PNP Skilled Worker Outside Canada",
+        "PEI PNP Critical Worker",
+        "PEI PNP International Graduate",
+        "PEI PNP Intermediate Experience",
+        "PEI PNP Occupations in Demand",
+        "PEI PNP Work Permit Stream",
+        "NLPNP Skilled Worker",
+        "NLPNP International Graduate",
+        "NLPNP International Entrepreneur",
+        "NLPNP International Graduate Entrepreneur"
+    ];
+
+    for(const stream of expressStreams){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "express-entry");
+        assert.ok(roadmap.steps.some(step => /Accept the electronic/.test(step.title)));
+    }
+    for(const stream of baseStreams){
+        const roadmap = loadRoadmap(findRoadmap("Provincial Nominee Program", stream));
+        assert.equal(roadmap.federalApplicationRoute, "non-express-entry");
+        assert.ok(roadmap.steps.some(step => /non-Express Entry permanent residence application/.test(step.title)));
+    }
+
+    const peiOutside = loadRoadmap(findRoadmap("Provincial Nominee Program", "PEI PNP Skilled Worker Outside Canada"));
+    assert.match(peiOutside.steps[1].description, /authorization/);
+    const peiBusiness = loadRoadmap(findRoadmap("Provincial Nominee Program", "PEI PNP Work Permit Stream"));
+    assert.match(peiBusiness.steps[5].description, /\$10,000 CAD/);
+    const nlSkilled = loadRoadmap(findRoadmap("Provincial Nominee Program", "NLPNP Skilled Worker"));
+    assert.match(nlSkilled.steps[5].description, /60-day/);
+    const nlGraduate = loadRoadmap(findRoadmap("Provincial Nominee Program", "NLPNP International Graduate"));
+    assert.match(nlGraduate.steps[0].description, /PGWP/);
 });
 
 test("New Brunswick base and Express Entry pathways keep their federal routes separate", () => {

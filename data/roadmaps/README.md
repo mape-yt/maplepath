@@ -102,6 +102,33 @@ are selected according to current priorities, allocation and program capacity.
 These roadmaps were verified on 2026-09-24 and include the 12-month EOI validity
 rule plus the provincial fees effective September 1, 2026.
 
+Prince Edward Island is represented by its six current Workforce streams, PEI
+Express Entry, and the business Work Permit Stream. The worker roadmaps include
+the six-month EOI validity period, the 30-calendar-day application deadline for
+invitations issued from November 1, 2025 onward, and the current $300 Workforce
+application fee. The Work Permit Stream remains separate because applicants
+first seek a supported work permit and must fulfil a Performance Agreement
+before nomination. It is marked limited because the published 2026 draws
+through September 17 showed no business invitations. PEI's sector and
+occupation priorities remain time-sensitive.
+
+Newfoundland and Labrador is represented by Express Entry Skilled Worker,
+Skilled Worker, International Graduate, International Entrepreneur, and
+International Graduate Entrepreneur. All use the province's EOI-first model.
+Selected worker applicants receive 60 days to submit a complete application,
+and applicants outside Canada must follow the current employer invite-code
+rules. The two entrepreneur EOI systems were open when reviewed and are marked
+active; worker selection is marked limited because invitations depend on
+provincial priorities and capacity. These PEI and Newfoundland and Labrador
+roadmaps were verified against official provincial and IRCC sources on
+2026-09-24.
+
+The new stable profile keys are PNP-PEI-SW-IN, PNP-PEI-SW-OUT, PNP-PEI-CW,
+PNP-PEI-IG, PNP-PEI-IE, PNP-PEI-OID, PNP-PEI-EE, PNP-PEI-WP,
+PNP-NL-EE-SW, PNP-NL-SW, PNP-NL-IG, PNP-NL-ENT, and PNP-NL-IGE.
+Do not rename or reuse them because saved progress, timeline records and
+community averages use the profile key.
+
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that
 the Express Entry medical exam normally occurs after invitation and before the

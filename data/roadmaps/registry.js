@@ -24,7 +24,20 @@ const roadmaps = [
     { pathway:"Provincial Nominee Program", stream:"NSNP Skilled Worker", province:"Nova Scotia", profileKey:"PNP-NS-SW", file:"pnp/nova-scotia-skilled-worker.json" },
     { pathway:"Provincial Nominee Program", stream:"NSNP Nova Scotia Graduate", province:"Nova Scotia", profileKey:"PNP-NS-GRAD", file:"pnp/nova-scotia-graduate.json" },
     { pathway:"Provincial Nominee Program", stream:"NSNP Entrepreneur", province:"Nova Scotia", profileKey:"PNP-NS-ENT", file:"pnp/nova-scotia-entrepreneur.json" },
-    { pathway:"Provincial Nominee Program", stream:"NSNP Nova Scotia: Express Entry", province:"Nova Scotia", profileKey:"PNP-NS-EE", file:"pnp/nova-scotia-express-entry.json" }
+    { pathway:"Provincial Nominee Program", stream:"NSNP Nova Scotia: Express Entry", province:"Nova Scotia", profileKey:"PNP-NS-EE", file:"pnp/nova-scotia-express-entry.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Skilled Worker in PEI", province:"Prince Edward Island", profileKey:"PNP-PEI-SW-IN", file:"pnp/prince-edward-island-skilled-worker-in-pei.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Skilled Worker Outside Canada", province:"Prince Edward Island", profileKey:"PNP-PEI-SW-OUT", file:"pnp/prince-edward-island-skilled-worker-outside-canada.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Critical Worker", province:"Prince Edward Island", profileKey:"PNP-PEI-CW", file:"pnp/prince-edward-island-critical-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP International Graduate", province:"Prince Edward Island", profileKey:"PNP-PEI-IG", file:"pnp/prince-edward-island-international-graduate.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Intermediate Experience", province:"Prince Edward Island", profileKey:"PNP-PEI-IE", file:"pnp/prince-edward-island-intermediate-experience.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Occupations in Demand", province:"Prince Edward Island", profileKey:"PNP-PEI-OID", file:"pnp/prince-edward-island-occupations-in-demand.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Express Entry", province:"Prince Edward Island", profileKey:"PNP-PEI-EE", file:"pnp/prince-edward-island-express-entry.json" },
+    { pathway:"Provincial Nominee Program", stream:"PEI PNP Work Permit Stream", province:"Prince Edward Island", profileKey:"PNP-PEI-WP", file:"pnp/prince-edward-island-work-permit-stream.json" },
+    { pathway:"Provincial Nominee Program", stream:"NLPNP Express Entry Skilled Worker", province:"Newfoundland and Labrador", profileKey:"PNP-NL-EE-SW", file:"pnp/newfoundland-labrador-express-entry-skilled-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"NLPNP Skilled Worker", province:"Newfoundland and Labrador", profileKey:"PNP-NL-SW", file:"pnp/newfoundland-labrador-skilled-worker.json" },
+    { pathway:"Provincial Nominee Program", stream:"NLPNP International Graduate", province:"Newfoundland and Labrador", profileKey:"PNP-NL-IG", file:"pnp/newfoundland-labrador-international-graduate.json" },
+    { pathway:"Provincial Nominee Program", stream:"NLPNP International Entrepreneur", province:"Newfoundland and Labrador", profileKey:"PNP-NL-ENT", file:"pnp/newfoundland-labrador-international-entrepreneur.json" },
+    { pathway:"Provincial Nominee Program", stream:"NLPNP International Graduate Entrepreneur", province:"Newfoundland and Labrador", profileKey:"PNP-NL-IGE", file:"pnp/newfoundland-labrador-international-graduate-entrepreneur.json" }
 ];
 
 function findRoadmap(pathway, stream){

@@ -72,7 +72,8 @@ test("public coverage lists include every supported PNP province", () => {
         const html = readPublic(pageName);
         for(const province of [
             "Alberta", "British Columbia", "Manitoba", "Ontario",
-            "Saskatchewan", "New Brunswick", "Nova Scotia"
+            "Saskatchewan", "New Brunswick", "Nova Scotia",
+            "Prince Edward Island", "Newfoundland and Labrador"
         ]){
             assert.match(html, new RegExp(province), `${pageName} is missing ${province}`);
         }
@@ -91,7 +92,7 @@ test("homepage coverage counts match and follow the options API", () => {
     const script = readPublic("js/home.js");
 
     assert.match(html, /id="express-entry-count">3<\/strong>/);
-    assert.match(html, /id="pnp-province-count">7<\/strong>/);
+    assert.match(html, /id="pnp-province-count">9<\/strong>/);
     assert.match(html, /<span>PNP provinces<\/span>/);
     assert.doesNotMatch(html, />4<\/strong><span>provincial programs<\/span>/);
     assert.match(html, /src="js\/home\.js"/);
