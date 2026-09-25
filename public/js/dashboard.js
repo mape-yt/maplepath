@@ -29,6 +29,13 @@ function escapeProfileText(value){
     })[character]);
 }
 
+function formatProfileDate(value){
+    if(!value) return "";
+    const date = new Date(value);
+    if(Number.isNaN(date.getTime())) return "";
+    return date.toLocaleDateString("en-CA", { year:"numeric", month:"short", day:"numeric", timeZone:"UTC" });
+}
+
 
 // ==============================
 // Logout
@@ -173,14 +180,14 @@ function renderProfile(profile) {
             {
 
                 label: "Journey Type",
-                value: "🌱 Still Exploring"
+                value: "🧭 Planning my journey"
 
             },
 
             {
 
-                label: "Country",
-                value: profile.country || "Not set"
+                label: "Current Location",
+                value: profile.location || profile.country || "Not set"
 
             },
 
@@ -193,8 +200,8 @@ function renderProfile(profile) {
 
             {
 
-                label: "Education",
-                value: profile.education || "Not set"
+                label: "Province of Interest",
+                value: profile.province || "Not decided"
 
             }
 
@@ -209,7 +216,9 @@ function renderProfile(profile) {
             {
 
                 label: "Journey Type",
-                value: "🍁 Following a Pathway"
+                value: profile.journeyType === "completed"
+                    ? "🍁 Permanent residence received"
+                    : "📝 Application in progress"
 
             },
 
@@ -290,10 +299,10 @@ function loadRecommendation(profile) {
     if (profile.journeyType === "planning") {
 
         title.textContent =
-            "Complete your eligibility profile";
+            "Explore your pathway options";
 
         description.textContent =
-            "Add more information like work experience and language tests to receive personalized pathway recommendations.";
+            "Review the available pathways and official requirements before choosing the roadmap that fits your plans.";
 
         return;
 
@@ -458,13 +467,13 @@ function loadProfileSnapshot(profile){
 
 
         <p>
-            🌱 Still Exploring
+            🧭 Planning my journey
         </p>
 
 
         <p>
-            Build your eligibility profile
-            to discover possible pathways.
+            Explore available pathways and decide
+            which roadmap fits your plans.
         </p>
 
 
@@ -486,8 +495,8 @@ function loadProfileSnapshot(profile){
 
 
         <p>
-            Stage:
-            ${escapeProfileText(profile.currentStage || "Not set")}
+            ${profile.journeyType === "completed" ? "Completed:" : "Stage:"}
+            ${escapeProfileText(profile.journeyType === "completed" ? (formatProfileDate(profile.permanentResidenceDate) || "Date not set") : (profile.currentStage || "Not set"))}
         </p>
 
 

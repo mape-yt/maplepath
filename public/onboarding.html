@@ -1,356 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>MaplePath Onboarding</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set up your MaplePath journey</title>
     <link rel="stylesheet" href="css/onboarding.css">
-
 </head>
-
 <body>
-
-<div class="container">
-
-    <div class="logo">
-        🍁
-    </div>
-
-    <h1>Welcome to MaplePath</h1>
-
-    <p class="subtitle">
-        Let's personalize your Canadian immigration journey.
-    </p>
-
-    <div class="progress-section">
-
-        <div class="progress-text">
-            Step 1 of 5
-        </div>
-
-        <div class="progress-bar">
-
-            <div class="progress-fill"></div>
-
-        </div>
-
-    </div>
-
-    <h2 class="question">
-        What best describes your current situation?
-    </h2>
-
-    <div class="selection-cards">
-
-        <div
-            class="choice-card"
-            id="planningCard">
-
-            <div class="emoji">🌱</div>
-
-            <h3>I'm still exploring</h3>
-
-            <p>
-                I haven't chosen an immigration pathway yet.
-            </p>
-
-        </div>
-
-        <div
-            class="choice-card"
-            id="pathwayCard">
-
-            <div class="emoji">🍁</div>
-
-            <h3>I already know my pathway</h3>
-
-            <p>
-                I'm already preparing or applying through a pathway.
-            </p>
-
-        </div>
-
-    </div>
-
-    <!-- ========================================= -->
-    <!-- Exploring Form -->
-    <!-- ========================================= -->
-
-    <form
-        id="exploringForm"
-        class="hidden">
-
-        <label>
-            Current Country
-        </label>
-
-        <input
-            type="text"
-            id="country"
-            placeholder="Example: South Korea">
-
-        <label>
-            Current Status
-        </label>
-
-        <select id="currentStatus">
-
-            <option value="Student">Student</option>
-            <option value="Worker">Worker</option>
-            <option value="Visitor">Visitor</option>
-            <option value="Self-employed">Self-employed</option>
-            <option value="Other">Other</option>
-
-        </select>
-
-        <label>
-            Highest Education
-        </label>
-
-        <select id="education">
-
-            <option value="High School">High School</option>
-            <option value="College Diploma">College Diploma</option>
-            <option value="Bachelor's Degree">Bachelor's Degree</option>
-            <option value="Master's Degree">Master's Degree</option>
-            <option value="PhD">PhD</option>
-
-        </select>
-
-        <button type="submit">
-            Continue →
-        </button>
-
-    </form>
-
-    <!-- ========================================= -->
-    <!-- Journey Form -->
-    <!-- ========================================= -->
-
-    <form
-        id="journeyForm"
-        class="hidden">
-
-
-        <label>
-            Immigration Pathway
-        </label>
-
-
-        <select id="pathway">
-
-            <option value="Express Entry">
-                Express Entry
-            </option>
-
-            <option value="Provincial Nominee Program">
-                Provincial Nominee Program
-            </option>
-
-            <option value="Atlantic Immigration Program">
-                Atlantic Immigration Program
-            </option>
-
-            <option value="Family Sponsorship">
-                Family Sponsorship
-            </option>
-
-
-            <option value="Other">
-                Other
-            </option>
-
-
-        </select>
-
-
-
-        <div
-            id="stream-container"
-            class="hidden">
-
-
-            <label>
-                Express Entry Stream
-            </label>
-
-
-            <select id="stream">
-
-                <option value="">
-                    Select Stream
-                </option>
-
-
-            </select>
-
-
-        </div>
-
-
-
-
-        <label>
-            Province
-        </label>
-
-
-        <select id="province">
-
-            <option value="Alberta">
-                Alberta
-            </option>
-
-            <option value="British Columbia">
-                British Columbia
-            </option>
-
-            <option value="Manitoba">
-                Manitoba
-            </option>
-
-            <option value="Ontario">
-                Ontario
-            </option>
-
-            <option value="Quebec">
-                Quebec
-            </option>
-
-            <option value="Saskatchewan">
-                Saskatchewan
-            </option>
-
-            <option value="Not decided">
-                Not decided
-            </option>
-
-
-        </select>
-
-
-
-
-        <label>
-            Current Location
-        </label>
-
-
-        <select id="location">
-
-
-            <option value="Inside Canada">
-                Inside Canada
-            </option>
-
-
-            <option value="Outside Canada">
-                Outside Canada
-            </option>
-
-
-        </select>
-
-
-
-
-        <label>
-            Immigration Status
-        </label>
-
-
-        <select id="status">
-
-
-            <option value="Planning">
-                Planning
-            </option>
-
-
-            <option value="Preparing application">
-                Preparing application
-            </option>
-
-
-            <option value="Submitted application">
-                Submitted application
-            </option>
-
-
-            <option value="Waiting for decision">
-                Waiting for decision
-            </option>
-
-
-        </select>
-
-
-
-
-        <label>
-            Current Stage
-        </label>
-
-
-        <select id="currentStage">
-
-
-            <option value="Researching">
-                Researching
-            </option>
-
-
-            <option value="Collecting documents">
-                Collecting documents
-            </option>
-
-
-            <option value="Improving eligibility">
-                Improving eligibility
-            </option>
-
-
-            <option value="Submitted">
-                Submitted
-            </option>
-
-
-        </select>
-
-
-
-
-        <label>
-            Journey Start Date
-        </label>
-
-
-        <input
-            type="date"
-            id="journeyStartDate">
-
-
-
-        <button type="submit">
-
-            Continue →
-
-        </button>
-
-
-    </form>
-
-</div>
-
-<script src="js/session.js"></script>
-<script src="js/onboarding.js"></script>
-
+    <main class="onboarding-shell">
+        <header class="onboarding-header">
+            <a class="brand" href="index.html" aria-label="MaplePath home">
+                <span class="brand-mark" aria-hidden="true">🍁</span>
+                <span>MaplePath</span>
+            </a>
+            <p>Set up your immigration journey</p>
+        </header>
+
+        <section class="onboarding-card" aria-labelledby="page-title">
+            <div class="progress-section" aria-live="polite">
+                <div class="progress-copy">
+                    <span id="progress-label">Your situation</span>
+                    <span id="progress-count">Step 1</span>
+                </div>
+                <div class="progress-track" role="progressbar" aria-label="Onboarding progress" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="intro-copy">
+                <p class="eyebrow">A roadmap that starts where you are</p>
+                <h1 id="page-title">Where are you in your immigration journey?</h1>
+                <p id="page-description">Choose the option that best describes you today. You can update this later.</p>
+            </div>
+
+            <section id="situation-step" class="flow-step" aria-labelledby="page-title">
+                <div class="selection-cards">
+                    <button class="choice-card" type="button" data-journey-type="planning">
+                        <span class="choice-icon" aria-hidden="true">🧭</span>
+                        <span class="choice-copy">
+                            <strong>I’m planning my journey</strong>
+                            <small>I haven’t started an immigration application yet.</small>
+                        </span>
+                        <span class="choice-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button class="choice-card" type="button" data-journey-type="pathway">
+                        <span class="choice-icon" aria-hidden="true">📝</span>
+                        <span class="choice-copy">
+                            <strong>My application is in progress</strong>
+                            <small>I’m preparing, applying, or waiting for a decision.</small>
+                        </span>
+                        <span class="choice-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button class="choice-card" type="button" data-journey-type="completed">
+                        <span class="choice-icon" aria-hidden="true">🍁</span>
+                        <span class="choice-copy">
+                            <strong>I’ve received permanent residence</strong>
+                            <small>My journey is complete, and I’d like to explore or contribute timeline data.</small>
+                        </span>
+                        <span class="choice-arrow" aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </section>
+
+            <section id="pathway-step" class="flow-step hidden" aria-labelledby="pathway-heading">
+                <button class="back-button" type="button" data-back="situation">← Change my answer</button>
+                <p class="eyebrow">Immigration pathway</p>
+                <h2 id="pathway-heading">Which pathway are you using?</h2>
+                <p class="step-help">Choose the program family first. We’ll ask for the specific stream only when it applies.</p>
+                <label class="field-label" for="pathway">Pathway</label>
+                <select id="pathway" required><option value="">Select your pathway</option></select>
+            </section>
+
+            <section id="province-step" class="flow-step hidden" aria-labelledby="province-heading">
+                <button class="back-button" type="button" data-back="pathway">← Back to pathway</button>
+                <p class="eyebrow">Provincial Nominee Program</p>
+                <h2 id="province-heading">Which province or territory is your program in?</h2>
+                <p class="step-help">Only provinces and territories with MaplePath PNP roadmaps are shown.</p>
+                <label class="field-label" for="pnp-province">Province or territory</label>
+                <select id="pnp-province" required><option value="">Select a province or territory</option></select>
+            </section>
+
+            <section id="stream-step" class="flow-step hidden" aria-labelledby="stream-heading">
+                <button class="back-button" id="stream-back" type="button">← Back</button>
+                <p class="eyebrow" id="stream-eyebrow">Program stream</p>
+                <h2 id="stream-heading">Which stream are you using?</h2>
+                <p class="step-help" id="stream-help">Choose the stream that matches your application.</p>
+                <label class="field-label" for="stream">Stream</label>
+                <select id="stream" required><option value="">Select your stream</option></select>
+            </section>
+
+            <form id="details-form" class="flow-step hidden">
+                <button class="back-button" id="details-back" type="button">← Back</button>
+                <p class="eyebrow">A few final details</p>
+                <h2 id="details-heading">Tell us where you are today</h2>
+                <p class="step-help" id="details-help">We only ask for information that helps personalize MaplePath.</p>
+
+                <div class="details-grid">
+                    <div class="form-group">
+                        <label for="location" id="location-label">Where are you currently living?</label>
+                        <select id="location" required><option value="">Select your location</option></select>
+                    </div>
+                    <div id="canada-status-group" class="form-group hidden">
+                        <label for="current-status">What is your current status in Canada?</label>
+                        <select id="current-status"><option value="">Select your status</option></select>
+                    </div>
+                    <div id="settlement-province-group" class="form-group">
+                        <label for="settlement-province" id="settlement-province-label">Which province or territory are you interested in?</label>
+                        <select id="settlement-province"><option value="">Select an option</option></select>
+                    </div>
+                    <div id="application-status-group" class="form-group hidden">
+                        <label for="application-status">Where are you in the application process?</label>
+                        <select id="application-status"><option value="">Select your application status</option></select>
+                    </div>
+                    <div id="current-stage-group" class="form-group hidden">
+                        <label for="current-stage">What are you working on or waiting for now?</label>
+                        <select id="current-stage"><option value="">Select your current stage</option></select>
+                    </div>
+                    <div id="pathway-start-group" class="form-group hidden">
+                        <label for="pathway-start-date">When did you start working toward this pathway?</label>
+                        <input id="pathway-start-date" type="date">
+                        <small>An approximate date is fine. You can edit it later.</small>
+                    </div>
+                    <div id="arrival-date-group" class="form-group hidden">
+                        <label for="canada-arrival-date">When did you first arrive in Canada? <span>(optional)</span></label>
+                        <input id="canada-arrival-date" type="date">
+                    </div>
+                    <div id="pr-date-group" class="form-group hidden">
+                        <label for="permanent-residence-date">When did you become a permanent resident?</label>
+                        <input id="permanent-residence-date" type="date">
+                        <small>Use the date you officially became a permanent resident.</small>
+                    </div>
+                </div>
+
+                <div id="form-message" class="form-message" role="alert" aria-live="polite"></div>
+                <button id="save-profile" class="primary-button" type="submit">
+                    <span>Finish setup</span><span aria-hidden="true">→</span>
+                </button>
+            </form>
+        </section>
+
+        <p class="privacy-note">Your profile is private. Community analytics use combined, anonymous timeline data.</p>
+    </main>
+
+    <script src="js/session.js"></script>
+    <script src="js/onboarding.js"></script>
 </body>
-
 </html>

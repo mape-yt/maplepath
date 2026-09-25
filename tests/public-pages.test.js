@@ -81,11 +81,31 @@ test("public coverage lists include every supported PNP province", () => {
     }
 });
 
-test("onboarding loads pathway and province choices from the options API", () => {
+test("onboarding uses the three journey states and a progressive PNP flow", () => {
+    const html = readPublic("onboarding.html");
     const script = readPublic("js/onboarding.js");
-    assert.match(script, /replaceSelectOptions\(\s*pathwayInput,\s*OPTIONS\.pathways/);
-    assert.match(script, /replaceSelectOptions\(\s*provinceInput,\s*OPTIONS\.provinces/);
-    assert.match(script, /OPTIONS\.streamProvinces/);
+
+    for(const type of ["planning", "pathway", "completed"]){
+        assert.match(html, new RegExp(`data-journey-type="${type}"`));
+    }
+    assert.match(html, /id="pathway-step"/);
+    assert.match(html, /id="province-step"/);
+    assert.match(html, /id="stream-step"/);
+    assert.match(html, /When did you start working toward this pathway\?/);
+    assert.match(html, /When did you become a permanent resident\?/);
+    assert.doesNotMatch(html, /Highest Education|Journey Start Date/);
+    assert.match(script, /streamsForProvince/);
+    assert.match(script, /state\.options\.streamProvinces/);
+    assert.match(script, /state\.pathway === PNP_PATHWAY/);
+});
+
+test("profile data supports the new plain-language onboarding dates", () => {
+    const model = fs.readFileSync(path.join(__dirname, "..", "models", "User.js"), "utf8");
+    const options = fs.readFileSync(path.join(__dirname, "..", "data", "immigrationOptions.js"), "utf8");
+    assert.match(model, /canadaArrivalDate:\s*Date/);
+    assert.match(model, /permanentResidenceDate:\s*Date/);
+    assert.match(options, /canadaStatuses:/);
+    assert.match(options, /applicationStatuses:/);
 });
 
 test("homepage coverage counts match and follow the options API", () => {

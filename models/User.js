@@ -57,7 +57,13 @@ const userSchema = new mongoose.Schema({
 
         currentStage: String,
 
-        journeyStartDate: Date
+        // Kept for existing profiles and Journey analytics. The UI now asks
+        // when the user started working toward the selected pathway.
+        journeyStartDate: Date,
+
+        canadaArrivalDate: Date,
+
+        permanentResidenceDate: Date
 
     },
 

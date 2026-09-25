@@ -167,6 +167,36 @@ const immigrationOptions = {
 
 
 
+    canadaStatuses: [
+
+        "Study Permit",
+
+        "Work Permit",
+
+        "Visitor",
+
+        "Maintained status",
+
+        "Permanent resident",
+
+        "Other"
+
+    ],
+
+
+
+    applicationStatuses: [
+
+        "Preparing application",
+
+        "Submitted application",
+
+        "Waiting for decision"
+
+    ],
+
+
+
     statuses: [
 
         "Planning",

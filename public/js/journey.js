@@ -1114,7 +1114,7 @@ function renderJourneySummary(){
 
                 <h3>
 
-                    Started
+                    Started this pathway
 
                 </h3>
 

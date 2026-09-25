@@ -1,347 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>MaplePath Profile</title>
-
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/profile.css">
-
 </head>
-
 <body>
-
 <div class="container">
-
-    <!-- Sidebar -->
     <div id="sidebar-container"></div>
-
     <main class="main-content">
-
-        <!-- Header -->
-
         <header class="profile-header">
-
             <h1>👤 Immigration Profile</h1>
-
-            <p>
-                Manage your MaplePath immigration information.
-            </p>
-
+            <p>Manage the information MaplePath uses to personalize your journey.</p>
         </header>
 
-
-
-        <!-- Profile Card -->
-
         <section class="profile-card">
-
             <div class="profile-title">
-
                 <div>
-
-                    <h2 id="journey-title">
-                        Loading...
-                    </h2>
-
+                    <h2 id="journey-title">Loading...</h2>
                     <p id="journey-subtitle"></p>
-
                 </div>
-
                 <span id="journey-badge"></span>
-
             </div>
-
-
-            <div id="profile-content">
-
-                Loading profile...
-
-            </div>
-
-
-            <button
-                id="edit-profile-btn"
-                class="primary-btn"
-            >
-
-                Edit Profile
-
-            </button>
-
+            <div id="profile-content">Loading profile...</div>
+            <button id="edit-profile-btn" class="primary-btn" type="button">Edit Profile</button>
         </section>
 
-
-
-        <!-- ============================= -->
-        <!-- Edit Panel -->
-        <!-- ============================= -->
-
-        <section
-            id="edit-section"
-            class="edit-card hidden"
-        >
-
+        <section id="edit-section" class="edit-card hidden">
             <div class="edit-header">
-
-                <h2>
-
-                    Edit Immigration Profile
-
-                </h2>
-
-                <button
-                    id="cancel-btn"
-                    class="secondary-btn"
-                    type="button"
-                >
-
-                    Cancel
-
-                </button>
-
+                <h2>Edit Immigration Profile</h2>
+                <button id="cancel-btn" class="secondary-btn" type="button">Cancel</button>
             </div>
 
-
-            <!-- ========================= -->
-            <!-- Planning User -->
-            <!-- ========================= -->
-
-            <div
-                id="planning-form"
-                class="hidden"
-            >
-
+            <form id="profile-form">
                 <div class="form-grid">
-
                     <div class="form-group">
-
-                        <label>
-
-                            Country
-
-                        </label>
-
-                        <input
-                            id="edit-country"
-                            type="text"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Current Status
-
-                        </label>
-
-                        <select id="edit-current-status">
-
-                            <option value="">
-                                Select
-                            </option>
-
+                        <label for="edit-journey-type">Where are you in your journey?</label>
+                        <select id="edit-journey-type" required>
+                            <option value="planning">Planning my journey</option>
+                            <option value="pathway">Application in progress</option>
+                            <option value="completed">Permanent residence received</option>
                         </select>
-
                     </div>
-
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Highest Education
-
-                        </label>
-
-                        <select id="edit-education">
-
-                            <option value="">
-                                Select
-                            </option>
-
-                        </select>
-
-                    </div>
-
                 </div>
 
-            </div>
-
-
-
-            <!-- ========================= -->
-            <!-- Journey User -->
-            <!-- ========================= -->
-
-            <div
-                id="journey-form"
-                class="hidden"
-            >
-
-                <div class="form-grid">
-
-
+                <div id="pathway-fields" class="form-grid">
                     <div class="form-group">
-
-                        <label>
-
-                            Pathway
-
-                        </label>
-
-                        <select id="edit-pathway">
-
-                            <option value="">
-                                Select Pathway
-                            </option>
-
-                        </select>
-
+                        <label for="edit-pathway">Immigration pathway</label>
+                        <select id="edit-pathway"></select>
                     </div>
-
-
-
-                    <div
-                        id="stream-group"
-                        class="form-group hidden"
-                    >
-
-                        <label>
-
-                            Stream
-
-                        </label>
-
-                        <select id="edit-stream">
-
-                            <option value="">
-                                Select Stream
-                            </option>
-
-                        </select>
-
+                    <div id="pnp-province-group" class="form-group hidden">
+                        <label for="edit-pnp-province">PNP province or territory</label>
+                        <select id="edit-pnp-province"></select>
                     </div>
-
-
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Province
-
-                        </label>
-
-                        <select id="edit-province">
-
-                            <option value="">
-                                Select Province
-                            </option>
-
-                        </select>
-
+                    <div id="stream-group" class="form-group hidden">
+                        <label for="edit-stream">Program stream</label>
+                        <select id="edit-stream"></select>
                     </div>
-
-
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Location
-
-                        </label>
-
-                        <select id="edit-location">
-
-                            <option value="">
-                                Select Location
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Current Status
-
-                        </label>
-
-                        <select id="edit-status">
-
-                            <option value="">
-                                Select Status
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        <label>
-
-                            Current Stage
-
-                        </label>
-
-                        <select id="edit-stage">
-
-                            <option value="">
-                                Select Stage
-                            </option>
-
-                        </select>
-
-                    </div>
-
                 </div>
 
-            </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="edit-location" id="edit-location-label">Where are you currently living?</label>
+                        <select id="edit-location" required></select>
+                    </div>
+                    <div id="canada-status-group" class="form-group hidden">
+                        <label for="edit-current-status">Current status in Canada</label>
+                        <select id="edit-current-status"></select>
+                    </div>
+                    <div id="settlement-province-group" class="form-group">
+                        <label for="edit-province" id="edit-province-label">Province or territory of interest</label>
+                        <select id="edit-province"></select>
+                    </div>
+                    <div id="application-status-group" class="form-group hidden">
+                        <label for="edit-status">Application status</label>
+                        <select id="edit-status"></select>
+                    </div>
+                    <div id="stage-group" class="form-group hidden">
+                        <label for="edit-stage">Current step or stage</label>
+                        <select id="edit-stage"></select>
+                    </div>
+                    <div id="pathway-start-group" class="form-group hidden">
+                        <label for="edit-pathway-start">When did you start working toward this pathway?</label>
+                        <input id="edit-pathway-start" type="date">
+                    </div>
+                    <div id="arrival-group" class="form-group hidden">
+                        <label for="edit-arrival-date">When did you first arrive in Canada? (optional)</label>
+                        <input id="edit-arrival-date" type="date">
+                    </div>
+                    <div id="pr-date-group" class="form-group hidden">
+                        <label for="edit-pr-date">When did you become a permanent resident?</label>
+                        <input id="edit-pr-date" type="date">
+                    </div>
+                </div>
 
-
-
-            <div class="edit-actions">
-
-                <button
-                    id="save-btn"
-                    class="primary-btn"
-                >
-
-                    Save Changes
-
-                </button>
-
-            </div>
-
-            <p id="message"></p>
-
+                <div class="edit-actions">
+                    <button id="save-btn" class="primary-btn" type="submit">Save Changes</button>
+                </div>
+                <p id="message" role="alert" aria-live="polite"></p>
+            </form>
         </section>
-
     </main>
-
 </div>
-
 <script src="js/layout.js"></script>
 <script src="js/session.js"></script>
 <script src="js/profile.js"></script>
-
 </body>
-
 </html>
