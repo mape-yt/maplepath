@@ -43,29 +43,23 @@ function stateCopy() {
     const profile = dashboardState.profile;
     if (journeyType() === "completed") {
         return {
-            eyebrow: "Your completed journey",
             badge: "Permanent residence received",
-            title: "Your experience can help someone following the same path.",
-            description: "Review your roadmap and add the dates you remember. MaplePath combines completed timelines anonymously to improve community estimates.",
+            title: "Permanent residence received",
             action: "Add journey dates",
             actionHref: "journey.html"
         };
     }
     if (journeyType() === "pathway") {
         return {
-            eyebrow: "Your active application",
             badge: "Application in progress",
             title: profile.stream || profile.pathway || "Continue your immigration journey",
-            description: "See the next roadmap step, prepare its documents, and keep your timeline current as your application moves forward.",
             action: "Continue Journey",
             actionHref: "journey.html"
         };
     }
     return {
-        eyebrow: "Plan with confidence",
         badge: "Planning my journey",
-        title: "Start with the pathway that fits your plans.",
-        description: "Review available program families and official requirements. When you choose a pathway, MaplePath will build the matching roadmap here.",
+        title: "Choose your immigration pathway",
         action: "Choose a pathway",
         actionHref: "profile.html"
     };
@@ -115,14 +109,9 @@ function renderHero() {
     const copy = stateCopy();
     const profile = dashboardState.profile;
     const progress = progressDetails();
-    setText("dashboard-eyebrow", copy.eyebrow);
     setText("welcome-title", `Welcome back, ${dashboardState.username}!`);
-    setText("welcome-subtitle", journeyType() === "planning"
-        ? "Use this space to choose a direction and organize your next moves."
-        : "Your roadmap, documents, activity, and personal tasks are together here.");
     setText("journey-state-badge", copy.badge);
     setText("journey-hero-title", copy.title);
-    setText("journey-hero-description", copy.description);
     setText("hero-progress-value", dashboardState.roadmap ? `${progress.percent}%` : "—");
     setText("hero-progress-label", journeyType() === "completed" ? "Timeline contributed" : "Roadmap progress");
 
@@ -163,13 +152,11 @@ function renderSummary() {
 
 function renderNextStep() {
     const title = document.getElementById("next-step-title");
-    const description = document.getElementById("next-step-description");
     const link = document.getElementById("next-step-link");
     const number = document.getElementById("next-step-number");
 
     if (journeyType() === "planning") {
         title.textContent = "Choose a pathway when you’re ready";
-        description.textContent = "Update your profile with the program you plan to use. MaplePath will then load its detailed roadmap and official resources.";
         link.href = "profile.html";
         link.firstChild.textContent = "Choose a pathway ";
         number.textContent = "01";
@@ -178,7 +165,6 @@ function renderNextStep() {
 
     if (!dashboardState.roadmap) {
         title.textContent = "Your pathway roadmap is being expanded";
-        description.textContent = "Your profile is saved. MaplePath does not have a detailed roadmap for this pathway yet, but you can continue using tasks and profile tracking.";
         link.href = "profile.html";
         link.firstChild.textContent = "Review profile ";
         number.textContent = "—";
@@ -188,15 +174,9 @@ function renderNextStep() {
     const step = journeyType() === "completed" ? missingTimelineStep() : nextRoadmapStep();
     if (!step) {
         title.textContent = journeyType() === "completed" ? "Your timeline is complete" : "Roadmap complete";
-        description.textContent = journeyType() === "completed"
-            ? "You have provided dates for every roadmap step. You can still review or correct them from Journey."
-            : "You have completed every step in this MaplePath roadmap.";
         number.textContent = "✓";
     } else {
         title.textContent = journeyType() === "completed" ? `Add dates for: ${step.title}` : step.title;
-        description.textContent = journeyType() === "completed"
-            ? "Open Journey, select this step, and enter the dates you remember. Approximate dates can still make community data more useful."
-            : (step.description || "Open Journey to review the preparation checklist and official guidance for this step.");
         number.textContent = String(step.order).padStart(2, "0");
     }
     link.href = "journey.html";
@@ -234,8 +214,7 @@ function renderDocuments() {
     container.replaceChildren();
 
     if (journeyType() === "completed") {
-        setText("documents-title", "Records that improve your timeline");
-        setText("documents-description", "Use these records to reconstruct accurate dates. You do not upload documents to MaplePath.");
+        setText("documents-title", "Timeline records");
         ["IRCC account messages and submission confirmations", "Language test, medical, and biometrics receipts", "Nomination, invitation, COPR, or landing records"].forEach(title => {
             const item = document.createElement("article");
             item.className = "document-item";
@@ -251,14 +230,14 @@ function renderDocuments() {
     const documents = Array.isArray(step?.requiredDocuments) ? step.requiredDocuments : [];
     if (!step) {
         renderEmpty(container, journeyType() === "planning"
-            ? "Choose a supported pathway to see documents for each roadmap step."
-            : "Detailed document guidance is not available for this pathway yet.");
+            ? "Choose a pathway first."
+            : "No document list yet.");
         return;
     }
 
-    setText("documents-title", `Documents for “${step.title}”`);
+    setText("documents-title", `Documents: ${step.title}`);
     if (!documents.length) {
-        renderEmpty(container, "This step does not list a specific document. Review its preparation checklist and official links in Journey.");
+        renderEmpty(container, "No documents listed.");
         return;
     }
 
@@ -277,12 +256,6 @@ function renderDocuments() {
             top.appendChild(tag);
         }
         card.appendChild(top);
-        const copy = documentItem.condition || documentItem.description;
-        if (copy) {
-            const paragraph = document.createElement("p");
-            paragraph.textContent = copy;
-            card.appendChild(paragraph);
-        }
         container.appendChild(card);
     });
 }
@@ -304,8 +277,8 @@ function renderActivity() {
 
     if (!records.length) {
         renderEmpty(container, journeyType() === "planning"
-            ? "Journey activity will appear after you choose a pathway and begin tracking steps."
-            : "No timeline entries yet. Open Journey to start a step or add historical dates.");
+            ? "Choose a pathway first."
+            : "No activity yet.");
         return;
     }
 
@@ -318,11 +291,7 @@ function renderActivity() {
         const content = document.createElement("div");
         const heading = document.createElement("strong");
         heading.textContent = record.stepTitle;
-        const copy = document.createElement("p");
-        copy.textContent = record.status === "completed"
-            ? `Completed in ${record.durationDays || 1} day${record.durationDays === 1 ? "" : "s"}`
-            : "Step started";
-        content.append(heading, copy);
+        content.appendChild(heading);
         const time = document.createElement("time");
         const date = record.completedAt || record.startedAt;
         time.dateTime = date || "";

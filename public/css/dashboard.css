@@ -27,20 +27,10 @@ body {
 }
 
 .dashboard-header h1 {
-    margin: 3px 0 7px;
+    margin: 0;
     color: var(--dash-ink);
     font-size: clamp(2rem, 4vw, 2.8rem);
     letter-spacing: -.04em;
-}
-
-.dashboard-header > div > p:last-child { color: var(--dash-muted); line-height: 1.5; }
-
-.dashboard-eyebrow, .panel-kicker {
-    color: var(--dash-green);
-    font-size: .75rem;
-    font-weight: 850;
-    letter-spacing: .12em;
-    text-transform: uppercase;
 }
 
 .header-actions { display: flex; align-items: center; gap: 13px; }
@@ -83,7 +73,7 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1.7fr) minmax(220px, .65fr);
     gap: 30px;
-    min-height: 320px;
+    min-height: 255px;
     padding: clamp(28px, 5vw, 54px);
     overflow: hidden;
     color: #fff;
@@ -125,12 +115,10 @@ body {
     letter-spacing: -.045em;
 }
 
-.journey-hero__content > p { max-width: 680px; color: #d7e8e1; font-size: 1.04rem; line-height: 1.68; }
-
-.journey-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+.journey-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
 .journey-meta span { padding: 7px 11px; color: #e7f2ed; font-size: .82rem; border: 1px solid rgba(255, 255, 255, .19); border-radius: 999px; background: rgba(255, 255, 255, .07); }
 
-.hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 28px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 20px; }
 
 .button {
     display: inline-flex;
@@ -215,7 +203,7 @@ body {
 .panel-heading, .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; }
 .panel h2, .dashboard-section h2 { margin-top: 5px; color: var(--dash-ink); font-size: 1.45rem; letter-spacing: -.025em; }
 .panel-number { color: #b8ccc4; font-size: 2.25rem; font-weight: 850; letter-spacing: -.06em; }
-.next-step-panel > p { max-width: 720px; margin: 18px 0 21px; color: var(--dash-muted); line-height: 1.65; }
+.next-step-panel .text-link { margin-top: 22px; }
 
 .text-link { display: inline-flex; align-items: center; gap: 8px; color: var(--dash-green); font-weight: 800; text-decoration: none; }
 .text-link:hover { text-decoration: underline; }
@@ -226,13 +214,10 @@ body {
 .profile-snapshot dd { color: var(--dash-ink); font-weight: 750; text-align: right; overflow-wrap: anywhere; }
 
 .dashboard-section { margin-top: 22px; scroll-margin-top: 95px; }
-.section-heading > div > p:last-child { margin-top: 7px; color: var(--dash-muted); line-height: 1.55; }
-
 .document-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 22px; }
 .document-item { padding: 17px; border: 1px solid #e2e9e6; border-radius: 14px; background: #fafcfb; }
 .document-item__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .document-item h3 { color: var(--dash-ink); font-size: 1rem; line-height: 1.4; }
-.document-item p { margin-top: 9px; color: var(--dash-muted); font-size: .88rem; line-height: 1.55; }
 .requirement-tag { flex: 0 0 auto; padding: 4px 7px; color: #7b5420; font-size: .66rem; font-weight: 850; text-transform: uppercase; border-radius: 999px; background: #f7ead3; }
 
 .activity-list { display: grid; margin-top: 20px; }
@@ -241,7 +226,6 @@ body {
 .activity-dot { width: 10px; height: 10px; margin-top: 5px; border-radius: 50%; background: #d8a23e; box-shadow: 0 0 0 4px #faf0dc; }
 .activity-item.is-completed .activity-dot { background: var(--dash-green); box-shadow: 0 0 0 4px var(--dash-green-soft); }
 .activity-item strong { display: block; color: var(--dash-ink); }
-.activity-item p { margin-top: 4px; color: var(--dash-muted); font-size: .87rem; }
 .activity-item time { color: var(--dash-muted); font-size: .8rem; white-space: nowrap; }
 
 .task-input { display: flex; gap: 10px; margin-top: 22px; }

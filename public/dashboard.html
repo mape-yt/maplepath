@@ -15,9 +15,7 @@
     <main class="main-content" id="main-content">
         <header class="dashboard-header">
             <div>
-                <p class="dashboard-eyebrow" id="dashboard-eyebrow">Your MaplePath overview</p>
                 <h1 id="welcome-title">Welcome back!</h1>
-                <p id="welcome-subtitle">Loading your personalized immigration dashboard…</p>
             </div>
             <div class="header-actions">
                 <div class="avatar" aria-hidden="true">👤</div>
@@ -31,7 +29,6 @@
             <div class="journey-hero__content">
                 <span id="journey-state-badge" class="state-badge">Loading</span>
                 <h2 id="journey-hero-title">Preparing your dashboard…</h2>
-                <p id="journey-hero-description">MaplePath is gathering your profile and roadmap information.</p>
                 <div id="journey-meta" class="journey-meta"></div>
                 <div class="hero-actions">
                     <a id="primary-action" class="button button--primary" href="journey.html">Open Journey</a>
@@ -63,22 +60,15 @@
         <section class="dashboard-grid">
             <article class="panel next-step-panel">
                 <div class="panel-heading">
-                    <div>
-                        <p class="panel-kicker">Recommended next</p>
-                        <h2 id="next-step-title">Loading your next step…</h2>
-                    </div>
+                    <h2 id="next-step-title">Loading your next step…</h2>
                     <span class="panel-number" id="next-step-number">01</span>
                 </div>
-                <p id="next-step-description">We’re checking your selected pathway and progress.</p>
                 <a id="next-step-link" class="text-link" href="journey.html">View this step <span aria-hidden="true">→</span></a>
             </article>
 
             <article class="panel profile-panel">
                 <div class="panel-heading">
-                    <div>
-                        <p class="panel-kicker">Your details</p>
-                        <h2>Profile snapshot</h2>
-                    </div>
+                    <h2>Profile</h2>
                     <span class="panel-icon" aria-hidden="true">👤</span>
                 </div>
                 <dl id="profile-snapshot" class="profile-snapshot"><div><dt>Status</dt><dd>Loading…</dd></div></dl>
@@ -88,39 +78,27 @@
 
         <section id="documents" class="panel dashboard-section">
             <div class="section-heading">
-                <div>
-                    <p class="panel-kicker">Preparation</p>
-                    <h2 id="documents-title">Documents for your next step</h2>
-                    <p id="documents-description">Items come directly from your selected MaplePath roadmap.</p>
-                </div>
+                <h2 id="documents-title">Documents</h2>
                 <a class="text-link" href="journey.html">Open full roadmap <span aria-hidden="true">→</span></a>
             </div>
             <div id="document-list" class="document-grid">
-                <div class="empty-state">Loading document guidance…</div>
+                <div class="empty-state">Loading…</div>
             </div>
         </section>
 
         <section id="activity" class="panel dashboard-section">
             <div class="section-heading">
-                <div>
-                    <p class="panel-kicker">Updates</p>
-                    <h2>Journey activity</h2>
-                    <p>Your most recent roadmap timeline entries.</p>
-                </div>
+                <h2>Journey activity</h2>
                 <a class="text-link" href="journey.html">Manage timeline <span aria-hidden="true">→</span></a>
             </div>
             <div id="activity-list" class="activity-list">
-                <div class="empty-state">Loading timeline activity…</div>
+                <div class="empty-state">Loading…</div>
             </div>
         </section>
 
         <section id="tasks" class="panel dashboard-section tasks-section">
             <div class="section-heading">
-                <div>
-                    <p class="panel-kicker">Personal checklist</p>
-                    <h2>My tasks</h2>
-                    <p>Add reminders that are specific to your own application.</p>
-                </div>
+                <h2>My tasks</h2>
                 <span id="task-count" class="count-pill">0 open</span>
             </div>
             <form id="task-form" class="task-input">
@@ -129,7 +107,7 @@
                 <button id="add-task-btn" type="submit">Add task</button>
             </form>
             <ul id="task-list" class="task-list"></ul>
-            <div id="task-empty" class="empty-state">No personal tasks yet. Add your first reminder above.</div>
+            <div id="task-empty" class="empty-state">No tasks yet.</div>
         </section>
     </main>
 </div>
