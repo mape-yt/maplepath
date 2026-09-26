@@ -73,7 +73,7 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1.7fr) minmax(220px, .65fr);
     gap: 30px;
-    min-height: 255px;
+    min-height: 235px;
     padding: clamp(28px, 5vw, 54px);
     overflow: hidden;
     color: #fff;
@@ -114,9 +114,6 @@ body {
     line-height: 1.08;
     letter-spacing: -.045em;
 }
-
-.journey-meta { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
-.journey-meta span { padding: 7px 11px; color: #e7f2ed; font-size: .82rem; border: 1px solid rgba(255, 255, 255, .19); border-radius: 999px; background: rgba(255, 255, 255, .07); }
 
 .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 20px; }
 
@@ -175,6 +172,13 @@ body {
     background: var(--dash-paper);
 }
 
+.summary-card--green { border-color: #cde3d9; background: #e8f4ef; }
+.summary-card--warm { border-color: #e8dfd1; background: #f4efe7; }
+.summary-card--dark { color: #fff; border-color: #183e34; background: #173d33; }
+.summary-card--dark .summary-icon { background: rgba(255, 255, 255, .12); }
+.summary-card--dark p { color: #bad1c8; }
+.summary-card--dark strong { color: #fff; }
+
 .summary-icon, .panel-icon {
     display: grid;
     flex: 0 0 43px;
@@ -188,6 +192,8 @@ body {
 .summary-card div { min-width: 0; }
 .summary-card p { margin-bottom: 4px; color: var(--dash-muted); font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .06em; }
 .summary-card strong { display: block; overflow-wrap: anywhere; color: var(--dash-ink); font-size: 1.02rem; }
+.summary-card.summary-card--dark p { color: #bad1c8; }
+.summary-card.summary-card--dark strong { color: #fff; }
 
 .dashboard-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, .8fr); gap: 22px; }
 
@@ -200,8 +206,13 @@ body {
     box-shadow: 0 9px 26px rgba(22, 54, 44, .055);
 }
 
+.panel--green { border-color: #c6dfd4; background: #e4f2ec; }
+.panel--green-soft { border-color: #d2e6dd; background: #edf7f2; }
+.panel--warm { border-color: #e6ddcf; background: #f5f0e8; }
+.panel--green .panel-number { color: #91b5a7; }
+
 .panel-heading, .section-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 22px; }
-.panel h2, .dashboard-section h2 { margin-top: 5px; color: var(--dash-ink); font-size: 1.45rem; letter-spacing: -.025em; }
+.panel h2, .dashboard-section h2 { margin: 0; color: var(--dash-ink); font-size: 1.45rem; letter-spacing: -.025em; }
 .panel-number { color: #b8ccc4; font-size: 2.25rem; font-weight: 850; letter-spacing: -.06em; }
 .next-step-panel .text-link { margin-top: 22px; }
 
@@ -215,7 +226,7 @@ body {
 
 .dashboard-section { margin-top: 22px; scroll-margin-top: 95px; }
 .document-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 22px; }
-.document-item { padding: 17px; border: 1px solid #e2e9e6; border-radius: 14px; background: #fafcfb; }
+.document-item { padding: 17px; border: 1px solid #e2e9e6; border-radius: 14px; background: #fff; }
 .document-item__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .document-item h3 { color: var(--dash-ink); font-size: 1rem; line-height: 1.4; }
 .requirement-tag { flex: 0 0 auto; padding: 4px 7px; color: #7b5420; font-size: .66rem; font-weight: 850; text-transform: uppercase; border-radius: 999px; background: #f7ead3; }
@@ -242,7 +253,7 @@ body {
 .task-delete-btn:hover { border-color: #edd6d9; background: #fff7f7; }
 .count-pill { flex: 0 0 auto; padding: 6px 10px; color: var(--dash-green-dark); font-size: .75rem; font-weight: 850; border-radius: 999px; background: var(--dash-green-soft); }
 
-.empty-state { grid-column: 1 / -1; padding: 22px; color: var(--dash-muted); line-height: 1.55; text-align: center; border: 1px dashed #cfdad5; border-radius: 13px; background: #fafcfb; }
+.empty-state { grid-column: 1 / -1; padding: 18px; color: var(--dash-muted); text-align: center; border: 1px dashed #cfdad5; border-radius: 13px; background: rgba(255, 255, 255, .72); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 1180px) {

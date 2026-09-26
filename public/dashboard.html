@@ -29,10 +29,9 @@
             <div class="journey-hero__content">
                 <span id="journey-state-badge" class="state-badge">Loading</span>
                 <h2 id="journey-hero-title">Preparing your dashboard…</h2>
-                <div id="journey-meta" class="journey-meta"></div>
                 <div class="hero-actions">
                     <a id="primary-action" class="button button--primary" href="journey.html">Open Journey</a>
-                    <a class="button button--secondary" href="profile.html">Update profile</a>
+                    <a class="button button--secondary" href="profile.html">Profile</a>
                 </div>
             </div>
             <div class="journey-hero__visual" aria-hidden="true">
@@ -43,27 +42,27 @@
         </section>
 
         <section class="summary-grid" aria-label="Journey summary">
-            <article class="summary-card">
+            <article class="summary-card summary-card--green">
                 <span class="summary-icon" aria-hidden="true">🗺️</span>
                 <div><p id="stat-one-label">Pathway</p><strong id="stat-one-value">Loading…</strong></div>
             </article>
-            <article class="summary-card">
+            <article class="summary-card summary-card--warm">
                 <span class="summary-icon" aria-hidden="true">📍</span>
                 <div><p id="stat-two-label">Province</p><strong id="stat-two-value">Loading…</strong></div>
             </article>
-            <article class="summary-card">
+            <article class="summary-card summary-card--dark">
                 <span class="summary-icon" aria-hidden="true">✅</span>
                 <div><p id="stat-three-label">Progress</p><strong id="stat-three-value">Loading…</strong></div>
             </article>
         </section>
 
         <section class="dashboard-grid">
-            <article class="panel next-step-panel">
+            <article class="panel panel--green next-step-panel">
                 <div class="panel-heading">
                     <h2 id="next-step-title">Loading your next step…</h2>
                     <span class="panel-number" id="next-step-number">01</span>
                 </div>
-                <a id="next-step-link" class="text-link" href="journey.html">View this step <span aria-hidden="true">→</span></a>
+                <a id="next-step-link" class="text-link" href="journey.html">Open <span aria-hidden="true">→</span></a>
             </article>
 
             <article class="panel profile-panel">
@@ -72,14 +71,14 @@
                     <span class="panel-icon" aria-hidden="true">👤</span>
                 </div>
                 <dl id="profile-snapshot" class="profile-snapshot"><div><dt>Status</dt><dd>Loading…</dd></div></dl>
-                <a class="text-link" href="profile.html">View full profile <span aria-hidden="true">→</span></a>
+                <a class="text-link" href="profile.html">Open <span aria-hidden="true">→</span></a>
             </article>
         </section>
 
-        <section id="documents" class="panel dashboard-section">
+        <section id="documents" class="panel panel--warm dashboard-section">
             <div class="section-heading">
                 <h2 id="documents-title">Documents</h2>
-                <a class="text-link" href="journey.html">Open full roadmap <span aria-hidden="true">→</span></a>
+                <a class="text-link" href="journey.html">Roadmap <span aria-hidden="true">→</span></a>
             </div>
             <div id="document-list" class="document-grid">
                 <div class="empty-state">Loading…</div>
@@ -88,22 +87,22 @@
 
         <section id="activity" class="panel dashboard-section">
             <div class="section-heading">
-                <h2>Journey activity</h2>
-                <a class="text-link" href="journey.html">Manage timeline <span aria-hidden="true">→</span></a>
+                <h2>Activity</h2>
+                <a class="text-link" href="journey.html">Timeline <span aria-hidden="true">→</span></a>
             </div>
             <div id="activity-list" class="activity-list">
                 <div class="empty-state">Loading…</div>
             </div>
         </section>
 
-        <section id="tasks" class="panel dashboard-section tasks-section">
+        <section id="tasks" class="panel panel--green-soft dashboard-section tasks-section">
             <div class="section-heading">
                 <h2>My tasks</h2>
                 <span id="task-count" class="count-pill">0 open</span>
             </div>
             <form id="task-form" class="task-input">
                 <label class="sr-only" for="new-task">New immigration task</label>
-                <input type="text" id="new-task" maxlength="160" placeholder="Example: Book my language test" autocomplete="off">
+                <input type="text" id="new-task" maxlength="160" placeholder="Add a task" autocomplete="off">
                 <button id="add-task-btn" type="submit">Add task</button>
             </form>
             <ul id="task-list" class="task-list"></ul>

@@ -44,8 +44,8 @@ function stateCopy() {
     if (journeyType() === "completed") {
         return {
             badge: "Permanent residence received",
-            title: "Permanent residence received",
-            action: "Add journey dates",
+            title: profile.stream || profile.pathway || "Completed journey",
+            action: "Journey",
             actionHref: "journey.html"
         };
     }
@@ -53,7 +53,7 @@ function stateCopy() {
         return {
             badge: "Application in progress",
             title: profile.stream || profile.pathway || "Continue your immigration journey",
-            action: "Continue Journey",
+            action: "Journey",
             actionHref: "journey.html"
         };
     }
@@ -119,13 +119,6 @@ function renderHero() {
     primaryAction.textContent = copy.action;
     primaryAction.href = copy.actionHref;
 
-    const meta = document.getElementById("journey-meta");
-    meta.replaceChildren();
-    [profile.pathway, profile.stream, profile.province].filter(Boolean).forEach(value => {
-        const item = document.createElement("span");
-        item.textContent = value;
-        meta.appendChild(item);
-    });
 }
 
 function renderSummary() {
@@ -158,7 +151,7 @@ function renderNextStep() {
     if (journeyType() === "planning") {
         title.textContent = "Choose a pathway when you’re ready";
         link.href = "profile.html";
-        link.firstChild.textContent = "Choose a pathway ";
+        link.firstChild.textContent = "Open ";
         number.textContent = "01";
         return;
     }
@@ -166,7 +159,7 @@ function renderNextStep() {
     if (!dashboardState.roadmap) {
         title.textContent = "Your pathway roadmap is being expanded";
         link.href = "profile.html";
-        link.firstChild.textContent = "Review profile ";
+        link.firstChild.textContent = "Open ";
         number.textContent = "—";
         return;
     }
@@ -180,7 +173,7 @@ function renderNextStep() {
         number.textContent = String(step.order).padStart(2, "0");
     }
     link.href = "journey.html";
-    link.firstChild.textContent = journeyType() === "completed" ? "Add timeline dates " : "View this step ";
+    link.firstChild.textContent = "Open ";
 }
 
 function addProfileRow(list, label, value) {
@@ -198,15 +191,17 @@ function renderProfileSnapshot() {
     const list = document.getElementById("profile-snapshot");
     list.replaceChildren();
     if (journeyType() === "planning") {
-        addProfileRow(list, "Journey status", "Planning");
         addProfileRow(list, "Location", profile.location || profile.country);
-        addProfileRow(list, "Province interest", profile.province || "Not decided");
+        addProfileRow(list, "Interest", profile.province || "Not decided");
         return;
     }
-    addProfileRow(list, "Journey status", journeyType() === "completed" ? "Permanent resident" : "In progress");
-    addProfileRow(list, "Application stage", profile.currentStage);
+    if (journeyType() === "completed") {
+        addProfileRow(list, "Pathway", profile.pathway);
+        addProfileRow(list, "PR date", formatDate(profile.permanentResidenceDate));
+        return;
+    }
+    addProfileRow(list, "Stage", profile.currentStage);
     addProfileRow(list, "Location", profile.location);
-    if (journeyType() === "completed") addProfileRow(list, "Became a PR", formatDate(profile.permanentResidenceDate));
 }
 
 function renderDocuments() {
@@ -235,7 +230,7 @@ function renderDocuments() {
         return;
     }
 
-    setText("documents-title", `Documents: ${step.title}`);
+    setText("documents-title", "Documents");
     if (!documents.length) {
         renderEmpty(container, "No documents listed.");
         return;
