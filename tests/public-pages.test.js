@@ -108,6 +108,30 @@ test("profile data supports the new plain-language onboarding dates", () => {
     assert.match(options, /applicationStatuses:/);
 });
 
+test("dashboard restores useful sections with live roadmap data", () => {
+    const html = readPublic("dashboard.html");
+    const script = readPublic("js/dashboard.js");
+    const sidebar = readPublic("components/sidebar.html");
+
+    for(const id of ["documents", "activity", "tasks"]){
+        assert.match(html, new RegExp(`id="${id}"`));
+        assert.match(sidebar, new RegExp(`dashboard\\.html#${id}`));
+    }
+    assert.match(script, /\/api\/journey\/\$\{pathway\}\/\$\{stream\}/);
+    assert.match(script, /\/api\/journey\/progress\//);
+    assert.match(script, /\/api\/timeline\//);
+    assert.match(script, /requiredDocuments/);
+});
+
+test("dashboard tasks are stored on the user instead of server memory", () => {
+    const model = fs.readFileSync(path.join(__dirname, "..", "models", "User.js"), "utf8");
+    const route = fs.readFileSync(path.join(__dirname, "..", "routes", "taskRoutes.js"), "utf8");
+    assert.match(model, /dashboardTasks:/);
+    assert.match(route, /User\.findOne/);
+    assert.match(route, /crypto\.randomUUID/);
+    assert.doesNotMatch(route, /tasksByUser|new Map\(/);
+});
+
 test("homepage coverage counts match and follow the options API", () => {
     const html = readPublic("index.html");
     const script = readPublic("js/home.js");

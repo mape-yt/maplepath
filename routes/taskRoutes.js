@@ -1,98 +1,82 @@
+const crypto = require("node:crypto");
 const express = require("express");
+const User = require("../models/User");
 
 const router = express.Router();
 
-const defaultTasks = [
-
-    {
-        id: 1,
-        title: "Create IRCC Account",
-        completed: true
-    },
-
-    {
-        id: 2,
-        title: "Complete IELTS",
-        completed: false
-    },
-
-    {
-        id: 3,
-        title: "Prepare Passport",
-        completed: false
-    }
-
-];
-
-// Temporary dashboard tasks are kept separately for each signed-in user.
-const tasksByUser = new Map();
-
-function getTasks(username){
-    if(!tasksByUser.has(username)){
-        tasksByUser.set(username, defaultTasks.map(task => ({ ...task })));
-    }
-    return tasksByUser.get(username);
+async function currentUser(req, res) {
+    const user = await User.findOne({ username:req.auth.username });
+    if (!user) res.status(404).json({ message:"User not found." });
+    return user;
 }
 
-router.put("/:id", (req, res) => {
-    const tasks = getTasks(req.auth.username);
-
-    const taskId = Number(req.params.id);
-
-    const task = tasks.find(t => t.id === taskId);
-
-    if (!task) {
-
-        return res.status(404).json({
-            message: "Task not found."
-        });
-
+router.get("/", async (req, res) => {
+    try {
+        const user = await currentUser(req, res);
+        if (!user) return;
+        res.json(user.dashboardTasks || []);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message:"Unable to load tasks." });
     }
-
-    task.completed = req.body.completed;
-
-    res.json(task);
-
 });
 
-router.delete("/:id", (req, res) => {
-    const tasks = getTasks(req.auth.username);
+router.post("/", async (req, res) => {
+    try {
+        const title = typeof req.body?.title === "string" ? req.body.title.trim() : "";
+        if (!title || title.length > 160) {
+            return res.status(400).json({ message:"Enter a task between 1 and 160 characters." });
+        }
 
-    const taskId = Number(req.params.id);
-
-    tasksByUser.set(req.auth.username, tasks.filter(task => task.id !== taskId));
-
-    res.json({
-        message: "Task deleted successfully."
-    });
-
+        const user = await currentUser(req, res);
+        if (!user) return;
+        const task = {
+            id:crypto.randomUUID(),
+            title,
+            completed:false,
+            createdAt:new Date()
+        };
+        user.dashboardTasks.push(task);
+        await user.save();
+        res.status(201).json(task);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message:"Unable to add the task." });
+    }
 });
 
-router.post("/", (req, res) => {
-    const tasks = getTasks(req.auth.username);
-
-    const newTask = {
-
-        id: Date.now(),
-
-        title: req.body.title,
-
-        completed: false
-
-    };
-
-    tasks.push(newTask);
-
-    res.status(201).json(newTask);
-
+router.put("/:id", async (req, res) => {
+    try {
+        if (typeof req.body?.completed !== "boolean") {
+            return res.status(400).json({ message:"Task completion must be true or false." });
+        }
+        const user = await currentUser(req, res);
+        if (!user) return;
+        const task = user.dashboardTasks.find(item => item.id === req.params.id);
+        if (!task) return res.status(404).json({ message:"Task not found." });
+        task.completed = req.body.completed;
+        user.markModified("dashboardTasks");
+        await user.save();
+        res.json(task);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message:"Unable to update the task." });
+    }
 });
 
-// Get all tasks
-router.get("/", (req, res) => {
-    const tasks = getTasks(req.auth.username);
-
-    res.json(tasks);
-
+router.delete("/:id", async (req, res) => {
+    try {
+        const user = await currentUser(req, res);
+        if (!user) return;
+        const index = user.dashboardTasks.findIndex(item => item.id === req.params.id);
+        if (index === -1) return res.status(404).json({ message:"Task not found." });
+        user.dashboardTasks.splice(index, 1);
+        await user.save();
+        res.json({ message:"Task removed." });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message:"Unable to remove the task." });
+    }
 });
 
 module.exports = router;

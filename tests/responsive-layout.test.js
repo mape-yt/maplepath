@@ -56,6 +56,7 @@ test("each signed-in view has page-specific compact layouts", () => {
 
     assert.match(dashboard, /@media\s*\(max-width:\s*520px\)/);
     assert.match(dashboard, /\.task-input\s*\{\s*flex-direction:\s*column/s);
+    assert.match(dashboard, /@media\s*\(max-width:\s*640px\)[\s\S]*?\.document-grid\s*\{[^}]*grid-template-columns:\s*1fr/s);
     assert.match(profile, /@media\s*\(max-width:\s*480px\)/);
     assert.match(journey, /@media\s*\(max-width:\s*560px\)/);
     assert.match(journey, /\.analytics-highlight\s*\{\s*grid-template-columns:\s*1fr/s);

@@ -5,6 +5,13 @@ const journeyProgressSchema = new mongoose.Schema({
     currentStep: { type:Number, default:1 }
 }, { _id:false });
 
+const dashboardTaskSchema = new mongoose.Schema({
+    id: { type:String, required:true },
+    title: { type:String, required:true, trim:true, maxlength:160 },
+    completed: { type:Boolean, default:false },
+    createdAt: { type:Date, default:Date.now }
+}, { _id:false });
+
 const userSchema = new mongoose.Schema({
 
     username: {
@@ -88,6 +95,8 @@ const userSchema = new mongoose.Schema({
     },
     journeyProgressByProfile: { type:Map, of:journeyProgressSchema, default:{} },
     legacyJourneyMigrated: { type:Boolean, default:false },
+
+    dashboardTasks: { type:[dashboardTaskSchema], default:[] },
 
 });
 
