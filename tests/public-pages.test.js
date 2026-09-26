@@ -108,19 +108,22 @@ test("profile data supports the new plain-language onboarding dates", () => {
     assert.match(options, /applicationStatuses:/);
 });
 
-test("dashboard restores useful sections with live roadmap data", () => {
+test("dashboard uses live journey data and working activity sections", () => {
     const html = readPublic("dashboard.html");
     const script = readPublic("js/dashboard.js");
     const sidebar = readPublic("components/sidebar.html");
 
-    for(const id of ["documents", "activity", "tasks"]){
+    for(const id of ["activity", "tasks"]){
         assert.match(html, new RegExp(`id="${id}"`));
         assert.match(sidebar, new RegExp(`dashboard\\.html#${id}`));
     }
+    assert.doesNotMatch(html, /id="documents"/);
+    assert.doesNotMatch(sidebar, /dashboard\.html#documents/);
     assert.match(script, /\/api\/journey\/\$\{pathway\}\/\$\{stream\}/);
     assert.match(script, /\/api\/journey\/progress\//);
     assert.match(script, /\/api\/timeline\//);
-    assert.match(script, /requiredDocuments/);
+    assert.match(html, /id="next-step-icon"/);
+    assert.match(html, /class="next-step-route"/);
 });
 
 test("dashboard tasks are stored on the user instead of server memory", () => {

@@ -147,12 +147,18 @@ function renderNextStep() {
     const title = document.getElementById("next-step-title");
     const link = document.getElementById("next-step-link");
     const number = document.getElementById("next-step-number");
+    const label = document.getElementById("next-step-label");
+    const icon = document.getElementById("next-step-icon");
+    const panel = document.querySelector(".next-step-panel");
 
     if (journeyType() === "planning") {
         title.textContent = "Choose a pathway when you’re ready";
         link.href = "profile.html";
         link.firstChild.textContent = "Open ";
+        label.textContent = "Start here";
+        icon.textContent = "🧭";
         number.textContent = "01";
+        panel.dataset.kind = "planning";
         return;
     }
 
@@ -160,17 +166,30 @@ function renderNextStep() {
         title.textContent = "Your pathway roadmap is being expanded";
         link.href = "profile.html";
         link.firstChild.textContent = "Open ";
+        label.textContent = "Roadmap";
+        icon.textContent = "🗺️";
         number.textContent = "—";
+        panel.dataset.kind = "pending";
         return;
     }
 
     const step = journeyType() === "completed" ? missingTimelineStep() : nextRoadmapStep();
     if (!step) {
         title.textContent = journeyType() === "completed" ? "Your timeline is complete" : "Roadmap complete";
+        label.textContent = "Complete";
+        icon.textContent = "✓";
         number.textContent = "✓";
+        panel.dataset.kind = "complete";
     } else {
         title.textContent = journeyType() === "completed" ? `Add dates for: ${step.title}` : step.title;
+        label.textContent = journeyType() === "completed"
+            ? "Add dates"
+            : step.type === "waiting" ? "Waiting" : step.type === "ircc" ? "IRCC step" : "Next step";
+        icon.textContent = journeyType() === "completed"
+            ? "📅"
+            : step.type === "waiting" ? "⏳" : step.type === "ircc" ? "🍁" : "📄";
         number.textContent = String(step.order).padStart(2, "0");
+        panel.dataset.kind = journeyType() === "completed" ? "history" : (step.type || "applicant");
     }
     link.href = "journey.html";
     link.firstChild.textContent = "Open ";
@@ -202,57 +221,6 @@ function renderProfileSnapshot() {
     }
     addProfileRow(list, "Stage", profile.currentStage);
     addProfileRow(list, "Location", profile.location);
-}
-
-function renderDocuments() {
-    const container = document.getElementById("document-list");
-    container.replaceChildren();
-
-    if (journeyType() === "completed") {
-        setText("documents-title", "Timeline records");
-        ["IRCC account messages and submission confirmations", "Language test, medical, and biometrics receipts", "Nomination, invitation, COPR, or landing records"].forEach(title => {
-            const item = document.createElement("article");
-            item.className = "document-item";
-            const heading = document.createElement("h3");
-            heading.textContent = title;
-            item.appendChild(heading);
-            container.appendChild(item);
-        });
-        return;
-    }
-
-    const step = nextRoadmapStep();
-    const documents = Array.isArray(step?.requiredDocuments) ? step.requiredDocuments : [];
-    if (!step) {
-        renderEmpty(container, journeyType() === "planning"
-            ? "Choose a pathway first."
-            : "No document list yet.");
-        return;
-    }
-
-    setText("documents-title", "Documents");
-    if (!documents.length) {
-        renderEmpty(container, "No documents listed.");
-        return;
-    }
-
-    documents.slice(0, 6).forEach(documentItem => {
-        const card = document.createElement("article");
-        card.className = "document-item";
-        const top = document.createElement("div");
-        top.className = "document-item__top";
-        const heading = document.createElement("h3");
-        heading.textContent = documentItem.title;
-        top.appendChild(heading);
-        if (documentItem.requirement) {
-            const tag = document.createElement("span");
-            tag.className = "requirement-tag";
-            tag.textContent = documentItem.requirement;
-            top.appendChild(tag);
-        }
-        card.appendChild(top);
-        container.appendChild(card);
-    });
 }
 
 function renderEmpty(container, message) {
@@ -404,7 +372,6 @@ function renderDashboard() {
     renderSummary();
     renderNextStep();
     renderProfileSnapshot();
-    renderDocuments();
     renderActivity();
 }
 
