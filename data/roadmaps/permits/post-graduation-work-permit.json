@@ -1,0 +1,360 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Work Permit",
+    "stream": "Post-graduation work permit (PGWP)",
+    "profileKey": "WP-PGWP",
+    "journeyKind": "temporary-residence",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-30",
+    "federalApplicationRoute": "work-permit",
+    "officialProgramPage": {
+        "label": "PGWP eligibility",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
+        "verifiedAt": "2026-09-30"
+    },
+    "scopeNote": "Track this permit application and its conditions. Permanent residence requires a separate eligible pathway and decision. Community averages combine applications within this guide and are not IRCC processing estimates.",
+    "relatedPathways": [
+        {
+            "pathway": "Express Entry",
+            "stream": "Canadian Experience Class (CEC)",
+            "label": "Canadian Experience Class",
+            "description": "Qualifying Canadian work may support CEC eligibility. Work gained while studying full-time does not count toward the CEC minimum. Meeting eligibility does not guarantee an invitation.",
+            "officialLinks": [
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        },
+        {
+            "pathway": "Provincial Nominee Program",
+            "label": "Provincial nominee programs",
+            "description": "Check the province’s current stream rules, selection process and settlement-intent requirements. A permit alone does not qualify you for nomination or guarantee PR.",
+            "officialLinks": [
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "order": 1,
+            "title": "Check your PGWP eligibility",
+            "type": "applicant",
+            "description": "Check your institution, program, study history and completion requirements. A PGWP is generally available only once; exceptions and special program rules must be checked with IRCC.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the minimum program length (normally 8 months or 900 hours for eligible Quebec programs), full-time study with the final-semester exception, leave and distance-learning rules."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Check any earlier PGWP history."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "PGWP eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "PGWP duration and prior permits",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/about.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 2,
+            "title": "Confirm language and field requirements",
+            "type": "applicant",
+            "description": "For current applications, degree graduates and other university graduates generally need CLB/NCLC 7 in all four skills; other college or non-university graduates generally need 5. Degree graduates have no field-of-study requirement. Check IRCC’s program-specific exceptions.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Approved language test result",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Eligible field-of-study evidence",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check your study-permit application date and six-digit CIP code if a field requirement applies."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Follow the separate rules for flight-school graduates."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "PGWP eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "PGWP field of study requirements",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility/field-of-study.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 3,
+            "title": "Collect graduation records",
+            "type": "applicant",
+            "description": "Get official proof that you completed your program and prepare the other documents on your personalized checklist.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Completion letter",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Official transcript",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-3",
+                    "title": "Passport",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check that your records show completion."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Check passport validity before applying."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "PGWP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 4,
+            "title": "Check the deadline and your status",
+            "type": "applicant",
+            "description": "Apply within 180 days of confirmation that you completed your program. This deadline does not extend your immigration status. Review restoration or outside-Canada options if your study permit has expired.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Current status documents",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Record when the school confirmed completion."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Resolve status before it expires."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Applying for a PGWP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Do not treat the 180-day application window as authorization to stay or work."
+            ]
+        },
+        {
+            "order": 5,
+            "title": "Apply for your PGWP",
+            "type": "applicant",
+            "description": "Follow the instructions for applicants inside or outside Canada, upload evidence and pay applicable fees. PGWP applications cannot be made at a port of entry.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "PGWP application package",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Retain the application confirmation and receipts."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Applying for a PGWP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 6,
+            "title": "Check work authorization while waiting",
+            "type": "waiting",
+            "description": "Work while waiting is allowed only when IRCC’s conditions are met, including a valid study permit when applying, program completion and eligible off-campus work without exceeding permitted hours. Otherwise, wait for authorization.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Confirm every condition before starting or continuing work."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Stop working if IRCC refuses the application."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "After applying for a PGWP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/after-you-apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 7,
+            "title": "Respond to IRCC requests",
+            "type": "applicant",
+            "description": "Complete any requested biometrics, medical exam or additional evidence within the stated deadline.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Requested evidence",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Monitor your account."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "PGWP documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Applying for a PGWP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 8,
+            "title": "Receive and review your PGWP",
+            "type": "ircc",
+            "description": "Follow your approval and permit-issuance instructions. Check expiry, occupation restrictions and the separate visa/eTA requirements for travel.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Approval and work permit",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Verify your permit before relying on its work authorization."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "After applying for a PGWP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/after-you-apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Open work permit eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/open-work-permit.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 9,
+            "title": "Review future work and PR options",
+            "type": "applicant",
+            "description": "Track permit expiry and qualifying work history. Use the separate Express Entry or PNP roadmap only after choosing a route whose requirements fit your situation.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Keep employer letters, duties, dates and pay records."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Review future status before your permit expires."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Extend or change a work permit",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/extend.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        }
+    ]
+}

@@ -41,7 +41,7 @@ test("profiles saved before journey types existed remain editable", () => {
 });
 
 test("only advertised pathways and registered streams can be saved", () => {
-    assert.match(validateProfile(activeProfile({ pathway: "Study Permit" })).error,
+    assert.match(validateProfile(activeProfile({ pathway: "Unsupported Pathway" })).error,
         /supported immigration pathway/);
     assert.match(validateProfile(activeProfile({ stream: "Imaginary Express Entry Stream" })).error,
         /supported program stream/);

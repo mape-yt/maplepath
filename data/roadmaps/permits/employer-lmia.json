@@ -1,0 +1,330 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Work Permit",
+    "stream": "Employer-specific work permit (LMIA required)",
+    "profileKey": "WP-EMP-LMIA",
+    "journeyKind": "temporary-residence",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-30",
+    "federalApplicationRoute": "work-permit",
+    "officialProgramPage": {
+        "label": "Employer-specific work permits",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/employer-specific.html",
+        "verifiedAt": "2026-09-30"
+    },
+    "scopeNote": "Track this permit application and its conditions. Permanent residence requires a separate eligible pathway and decision. Community averages combine applications within this guide and are not IRCC processing estimates.",
+    "relatedPathways": [
+        {
+            "pathway": "Express Entry",
+            "stream": "Canadian Experience Class (CEC)",
+            "label": "Canadian Experience Class",
+            "description": "Qualifying Canadian work may support CEC eligibility. Work gained while studying full-time does not count toward the CEC minimum. Meeting eligibility does not guarantee an invitation.",
+            "officialLinks": [
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        },
+        {
+            "pathway": "Provincial Nominee Program",
+            "label": "Provincial nominee programs",
+            "description": "Check the province’s current stream rules, selection process and settlement-intent requirements. A permit alone does not qualify you for nomination or guarantee PR.",
+            "officialLinks": [
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "order": 1,
+            "title": "Confirm the job and permit route",
+            "type": "applicant",
+            "description": "Confirm the job offer and whether an LMIA is required. This roadmap covers the applicant’s employer-specific permit process; the employer’s LMIA decision is separate.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Job offer",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Confirm the employer, occupation and location."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Employer-specific work permits",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/employer-specific.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Find the work permit you need",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/need-permit.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 2,
+            "title": "Obtain the positive LMIA documents",
+            "type": "applicant",
+            "description": "Your employer completes the required LMIA process and provides the positive LMIA letter and Annex A for your application. For paid work in Quebec, check the additional CAQ requirements and applicable exceptions.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Positive LMIA letter and Annex A",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "quebec-caq",
+                    "title": "Quebec Acceptance Certificate (CAQ)",
+                    "requirement": "conditional",
+                    "condition": "When required for your work in Quebec under the official rules."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the LMIA validity and job details with your employer."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Employer-specific work permits",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/employer-specific.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "LMIA and Quebec supporting documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/forms-documents.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "An LMIA is not a work permit."
+            ]
+        },
+        {
+            "order": 3,
+            "title": "Choose the correct application instructions",
+            "type": "applicant",
+            "description": "Use the inside-Canada or outside-Canada process that applies to your eligibility. Merely being in Canada does not qualify you for an in-Canada application.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the rules for your current location and status."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Work permit eligibility: inside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-inside/eligibility.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Apply for a work permit: outside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Apply for a work permit: inside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-inside.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 4,
+            "title": "Prepare your application documents",
+            "type": "applicant",
+            "description": "Prepare your passport, status and category evidence using the personalized checklist and any local visa-office instructions.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Passport",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Category and status evidence",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check that job and identity details agree across documents."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Work permit documents: outside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/forms-documents.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Apply for a work permit: inside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-inside.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 5,
+            "title": "Submit the work permit application",
+            "type": "applicant",
+            "description": "Submit the completed application and pay the applicable fees. Retain the confirmation.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Application package",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Save a copy of the application and receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Apply for a work permit: outside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Apply for a work permit: inside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-inside.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 6,
+            "title": "Complete requests and wait for a decision",
+            "type": "waiting",
+            "description": "Follow requests for biometrics, medical checks or further evidence. Verify your existing work authorization while waiting.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Requested evidence",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Read every IRCC message before its deadline."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Work permit decision: outside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/wait-decision.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Extension and maintained status rules",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/extend/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Submitting an application does not by itself authorize a new job."
+            ]
+        },
+        {
+            "order": 7,
+            "title": "Receive approval and review conditions",
+            "type": "ircc",
+            "description": "Follow the instructions for receiving your permit. For an overseas approval, the letter of introduction is not the work permit; entry and issuance are assessed at arrival.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Approval letter and issued permit",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check expiry, employer, occupation and location restrictions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Arriving with work permit approval",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-outside/arrival.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Apply for a work permit: inside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-inside.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 8,
+            "title": "Plan status and future pathways",
+            "type": "applicant",
+            "description": "Keep your status valid and review any future application before expiry. Canadian study or work can be relevant to some PR programs, but a permit does not grant permanent residence.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Review the related pathways and their individual eligibility rules."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Extend or change a work permit",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/extend.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        }
+    ]
+}

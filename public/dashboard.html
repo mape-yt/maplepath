@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/pathways.css">
 </head>
 <body>
 <div class="container">
@@ -80,6 +81,11 @@
             </article>
         </section>
 
+        <details id="related-pathways" class="panel dashboard-section related-pathways" hidden>
+            <summary>Related pathways</summary>
+            <div id="related-pathways-content"></div>
+        </details>
+
         <section id="activity" class="panel dashboard-section">
             <div class="section-heading">
                 <h2>Activity</h2>
@@ -108,6 +114,7 @@
 
 <script src="js/layout.js"></script>
 <script src="js/session.js"></script>
+<script src="js/pathway-context.js"></script>
 <script src="js/dashboard.js"></script>
 </body>
 </html>

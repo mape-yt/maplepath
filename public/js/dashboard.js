@@ -43,7 +43,7 @@ function stateCopy() {
     const profile = dashboardState.profile;
     if (journeyType() === "completed") {
         return {
-            badge: "Permanent residence received",
+            badge: MaplePathContext.isPermit(profile.pathway) ? "Permit approved" : "Permanent residence received",
             title: profile.stream || profile.pathway || "Completed journey",
             action: "Journey",
             actionHref: "journey.html"
@@ -79,7 +79,7 @@ function completedStepOrders() {
 function nextRoadmapStep() {
     if (!dashboardState.roadmap?.steps?.length) return null;
     const completed = new Set(completedStepOrders());
-    return dashboardState.roadmap.steps.find(step => !completed.has(step.order)) || dashboardState.roadmap.steps.at(-1);
+    return dashboardState.roadmap.steps.find(step => !completed.has(step.order)) || null;
 }
 
 function missingTimelineStep() {
@@ -216,7 +216,8 @@ function renderProfileSnapshot() {
     }
     if (journeyType() === "completed") {
         addProfileRow(list, "Pathway", profile.pathway);
-        addProfileRow(list, "PR date", formatDate(profile.permanentResidenceDate));
+        const outcome = MaplePathContext.completion(profile.pathway);
+        addProfileRow(list, outcome.dateLabel, formatDate(profile[outcome.dateField]));
         return;
     }
     addProfileRow(list, "Stage", profile.currentStage);
@@ -373,6 +374,27 @@ function renderDashboard() {
     renderNextStep();
     renderProfileSnapshot();
     renderActivity();
+    renderRelatedPathways();
+}
+
+function renderRelatedPathways() {
+    const panel = document.getElementById("related-pathways");
+    const container = document.getElementById("related-pathways-content");
+    const related = dashboardState.roadmap?.relatedPathways || [];
+    panel.hidden = related.length === 0;
+    container.replaceChildren();
+    for (const entry of related) {
+        const item = document.createElement("article");
+        const heading = document.createElement("h3");
+        heading.textContent = entry.label;
+        const description = document.createElement("p");
+        description.textContent = entry.description;
+        const action = document.createElement("a");
+        action.href = MaplePathContext.profileLink(entry);
+        action.textContent = "Choose this pathway →";
+        item.append(heading, description, action);
+        container.appendChild(item);
+    }
 }
 
 async function initializeDashboard() {

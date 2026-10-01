@@ -1038,7 +1038,7 @@ function renderJourneySummary(){
 
                 <p>
 
-                    Journey Complete
+                    Roadmap progress
 
                 </p>
 
@@ -1569,7 +1569,9 @@ function renderRoadmapMetadata(roadmap){
     const routeLabels = {
         "express-entry":"Express Entry federal route",
         "non-express-entry":"Non-Express Entry federal route",
-        "route-dependent":"Federal route depends on the nomination"
+        "route-dependent":"Federal route depends on the nomination",
+        "study-permit":"Study permit · temporary residence",
+        "work-permit":"Work permit · temporary residence"
     };
     const status = statusLabels[roadmap.programStatus] || "Program status not recorded";
     const route = routeLabels[roadmap.federalApplicationRoute] || "Federal route not recorded";
@@ -1585,7 +1587,19 @@ function renderRoadmapMetadata(roadmap){
             ${checked}
         </div>
         ${official ? `<div class="roadmap-metadata-link">${official}</div>` : ""}
-    </aside>`;
+    </aside>${renderRelatedPathways(roadmap)}`;
+}
+
+function renderRelatedPathways(roadmap){
+    if(!roadmap.scopeNote && !roadmap.relatedPathways?.length) return "";
+    const items = (roadmap.relatedPathways || []).map(entry => `<article>
+        <h3>${escapeRoadmapText(entry.label)}</h3>
+        <p>${escapeRoadmapText(entry.description)}</p>
+        ${(entry.officialLinks || []).map(renderRoadmapLink).join(" ")}
+        <p><a href="${escapeRoadmapText(MaplePathContext.profileLink(entry))}">Choose this pathway →</a></p>
+    </article>`).join("");
+    return `<details class="related-pathways"><summary>About this permit &amp; related pathways</summary>
+        <p>${escapeRoadmapText(roadmap.scopeNote || "")}</p>${items}</details>`;
 }
 
 function renderRoadmapLink(link){

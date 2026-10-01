@@ -42,7 +42,7 @@
                         <select id="edit-journey-type" required>
                             <option value="planning">Planning my journey</option>
                             <option value="pathway">Application in progress</option>
-                            <option value="completed">Permanent residence received</option>
+                            <option value="completed">Permit or PR approved</option>
                         </select>
                     </div>
                 </div>
@@ -91,6 +91,10 @@
                         <label for="edit-arrival-date">When did you first arrive in Canada? (optional)</label>
                         <input id="edit-arrival-date" type="date">
                     </div>
+                    <div id="permit-date-group" class="form-group hidden">
+                        <label for="edit-permit-date">When was your permit application approved?</label>
+                        <input id="edit-permit-date" type="date">
+                    </div>
                     <div id="pr-date-group" class="form-group hidden">
                         <label for="edit-pr-date">When did you become a permanent resident?</label>
                         <input id="edit-pr-date" type="date">
@@ -107,6 +111,7 @@
 </div>
 <script src="js/layout.js"></script>
 <script src="js/session.js"></script>
+<script src="js/pathway-context.js"></script>
 <script src="js/profile.js"></script>
 </body>
 </html>

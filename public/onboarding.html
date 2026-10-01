@@ -54,8 +54,8 @@
                     <button class="choice-card" type="button" data-journey-type="completed">
                         <span class="choice-icon" aria-hidden="true">🍁</span>
                         <span class="choice-copy">
-                            <strong>I’ve received permanent residence</strong>
-                            <small>My journey is complete, and I’d like to explore or contribute timeline data.</small>
+                            <strong>My permit or PR was approved</strong>
+                            <small>I want to record my past application dates and explore what comes next.</small>
                         </span>
                         <span class="choice-arrow" aria-hidden="true">→</span>
                     </button>
@@ -125,6 +125,11 @@
                         <label for="canada-arrival-date">When did you first arrive in Canada? <span>(optional)</span></label>
                         <input id="canada-arrival-date" type="date">
                     </div>
+                    <div id="permit-date-group" class="form-group hidden">
+                        <label for="permit-approval-date">When was your permit application approved?</label>
+                        <input id="permit-approval-date" type="date">
+                        <small>Use the approval date on your IRCC decision letter.</small>
+                    </div>
                     <div id="pr-date-group" class="form-group hidden">
                         <label for="permanent-residence-date">When did you become a permanent resident?</label>
                         <input id="permanent-residence-date" type="date">
@@ -143,6 +148,7 @@
     </main>
 
     <script src="js/session.js"></script>
-    <script src="js/onboarding.js"></script>
+    <script src="js/pathway-context.js"></script>
+<script src="js/onboarding.js"></script>
 </body>
 </html>

@@ -164,6 +164,44 @@ milestones if the product needs exact event timing.
 
 ## Authoring richer content
 
+### Study and work permit coverage (reviewed 2026-09-30)
+
+Six temporary-residence guides live in `permits/`: post-secondary study,
+PGWP, employer-specific LMIA-required, employer-specific LMIA-exempt,
+other eligible open permits, and BOWP. Their stable profile keys are
+`SP-POSTSECONDARY`, `WP-PGWP`, `WP-EMP-LMIA`, `WP-EMP-EXEMPT`, `WP-OPEN`,
+and `WP-BOWP`. They use the same step identity, progress and timeline APIs
+as the existing PR roadmaps, with no migration of existing step orders.
+
+`journeyKind: temporary-residence` and the `study-permit` / `work-permit`
+federal route values distinguish permit guides. `scopeNote` describes the
+guide's limits. `relatedPathways` provides optional, sourced connections;
+these are exploratory links, not eligibility recommendations or automatic
+switches. A study permit does not guarantee PGWP eligibility, and neither
+study nor work authorization guarantees provincial nomination or PR.
+
+The open-permit and LMIA-exempt guides are general trackers. Category-specific
+instructions remain authoritative, including family-member, IEC and public
+policy rules. Their community averages are per guide, not per subcategory,
+country or application location; the UI states they are not government
+processing estimates. No fixed processing times or settlement-fund amounts
+are hard-coded into these guides.
+
+Completed permit profiles use `permitApprovalDate` and `Permit approved`.
+PR profiles continue to use `permanentResidenceDate` and `Permanent resident`.
+Approval abroad does not automatically set current Canadian status. Related
+links open the profile editor with a suggested pathway; saving is explicit,
+and earlier progress and timeline records remain attached to their profile key.
+Profile-level dates describe the current selected route; switching routes
+clears those form fields to avoid carrying an earlier approval into a new route.
+
+Run `npm test` for the full suite or `npm run audit:content` for content and
+profile validation. The HTTP permit tests use a synthetic in-memory user;
+they never connect to Atlas and do not test authentication. Browser checks
+also use synthetic data without reading or modifying existing user accounts.
+
+### General authoring rules
+
 Use plain text, not HTML, for descriptions and labels. Future UI renderers should
 insert text safely and validate link destinations. Verify each official link
 and its supporting guidance before adding immigration requirements or estimates;

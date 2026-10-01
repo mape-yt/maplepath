@@ -22,11 +22,12 @@ const inputs = {
     stage: document.getElementById("edit-stage"),
     pathwayStart: document.getElementById("edit-pathway-start"),
     arrivalDate: document.getElementById("edit-arrival-date"),
-    prDate: document.getElementById("edit-pr-date")
+    prDate: document.getElementById("edit-pr-date"),
+    permitDate: document.getElementById("edit-permit-date")
 };
 
 function journeyLabel(type) {
-    if (type === "completed") return "Permanent residence received";
+    if (type === "completed") return MaplePathContext.completion(currentProfile.pathway).label;
     if (type === "pathway") return "Application in progress";
     return "Planning my journey";
 }
@@ -63,7 +64,7 @@ function pnpProvinces() {
 
 function settlementProvinces(pathway = inputs.pathway.value) {
     const provinces = options.provinces || [];
-    return pathway === "Express Entry"
+    return pathway === "Express Entry" && inputs.journeyType.value !== "planning"
         ? provinces.filter(province => province !== "Quebec")
         : provinces;
 }
@@ -87,6 +88,7 @@ function renderProfile(profile) {
     const type = profile.journeyType || "planning";
     const isPlanning = type === "planning";
     const isCompleted = type === "completed";
+    const outcome = MaplePathContext.completion(profile.pathway);
 
     title.textContent = isPlanning ? "🧭 Planning my journey" : isCompleted ? "🍁 Journey completed" : "📝 Application in progress";
     subtitle.textContent = isPlanning
@@ -94,7 +96,11 @@ function renderProfile(profile) {
         : isCompleted
             ? "Your completed Canadian immigration journey"
             : "Your personalized immigration roadmap";
-    badge.textContent = isPlanning ? "Planning" : isCompleted ? "Permanent resident" : (profile.pathway || "In progress");
+    badge.textContent = isPlanning ? "Planning" : isCompleted ? outcome.label : (profile.pathway || "In progress");
+    if (isCompleted && MaplePathContext.isPermit(profile.pathway)) {
+        title.textContent = "Permit approved";
+        subtitle.textContent = "Your permit application timeline";
+    }
 
     const grid = document.createElement("div");
     grid.className = "profile-info";
@@ -109,12 +115,12 @@ function renderProfile(profile) {
         addInfo(grid, "Pathway", profile.pathway);
         addInfo(grid, "Stream", profile.stream);
         addInfo(grid, "Province or territory", profile.province);
-        addInfo(grid, isCompleted ? "Location when applying" : "Current location", profile.location);
+        addInfo(grid, isCompleted && !MaplePathContext.isPermit(profile.pathway) ? "Location when applying" : "Current location", profile.location);
         addInfo(grid, "Application status", profile.status);
         addInfo(grid, isCompleted ? "Final stage" : "Current stage", profile.currentStage);
         addInfo(grid, "Started working toward pathway", formatDate(profile.journeyStartDate));
         if (profile.canadaArrivalDate) addInfo(grid, "First arrived in Canada", formatDate(profile.canadaArrivalDate));
-        if (isCompleted) addInfo(grid, "Became a permanent resident", formatDate(profile.permanentResidenceDate));
+        if (isCompleted) addInfo(grid, outcome.dateLabel, formatDate(profile[outcome.dateField]));
     }
 
     profileContent.replaceChildren(grid);
@@ -149,26 +155,34 @@ function refreshConditionalFields() {
     const type = inputs.journeyType.value;
     const planning = type === "planning";
     const completed = type === "completed";
+    const isPermit = MaplePathContext.isPermit(inputs.pathway.value);
+    const completedPR = completed && !isPermit;
     document.getElementById("pathway-fields").classList.toggle("hidden", planning);
     inputs.pathway.required = !planning;
     toggleGroup("application-status-group", type === "pathway", inputs.status);
     toggleGroup("stage-group", type === "pathway", inputs.stage);
     toggleGroup("pathway-start-group", !planning, inputs.pathwayStart);
-    toggleGroup("pr-date-group", completed, inputs.prDate);
+    toggleGroup("pr-date-group", completedPR, inputs.prDate);
+    toggleGroup("permit-date-group", completed && isPermit, inputs.permitDate);
+    createOptions(inputs.stage, MaplePathContext.stages(options, inputs.pathway.value), inputs.stage.value, "Select a stage");
 
-    document.getElementById("edit-location-label").textContent = completed ? "Where were you living when you applied?" : "Where are you currently living?";
+    document.getElementById("edit-location-label").textContent = completedPR ? "Where were you living when you applied?" : "Where are you currently living?";
     document.getElementById("edit-province-label").textContent = completed
         ? "Province or territory where you settled"
         : planning ? "Province or territory of interest" : "Where do you plan to settle?";
 
     const insideCanada = inputs.location.value === "Inside Canada";
-    toggleGroup("canada-status-group", insideCanada && !completed, inputs.currentStatus);
+    if (isPermit && !planning) document.getElementById("edit-province-label").textContent = inputs.pathway.value === "Study Permit" ? "Where will you study?" : "Where will you work?";
+    toggleGroup("canada-status-group", insideCanada && !completedPR, inputs.currentStatus);
     toggleGroup("arrival-group", insideCanada || completed);
-    if (completed) inputs.currentStatus.value = "Permanent resident";
+    if (completedPR) inputs.currentStatus.value = "Permanent resident";
     if (!planning) refreshStreamFields(inputs.stream.value);
     else {
         document.getElementById("settlement-province-group").classList.remove("hidden");
         inputs.province.required = false;
+        inputs.stream.required = false;
+        inputs.pnpProvince.required = false;
+        createOptions(inputs.province, options.provinces || [], inputs.province.value, "Select an option");
     }
 }
 
@@ -180,22 +194,33 @@ function setupEditForm() {
     createOptions(inputs.currentStatus, options.canadaStatuses || [], currentProfile.currentStatus, "Select your status");
     createOptions(inputs.province, settlementProvinces(currentProfile.pathway), currentProfile.province, "Select an option");
     createOptions(inputs.status, options.applicationStatuses || [], currentProfile.status, "Select an application status");
-    createOptions(inputs.stage, options.stages || [], currentProfile.currentStage, "Select a stage");
+    createOptions(inputs.stage, MaplePathContext.stages(options, currentProfile.pathway), currentProfile.currentStage, "Select a stage");
     inputs.pathwayStart.value = dateInputValue(currentProfile.journeyStartDate);
     inputs.arrivalDate.value = dateInputValue(currentProfile.canadaArrivalDate);
     inputs.prDate.value = dateInputValue(currentProfile.permanentResidenceDate);
+    inputs.permitDate.value = dateInputValue(currentProfile.permitApprovalDate);
     refreshStreamFields(currentProfile.stream || "");
     refreshConditionalFields();
 }
 
 inputs.journeyType.addEventListener("change", refreshConditionalFields);
 inputs.location.addEventListener("change", refreshConditionalFields);
+function clearRouteDetails() {
+    inputs.pathwayStart.value = "";
+    inputs.prDate.value = "";
+    inputs.permitDate.value = "";
+    inputs.stage.value = "";
+    inputs.status.value = "";
+}
 inputs.pathway.addEventListener("change", () => {
     inputs.pnpProvince.value = "";
+    clearRouteDetails();
     refreshStreamFields();
+    refreshConditionalFields();
 });
-inputs.pnpProvince.addEventListener("change", () => refreshStreamFields());
+inputs.pnpProvince.addEventListener("change", () => { clearRouteDetails(); refreshStreamFields(); });
 inputs.stream.addEventListener("change", () => {
+    clearRouteDetails();
     const province = options.streamProvinces?.[inputs.stream.value];
     if (province) {
         inputs.pnpProvince.value = province;
@@ -220,18 +245,21 @@ function buildPayload() {
     const planning = type === "planning";
     const completed = type === "completed";
     const pnp = inputs.pathway.value === PNP_PATHWAY;
+    const isPermit = MaplePathContext.isPermit(inputs.pathway.value);
+    const outcome = MaplePathContext.completion(inputs.pathway.value);
     return {
         journeyType: type,
         pathway: planning ? "" : inputs.pathway.value,
         stream: planning ? "" : inputs.stream.value,
         province: pnp && !planning ? inputs.pnpProvince.value : inputs.province.value,
         location: inputs.location.value,
-        currentStatus: completed ? "Permanent resident" : inputs.currentStatus.value,
-        status: planning ? "Planning" : completed ? "Permanent resident" : inputs.status.value,
-        currentStage: planning ? "Researching" : completed ? "Landed as PR" : inputs.stage.value,
+        currentStatus: completed && !isPermit ? "Permanent resident" : inputs.currentStatus.value,
+        status: planning ? "Planning" : completed ? outcome.label : inputs.status.value,
+        currentStage: planning ? "Researching" : completed ? outcome.stage : inputs.stage.value,
         journeyStartDate: planning ? null : inputs.pathwayStart.value || null,
         canadaArrivalDate: inputs.arrivalDate.value || null,
-        permanentResidenceDate: completed ? inputs.prDate.value || null : null
+        permanentResidenceDate: completed && !isPermit ? inputs.prDate.value || null : null,
+        permitApprovalDate: completed && isPermit ? inputs.permitDate.value || null : null
     };
 }
 
@@ -240,13 +268,17 @@ profileForm.addEventListener("submit", async event => {
     message.textContent = "";
     const payload = buildPayload();
     const today = new Date().toISOString().slice(0, 10);
-    const dates = [payload.journeyStartDate, payload.canadaArrivalDate, payload.permanentResidenceDate].filter(Boolean);
+    const dates = [payload.journeyStartDate, payload.canadaArrivalDate, payload.permanentResidenceDate, payload.permitApprovalDate].filter(Boolean);
     if (dates.some(date => date > today)) {
         message.textContent = "Dates cannot be in the future.";
         return;
     }
     if (payload.permanentResidenceDate && payload.journeyStartDate && payload.permanentResidenceDate < payload.journeyStartDate) {
         message.textContent = "The permanent residence date must be after the pathway start date.";
+        return;
+    }
+    if (payload.permitApprovalDate && payload.journeyStartDate && payload.permitApprovalDate < payload.journeyStartDate) {
+        message.textContent = "The permit approval date cannot be before the pathway start date.";
         return;
     }
 
@@ -286,8 +318,21 @@ async function startProfile() {
         options = await optionsResponse.json();
         currentProfile = await profileResponse.json();
         const today = new Date().toISOString().slice(0, 10);
-        [inputs.pathwayStart, inputs.arrivalDate, inputs.prDate].forEach(input => input.max = today);
+        [inputs.pathwayStart, inputs.arrivalDate, inputs.prDate, inputs.permitDate].forEach(input => input.max = today);
         renderProfile(currentProfile);
+        const requested = new URLSearchParams(window.location.search);
+        const pathway = requested.get("pathway");
+        if (options.pathways.includes(pathway)) {
+            setupEditForm();
+            inputs.journeyType.value = "pathway";
+            inputs.pathway.value = pathway;
+            inputs.pnpProvince.value = "";
+            clearRouteDetails();
+            refreshStreamFields(requested.get("stream") || "");
+            refreshConditionalFields();
+            editSection.classList.remove("hidden");
+            message.textContent = "Choose your next route and save when ready. Saved roadmap progress and timeline records stay separate.";
+        }
     } catch (error) {
         profileContent.textContent = error.message;
     }

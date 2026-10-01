@@ -5,13 +5,25 @@ const immigrationOptions = {
 
         "Express Entry",
 
-        "Provincial Nominee Program"
+        "Provincial Nominee Program",
+
+        "Study Permit",
+
+        "Work Permit"
 
     ],
 
 
 
     streams: {
+        "Study Permit": ["Post-secondary study permit"],
+        "Work Permit": [
+            "Post-graduation work permit (PGWP)",
+            "Employer-specific work permit (LMIA required)",
+            "Employer-specific work permit (LMIA exempt)",
+            "Open work permit (other eligible categories)",
+            "Bridging open work permit (BOWP)"
+        ],
 
 
         "Provincial Nominee Program": [

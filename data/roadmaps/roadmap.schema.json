@@ -52,7 +52,9 @@
             "enum": [
                 "express-entry",
                 "non-express-entry",
-                "route-dependent"
+                "route-dependent",
+                "study-permit",
+                "work-permit"
             ]
         },
         "officialProgramPage": {
@@ -63,6 +65,54 @@
             "minItems": 1,
             "items": {
                 "$ref": "#/$defs/step"
+            }
+        },
+        "journeyKind": {
+            "enum": [
+                "permanent-residence",
+                "temporary-residence"
+            ]
+        },
+        "scopeNote": {
+            "type": "string",
+            "minLength": 1
+        },
+        "relatedPathways": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "pathway",
+                    "label",
+                    "description",
+                    "officialLinks"
+                ],
+                "properties": {
+                    "pathway": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "stream": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "label": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "description": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "officialLinks": {
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "$ref": "#/$defs/officialLink"
+                        }
+                    }
+                },
+                "additionalProperties": false
             }
         }
     },

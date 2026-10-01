@@ -14,6 +14,10 @@ async function updateCoverageCounts(){
 
         const expressEntryCount = document.getElementById("express-entry-count");
         const pnpProvinceCount = document.getElementById("pnp-province-count");
+        const permitRouteCount = document.getElementById("permit-route-count");
+        if (permitRouteCount) {
+            permitRouteCount.textContent = String((options.streams?.["Study Permit"] || []).length + (options.streams?.["Work Permit"] || []).length);
+        }
 
         if(expressEntryCount && expressEntryStreams.length){
             expressEntryCount.textContent = String(expressEntryStreams.length);

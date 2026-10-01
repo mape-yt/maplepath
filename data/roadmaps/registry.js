@@ -4,6 +4,12 @@ const path = require("node:path");
 // These are the roadmaps the Journey UI can actually load. Keep profile keys
 // stable: timeline records, community averages, and saved progress use them.
 const roadmaps = [
+    {"pathway":"Work Permit","stream":"Bridging open work permit (BOWP)","profileKey":"WP-BOWP","file":"permits/bridging-open-work-permit.json"},
+    {"pathway":"Work Permit","stream":"Employer-specific work permit (LMIA exempt)","profileKey":"WP-EMP-EXEMPT","file":"permits/employer-lmia-exempt.json"},
+    {"pathway":"Work Permit","stream":"Employer-specific work permit (LMIA required)","profileKey":"WP-EMP-LMIA","file":"permits/employer-lmia.json"},
+    {"pathway":"Work Permit","stream":"Open work permit (other eligible categories)","profileKey":"WP-OPEN","file":"permits/open-work-permit.json"},
+    {"pathway":"Work Permit","stream":"Post-graduation work permit (PGWP)","profileKey":"WP-PGWP","file":"permits/post-graduation-work-permit.json"},
+    {"pathway":"Study Permit","stream":"Post-secondary study permit","profileKey":"SP-POSTSECONDARY","file":"permits/study-post-secondary.json"},
     { pathway:"Express Entry", stream:"Canadian Experience Class (CEC)", profileKey:"EE-CEC", file:"express-entry/cec.json" },
     { pathway:"Express Entry", stream:"Federal Skilled Worker Program (FSWP)", profileKey:"EE-FSWP", file:"express-entry/fswp.json" },
     { pathway:"Express Entry", stream:"Federal Skilled Trades Program (FSTP)", profileKey:"EE-FSTP", file:"express-entry/fstp.json" },

@@ -1,0 +1,202 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Work Permit",
+    "stream": "Bridging open work permit (BOWP)",
+    "profileKey": "WP-BOWP",
+    "journeyKind": "temporary-residence",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-30",
+    "federalApplicationRoute": "work-permit",
+    "officialProgramPage": {
+        "label": "Bridging open work permit",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/pr-work-permits/bridging.html",
+        "verifiedAt": "2026-09-30"
+    },
+    "scopeNote": "For eligible applicants who already submitted a PR application. BOWP approval allows temporary work under its conditions; it is not PR approval. Keep PR milestones in the separate PR roadmap. Community averages combine applications within this guide and are not IRCC processing estimates.",
+    "relatedPathways": [
+        {
+            "pathway": "Express Entry",
+            "stream": "Canadian Experience Class (CEC)",
+            "label": "Canadian Experience Class",
+            "description": "Qualifying Canadian work may support CEC eligibility. Work gained while studying full-time does not count toward the CEC minimum. Meeting eligibility does not guarantee an invitation.",
+            "officialLinks": [
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        },
+        {
+            "pathway": "Provincial Nominee Program",
+            "label": "Provincial nominee programs",
+            "description": "Check the province’s current stream rules, selection process and settlement-intent requirements. A permit alone does not qualify you for nomination or guarantee PR.",
+            "officialLinks": [
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "order": 1,
+            "title": "Check your PR application and status",
+            "type": "applicant",
+            "description": "Check BOWP eligibility for the PR program you applied under and your current status in Canada. An Express Entry profile or invitation alone is insufficient.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the program-specific processing milestone."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Confirm you are the principal applicant."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Bridging open work permit",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/pr-work-permits/bridging.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 2,
+            "title": "Prepare the required PR evidence",
+            "type": "applicant",
+            "description": "Provide the acknowledgement of receipt and relevant nomination evidence. PNP applicants must have no employment restrictions in their nomination. Express Entry applicants must pass the completeness check; non-Express Entry PNP applicants must pass the eligibility assessment. Follow the rules for your PR program.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Acknowledgement of receipt",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Nomination evidence where applicable",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Confirm the requirements for Express Entry PNP versus non-Express Entry PNP."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Bridging open work permit",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/pr-work-permits/bridging.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 3,
+            "title": "Submit the bridging application",
+            "type": "applicant",
+            "description": "Follow the work-permit extension instructions and pay applicable fees. Apply before expiry where eligible, or check restoration requirements.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Work permit application and status evidence",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Keep the confirmation and existing work permit."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Bridging open work permit",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/pr-work-permits/bridging.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Extension and maintained status rules",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/extend/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 4,
+            "title": "Confirm permission to work while waiting",
+            "type": "waiting",
+            "description": "Work authorization while waiting depends on your status and compliance with maintained-status rules. Restoration applicants cannot assume permission to work.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check travel implications and existing permit conditions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Extension and maintained status rules",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/extend/apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Bridging open work permit",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/pr-work-permits/bridging.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 5,
+            "title": "Respond to IRCC and review the decision",
+            "type": "ircc",
+            "description": "Provide requested evidence and, if approved, check the permit’s conditions and expiry. Continue tracking the PR decision separately.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Issued work permit",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check any provincial or occupational restrictions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Apply for a work permit: inside Canada",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/permit-inside.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Open work permit eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/open-work-permit.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        }
+    ]
+}

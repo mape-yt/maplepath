@@ -1,0 +1,426 @@
+{
+    "$schema": "../roadmap.schema.json",
+    "schemaVersion": 2,
+    "pathway": "Study Permit",
+    "stream": "Post-secondary study permit",
+    "profileKey": "SP-POSTSECONDARY",
+    "journeyKind": "temporary-residence",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-30",
+    "federalApplicationRoute": "study-permit",
+    "officialProgramPage": {
+        "label": "Study permit application",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/apply.html",
+        "verifiedAt": "2026-09-30"
+    },
+    "scopeNote": "For post-secondary study permit applicants, including Quebec’s additional requirements where applicable. School admission, permit approval, post-graduation work and PR are separate decisions. Community averages combine applications within this guide and are not IRCC processing estimates.",
+    "relatedPathways": [
+        {
+            "pathway": "Work Permit",
+            "stream": "Post-graduation work permit (PGWP)",
+            "label": "Post-graduation work permit",
+            "description": "Check your school, program and individual PGWP eligibility before planning to work after graduation. A study permit alone does not guarantee a PGWP.",
+            "officialLinks": [
+                {
+                    "label": "PGWP eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        },
+        {
+            "pathway": "Express Entry",
+            "stream": "Canadian Experience Class (CEC)",
+            "label": "Canadian Experience Class",
+            "description": "Qualifying Canadian work may support CEC eligibility. Work gained while studying full-time does not count toward the CEC minimum. Meeting eligibility does not guarantee an invitation.",
+            "officialLinks": [
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        },
+        {
+            "pathway": "Provincial Nominee Program",
+            "label": "Provincial nominee programs",
+            "description": "Check the province’s current stream rules, selection process and settlement-intent requirements. A permit alone does not qualify you for nomination or guarantee PR.",
+            "officialLinks": [
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ]
+        }
+    ],
+    "steps": [
+        {
+            "order": 1,
+            "title": "Choose a school and program",
+            "type": "applicant",
+            "description": "Confirm admission at a designated learning institution (DLI). If post-graduation work is part of your plan, check the specific program’s PGWP eligibility before enrolling.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the school and program with the official DLI/PGWP information."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Keep a copy of your admission requirements."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "PGWP eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "PGWP field of study requirements",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/eligibility/field-of-study.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "DLI admission does not mean every program qualifies for a PGWP."
+            ]
+        },
+        {
+            "order": 2,
+            "title": "Get your acceptance letter",
+            "type": "applicant",
+            "description": "Obtain your letter of acceptance and confirm that your school can validate it for IRCC.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Letter of acceptance",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the program, campus and start date."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 3,
+            "title": "Check PAL/TAL and Quebec requirements",
+            "type": "applicant",
+            "description": "Most applicants need a provincial or territorial attestation letter. Check exemptions, including qualifying master’s and doctoral degree programs at public DLIs from January 1, 2026. Quebec study requirements, including a CAQ where required, still apply.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "PAL/TAL or exemption evidence",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Quebec Acceptance Certificate (CAQ)",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Request the PAL/TAL through your school, or document your exemption."
+                },
+                {
+                    "id": "check-2",
+                    "text": "For Quebec, follow the CAQ instructions linked by IRCC."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "PAL/TAL requirements and exceptions",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/provincial-attestation-letter.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Study permit documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "A PAL/TAL is not a provincial nomination for PR."
+            ]
+        },
+        {
+            "order": 4,
+            "title": "Prepare funding and identity evidence",
+            "type": "applicant",
+            "description": "Use the current IRCC financial-support requirements for your application date, family size and province. Prepare identity records and your explanation of the study plan.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Passport or travel document",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Proof of financial support",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-3",
+                    "title": "Study-plan explanation",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check the linked proof-of-funds page for current amounts."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Plan for tuition, living costs and travel without relying on future Canadian earnings."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Current study-permit financial requirements",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 5,
+            "title": "Submit your study permit application",
+            "type": "applicant",
+            "description": "Follow the instructions for your location and submit the forms, documents and fees through the applicable IRCC process.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Completed application and supporting documents",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Check whether you are eligible to apply from within Canada."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Save the submitted application and payment receipt."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Being in Canada as a visitor does not automatically make you eligible to apply from inside Canada."
+            ]
+        },
+        {
+            "order": 6,
+            "title": "Complete requested checks",
+            "type": "applicant",
+            "description": "Provide biometrics, a medical exam or police certificates when required. Follow each IRCC request and its deadline.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Biometrics instruction letter",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                },
+                {
+                    "id": "document-2",
+                    "title": "Medical or police evidence if requested",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Monitor your account for instructions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit documents",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Study permit application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/apply.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 7,
+            "title": "Wait for the decision",
+            "type": "waiting",
+            "description": "Check your IRCC account and respond to requests. An application submission is not permission to study or work.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Keep your school informed if your intake date changes."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Study permit conditions",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/while-you-study/study-permit-conditions.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 8,
+            "title": "Receive approval and check your permit",
+            "type": "ircc",
+            "description": "If approved from outside Canada, follow the arrival instructions: a letter of introduction is not the study permit. Check the permit issued to you and any travel-document requirements.",
+            "requiredDocuments": [
+                {
+                    "id": "document-1",
+                    "title": "Approval letter and issued permit",
+                    "requirement": "conditional",
+                    "condition": "Include when required by your IRCC checklist or the linked instructions."
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Verify your name, school, expiry and conditions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Arriving as a student",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/prepare-arrival.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        },
+        {
+            "order": 9,
+            "title": "Follow study and work conditions",
+            "type": "applicant",
+            "description": "Remain enrolled and actively pursue your studies. Eligible off-campus work is limited to 24 hours weekly during regular terms; different rules apply during scheduled breaks. Check authorization before any work.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Track study-permit expiry."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Review rules before changing schools or taking leave."
+                },
+                {
+                    "id": "check-3",
+                    "text": "Check the separate rules for a co-op or internship."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Study permit conditions",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/while-you-study/study-permit-conditions.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Working off campus",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/work-off-campus.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": [
+                "Do not start working before your study program begins."
+            ]
+        },
+        {
+            "order": 10,
+            "title": "Plan what comes after study",
+            "type": "applicant",
+            "description": "Review PGWP eligibility before graduation and track the application deadline. Explore PR routes only against their separate requirements.",
+            "requiredDocuments": [],
+            "preparationChecklist": [
+                {
+                    "id": "check-1",
+                    "text": "Use the related pathways below when ready."
+                },
+                {
+                    "id": "check-2",
+                    "text": "Keep school and work records for later applications."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "Applying for a PGWP",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/work/after-graduation/apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Canadian Experience Class eligibility",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/canadian-experience-class.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "Provincial Nominee Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
+            "governmentTimeline": null,
+            "commonMistakes": []
+        }
+    ]
+}

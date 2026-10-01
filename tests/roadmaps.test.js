@@ -4,9 +4,9 @@ const options = require("../data/immigrationOptions");
 const { roadmaps, findRoadmap, loadRoadmap } = require("../data/roadmaps/registry");
 const { progressFor, migrateLegacyProgress, mirrorCurrentProgress, saveProgress } = require("../services/journeyProgress");
 
-test("every advertised Express Entry and PNP stream has a distinct registered roadmap", () => {
+test("every advertised stream has a distinct registered roadmap", () => {
     const keys = new Set();
-    for(const pathway of ["Express Entry", "Provincial Nominee Program"]){
+    for(const pathway of options.pathways){
         for(const stream of options.streams[pathway]){
             const definition = findRoadmap(pathway, stream);
             assert.ok(definition, `${pathway} / ${stream}`);

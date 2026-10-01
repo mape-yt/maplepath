@@ -28,6 +28,7 @@ const currentStageInput = document.getElementById("current-stage");
 const pathwayStartDateInput = document.getElementById("pathway-start-date");
 const canadaArrivalDateInput = document.getElementById("canada-arrival-date");
 const permanentResidenceDateInput = document.getElementById("permanent-residence-date");
+const permitApprovalDateInput = document.getElementById("permit-approval-date");
 const formMessage = document.getElementById("form-message");
 const saveButton = document.getElementById("save-profile");
 
@@ -99,6 +100,7 @@ function configureDetails() {
     const isPlanning = state.journeyType === "planning";
     const isCompleted = state.journeyType === "completed";
     const isPnp = state.pathway === PNP_PATHWAY;
+    const isPermit = MaplePathContext.isPermit(state.pathway);
     const selectedProvince = settlementProvinceInput.value;
     replaceOptions(settlementProvinceInput, settlementProvinces(), "Select an option", selectedProvince);
 
@@ -124,7 +126,14 @@ function configureDetails() {
     setRequired("application-status-group", applicationStatusInput, state.journeyType === "pathway");
     setRequired("current-stage-group", currentStageInput, state.journeyType === "pathway");
     setRequired("pathway-start-group", pathwayStartDateInput, !isPlanning);
-    setRequired("pr-date-group", permanentResidenceDateInput, isCompleted);
+    setRequired("pr-date-group", permanentResidenceDateInput, isCompleted && !isPermit);
+    setRequired("permit-date-group", permitApprovalDateInput, isCompleted && isPermit);
+    replaceOptions(currentStageInput, MaplePathContext.stages(state.options, state.pathway), "Select your current stage", currentStageInput.value);
+    if (isPermit) {
+        document.getElementById("settlement-province-label").textContent = state.pathway === "Study Permit"
+            ? "Where will you study?" : "Where will you work?";
+        document.getElementById("details-heading").textContent = isCompleted ? "Tell us about your permit approval" : "Tell us about your permit application";
+    }
 
     const provinceGroup = document.getElementById("settlement-province-group");
     provinceGroup.classList.toggle("hidden", isPnp && !isPlanning);
@@ -138,10 +147,12 @@ function configureDetails() {
 
 function updateLocationQuestions() {
     const insideCanada = locationInput.value === "Inside Canada";
-    const showStatus = insideCanada && state.journeyType !== "completed";
+    const completedPR = state.journeyType === "completed" && !MaplePathContext.isPermit(state.pathway);
+    const showStatus = insideCanada && !completedPR;
+    document.getElementById("location-label").textContent = completedPR ? "Where were you living when you applied?" : "Where are you currently living?";
     document.getElementById("canada-status-group").classList.toggle("hidden", !showStatus);
     currentStatusInput.required = showStatus;
-    if (!showStatus) currentStatusInput.value = state.journeyType === "completed" ? "Permanent resident" : "";
+    if (!showStatus) currentStatusInput.value = completedPR ? "Permanent resident" : "";
 
     const showArrival = insideCanada || state.journeyType === "completed";
     document.getElementById("arrival-date-group").classList.toggle("hidden", !showArrival);
@@ -154,7 +165,10 @@ function openStreamStep(streams) {
     document.getElementById("stream-eyebrow").textContent = isPnp ? state.province : state.pathway;
     document.getElementById("stream-help").textContent = isPnp
         ? `Showing MaplePath roadmaps available for ${state.province}.`
-        : "Choose the federal program that matches your profile.";
+        : MaplePathContext.isPermit(state.pathway)
+            ? "Choose the permit guide that matches your application. Each category has its own eligibility rules."
+            : "Choose the federal program that matches your profile.";
+    document.getElementById("stream-heading").textContent = MaplePathContext.isPermit(state.pathway) ? "Which permit are you applying for?" : "Which stream are you using?";
     showStep("stream", "Program stream", isPnp ? 4 : 3, totalSteps());
     streamInput.focus();
 }
@@ -237,12 +251,15 @@ document.getElementById("details-back").addEventListener("click", () => {
 
 function validateDates() {
     const today = new Date().toISOString().slice(0, 10);
-    const dateInputs = [pathwayStartDateInput, canadaArrivalDateInput, permanentResidenceDateInput];
+    const dateInputs = [pathwayStartDateInput, canadaArrivalDateInput, permanentResidenceDateInput, permitApprovalDateInput];
     if (dateInputs.some(input => input.value && input.value > today)) {
         return "Dates cannot be in the future.";
     }
     if (permanentResidenceDateInput.value && pathwayStartDateInput.value && permanentResidenceDateInput.value < pathwayStartDateInput.value) {
         return "The permanent residence date must be after the date you started this pathway.";
+    }
+    if (permitApprovalDateInput.value && pathwayStartDateInput.value && permitApprovalDateInput.value < pathwayStartDateInput.value) {
+        return "The permit approval date cannot be before the pathway start date.";
     }
     return "";
 }
@@ -251,18 +268,21 @@ function profilePayload() {
     const isPlanning = state.journeyType === "planning";
     const isCompleted = state.journeyType === "completed";
     const province = state.pathway === PNP_PATHWAY ? state.province : settlementProvinceInput.value;
+    const isPermit = MaplePathContext.isPermit(state.pathway);
+    const outcome = MaplePathContext.completion(state.pathway);
     return {
         journeyType: state.journeyType,
         pathway: isPlanning ? "" : state.pathway,
         stream: isPlanning ? "" : state.stream,
         province: province || settlementProvinceInput.value,
         location: locationInput.value,
-        currentStatus: isCompleted ? "Permanent resident" : currentStatusInput.value,
-        status: isPlanning ? "Planning" : isCompleted ? "Permanent resident" : applicationStatusInput.value,
-        currentStage: isPlanning ? "Researching" : isCompleted ? "Landed as PR" : currentStageInput.value,
+        currentStatus: isCompleted && !isPermit ? "Permanent resident" : currentStatusInput.value,
+        status: isPlanning ? "Planning" : isCompleted ? outcome.label : applicationStatusInput.value,
+        currentStage: isPlanning ? "Researching" : isCompleted ? outcome.stage : currentStageInput.value,
         journeyStartDate: isPlanning ? null : pathwayStartDateInput.value || null,
         canadaArrivalDate: canadaArrivalDateInput.value || null,
-        permanentResidenceDate: isCompleted ? permanentResidenceDateInput.value || null : null
+        permanentResidenceDate: isCompleted && !isPermit ? permanentResidenceDateInput.value || null : null,
+        permitApprovalDate: isCompleted && isPermit ? permitApprovalDateInput.value || null : null
     };
 }
 
@@ -318,7 +338,7 @@ async function startOnboarding() {
         replaceOptions(currentStageInput, state.options.stages || [], "Select your current stage");
 
         const today = new Date().toISOString().slice(0, 10);
-        [pathwayStartDateInput, canadaArrivalDateInput, permanentResidenceDateInput].forEach(input => input.max = today);
+        [pathwayStartDateInput, canadaArrivalDateInput, permanentResidenceDateInput, permitApprovalDateInput].forEach(input => input.max = today);
     } catch (error) {
         formMessage.textContent = error.message;
     }

@@ -1,5 +1,6 @@
 const immigrationOptions = require("../data/immigrationOptions");
 const { findRoadmap } = require("../data/roadmaps/registry");
+const pathwayContext = require("../public/js/pathway-context");
 
 const JOURNEY_TYPES = new Set(["planning", "pathway", "completed"]);
 
@@ -9,15 +10,19 @@ function isListed(value, values) {
 
 function dateOnly(value) {
     if (!value) return null;
+    if (!(value instanceof Date) && (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(value))) return null;
     const date = new Date(value);
-    return Number.isNaN(date.getTime()) ? null : date.toISOString().slice(0, 10);
+    if (Number.isNaN(date.getTime())) return null;
+    const day = date.toISOString().slice(0, 10);
+    if (typeof value === "string" && value.length === 10 && day !== value) return null;
+    return day;
 }
 
 function validateProfile(input = {}) {
     const profile = { ...input };
 
     if (!profile.journeyType) {
-        const completed = Boolean(profile.permanentResidenceDate)
+        const completed = Boolean(profile.permanentResidenceDate || profile.permitApprovalDate)
             || profile.status === "Permanent resident"
             || profile.currentStage === "Landed as PR";
         profile.journeyType = profile.pathway && profile.stream
@@ -42,7 +47,8 @@ function validateProfile(input = {}) {
         profile.currentStage = "Researching";
         profile.journeyStartDate = null;
         profile.permanentResidenceDate = null;
-        return { profile };
+        profile.permitApprovalDate = null;
+        return validateDates(profile);
     }
 
     if (!isListed(profile.pathway, immigrationOptions.pathways)) {
@@ -66,21 +72,36 @@ function validateProfile(input = {}) {
         if (!isListed(profile.status, immigrationOptions.applicationStatuses)) {
             return { error: "Choose a valid application status." };
         }
-        if (!isListed(profile.currentStage, immigrationOptions.stages)) {
+        if (!isListed(profile.currentStage, pathwayContext.stages(immigrationOptions, profile.pathway))) {
             return { error: "Choose a valid current stage." };
         }
         profile.permanentResidenceDate = null;
+        profile.permitApprovalDate = null;
     } else {
-        profile.status = "Permanent resident";
-        profile.currentStage = "Landed as PR";
-        profile.currentStatus = "Permanent resident";
-        if (!profile.permanentResidenceDate) {
-            return { error: "Enter the date you became a permanent resident." };
+        const outcome = pathwayContext.completion(profile.pathway);
+        profile.status = outcome.label;
+        profile.currentStage = outcome.stage;
+        if (pathwayContext.isPermit(profile.pathway)) {
+            profile.permanentResidenceDate = null;
+            // An overseas approval is not proof that the permit has been issued
+            // or that the applicant has entered Canada with that status.
+        } else {
+            profile.currentStatus = "Permanent resident";
+            profile.permitApprovalDate = null;
+        }
+        if (!profile[outcome.dateField]) {
+            return { error: pathwayContext.isPermit(profile.pathway)
+                ? "Enter the date your permit application was approved."
+                : "Enter the date you became a permanent resident." };
         }
     }
 
+    return validateDates(profile);
+}
+
+function validateDates(profile) {
     const today = new Date().toISOString().slice(0, 10);
-    const dates = [profile.journeyStartDate, profile.canadaArrivalDate, profile.permanentResidenceDate]
+    const dates = [profile.journeyStartDate, profile.canadaArrivalDate, profile.permanentResidenceDate, profile.permitApprovalDate]
         .filter(Boolean)
         .map(dateOnly);
     if (dates.some(value => !value || value > today)) {
@@ -90,6 +111,10 @@ function validateProfile(input = {}) {
     const permanentResidence = dateOnly(profile.permanentResidenceDate);
     if (start && permanentResidence && permanentResidence < start) {
         return { error: "The permanent residence date must be after the pathway start date." };
+    }
+    const approval = dateOnly(profile.permitApprovalDate);
+    if (start && approval && approval < start) {
+        return { error: "The permit approval date cannot be before the pathway start date." };
     }
 
     return { profile };

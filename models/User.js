@@ -70,7 +70,8 @@ const userSchema = new mongoose.Schema({
 
         canadaArrivalDate: Date,
 
-        permanentResidenceDate: Date
+        permanentResidenceDate: Date,
+        permitApprovalDate: Date
 
     },
 

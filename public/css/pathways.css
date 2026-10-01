@@ -1,0 +1,19 @@
+.related-pathways {
+    margin: 20px 0;
+    padding: clamp(16px, 3vw, 26px);
+    border: 1px solid #d6e6de;
+    border-radius: 18px;
+    background: #f1f7f3;
+    color: #163c30;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+.related-pathways[hidden] { display: none; }
+.related-pathways summary { cursor: pointer; font-size: 1.05rem; font-weight: 700; padding: 8px 0; }
+.related-pathways summary:focus-visible, .related-pathways a:focus-visible { outline: 3px solid #33775d; outline-offset: 4px; }
+.related-pathways article { padding: 18px 0; border-top: 1px solid #d6e6de; }
+.related-pathways article:first-of-type { margin-top: 14px; }
+.related-pathways h3 { margin: 0 0 8px; font-size: 1rem; }
+.related-pathways p { margin: 10px 0; line-height: 1.6; }
+.related-pathways a { color: #17603f; font-weight: 600; display: inline-block; padding: 8px 0; }
+.related-pathways small { display: block; }
