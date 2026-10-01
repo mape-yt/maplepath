@@ -71,6 +71,13 @@ function pnpProvinces() {
         .sort((a, b) => a.localeCompare(b));
 }
 
+function settlementProvinces() {
+    const provinces = state.options.provinces || [];
+    return state.pathway === "Express Entry"
+        ? provinces.filter(province => province !== "Quebec")
+        : provinces;
+}
+
 function pathwayHasStreams(pathway) {
     return Array.isArray(state.options.streams[pathway]) && state.options.streams[pathway].length > 0;
 }
@@ -92,6 +99,8 @@ function configureDetails() {
     const isPlanning = state.journeyType === "planning";
     const isCompleted = state.journeyType === "completed";
     const isPnp = state.pathway === PNP_PATHWAY;
+    const selectedProvince = settlementProvinceInput.value;
+    replaceOptions(settlementProvinceInput, settlementProvinces(), "Select an option", selectedProvince);
 
     document.getElementById("details-heading").textContent = isPlanning
         ? "Tell us what you’re planning"
@@ -303,7 +312,7 @@ async function startOnboarding() {
         replaceOptions(pathwayInput, state.options.pathways || [], "Select your pathway");
         replaceOptions(pnpProvinceInput, pnpProvinces(), "Select a province or territory");
         replaceOptions(locationInput, state.options.locations || [], "Select your location");
-        replaceOptions(settlementProvinceInput, state.options.provinces || [], "Select an option");
+        replaceOptions(settlementProvinceInput, settlementProvinces(), "Select an option");
         replaceOptions(currentStatusInput, state.options.canadaStatuses || ["Study Permit", "Work Permit", "Visitor", "Maintained status", "Other"], "Select your status");
         replaceOptions(applicationStatusInput, state.options.applicationStatuses || ["Preparing application", "Submitted application", "Waiting for decision"], "Select your application status");
         replaceOptions(currentStageInput, state.options.stages || [], "Select your current stage");

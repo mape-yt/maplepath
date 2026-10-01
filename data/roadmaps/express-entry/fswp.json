@@ -3,95 +3,582 @@
     "schemaVersion": 2,
     "pathway": "Express Entry",
     "stream": "Federal Skilled Worker Program (FSWP)",
+    "profileKey": "EE-FSWP",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-30",
+    "federalApplicationRoute": "express-entry",
+    "officialProgramPage": {
+        "label": "IRCC: Federal Skilled Worker Program",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html",
+        "verifiedAt": "2026-09-30"
+    },
     "steps": [
         {
             "order": 1,
             "type": "applicant",
             "title": "Check Eligibility",
-            "description": "Review FSWP requirements including work experience, education, language, and points.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Confirm that you meet the Federal Skilled Worker Program minimum requirements, score at least 67 out of 100 selection-factor points, are admissible, and plan to live outside Quebec.",
+            "requiredDocuments": [
+                {
+                    "id": "skilled-work-evidence",
+                    "title": "Evidence of qualifying skilled work experience",
+                    "description": "Your primary-occupation experience must satisfy IRCC's NOC, duties, paid-work, recency and continuity rules.",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Worker Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "approved-language-result",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-evidence",
+                    "title": "Canadian credential or immigration-purpose ECA",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Educational credential assessment",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessment.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "settlement-funds",
+                    "title": "Proof of settlement funds",
+                    "requirement": "conditional",
+                    "condition": "Required unless IRCC's current exemption applies to you.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Proof of funds",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "match-primary-noc",
+                    "text": "Choose a primary occupation in NOC TEER 0, 1, 2 or 3 and confirm that you performed the lead statement and most main duties."
+                },
+                {
+                    "id": "confirm-continuous-experience",
+                    "text": "Confirm at least 1 year of continuous paid work, or 1,560 hours, in the primary occupation within the last 10 years."
+                },
+                {
+                    "id": "confirm-language",
+                    "text": "Confirm at least CLB 7 in all four language abilities using an approved test."
+                },
+                {
+                    "id": "confirm-education",
+                    "text": "Confirm at least secondary education and obtain an immigration-purpose ECA for foreign education."
+                },
+                {
+                    "id": "calculate-selection-points",
+                    "text": "Calculate the six FSWP selection factors and confirm a score of at least 67 out of 100."
+                },
+                {
+                    "id": "review-funds-and-admissibility",
+                    "text": "Check the current settlement-fund requirement, admissibility rules, and the requirement to plan to live outside Quebec."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Federal Skilled Worker Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Compare Express Entry programs",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Proof of funds",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Confusing the 67-point FSWP selection grid with the separate Comprehensive Ranking System score.",
+                "Using work from different NOCs to satisfy the continuous primary-occupation requirement.",
+                "Claiming foreign education without a valid immigration-purpose ECA."
+            ]
         },
         {
             "order": 2,
             "type": "applicant",
             "title": "Education Assessment",
-            "description": "Complete an Educational Credential Assessment (ECA) if required.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "If your education was completed outside Canada, obtain an Educational Credential Assessment for immigration purposes from an IRCC-designated organization or professional body.",
+            "requiredDocuments": [
+                {
+                    "id": "foreign-credential",
+                    "title": "Completed foreign educational credential",
+                    "requirement": "conditional",
+                    "condition": "Needed when a foreign credential is being assessed.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Educational credential assessment",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessment.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "eca-report",
+                    "title": "Immigration-purpose ECA report",
+                    "requirement": "conditional",
+                    "condition": "Required for foreign education used for FSWP eligibility or Express Entry points.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Educational credential assessment",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessment.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-designated-provider",
+                    "text": "Use the designated organization or professional body that applies to your primary occupation."
+                },
+                {
+                    "id": "select-immigration-purpose",
+                    "text": "Order an ECA for immigration purposes."
+                },
+                {
+                    "id": "check-eca-validity",
+                    "text": "Make sure the report will be less than 5 years old when you create the profile and submit the permanent residence application."
+                },
+                {
+                    "id": "assess-needed-credentials",
+                    "text": "Check whether your highest credential is enough or whether more than one credential must be assessed for the points you plan to claim."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Educational credential assessment",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessment.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Using a general-purpose credential assessment instead of an immigration-purpose ECA.",
+                "Allowing the ECA to expire while the profile is in the pool."
+            ]
         },
         {
             "order": 3,
             "type": "applicant",
             "title": "Language Test",
-            "description": "Complete an approved language test.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Take an IRCC-approved English or French test and meet at least CLB 7 in speaking, listening, reading and writing.",
+            "requiredDocuments": [
+                {
+                    "id": "approved-language-test",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-approved-test",
+                    "text": "Choose an IRCC-approved test and accepted test version."
+                },
+                {
+                    "id": "meet-clb-seven",
+                    "text": "Confirm every language ability meets at least CLB 7."
+                },
+                {
+                    "id": "check-language-validity",
+                    "text": "Make sure the result will be less than 2 years old when you create the profile and submit the permanent residence application."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Language test results",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Federal Skilled Worker Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-workers.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Using an unapproved test version.",
+                "Averaging scores even though every ability must meet the minimum.",
+                "Submitting an expired result."
+            ]
         },
         {
             "order": 4,
             "type": "applicant",
             "title": "Create Express Entry Profile",
-            "description": "Submit your Express Entry profile.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Create an accurate Express Entry profile with your identity, language, education, work history and settlement-fund information. Entering the pool is not an invitation to apply.",
+            "requiredDocuments": [
+                {
+                    "id": "passport-details",
+                    "title": "Passport or travel document details",
+                    "requirement": "conditional",
+                    "condition": "Provide the details requested in the online profile.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Get your Express Entry documents ready",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-test-result",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-record",
+                    "title": "Canadian education record or valid ECA",
+                    "requirement": "conditional",
+                    "condition": "Required when education supports program eligibility or points.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Educational credential assessment",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessment.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "funds-information",
+                    "title": "Current settlement-fund information",
+                    "requirement": "conditional",
+                    "condition": "Enter and maintain the amount required for your family size unless an exemption applies.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Proof of funds",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "enter-complete-history",
+                    "text": "Enter complete and consistent education and work-history information."
+                },
+                {
+                    "id": "enter-test-and-eca",
+                    "text": "Enter the exact language-test and ECA report details."
+                },
+                {
+                    "id": "keep-profile-current",
+                    "text": "Update the profile when circumstances or document validity changes."
+                },
+                {
+                    "id": "save-profile-records",
+                    "text": "Save the profile number, job seeker validation code and submission confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Create your profile",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/create-profile.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Get your Express Entry documents ready",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Treating pool entry as an approval or invitation.",
+                "Claiming points that cannot be supported with documents."
+            ]
         },
         {
             "order": 5,
             "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an Invitation to Apply (ITA) from IRCC.",
+            "description": "Remain eligible in the Express Entry pool and monitor your IRCC account. Invitations depend on the round type, ranking and current instructions; eligibility does not guarantee an invitation.",
             "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-account",
+                    "text": "Check the IRCC account for messages and invitations."
+                },
+                {
+                    "id": "maintain-documents",
+                    "text": "Keep language results, ECA and passport information valid."
+                },
+                {
+                    "id": "prepare-police-certificates",
+                    "text": "Review police-certificate requirements early because some certificates take time."
+                },
+                {
+                    "id": "review-rounds",
+                    "text": "Use IRCC's official invitation-round pages for current selection information."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Rounds of invitations",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Police certificates",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence/police-certificates.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Assuming a previous invitation score predicts a future round.",
+                "Failing to update information that changes eligibility or ranking."
+            ]
         },
         {
             "order": 6,
             "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your permanent residence application with all required documents.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "After an invitation, confirm the invited program, complete the online application, upload the personalized document package, pay the fees and submit within 60 calendar days.",
+            "requiredDocuments": [
+                {
+                    "id": "personalized-checklist",
+                    "title": "Documents on your personalized IRCC checklist",
+                    "requirement": "required",
+                    "condition": "The exact checklist appears after the online form is completed.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for permanent residence",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificates",
+                    "title": "Police certificates",
+                    "requirement": "required",
+                    "condition": "Follow the country, age, residence-period and validity rules on IRCC's page.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Police certificates",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence/police-certificates.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "medical-exam-record",
+                    "title": "Upfront immigration medical exam record",
+                    "requirement": "required",
+                    "condition": "Express Entry applicants normally complete the medical exam after invitation and before submitting the application.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for permanent residence",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "proof-of-funds",
+                    "title": "Current proof of settlement funds",
+                    "requirement": "conditional",
+                    "condition": "Required unless IRCC's current exemption applies when you submit.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Proof of funds",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-sixty-day-deadline",
+                    "text": "Record the 60-calendar-day deadline shown in the IRCC account."
+                },
+                {
+                    "id": "confirm-eligibility-and-score",
+                    "text": "Recheck program eligibility and the points that supported the invitation."
+                },
+                {
+                    "id": "follow-personalized-list",
+                    "text": "Use the personalized checklist and provide required translations."
+                },
+                {
+                    "id": "complete-upfront-medical",
+                    "text": "Complete the upfront immigration medical exam as instructed for Express Entry."
+                },
+                {
+                    "id": "save-submission",
+                    "text": "Save the submitted application, payment receipt and acknowledgement records."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Police certificates",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence/police-certificates.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Proof of funds",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Missing the 60-day deadline.",
+                "Submitting when changed facts no longer support eligibility or the invitation score.",
+                "Using a generic list instead of the personalized document checklist."
+            ]
         },
         {
             "order": 7,
             "type": "ircc",
             "title": "Medical and Background Checks",
-            "description": "IRCC reviews your medical, security, criminality, and background information.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "After submission, follow IRCC instructions for biometrics, background, security, criminality and any medical follow-up. Respond to every request by its stated deadline.",
+            "requiredDocuments": [
+                {
+                    "id": "biometrics-letter",
+                    "title": "Biometrics instruction letter",
+                    "requirement": "conditional",
+                    "condition": "Required if IRCC instructs you to give biometrics.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: After you apply",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-ircc-account",
+                    "text": "Monitor the IRCC account and email for requests."
+                },
+                {
+                    "id": "complete-biometrics",
+                    "text": "Give biometrics if instructed and keep proof of completion."
+                },
+                {
+                    "id": "respond-to-requests",
+                    "text": "Respond to document or medical follow-up requests by the stated deadline."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report material changes using IRCC's instructions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Apply for permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Ignoring an account message or deadline.",
+                "Assuming the application is complete while an IRCC request remains outstanding."
+            ]
         },
         {
             "order": 8,
             "type": "ircc",
             "title": "PR Decision",
-            "description": "Receive the final decision on your permanent residence application.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "IRCC makes the final permanent residence and admissibility decision. If approved, follow the confirmation instructions for your location and verify your documents.",
+            "requiredDocuments": [
+                {
+                    "id": "confirmation-of-permanent-residence",
+                    "title": "Confirmation of Permanent Residence",
+                    "requirement": "conditional",
+                    "condition": "Issued if IRCC approves the application.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: If we approve your application",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/application-approved.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "read-decision",
+                    "text": "Read the decision and location-specific instructions carefully."
+                },
+                {
+                    "id": "verify-copr",
+                    "text": "Check the personal information and validity on the confirmation documents."
+                },
+                {
+                    "id": "complete-confirmation",
+                    "text": "Complete the online confirmation or travel and landing process that applies to you."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: If we approve your application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/application-approved.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Making travel plans before receiving and reviewing the approval instructions.",
+                "Failing to report an error on confirmation documents."
+            ]
         }
-    ],
-    "profileKey": "EE-FSWP"
+    ]
 }

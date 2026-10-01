@@ -49,10 +49,10 @@ an expandable guidance section when a step has it; older roadmaps remain valid.
 | `officialProgramPage` | Primary official government page, using the official-link shape. |
 
 All new fields are optional in the schema to support legacy files. Empty means
-**not yet curated**, not that no documents or preparation are needed. The CEC
-roadmap now has curated guidance for all stages. FSWP and FSTP still have empty
-new fields and their descriptions have not been newly reviewed for legal
-accuracy.
+**not yet curated**, not that no documents or preparation are needed. The CEC,
+FSWP, and FSTP roadmaps have curated guidance for every stage. Their program
+requirements, application sequence, official links, and source-review dates
+were verified against current IRCC guidance on 2026-09-30.
 
 The Alberta Opportunity Stream and Skilled Worker in Manitoba roadmaps were
 reviewed against Alberta, Manitoba, and IRCC sources again on 2026-09-22. Their
@@ -115,13 +115,13 @@ occupation priorities remain time-sensitive.
 Newfoundland and Labrador is represented by Express Entry Skilled Worker,
 Skilled Worker, International Graduate, International Entrepreneur, and
 International Graduate Entrepreneur. All use the province's EOI-first model.
-Selected worker applicants receive 60 days to submit a complete application,
-and applicants outside Canada must follow the current employer invite-code
-rules. The two entrepreneur EOI systems were open when reviewed and are marked
-active; worker selection is marked limited because invitations depend on
-provincial priorities and capacity. These PEI and Newfoundland and Labrador
-roadmaps were verified against official provincial and IRCC sources on
-2026-09-24.
+On September 25, 2026, the province temporarily shortened the deadline for
+selected worker applicants to submit a complete application from 60 to 30 days
+for the remainder of 2026. Applicants outside Canada must also follow the
+current employer invite-code rules. The two entrepreneur EOI systems were open
+when reviewed and are marked active; worker selection is marked limited because
+invitations depend on provincial priorities and capacity. The affected worker
+roadmaps were rechecked against official provincial guidance on 2026-09-30.
 
 The new stable profile keys are PNP-PEI-SW-IN, PNP-PEI-SW-OUT, PNP-PEI-CW,
 PNP-PEI-IG, PNP-PEI-IE, PNP-PEI-OID, PNP-PEI-EE, PNP-PEI-WP,
@@ -140,16 +140,20 @@ business, and meet the territorial conditions before nomination.
 The Northwest Territories is represented by the Employer-Driven Skilled
 Worker, Entry Level/Semi-Skilled and NWT Express Entry categories, plus the
 Francophone and Business streams. The Employer-Driven roadmaps use the 2026
-EOI system and are marked limited. The Francophone and Business streams
-continue to accept applications separately on a first-come, first-served basis
-and are marked active. The current Business Stream page lists minimum equity
-investments of $200,000 within Yellowknife or $100,000 outside Yellowknife;
-these current figures replace older amounts still visible in a 2023 PDF.
+EOI system and are marked limited. The final published 2026 Employer-Driven
+draw was completed on September 25; the territory says the next intake is
+expected in early 2027, with the exact date to be announced. The Francophone
+and Business streams continue to accept applications separately on a
+first-come, first-served basis and are marked active. The current Business
+Stream page lists minimum equity investments of $200,000 within Yellowknife or
+$100,000 outside Yellowknife; these current figures replace older amounts still
+visible in a 2023 PDF.
 
 The new stable profile keys are PNP-YT-SW, PNP-YT-CIW, PNP-YT-EE,
 PNP-YT-BIZ, PNP-NT-SW, PNP-NT-ELSS, PNP-NT-EE, PNP-NT-FR, and
-PNP-NT-BIZ. These Yukon and Northwest Territories roadmaps were reviewed
-against official territorial and IRCC sources on 2026-09-24.
+PNP-NT-BIZ. The Yukon roadmaps were reviewed on 2026-09-24. The three NWT
+Employer-Driven roadmaps were rechecked against the territory's September 25
+draw update on 2026-09-30.
 
 CEC stage 6 keeps its historic order because saved progress and analytics use
 step order. Its corrected title, description, and guidance clarify that

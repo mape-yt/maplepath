@@ -6,12 +6,12 @@
     "profileKey": "PNP-NL-IG",
     "province": "Newfoundland and Labrador",
     "programStatus": "limited",
-    "lastVerifiedAt": "2026-09-24",
+    "lastVerifiedAt": "2026-09-30",
     "federalApplicationRoute": "non-express-entry",
     "officialProgramPage": {
         "label": "NLPNP International Graduate",
         "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-        "verifiedAt": "2026-09-24"
+        "verifiedAt": "2026-09-30"
     },
     "steps": [
         {
@@ -28,7 +28,7 @@
                         {
                             "label": "Official guidance",
                             "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                            "verifiedAt": "2026-09-24"
+                            "verifiedAt": "2026-09-30"
                         }
                     ]
                 }
@@ -47,7 +47,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -70,7 +70,7 @@
                         {
                             "label": "Official guidance",
                             "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                            "verifiedAt": "2026-09-24"
+                            "verifiedAt": "2026-09-30"
                         }
                     ]
                 }
@@ -89,7 +89,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/immigrating-to-newfoundland-and-labrador/provincial-nominee-program/employers/employer-criteria/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -118,7 +118,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -141,7 +141,7 @@
                         {
                             "label": "Official guidance",
                             "url": "https://www.gov.nl.ca/immigration/job-vacancy-assessment-2/eligibility/",
-                            "verifiedAt": "2026-09-24"
+                            "verifiedAt": "2026-09-30"
                         }
                     ],
                     "condition": "Required when the category and work authorization require it"
@@ -161,7 +161,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/job-vacancy-assessment-2/eligibility/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -190,7 +190,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/expression-of-interest-model-overview/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -203,7 +203,7 @@
             "order": 6,
             "type": "waiting",
             "title": "Wait for an NL Invitation to Apply",
-            "description": "OIM selects according to priorities and capacity. If selected, the ITA starts a 60-day period to submit the complete application.",
+            "description": "OIM selects according to priorities and capacity. If selected, the ITA starts a 30-day period to submit the complete application.",
             "requiredDocuments": [],
             "preparationChecklist": [
                 {
@@ -219,7 +219,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/expression-of-interest-model-overview/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -242,7 +242,7 @@
                         {
                             "label": "Official guidance",
                             "url": "https://www.gov.nl.ca/immigration/6-required-documents-for-nlpnp-skilled-worker-application/",
-                            "verifiedAt": "2026-09-24"
+                            "verifiedAt": "2026-09-30"
                         }
                     ]
                 }
@@ -261,7 +261,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/6-required-documents-for-nlpnp-skilled-worker-application/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -273,8 +273,8 @@
         {
             "order": 8,
             "type": "applicant",
-            "title": "Submit within the 60-day invitation period",
-            "description": "Submit the complete portal application within 60 days. Newfoundland and Labrador currently charges no provincial application fee, although other costs apply.",
+            "title": "Submit within the 30-day invitation period",
+            "description": "Submit the complete portal application within 30 days. This is a temporary year-end deadline published by Newfoundland and Labrador on September 25, 2026. The province currently charges no application fee, although other costs apply.",
             "requiredDocuments": [],
             "preparationChecklist": [
                 {
@@ -290,7 +290,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -319,7 +319,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -348,7 +348,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.gov.nl.ca/immigration/1-overview-international-graduate-category/",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -371,7 +371,7 @@
                         {
                             "label": "Official guidance",
                             "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
-                            "verifiedAt": "2026-09-24"
+                            "verifiedAt": "2026-09-30"
                         }
                     ]
                 }
@@ -390,7 +390,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/documents.html",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -419,7 +419,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/apply.html",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -448,7 +448,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,
@@ -477,7 +477,7 @@
                 {
                     "label": "Official guidance",
                     "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees/non-express-entry/after-apply.html",
-                    "verifiedAt": "2026-09-24"
+                    "verifiedAt": "2026-09-30"
                 }
             ],
             "governmentTimeline": null,

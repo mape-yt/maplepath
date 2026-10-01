@@ -3,84 +3,604 @@
     "schemaVersion": 2,
     "pathway": "Express Entry",
     "stream": "Federal Skilled Trades Program (FSTP)",
+    "profileKey": "EE-FSTP",
+    "programStatus": "active",
+    "lastVerifiedAt": "2026-09-30",
+    "federalApplicationRoute": "express-entry",
+    "officialProgramPage": {
+        "label": "IRCC: Federal Skilled Trades Program",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+        "verifiedAt": "2026-09-30"
+    },
     "steps": [
         {
             "order": 1,
             "type": "applicant",
             "title": "Check Trade Eligibility",
-            "description": "Confirm you meet the Federal Skilled Trades Program requirements and have eligible skilled trade experience.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Confirm that your paid work is in one eligible skilled-trade NOC, totals at least 2 years or 3,120 hours within the last 5 years, and was gained where you were qualified to practise. You also need a qualifying job offer or Canadian certificate of qualification.",
+            "requiredDocuments": [
+                {
+                    "id": "trade-work-evidence",
+                    "title": "Evidence of qualifying skilled-trade work",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Trades Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "job-offer-or-certificate",
+                    "title": "Valid one-year job offer or Canadian certificate of qualification",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Trades Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                            "verifiedAt": "2026-09-30"
+                        },
+                        {
+                            "label": "IRCC: Express Entry job offers",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/job-offer.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-result",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "settlement-funds",
+                    "title": "Proof of settlement funds",
+                    "requirement": "conditional",
+                    "condition": "Required unless you are legally able to work in Canada and have a valid job offer.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Proof of funds",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "confirm-eligible-trade",
+                    "text": "Confirm the NOC is in an eligible FSTP trade group and that your experience is all in the same NOC."
+                },
+                {
+                    "id": "confirm-trade-hours",
+                    "text": "Confirm at least 2 years or 3,120 hours of paid experience within the last 5 years, counting no more than 30 hours per week."
+                },
+                {
+                    "id": "confirm-qualified-where-worked",
+                    "text": "Confirm you were qualified to practise the trade in each country where the claimed work was performed."
+                },
+                {
+                    "id": "confirm-offer-or-certificate",
+                    "text": "Confirm a valid full-time job offer for at least 1 year, from up to 2 employers, or a Canadian certificate of qualification."
+                },
+                {
+                    "id": "review-language-and-funds",
+                    "text": "Check the separate speaking/listening and reading/writing language thresholds, settlement funds, admissibility and intent to live outside Quebec."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Federal Skilled Trades Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Compare Express Entry programs",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Express Entry job offers",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/job-offer.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Using work from different NOCs to satisfy the same-trade requirement.",
+                "Counting student work or hours above IRCC's weekly cap.",
+                "Assuming experience alone replaces the job-offer or certificate-of-qualification requirement."
+            ]
         },
         {
             "order": 2,
             "type": "applicant",
             "title": "Language Test",
-            "description": "Complete an approved English or French language test.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Take an approved English or French test and meet at least CLB 5 in speaking and listening and CLB 4 in reading and writing.",
+            "requiredDocuments": [
+                {
+                    "id": "approved-language-test",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "choose-approved-test",
+                    "text": "Choose an IRCC-approved test and accepted version."
+                },
+                {
+                    "id": "check-fstp-thresholds",
+                    "text": "Confirm CLB 5 for speaking and listening and CLB 4 for reading and writing."
+                },
+                {
+                    "id": "check-test-validity",
+                    "text": "Make sure the result will be less than 2 years old when you create the profile and submit the permanent residence application."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Language test results",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Federal Skilled Trades Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Applying one language threshold to all four abilities.",
+                "Using an unapproved or expired test result."
+            ]
         },
         {
             "order": 3,
             "type": "applicant",
             "title": "Proof of Trade Experience",
-            "description": "Prepare documents demonstrating your skilled trade work experience and qualifications.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Collect evidence that your trade work matches the NOC lead statement and most main duties and that you meet the current job-offer or certificate-of-qualification requirement.",
+            "requiredDocuments": [
+                {
+                    "id": "employer-reference-letters",
+                    "title": "Detailed employer reference letters",
+                    "description": "Letters should support the dates, hours, pay, duties and trade NOC claimed.",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Trades Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "qualification-certificate",
+                    "title": "Canadian certificate of qualification",
+                    "requirement": "conditional",
+                    "condition": "Required if you are qualifying through a certificate rather than a valid job offer.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Trades Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "valid-trade-job-offer",
+                    "title": "Valid skilled-trade job offer",
+                    "requirement": "conditional",
+                    "condition": "Required if you are qualifying through a job offer rather than a Canadian certificate of qualification.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Express Entry job offers",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/job-offer.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "match-noc-duties",
+                    "text": "Compare each reference letter with the NOC lead statement and main duties."
+                },
+                {
+                    "id": "document-hours-and-pay",
+                    "text": "Document paid hours without counting more than 30 hours per week toward the minimum."
+                },
+                {
+                    "id": "verify-job-offer",
+                    "text": "If using a job offer, verify that it meets the FSTP duration, hours, occupation and employer rules."
+                },
+                {
+                    "id": "verify-certificate",
+                    "text": "If using a certificate, confirm it was issued by an authorized Canadian provincial, territorial or federal body."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Federal Skilled Trades Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Express Entry job offers",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/job-offer.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Using reference letters that omit duties, dates, hours or pay.",
+                "Confusing a school credential or trade course with a Canadian certificate of qualification."
+            ]
         },
         {
             "order": 4,
             "type": "applicant",
             "title": "Create Express Entry Profile",
-            "description": "Create and submit your Express Entry profile.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Create an accurate Express Entry profile with your trade experience, language result, job offer or certificate details, education if claimed, and settlement-fund information.",
+            "requiredDocuments": [
+                {
+                    "id": "passport-details",
+                    "title": "Passport or travel document details",
+                    "requirement": "conditional",
+                    "condition": "Provide the details requested in the online profile.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Get your Express Entry documents ready",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "language-test-result",
+                    "title": "Approved language test result",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Language test results",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "education-record",
+                    "title": "Canadian education record or valid ECA",
+                    "requirement": "conditional",
+                    "condition": "Required when education supports program eligibility or points.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Educational credential assessment",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessment.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "trade-qualification",
+                    "title": "Job-offer or certificate-of-qualification details",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Trades Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                            "verifiedAt": "2026-09-30"
+                        },
+                        {
+                            "label": "IRCC: Express Entry job offers",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/job-offer.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "funds-information",
+                    "title": "Current settlement-fund information",
+                    "requirement": "conditional",
+                    "condition": "Enter and maintain the required amount unless the exemption applies.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Proof of funds",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "enter-trade-history",
+                    "text": "Enter complete and consistent trade work history."
+                },
+                {
+                    "id": "enter-language-and-qualification",
+                    "text": "Enter the exact language, job-offer or certificate details."
+                },
+                {
+                    "id": "keep-profile-current",
+                    "text": "Update changes to employment, documents, family composition or eligibility."
+                },
+                {
+                    "id": "save-profile-records",
+                    "text": "Save the profile number, job seeker validation code and confirmation."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Create your profile",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/create-profile.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Get your Express Entry documents ready",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Federal Skilled Trades Program",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Treating pool entry as an invitation.",
+                "Claiming an invalid job offer or certificate."
+            ]
         },
         {
             "order": 5,
             "type": "waiting",
             "title": "Receive Invitation to Apply",
-            "description": "Wait for an Invitation to Apply (ITA) from IRCC.",
+            "description": "Remain eligible in the Express Entry pool and monitor the IRCC account. Invitations depend on current rounds and ranking; trade-category eligibility does not guarantee an invitation.",
             "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-account",
+                    "text": "Check the IRCC account for invitations and messages."
+                },
+                {
+                    "id": "maintain-eligibility",
+                    "text": "Keep the job offer or certificate, language result and other eligibility facts current."
+                },
+                {
+                    "id": "prepare-police-certificates",
+                    "text": "Review police-certificate requirements early."
+                },
+                {
+                    "id": "review-rounds",
+                    "text": "Use IRCC's official invitation-round information rather than unofficial predictions."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Rounds of invitations",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Police certificates",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence/police-certificates.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Assuming a trade-category round or score will repeat.",
+                "Failing to update a changed or withdrawn job offer."
+            ]
         },
         {
             "order": 6,
             "type": "applicant",
             "title": "Submit PR Application",
-            "description": "Submit your permanent residence application with all required supporting documents.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "After an invitation, confirm the invited program, complete the application, upload the personalized document package, pay the fees and submit within 60 calendar days.",
+            "requiredDocuments": [
+                {
+                    "id": "personalized-checklist",
+                    "title": "Documents on your personalized IRCC checklist",
+                    "requirement": "required",
+                    "condition": "The exact checklist appears after the online form is completed.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for permanent residence",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "police-certificates",
+                    "title": "Police certificates",
+                    "requirement": "required",
+                    "condition": "Follow the country, age, residence-period and validity rules on IRCC's page.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Police certificates",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence/police-certificates.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "medical-exam-record",
+                    "title": "Upfront immigration medical exam record",
+                    "requirement": "required",
+                    "condition": "Express Entry applicants normally complete the medical exam after invitation and before submitting the application.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Apply for permanent residence",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "trade-eligibility-evidence",
+                    "title": "Current trade job-offer or certificate evidence",
+                    "requirement": "required",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Federal Skilled Trades Program",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/who-can-apply/federal-skilled-trades.html",
+                            "verifiedAt": "2026-09-30"
+                        },
+                        {
+                            "label": "IRCC: Express Entry job offers",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/job-offer.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "proof-of-funds",
+                    "title": "Current proof of settlement funds",
+                    "requirement": "conditional",
+                    "condition": "Required unless the current exemption applies when you submit.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: Proof of funds",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "record-sixty-day-deadline",
+                    "text": "Record the 60-calendar-day deadline shown in the account."
+                },
+                {
+                    "id": "recheck-trade-eligibility",
+                    "text": "Recheck FSTP eligibility and the score that supported the invitation."
+                },
+                {
+                    "id": "follow-personalized-list",
+                    "text": "Use the personalized checklist and provide required translations."
+                },
+                {
+                    "id": "complete-upfront-medical",
+                    "text": "Complete the upfront medical exam as instructed for Express Entry."
+                },
+                {
+                    "id": "save-submission",
+                    "text": "Save the application, fee receipt and acknowledgement."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: Apply for permanent residence",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Police certificates",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/apply-permanent-residence/police-certificates.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: Proof of funds",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/proof-funds.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Missing the 60-day deadline.",
+                "Submitting after the job offer, certificate or other eligibility fact is no longer valid.",
+                "Omitting police certificates or translations required by the personalized checklist."
+            ]
         },
         {
             "order": 7,
             "type": "ircc",
             "title": "Final Review",
-            "description": "IRCC completes the review of your application before making a final decision.",
-            "requiredDocuments": [],
-            "preparationChecklist": [],
-            "officialLinks": [],
+            "description": "Follow IRCC instructions for biometrics and any medical, security, criminality or document follow-up. IRCC then makes the final permanent residence decision.",
+            "requiredDocuments": [
+                {
+                    "id": "biometrics-letter",
+                    "title": "Biometrics instruction letter",
+                    "requirement": "conditional",
+                    "condition": "Required if IRCC instructs you to give biometrics.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: After you apply",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                },
+                {
+                    "id": "confirmation-of-permanent-residence",
+                    "title": "Confirmation of Permanent Residence",
+                    "requirement": "conditional",
+                    "condition": "Issued if IRCC approves the application.",
+                    "officialLinks": [
+                        {
+                            "label": "IRCC: If we approve your application",
+                            "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/application-approved.html",
+                            "verifiedAt": "2026-09-30"
+                        }
+                    ]
+                }
+            ],
+            "preparationChecklist": [
+                {
+                    "id": "monitor-account",
+                    "text": "Monitor the IRCC account and email for requests and the decision."
+                },
+                {
+                    "id": "complete-requests",
+                    "text": "Complete biometrics and all document or medical follow-up by the stated deadlines."
+                },
+                {
+                    "id": "report-changes",
+                    "text": "Report material changes using IRCC's instructions."
+                },
+                {
+                    "id": "follow-approval",
+                    "text": "If approved, verify the confirmation documents and follow the instructions for your location."
+                }
+            ],
+            "officialLinks": [
+                {
+                    "label": "IRCC: After you apply",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/after-apply.html",
+                    "verifiedAt": "2026-09-30"
+                },
+                {
+                    "label": "IRCC: If we approve your application",
+                    "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/application-approved.html",
+                    "verifiedAt": "2026-09-30"
+                }
+            ],
             "governmentTimeline": null,
-            "commonMistakes": []
+            "commonMistakes": [
+                "Ignoring a request while the application is under review.",
+                "Assuming Express Entry approval is final before completing the permanent residence confirmation process."
+            ]
         }
-    ],
-    "profileKey": "EE-FSTP"
+    ]
 }

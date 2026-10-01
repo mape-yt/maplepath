@@ -61,6 +61,13 @@ function pnpProvinces() {
     return [...new Set(Object.values(options.streamProvinces || {}))].filter(Boolean).sort((a, b) => a.localeCompare(b));
 }
 
+function settlementProvinces(pathway = inputs.pathway.value) {
+    const provinces = options.provinces || [];
+    return pathway === "Express Entry"
+        ? provinces.filter(province => province !== "Quebec")
+        : provinces;
+}
+
 function streamsForProvince(province) {
     return (options.streams[PNP_PATHWAY] || []).filter(stream => options.streamProvinces?.[stream] === province);
 }
@@ -121,6 +128,8 @@ function toggleGroup(id, visible, requiredInput) {
 function refreshStreamFields(selectedStream = "") {
     const pathway = inputs.pathway.value;
     const isPnp = pathway === PNP_PATHWAY;
+    const selectedProvince = inputs.province.value;
+    createOptions(inputs.province, settlementProvinces(pathway), selectedProvince, "Select an option");
     toggleGroup("pnp-province-group", isPnp, inputs.pnpProvince);
 
     let streams = [];
@@ -169,7 +178,7 @@ function setupEditForm() {
     createOptions(inputs.pnpProvince, pnpProvinces(), currentProfile.province, "Select a province or territory");
     createOptions(inputs.location, options.locations || [], currentProfile.location, "Select a location");
     createOptions(inputs.currentStatus, options.canadaStatuses || [], currentProfile.currentStatus, "Select your status");
-    createOptions(inputs.province, options.provinces || [], currentProfile.province, "Select an option");
+    createOptions(inputs.province, settlementProvinces(currentProfile.pathway), currentProfile.province, "Select an option");
     createOptions(inputs.status, options.applicationStatuses || [], currentProfile.status, "Select an application status");
     createOptions(inputs.stage, options.stages || [], currentProfile.currentStage, "Select a stage");
     inputs.pathwayStart.value = dateInputValue(currentProfile.journeyStartDate);

@@ -5,15 +5,7 @@ const immigrationOptions = {
 
         "Express Entry",
 
-        "Provincial Nominee Program",
-
-        "Atlantic Immigration Program",
-
-        "Family Sponsorship",
-
-        "Study Permit to PR",
-
-        "Other"
+        "Provincial Nominee Program"
 
     ],
 

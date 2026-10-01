@@ -42,6 +42,45 @@ test("every advertised Express Entry and PNP stream has a distinct registered ro
     assert.equal(options.streamProvinces["NSNP Nova Scotia: Express Entry"], "Nova Scotia");
 });
 
+test("all Express Entry roadmaps contain current, sourced federal guidance", () => {
+    const definitions = roadmaps.filter(item => item.pathway === "Express Entry");
+    assert.equal(definitions.length, 3);
+
+    for(const definition of definitions){
+        const roadmap = loadRoadmap(definition);
+        assert.equal(roadmap.schemaVersion, 2);
+        assert.equal(roadmap.programStatus, "active");
+        assert.equal(roadmap.lastVerifiedAt, "2026-09-30");
+        assert.equal(roadmap.federalApplicationRoute, "express-entry");
+        assert.equal(new URL(roadmap.officialProgramPage.url).hostname, "www.canada.ca");
+
+        for(const step of roadmap.steps){
+            assert.ok(step.description, `${definition.profileKey} step ${step.order} needs a description`);
+            assert.ok(step.officialLinks.length > 0, `${definition.profileKey} step ${step.order} needs a source`);
+            assert.ok(step.preparationChecklist.length > 0,
+                `${definition.profileKey} step ${step.order} needs a checklist`);
+            for(const link of [roadmap.officialProgramPage, ...step.officialLinks]){
+                const url = new URL(link.url);
+                assert.equal(url.protocol, "https:");
+                assert.equal(url.hostname, "www.canada.ca");
+                assert.equal(link.verifiedAt, "2026-09-30");
+            }
+        }
+    }
+
+    const fswp = loadRoadmap(findRoadmap("Express Entry", "Federal Skilled Worker Program (FSWP)"));
+    assert.match(fswp.steps[0].description, /67 out of 100/);
+    assert.match(fswp.steps[1].description, /Educational Credential Assessment/);
+    assert.match(fswp.steps[2].description, /CLB 7/);
+    assert.match(fswp.steps[5].description, /60 calendar days/);
+
+    const fstp = loadRoadmap(findRoadmap("Express Entry", "Federal Skilled Trades Program (FSTP)"));
+    assert.match(fstp.steps[0].description, /3,120 hours/);
+    assert.match(fstp.steps[0].description, /job offer or Canadian certificate of qualification/);
+    assert.match(fstp.steps[1].description, /CLB 5.*CLB 4/);
+    assert.match(fstp.steps[5].description, /60 calendar days/);
+});
+
 test("new provincial guidance has official sources and valid content identifiers", () => {
     const trustedHosts = new Set([
         "www.alberta.ca", "immigratemanitoba.com", "www.canada.ca",
@@ -176,7 +215,7 @@ test("PEI and Newfoundland and Labrador roadmaps preserve their federal routes",
     const peiBusiness = loadRoadmap(findRoadmap("Provincial Nominee Program", "PEI PNP Work Permit Stream"));
     assert.match(peiBusiness.steps[5].description, /\$10,000 CAD/);
     const nlSkilled = loadRoadmap(findRoadmap("Provincial Nominee Program", "NLPNP Skilled Worker"));
-    assert.match(nlSkilled.steps[5].description, /60-day/);
+    assert.match(nlSkilled.steps[5].description, /30-day/);
     const nlGraduate = loadRoadmap(findRoadmap("Provincial Nominee Program", "NLPNP International Graduate"));
     assert.match(nlGraduate.steps[0].description, /PGWP/);
 });
@@ -213,6 +252,7 @@ test("Yukon and Northwest Territories roadmaps preserve program and federal rout
     assert.match(yukonBusiness.steps[1].description, /\$300,000/);
     const nwtEntry = loadRoadmap(findRoadmap("Provincial Nominee Program", "NTNP Employer-Driven: Entry Level\/Semi-Skilled"));
     assert.match(nwtEntry.steps[0].description, /12 months/);
+    assert.match(nwtEntry.steps[6].description, /next.*early 2027/);
     const nwtFrancophone = loadRoadmap(findRoadmap("Provincial Nominee Program", "NTNP Francophone Stream"));
     assert.match(nwtFrancophone.steps[1].description, /CLB\/NCLC 5 in French and CLB 4 in English/);
     const nwtBusiness = loadRoadmap(findRoadmap("Provincial Nominee Program", "NTNP Business Stream"));

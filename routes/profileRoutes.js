@@ -4,14 +4,12 @@ const router = express.Router();
 
 const User = require("../models/User");
 const { requireOwnUsername } = require("../middleware/auth");
-const { findRoadmap, roadmapForProfile } = require("../data/roadmaps/registry");
+const { roadmapForProfile } = require("../data/roadmaps/registry");
 const { migrateLegacyProgress, mirrorCurrentProgress } = require("../services/journeyProgress");
+const { validateProfile } = require("../services/profileValidation");
 
 function prepareProfile(profile){
-    if(profile.pathway !== "Provincial Nominee Program") return profile;
-    const definition = findRoadmap(profile.pathway, profile.stream);
-    if(!definition) return null;
-    return { ...profile, province:definition.province };
+    return validateProfile(profile);
 }
 
 router.param("username", requireOwnUsername);
@@ -74,8 +72,9 @@ router.put("/onboarding/:username", async (req, res) => {
 
         }
 
-        const profile = prepareProfile(req.body || {});
-        if(!profile) return res.status(400).json({ message:"Choose a supported provincial stream." });
+        const result = prepareProfile(req.body || {});
+        if(result.error) return res.status(400).json({ message:result.error });
+        const profile = result.profile;
 
         migrateLegacyProgress(user, roadmapForProfile(user.immigrationProfile));
         user.immigrationProfile = profile;
@@ -133,8 +132,9 @@ router.patch("/:username", async (req, res) => {
 
         }
 
-        const profile = prepareProfile({ ...user.immigrationProfile.toObject(), ...(req.body || {}) });
-        if(!profile) return res.status(400).json({ message:"Choose a supported provincial stream." });
+        const result = prepareProfile({ ...user.immigrationProfile.toObject(), ...(req.body || {}) });
+        if(result.error) return res.status(400).json({ message:result.error });
+        const profile = result.profile;
 
         migrateLegacyProgress(user, roadmapForProfile(user.immigrationProfile));
         Object.assign(user.immigrationProfile, profile);
