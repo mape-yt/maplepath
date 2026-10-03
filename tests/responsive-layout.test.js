@@ -13,7 +13,8 @@ const pageNames = [
     "onboarding.html",
     "dashboard.html",
     "profile.html",
-    "journey.html"
+    "journey.html",
+    "community-method.html"
 ];
 
 function read(relativePath) {

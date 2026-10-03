@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How MaplePath checks community timelines and calculates historical estimates.">
+  <title>Community timeline method | MaplePath</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="public-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header"><div class="shell site-header__inner">
+    <a class="brand" href="index.html" aria-label="MaplePath home"><span class="brand__mark" aria-hidden="true">🍁</span><span>MaplePath</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="site-nav__link" href="index.html">Home</a>
+      <a class="site-nav__link" href="about.html">Our story</a>
+      <a class="site-nav__link site-nav__link--signin" href="auth.html?mode=login">Sign in</a>
+      <a class="button button--small" href="journey.html">My Journey</a>
+    </nav>
+  </div></header>
+  <main id="main-content">
+    <section class="section section--light"><div class="shell">
+      <div class="section-heading">
+        <p class="eyebrow">Community timelines · Method 3</p>
+        <h1>Understand the numbers.</h1>
+        <p>Historical context from other contributors, with visible limits.</p>
+      </div>
+      <div class="prose-block prose-block--large">
+        <h2>Test data stays separate</h2>
+        <p>During testing, MaplePath shows no community averages or estimates. Test records and older records without a source label are excluded. Editing dates does not change that label. When real community collection begins, only new eligible submissions will contribute; switching it on will not turn test history into real evidence.</p>
+        <h2>What counts</h2>
+        <p>Each comparison uses the same roadmap and step, with completions from the last 730 days. Matching dates or durations count separately: common waiting times should appear as often as people report them. Separate saved timelines from the same account also count. Your own records are excluded from your comparison.</p>
+        <p>We show both the number of timelines and the number of distinct contributors. Completed timelines from at least five other contributors are needed to display durations. Editing a saved timeline updates that observation; it does not create another contribution. If the same saved record is read twice, we count it once. We do not merge separate records because their contents match.</p>
+        <p>Invalid, reversed or future dates are excluded, allowing up to 24 hours for the date editor’s local-noon convention. Durations are recalculated from the dates, rounded to whole days with a one-day minimum. Editing a date changes the statistics the next time they are loaded. Your saved records are never deleted by this process.</p>
+        <h2>Typical duration and unusual values</h2>
+        <p>The main number is the median: the middle duration. The range covers the middle 50% of valid completed durations. Both retain unusually long and short cases.</p>
+        <p>The average includes every eligible completed timeline, including unusually short or long durations. With at least ten distinct contributors, values below the lower quartile minus three interquartile ranges, or above the upper quartile plus three interquartile ranges, are flagged for context only. The check uses a one-day minimum spread when many dates are identical. Unusual does not mean false: a flag never removes a duration from the average, median or historical range.</p>
+        <h2>Location groups</h2>
+        <p>New records store your profile’s location when you first record a step. You can compare inside-Canada or outside-Canada records. Editing a start date does not reconstruct where you were on that earlier date. This snapshot is not necessarily your application submission location or country of processing. Older records without it appear only in All locations; we do not guess their history from your current profile. PNP streams already have separate province-specific roadmaps.</p>
+        <h2>Remaining-time estimates</h2>
+        <p>For an active waiting or IRCC step, we look at other cases completed in the last 180 days that took longer than your wait so far. Those cases must come from at least 20 distinct other contributors. Their middle 50% of remaining durations forms the displayed range. Matching durations and valid unusually long cases are kept in this comparison.</p>
+        <p>We withhold estimates for preparation steps, invitation or selection rounds, work-authorization checklists, general open-work-permit and LMIA-exempt guides that mix categories, unknown or unmatched permit locations, and samples with at least as many contributors with ongoing timelines as contributors with recent completions. We also withhold them when too few comparable contributors remain. Sample thresholds are MaplePath safeguards, not proof of statistical accuracy.</p>
+        <p>This is a historical comparison, not a trained ML model or a calibrated probability of your decision date. Completed cases can underrepresent long waits, and unfinished cases are not modelled. Users may record steps differently, and location alone does not capture every factor. A large sample is not automatically a reliable one.</p>
+        <h2>Community reports and official sources</h2>
+        <p>Community dates are self-reported. We check consistency, but do not independently verify applications or identify every fabricated report. Every eligible timeline has equal weight, so accounts with more timelines can influence the result more. Minimum sample sizes count distinct accounts, but that does not prevent one person from making multiple accounts. Record counts are not verified counts of unique immigration applications.</p>
+        <p>IRCC’s estimates cover whole application processes and can depend on application type and location. They are shown as a separate official reference, not mixed into an average of individual community steps. No online forum posts or unverified third-party numbers are added to your community sample.</p>
+        <ul>
+          <li><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html" target="_blank" rel="noopener noreferrer">IRCC: current processing times</a></li>
+          <li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/boxplot.htm" target="_blank" rel="noopener noreferrer">NIST: quartiles and outlier fences</a></li>
+          <li><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm" target="_blank" rel="noopener noreferrer">NIST: why an outlier is not necessarily an error</a></li>
+        </ul>
+        <p>Sources reviewed October 2, 2026; NIST outlier guidance rechecked and contribution rules updated October 3, 2026. The official links provide current guidance; MaplePath does not copy a fixed government processing time into these calculations.</p>
+        <p><a href="journey.html">Back to Journey →</a></p>
+      </div>
+    </div></section>
+  </main>
+  <footer class="site-footer"><div class="shell site-footer__top">
+    <a class="brand brand--footer" href="index.html">MaplePath</a>
+    <nav aria-label="Footer navigation"><a href="about.html">Our story</a><a href="community-method.html" aria-current="page">Community method</a></nav>
+  </div><div class="shell site-footer__bottom"><span>© 2026 MaplePath</span><span>General information only — not legal advice.</span></div></footer>
+</body>
+</html>

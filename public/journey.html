@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/journey.css">
 
     <link rel="stylesheet" href="css/pathways.css">
+    <link rel="stylesheet" href="css/community.css">
 </head>
 
 <body>
@@ -60,6 +61,17 @@
              Journey Timeline
         =========================== -->
 
+        <section id="community-controls" class="community-controls" hidden aria-label="Community comparison">
+            <label for="community-location">Compare community timelines</label>
+            <select id="community-location">
+                <option value="all">All locations</option>
+                <option value="Inside Canada">Inside Canada when recorded</option>
+                <option value="Outside Canada">Outside Canada when recorded</option>
+            </select>
+            <small>Eligible records without a location appear only in All locations. <a href="community-method.html">Method and sources</a> · <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html" target="_blank" rel="noopener noreferrer">Official IRCC processing times</a></small>
+            <small>IRCC estimates cover whole applications; community numbers describe individual steps.</small>
+        </section>
+
         <section id="journey-container">
 
             <div class="loading">
@@ -103,6 +115,7 @@
 <script src="js/layout.js"></script>
 <script src="js/session.js"></script>
 <script src="js/pathway-context.js"></script>
+<script src="js/community-ui.js"></script>
 <script src="js/journey.js"></script>
 
 </body>

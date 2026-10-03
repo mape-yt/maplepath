@@ -9,181 +9,11 @@ const TimelineRecord =
 const User =
     require("../models/User");
 
-const TimelineAverage =
-    require("../models/TimelineAverage");
+const { durationDays, LOCATIONS, communityDataMode } = require("../services/communityAnalytics");
 const { requireOwnUsername } = require("../middleware/auth");
 const { roadmapForProfile, loadRoadmap } = require("../data/roadmaps/registry");
 
 router.param("username", requireOwnUsername);
-
-
-
-// =================================
-// Update Community Average Engine
-// =================================
-
-async function updateTimelineAverage(record){
-
-
-    try{
-
-
-        const records =
-            await TimelineRecord.find({
-
-
-                profileKey:
-                record.profileKey,
-
-
-                stepOrder:
-                record.stepOrder,
-
-
-                status:
-                "completed",
-
-
-                durationDays:
-                {
-                    $ne:null
-                }
-
-
-            });
-
-
-
-
-
-        if(records.length === 0){
-
-            return false;
-
-        }
-
-
-
-
-
-        let totalDays = 0;
-
-
-
-        records.forEach(item=>{
-
-
-            totalDays +=
-            item.durationDays;
-
-
-        });
-
-
-
-
-
-        const averageDays =
-            Math.round(
-
-                totalDays /
-                records.length
-
-            );
-
-
-
-
-
-
-        await TimelineAverage.findOneAndUpdate(
-
-            {
-
-
-                profileKey:
-                record.profileKey,
-
-
-                stepOrder:
-                record.stepOrder
-
-
-            },
-
-
-            {
-
-
-                profileKey:
-                record.profileKey,
-
-
-                stepOrder:
-                record.stepOrder,
-
-
-                stepTitle:
-                record.stepTitle,
-
-
-                averageDays,
-
-
-                totalUsers:
-                records.length,
-
-
-                lastUpdated:
-                new Date()
-
-
-            },
-
-
-            {
-
-
-                upsert:true,
-
-                returnDocument:"after"
-
-
-            }
-
-
-        );
-
-
-
-
-        console.log(
-            "Timeline average updated."
-        );
-
-        return true;
-
-
-
-    }
-
-
-    catch(error){
-
-
-        console.error(
-            "Analytics error:",
-            error
-        );
-
-        return false;
-
-
-    }
-
-
-}
-
 
 
 
@@ -221,7 +51,10 @@ router.post("/start", async (req,res) => {
 
         const record = new TimelineRecord({
             username, pathway, profileKey, stepOrder,
-            stepTitle:step.title, startedAt:new Date()
+            stepTitle:step.title, startedAt:new Date(),
+            dataSource: communityDataMode() === "community" ? "self-reported" : "test",
+            context: { location: LOCATIONS.includes(user.immigrationProfile.location)
+                ? user.immigrationProfile.location : "Unknown" }
         });
         await record.save();
         res.json({ message:"Step started.", record });
@@ -255,12 +88,10 @@ router.put("/complete", async (req,res) => {
         if(!record) return res.status(404).json({ message:"Active step not found." });
 
         record.completedAt = new Date();
-        record.durationDays = Math.max(1, Math.ceil(
-            (record.completedAt - record.startedAt) / (1000 * 60 * 60 * 24)
-        ));
+        record.durationDays = durationDays(record.startedAt, record.completedAt);
+        if (record.durationDays === null) return res.status(400).json({ message:"Check the step start date before completing it." });
         record.status = "completed";
         await record.save();
-        await updateTimelineAverage(record);
         res.json({ message:"Step completed.", durationDays:record.durationDays });
     } catch(error){
         console.error(error);
@@ -399,15 +230,11 @@ router.put("/edit/:id", async (req,res)=>{
         record.startedAt = newStart;
         record.completedAt = newEnd || null;
         record.durationDays = record.status === "completed"
-            ? Math.max(1, Math.round((newEnd - newStart) / (1000 * 60 * 60 * 24)))
+            ? durationDays(newStart, newEnd)
             : null;
 
         await record.save();
-        const analyticsUpdated = record.status === "completed"
-            ? await updateTimelineAverage(record)
-            : true;
-
-        res.json({ message:"Timeline updated.", record, analyticsUpdated });
+        res.json({ message:"Timeline updated.", record, analyticsUpdated:true });
     }
     catch(error){
         console.error(error);

@@ -31,6 +31,14 @@ const timelineRecordSchema = new mongoose.Schema({
         required: true
     },
 
+    // Set only by the server when creating a record. Editing dates never promotes test data.
+    dataSource: { type: String, enum: ["test", "self-reported"], default: "test", immutable: true },
+
+    // Snapshot at step creation; never infer this from a later profile.
+    context: {
+        location: { type: String, enum: ["Inside Canada", "Outside Canada", "Unknown"], default: "Unknown" }
+    },
+
 
 
     // Step number from roadmap
@@ -127,6 +135,8 @@ const timelineRecordSchema = new mongoose.Schema({
 );
 
 
+
+timelineRecordSchema.index({ profileKey: 1, stepOrder: 1 });
 
 module.exports =
 mongoose.model(

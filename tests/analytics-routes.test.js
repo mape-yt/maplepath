@@ -1,0 +1,94 @@
+const test=require("node:test");
+const assert=require("node:assert/strict");
+const {createAnalyticsApp}=require("./helpers/analytics-app");
+const DAY=86400000;
+test("real timeline and analytics routes handle edits, grouping, empty data and database failure",async t=>{
+    const previousMode=process.env.COMMUNITY_DATA_MODE;
+    process.env.COMMUNITY_DATA_MODE="community";
+    t.after(()=>{if(previousMode===undefined)delete process.env.COMMUNITY_DATA_MODE;else process.env.COMMUNITY_DATA_MODE=previousMode;});
+    const now=Date.now();
+    const seed=Array.from({length:10},(_,i)=>({username:`peer-${i}`,pathway:"Express Entry",profileKey:"EE-CEC",
+        dataSource:"self-reported",stepOrder:1,stepTitle:"Check Eligibility",status:"completed",durationDays:i===9?900:10,
+        startedAt:new Date(now-(i===9?920:30)*DAY),completedAt:new Date(now-20*DAY),
+        updatedAt:new Date(now-DAY),context:{location:"Inside Canada"}}));
+    const fixture=createAnalyticsApp(seed);
+    const server=fixture.app.listen(0,"127.0.0.1");
+    await new Promise(resolve=>server.once("listening",resolve));
+    t.after(()=>new Promise(resolve=>server.close(resolve)));
+    const base=`http://127.0.0.1:${server.address().port}`;
+    const request=async(path,method="GET",body)=>{
+        const response=await fetch(base+path,{method,headers:{"x-test-user":"analytics-test","Content-Type":"application/json"},body:body?JSON.stringify(body):undefined});
+        return {status:response.status,body:await response.json(),headers:response.headers};
+    };
+    assert.equal((await fetch(base+"/api/analytics/EE-CEC/1")).status,401);
+    const first=await request("/api/analytics/EE-CEC/1");
+    assert.equal(first.status,200);
+    assert.equal(first.body.averageDays,99);
+    assert.equal(first.body.medianDays,10);
+    assert.equal(first.body.quality.unusual,1);
+    assert.equal(first.headers.get("cache-control"),"no-store");
+    assert.doesNotMatch(JSON.stringify(first.body),/peer-|username|_id|startedAt/);
+    const batch=await request("/api/analytics/pathway/EE-CEC");
+    assert.deepEqual(batch.body.steps.find(s=>s.stepOrder===1).quality,first.body.quality);
+    assert.equal((await request("/api/analytics/EE-CEC/1?location=Outside%20Canada")).body.averageDays,null);
+    assert.equal((await request("/api/analytics/EE-CEC/999")).status,400);
+    assert.equal((await request("/api/analytics/unknown/1")).status,400);
+    assert.equal((await request("/api/analytics/EE-CEC/1?location[$ne]=x")).status,400);
+    assert.equal((await request("/api/analytics/calculate","POST",{profileKey:{$ne:null},stepOrder:1})).status,400);
+    // Distinct saved timelines count even for the same account and identical dates.
+    fixture.replace([...seed,{...seed[0]},{...seed[0]}]);
+    const repeated=await request("/api/analytics/EE-CEC/1");
+    assert.equal(repeated.body.totalRecords,12);
+    assert.equal(repeated.body.totalUsers,10);
+    assert.equal(repeated.body.averageDays,84);
+    assert.equal(repeated.body.quality.repeatedRecordCopies,0);
+    assert.equal((await request("/api/analytics/pathway/EE-CEC")).body.steps.find(s=>s.stepOrder===1).totalRecords,12);
+    assert.equal((await request("/api/analytics/calculate","POST",{profileKey:"EE-CEC",stepOrder:1})).body.average.averageDays,84);
+    fixture.replace(seed);
+    const start=await request("/api/timeline/start","POST",{pathway:"Express Entry",profileKey:"EE-CEC",stepOrder:1,context:{location:"Outside Canada"}});
+    assert.equal(start.status,200);
+    assert.equal(start.body.record.dataSource,"self-reported");
+    assert.equal(start.body.record.context.location,"Inside Canada","client cannot override snapshot");
+    fixture.user.immigrationProfile.location="Outside Canada";
+    const id=start.body.record._id;
+    const edit=await request(`/api/timeline/edit/${id}`,"PUT",{startedAt:new Date(now-12*DAY).toISOString()});
+    assert.equal(edit.status,200);
+    assert.equal(edit.body.record.context.location,"Inside Canada");
+    const complete=await request("/api/timeline/complete","PUT",{pathway:"Express Entry",profileKey:"EE-CEC",stepOrder:1});
+    assert.equal(complete.status,200);
+    assert.equal(complete.body.durationDays,12);
+    assert.equal((await request("/api/analytics/EE-CEC/1")).body.totalUsers,10,"viewer excluded");
+    assert.equal((await request(`/api/timeline/edit/${fixture.records()[0]._id}`,"PUT",{startedAt:"2026-01-01"})).status,404,"cannot edit another contributor's record");
+    const corrected=await request(`/api/timeline/edit/${id}`,"PUT",{startedAt:new Date(now-3*DAY).toISOString(),completedAt:new Date(now-DAY).toISOString()});
+    assert.equal(corrected.status,200);
+    assert.equal(corrected.body.record.durationDays,2);
+    assert.equal(corrected.body.analyticsUpdated,true);
+    // Change a peer's dates through the fixture store: no cached average may survive.
+    fixture.records()[0].startedAt=new Date(now-60*DAY);
+    assert.equal((await request("/api/analytics/EE-CEC/1")).body.quality.unusual,2);
+    fixture.replace([]);
+    assert.equal((await request("/api/analytics/calculate","POST",{profileKey:"EE-CEC",stepOrder:1})).body.average.averageDays,null);
+    const TimelineRecord = require("../models/TimelineRecord");
+    const originalFind = TimelineRecord.find;
+    TimelineRecord.find = () => ({select(){return this;},limit(){return this;},
+        async lean(){return Array(20001).fill({});}});
+    assert.equal((await request("/api/analytics/pathway/EE-CEC")).status,503,"never report a truncated sample");
+    TimelineRecord.find = originalFind;
+    fixture.setFailure(true);
+    assert.equal((await request("/api/analytics/pathway/EE-CEC")).status,503);
+    delete process.env.COMMUNITY_DATA_MODE;
+    const testing = await request("/api/analytics/pathway/EE-CEC");
+    assert.equal(testing.status,200,"testing mode does not query the database for aggregates");
+    assert.equal(testing.body.dataMode,"testing");
+    assert.ok(testing.body.steps.every(s=>s.averageDays===null && s.totalUsers===0 && s.forecast.status==="unavailable"));
+    fixture.setFailure(false);
+    const testStart = await request("/api/timeline/start","POST",{pathway:"Express Entry",profileKey:"EE-CEC",stepOrder:2,dataSource:"self-reported"});
+    assert.equal(testStart.status,200);
+    assert.equal(testStart.body.record.dataSource,"test","body cannot promote a test record");
+    process.env.COMMUNITY_DATA_MODE="community";
+    const testId=testStart.body.record._id;
+    const testEdit = await request(`/api/timeline/edit/${testId}`,"PUT",{startedAt:new Date(now-3*DAY).toISOString(),dataSource:"self-reported"});
+    assert.equal(testEdit.body.record.dataSource,"test","editing after enabling real collection preserves provenance");
+    await request("/api/timeline/complete","PUT",{pathway:"Express Entry",profileKey:"EE-CEC",stepOrder:2});
+    assert.equal((await request("/api/analytics/EE-CEC/2")).body.totalUsers,0);
+});

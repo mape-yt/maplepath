@@ -369,6 +369,7 @@ async function loadRoadmapData() {
 }
 
 function renderDashboard() {
+    document.getElementById("community-dashboard").hidden = !dashboardState.roadmap;
     renderHero();
     renderSummary();
     renderNextStep();

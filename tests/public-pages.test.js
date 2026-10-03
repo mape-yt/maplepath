@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const publicRoot = path.join(__dirname, "..", "public");
-const pageNames = ["index.html", "about.html", "aboutdev.html", "auth.html"];
+const pageNames = ["index.html", "about.html", "aboutdev.html", "auth.html", "community-method.html"];
 
 function readPublic(relativePath) {
     return fs.readFileSync(path.join(publicRoot, relativePath), "utf8");
