@@ -32,7 +32,7 @@
             }
         }
         html += `<details><summary>How this is calculated</summary>
-            <p>Same roadmap and step. ${escape(summary.location === "all" ? "All recorded locations, including unknown" : summary.location)}. Completions from the past ${escape(summary.windowDays)} days. Your records are excluded from the comparison.</p>
+            <p>Same roadmap and step. ${escape(summary.location === "all" ? "All locations, including unknown" : summary.location)} (${summary.locationBasis === "submission" ? "at submission" : "when recorded"}). ${summary.permitType && summary.permitType !== "all" ? escape(summary.permitType === "new" ? "New permits only. " : "Permit extensions only. ") : ""}Completions from the past ${escape(summary.windowDays)} days. Your records are excluded from the comparison.</p>
             <p>Average of all eligible timelines: ${summary.averageDays == null ? "Not enough data" : `${escape(summary.averageDays)} days from ${escape(summary.totalRecords)} timelines`}.</p>
             <p>Matching dates and durations count separately. Separate saved timelines from the same account also count; an edit updates its existing record.</p>
             <p>${escape(q.invalid || 0)} invalid records excluded · ${escape(q.older || 0)} older records excluded · ${escape(q.unusual || 0)} unusual durations flagged, still included · ${escape(q.durationCorrections || 0)} durations recalculated.</p>

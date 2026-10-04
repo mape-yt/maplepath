@@ -12,6 +12,7 @@ const User =
 const { durationDays, LOCATIONS, communityDataMode } = require("../services/communityAnalytics");
 const { requireOwnUsername } = require("../middleware/auth");
 const { roadmapForProfile, loadRoadmap } = require("../data/roadmaps/registry");
+const { selectedApplication, applicationMatches, recordScope, isPermit } = require("../services/applications");
 
 router.param("username", requireOwnUsername);
 
@@ -38,27 +39,32 @@ router.post("/start", async (req,res) => {
         if(!step) return res.status(400).json({ message:"Unknown roadmap step." });
         const profileKey = definition.profileKey;
         const pathway = definition.pathway;
+        const application = await selectedApplication(user,definition);
+        if (!applicationMatches(req.body.applicationId,application)) return res.status(409).json({message:"Your application changed. Reload Journey."});
+        const scope = recordScope(application);
 
         const completed = await TimelineRecord.findOne({
-            username, profileKey, stepOrder, status:"completed"
+            username, profileKey, stepOrder, ...scope, status:"completed"
         });
         if(completed) return res.status(409).json({ message:"Step already completed. Edit its dates if needed." });
 
         const existing = await TimelineRecord.findOne({
-            username, profileKey, stepOrder, status:"in-progress"
+            username, profileKey, stepOrder, ...scope, status:"in-progress"
         });
         if(existing) return res.json({ message:"Step already started.", record:existing });
 
         const record = new TimelineRecord({
             username, pathway, profileKey, stepOrder,
             stepTitle:step.title, startedAt:new Date(),
-            dataSource: communityDataMode() === "community" ? "self-reported" : "test",
-            context: { location: LOCATIONS.includes(user.immigrationProfile.location)
+            applicationId:application?._id,
+            dataSource: application?.dataSource || (communityDataMode() === "community" ? "self-reported" : "test"),
+            context: application && isPermit(definition) ? undefined : { location: LOCATIONS.includes(user.immigrationProfile.location)
                 ? user.immigrationProfile.location : "Unknown" }
         });
         await record.save();
         res.json({ message:"Step started.", record });
     } catch(error){
+        if (error.code===11000) return res.status(409).json({message:"This step was just started. Reload Journey."});
         console.error(error);
         res.status(500).json({ message:"Server error." });
     }
@@ -82,8 +88,10 @@ router.put("/complete", async (req,res) => {
         if(!loadRoadmap(definition).steps.some(item => item.order === stepOrder)){
             return res.status(400).json({ message:"Unknown roadmap step." });
         }
+        const application = await selectedApplication(user,definition);
+        if (!applicationMatches(req.body.applicationId,application)) return res.status(409).json({message:"Your application changed. Reload Journey."});
         const record = await TimelineRecord.findOne({
-            username, profileKey:definition.profileKey, stepOrder, status:"in-progress"
+            username, profileKey:definition.profileKey, stepOrder, ...recordScope(application), status:"in-progress"
         });
         if(!record) return res.status(404).json({ message:"Active step not found." });
 

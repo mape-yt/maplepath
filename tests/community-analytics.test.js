@@ -203,11 +203,13 @@ test("forecasts stop for old samples, action steps, mixed categories and ongoing
 
 test("permit estimates require a matching known location for the viewer", () => {
     const permit = {pathway:"Work Permit",profileKey:"WP-PGWP"};
-    const rows = [...sample(Array(24).fill(30)),active()].map(r=>({...r,...permit}));
+    const rows = [...sample(Array(24).fill(30)),active()].map(r=>({...r,...permit,
+        application:{dataSource:"self-reported",permitType:"new",submittedOn:"2026-01-01",submissionLocation:"Inside Canada"}}));
     assert.equal(summarizeStep(rows,{...config,definition:permit}).forecast.status,"unavailable");
-    assert.equal(summarizeStep(rows,{...config,definition:permit,location:"Inside Canada"}).forecast.status,"available");
-    rows.at(-1).context = undefined;
-    assert.equal(summarizeStep(rows,{...config,definition:permit,location:"Inside Canada"}).forecast.status,"unavailable");
+    assert.equal(summarizeStep(rows,{...config,definition:permit,location:"Inside Canada",permitType:"new"}).forecast.status,"available");
+    assert.equal(summarizeStep(rows,{...config,definition:permit,location:"Inside Canada",permitType:"extension"}).totalUsers,0);
+    rows.at(-1).application = undefined;
+    assert.equal(summarizeStep(rows,{...config,definition:permit,location:"Inside Canada",permitType:"new"}).forecast.status,"unavailable");
 });
 
 test("editing a previously extreme duration changes the result immediately without a cache", () => {
@@ -216,6 +218,20 @@ test("editing a previously extreme duration changes the result immediately witho
     rows[9].startedAt = rows[0].startedAt;
     assert.equal(summarizeStep(rows,config).quality.unusual,0);
     assert.equal(summarizeStep(rows,config).quality.durationCorrections,1);
+});
+
+test("remaining waits use the selected application and stop after its result",()=>{
+    const first={...active(10),applicationId:"a",application:{dataSource:"self-reported",outcome:""}};
+    const other={...active(90),applicationId:"b",updatedAt:now,application:{dataSource:"self-reported",outcome:""}};
+    const rows=[...sample(Array(24).fill(30)),first,other];
+    const result=summarizeStep(rows,{...config,applicationId:"a"});
+    assert.equal(result.forecast.status,"available");
+    assert.equal(result.forecast.lowerDays,20);
+    first.application.outcome="approved";
+    assert.match(summarizeStep(rows,{...config,applicationId:"a"}).forecast.reason,/result has already/);
+    first.application.outcome="";
+    first.application.dataSource="test";
+    assert.equal(summarizeStep(rows,{...config,applicationId:"a"}).forecast.status,"unavailable");
 });
 
 test("public responses and UI do not expose identities, raw dates or unsupported confidence claims", () => {

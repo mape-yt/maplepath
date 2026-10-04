@@ -1,6 +1,9 @@
 const express = require("express");
 const { rateLimit } = require("express-rate-limit");
 const TimelineRecord = require("../models/TimelineRecord");
+const Application = require("../models/Application");
+const User = require("../models/User");
+const { selectedApplication } = require("../services/applications");
 const { roadmaps, loadRoadmap } = require("../data/roadmaps/registry");
 const { POLICY, LOCATIONS, summarizeStep, communityDataMode } = require("../services/communityAnalytics");
 const router = express.Router();
@@ -13,7 +16,10 @@ async function calculate(req, res, batch = false) {
     const profileKey = req.params.profileKey || req.body?.profileKey;
     const definition = roadmaps.find(r => r.profileKey === profileKey);
     const location = req.query.location || "all";
-    if (!definition || Object.keys(req.query).some(key => key !== "location")
+    const permitType = req.query.permitType || "all";
+    if (!definition || Object.keys(req.query).some(key => !["location","permitType"].includes(key))
+        || !["all","new","extension"].includes(permitType)
+        || (permitType !== "all" && !["Study Permit","Work Permit"].includes(definition.pathway))
         || typeof location !== "string" || !["all", ...LOCATIONS].includes(location)) {
         return res.status(400).json({ message: "Choose a supported roadmap and location group." });
     }
@@ -27,14 +33,32 @@ async function calculate(req, res, batch = false) {
         if (!batch) query.stepOrder = order;
         // Read current records: edits cannot leave an old average behind. Legacy cache is unused.
         const records = dataMode === "community" ? await TimelineRecord.find(query)
-            .select("username pathway profileKey stepOrder startedAt completedAt status durationDays context dataSource updatedAt createdAt")
+            .select("username pathway profileKey stepOrder startedAt completedAt status durationDays context dataSource applicationId updatedAt createdAt")
             .limit(POLICY.maximumRecords + 1).lean() : [];
         if (records.length > POLICY.maximumRecords) {
             return res.status(503).json({ message: "Community data is temporarily unavailable. Please try again later." });
         }
+        const user = await User.findOne({username:req.auth.username});
+        const active = user ? await selectedApplication(user,definition) : null;
+        if (dataMode === "community" && records.length) {
+            const ids = [...new Set(records.filter(row=>row.applicationId).map(row=>String(row.applicationId)))];
+            const legacyOwners = [...new Set(records.filter(row=>!row.applicationId).map(row=>row.username))];
+            const applications = await Application.find({profileKey:definition.profileKey,
+                $or:[{_id:{$in:ids}},{username:{$in:legacyOwners},includesLegacy:true}]})
+                .select("username profileKey includesLegacy permitType submissionLocation submittedOn outcome dataSource")
+                .limit(POLICY.maximumRecords + 1).lean();
+            if (applications.length > POLICY.maximumRecords) return res.status(503).json({message:"Community data is temporarily unavailable."});
+            const byId = new Map(applications.map(app=>[String(app._id),app]));
+            const byLegacyOwner = new Map(applications.filter(app=>app.includesLegacy).map(app=>[app.username,app]));
+            for (const row of records) {
+                const application = row.applicationId ? byId.get(String(row.applicationId)) : byLegacyOwner.get(row.username);
+                if (application?.username === row.username) row.application = application;
+            }
+        }
         const now = new Date();
         const summaries = steps.map(step => summarizeStep(records, { definition, step,
-            username: req.auth.username, location, now, dataMode }));
+            username: req.auth.username, location, permitType, now, dataMode,
+            applicationId:active ? String(active._id) : null, includesLegacy:active?.includesLegacy }));
         if (batch) return res.json({ profileKey, methodVersion: POLICY.version, dataMode, steps: summaries });
         if (req.method === "POST") return res.json({ message: "Community statistics calculated.", average: summaries[0] });
         return res.json(summaries[0]);

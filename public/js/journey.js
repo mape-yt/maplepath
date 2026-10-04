@@ -49,6 +49,7 @@ const state = {
 
 
     profileKey:null,
+    application:null,
 
 
     completedSteps:[],
@@ -124,6 +125,8 @@ async function initializeJourney(){
 
 
         renderJourney();
+
+        await window.MaplePathApplications.load(state.profileKey,state.pathway);
 
 
 
@@ -313,6 +316,8 @@ async function loadJourneyProgress(username){
     const progress =
         await response.json();
 
+    state.application = progress.application || null;
+
 
 
     state.completedSteps =
@@ -361,7 +366,9 @@ async function loadTimelineRecords(username){
 
 
     state.timelineRecords =
-        (await response.json()).filter(record => record.profileKey === state.profileKey);
+        (await response.json()).filter(record => record.profileKey === state.profileKey && (state.application
+            ? record.applicationId === state.application.id || (state.application.includesLegacy && !record.applicationId)
+            : !record.applicationId));
 
 
 
@@ -386,8 +393,14 @@ async function loadCommunityAnalytics(){
     const controls = document.getElementById("community-controls");
     controls.hidden = false;
     const location = document.getElementById("community-location").value;
+    const permit = ["Study Permit","Work Permit"].includes(state.pathway);
+    document.getElementById("community-permit-field").hidden = !permit;
+    const locationOptions = document.getElementById("community-location").options;
+    locationOptions[1].textContent = permit ? "Inside Canada when submitted" : "Inside Canada when recorded";
+    locationOptions[2].textContent = permit ? "Outside Canada when submitted" : "Outside Canada when recorded";
+    const permitType = permit ? document.getElementById("community-permit-type").value : "all";
     try {
-        const response = await fetch(`/api/analytics/pathway/${encodeURIComponent(state.profileKey)}?location=${encodeURIComponent(location)}`);
+        const response = await fetch(`/api/analytics/pathway/${encodeURIComponent(state.profileKey)}?location=${encodeURIComponent(location)}&permitType=${encodeURIComponent(permitType)}`);
         if(!response.ok) throw new Error("Community data unavailable");
         const result = await response.json();
         if (!Array.isArray(result.steps)) throw new Error("Invalid community response");
@@ -991,7 +1004,7 @@ function renderJourneySummary(){
 
                 <h3>
 
-                    Started this pathway
+                    ${state.application ? "Application submitted" : "Started this pathway"}
 
                 </h3>
 
@@ -1000,7 +1013,7 @@ function renderJourneySummary(){
 
                     ${
                         formatDate(
-                            state.profile.journeyStartDate
+                            state.application ? state.application.submittedOn : state.profile.journeyStartDate
                         )
                     }
 
@@ -1027,7 +1040,7 @@ function renderJourneySummary(){
 
 
                     ${
-                        completed === total
+                        state.application?.outcome ? escapeRoadmapText(`${state.pathway === "Provincial Nominee Program" ? "Provincial application" : "Application"} ${state.application.outcome}`) : completed === total
                         ?
                         "Completed"
                         :
@@ -1704,6 +1717,7 @@ async function handleStepAction(stepOrder){
             body:JSON.stringify({
                 pathway:state.pathway,
                 profileKey:state.profileKey,
+                applicationId:state.application?.id || null,
                 stepOrder:step.order
             })
         });
@@ -1729,6 +1743,7 @@ async function updateJourneyProgress(){
         headers:{ "Content-Type":"application/json" },
         body:JSON.stringify({
             profileKey:state.profileKey,
+            applicationId:state.application?.id || null,
             completedSteps:state.completedSteps,
             currentStep:getCurrentStep()
         })
@@ -1939,7 +1954,7 @@ setupEventListeners();
 initializeJourney();
 
 // Disable during refresh so an older response cannot replace a newer selection.
-document.getElementById("community-location").addEventListener("change", async event => {
+for (const control of ["community-location","community-permit-type"]) document.getElementById(control).addEventListener("change", async event => {
     event.target.disabled = true;
     try { await loadCommunityAnalytics(); renderJourney(); }
     finally { event.target.disabled = false; }

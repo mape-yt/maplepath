@@ -61,6 +61,13 @@
              Journey Timeline
         =========================== -->
 
+        <section id="application-controls" class="application-controls" hidden aria-label="Application">
+            <label for="application-select">Application</label>
+            <select id="application-select"></select>
+            <button id="application-edit" type="button" class="edit-timeline-btn">Add details</button>
+            <button id="application-new" type="button" class="edit-timeline-btn" hidden>New application</button>
+            <p id="application-notice" role="status"></p>
+        </section>
         <section id="community-controls" class="community-controls" hidden aria-label="Community comparison">
             <label for="community-location">Compare community timelines</label>
             <select id="community-location">
@@ -68,6 +75,10 @@
                 <option value="Inside Canada">Inside Canada when recorded</option>
                 <option value="Outside Canada">Outside Canada when recorded</option>
             </select>
+            <div id="community-permit-field" hidden>
+                <label for="community-permit-type">Permit application</label>
+                <select id="community-permit-type"><option value="all">All types</option><option value="new">New permit</option><option value="extension">Permit extension</option></select>
+            </div>
             <small>Eligible records without a location appear only in All locations. <a href="community-method.html">Method and sources</a> · <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html" target="_blank" rel="noopener noreferrer">Official IRCC processing times</a></small>
             <small>IRCC estimates cover whole applications; community numbers describe individual steps.</small>
         </section>
@@ -89,6 +100,30 @@
 
 </div>
 
+
+<dialog id="application-dialog" class="timeline-edit-dialog" aria-labelledby="application-title">
+    <form id="application-form">
+        <h2 id="application-title">Application details</h2>
+        <p id="application-help"></p>
+        <label id="application-submission-label" for="application-submittedOn">Application submitted</label>
+        <input id="application-submittedOn" type="date">
+        <div id="application-permit-fields" hidden>
+            <label for="application-permitType">New permit or extension?</label>
+            <select id="application-permitType"><option value="">Not sure yet</option><option value="new">New permit</option><option value="extension">Permit extension</option></select>
+            <label for="application-submissionLocation">Where were you when you submitted?</label>
+            <select id="application-submissionLocation"><option value="">Not recorded</option><option>Inside Canada</option><option>Outside Canada</option></select>
+        </div>
+        <label id="application-result-label" for="application-outcome">Application result</label>
+        <select id="application-outcome"><option value="">No result recorded</option><option value="approved">Approved</option><option value="refused">Refused</option><option value="withdrawn">Withdrawn</option></select>
+        <label for="application-decidedOn">Decision or withdrawal date</label>
+        <input id="application-decidedOn" type="date">
+        <p id="application-error" class="timeline-edit-error" role="alert"></p>
+        <div class="timeline-edit-actions">
+            <button id="application-cancel" type="button" class="edit-timeline-btn">Cancel</button>
+            <button type="submit" class="complete-btn">Save application</button>
+        </div>
+    </form>
+</dialog>
 
 <dialog id="timeline-edit-dialog" class="timeline-edit-dialog" aria-labelledby="timeline-edit-title">
     <form id="timeline-edit-form">
@@ -116,6 +151,7 @@
 <script src="js/session.js"></script>
 <script src="js/pathway-context.js"></script>
 <script src="js/community-ui.js"></script>
+<script src="js/application-ui.js"></script>
 <script src="js/journey.js"></script>
 
 </body>

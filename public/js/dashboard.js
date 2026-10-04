@@ -36,11 +36,18 @@ function formatDate(value) {
 }
 
 function journeyType() {
+    if (dashboardState.progress?.application) {
+        const outcome=dashboardState.progress.application.outcome;
+        return outcome && !(outcome==="approved" && dashboardState.profile.pathway==="Provincial Nominee Program") ? "completed" : "pathway";
+    }
     return dashboardState.profile.journeyType || "planning";
 }
 
 function stateCopy() {
     const profile = dashboardState.profile;
+    const application = dashboardState.progress?.application;
+    if (application) return {badge:application.outcome ? `${profile.pathway==="Provincial Nominee Program" ? "Provincial application" : "Application"} ${application.outcome}` : application.submittedOn ? "Application submitted" : "Preparing application",
+        title:profile.stream || profile.pathway, action:"Journey", actionHref:"journey.html"};
     if (journeyType() === "completed") {
         return {
             badge: MaplePathContext.isPermit(profile.pathway) ? "Permit approved" : "Permanent residence received",
@@ -67,7 +74,10 @@ function stateCopy() {
 
 function profileTimeline() {
     const key = dashboardState.roadmap?.profileKey;
-    return key ? dashboardState.timeline.filter(record => record.profileKey === key) : [];
+    const application = dashboardState.progress?.application;
+    return key ? dashboardState.timeline.filter(record => record.profileKey === key && (application
+        ? record.applicationId === application.id || (application.includesLegacy && !record.applicationId)
+        : !record.applicationId)) : [];
 }
 
 function completedStepOrders() {

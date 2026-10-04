@@ -1,4 +1,9 @@
-# Community analytics, method 3
+# Community analytics
+
+Current: method 4. See [Application identities and minimal details](applications.md) for
+the application-aware changes, permit submission location/type groups, current API and
+compatibility rules. The method-3 explanation below records the underlying statistics;
+its old permit location rule is superseded by method 4.
 
 Implemented October 2–3, 2026. No database cleanup or user-record deletion is required.
 

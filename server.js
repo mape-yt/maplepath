@@ -14,6 +14,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const journeyRoutes = require("./routes/journeyRoutes");
 const timelineRoutes = require("./routes/timelineRoutes");
 const analyticsRoutes = require("./routes/analyticsRoutes");
+const applicationRoutes = require("./routes/applicationRoutes");
 const optionsRoutes = require("./routes/optionsRoutes");
 
 const connectDB = require("./config/db");
@@ -51,6 +52,7 @@ app.use("/api/tasks", requireSameOrigin, requireAuth, taskRoutes);
 app.use("/api/journey", requireSameOrigin, requireAuth, journeyRoutes);
 app.use("/api/timeline", requireSameOrigin, requireAuth, timelineRoutes);
 app.use("/api/analytics", requireSameOrigin, requireAuth, analyticsRoutes);
+app.use("/api/applications", requireSameOrigin, requireAuth, applicationRoutes);
 app.use("/api/options", optionsRoutes);
 
 app.get("/api/health", (req, res) => {

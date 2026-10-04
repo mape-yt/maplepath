@@ -3,6 +3,7 @@ const User = require("../models/User");
 const { requireOwnUsername } = require("../middleware/auth");
 const { findRoadmap, roadmapForProfile, loadRoadmap } = require("../data/roadmaps/registry");
 const { progressFor, migrateLegacyProgress, saveProgress } = require("../services/journeyProgress");
+const { selectedApplication, applicationMatches, publicApplication } = require("../services/applications");
 
 const router = express.Router();
 router.param("username", requireOwnUsername);
@@ -18,9 +19,11 @@ router.get("/progress/:username", async (req, res) => {
         if(!definition) return res.status(404).json({ message:"No roadmap for this profile yet." });
         if(migrateLegacyProgress(user, definition)) await user.save();
 
-        const progress = progressFor(user, definition.profileKey);
+        const application = await selectedApplication(user,definition);
+        const progress = application || progressFor(user, definition.profileKey);
         res.json({
             profileKey:definition.profileKey,
+            application:publicApplication(application),
             completedSteps:progress.completedSteps,
             currentStep:progress.currentStep
         });
@@ -52,11 +55,19 @@ router.put("/progress/:username", async (req, res) => {
         const completedSteps = [...new Set(submitted)].sort((a,b) => a-b);
         const currentStep = roadmap.steps.find(step => !completedSteps.includes(step.order))?.order
             ?? roadmap.steps.at(-1).order;
-        saveProgress(user, definition.profileKey, completedSteps, currentStep);
-        await user.save();
+        const application = await selectedApplication(user,definition);
+        if (!applicationMatches(req.body.applicationId,application)) return res.status(409).json({message:"Your application changed. Reload Journey."});
+        if (application) {
+            application.completedSteps = completedSteps;
+            application.currentStep = currentStep;
+            await application.save();
+        } else {
+            saveProgress(user, definition.profileKey, completedSteps, currentStep);
+            await user.save();
+        }
 
         res.json({ message:"Journey progress updated.", journey:{
-            profileKey:definition.profileKey, completedSteps, currentStep
+            profileKey:definition.profileKey, application:publicApplication(application), completedSteps, currentStep
         } });
     } catch(error){
         console.error(error);

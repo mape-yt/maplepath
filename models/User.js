@@ -95,6 +95,7 @@ const userSchema = new mongoose.Schema({
 
     },
     journeyProgressByProfile: { type:Map, of:journeyProgressSchema, default:{} },
+    activeApplications: { type:Map, of:mongoose.Schema.Types.ObjectId, default:{} },
     legacyJourneyMigrated: { type:Boolean, default:false },
 
     dashboardTasks: { type:[dashboardTaskSchema], default:[] },

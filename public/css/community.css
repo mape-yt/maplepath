@@ -1,4 +1,15 @@
 .community-controls, .community-stat { min-width:0; overflow-wrap:anywhere; }
+.application-controls { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:20px 0; padding:16px; background:#f1f7f3; border-radius:16px; }
+.application-controls[hidden], #application-new[hidden] { display:none; }
+.application-controls label { font-weight:700; }
+.application-controls select { flex:1; min-width:0; max-width:100%; }
+.application-controls select, #application-form select { padding:10px; border:1px solid #a4c4b4; border-radius:8px; min-height:44px; background:white; color:#163c30; }
+#application-form select { width:100%; box-sizing:border-box; margin:6px 0 4px; }
+#application-form label { margin:14px 0 6px; }
+#application-notice:empty, #application-error:empty { display:none; }
+#application-notice { flex-basis:100%; }
+#community-permit-field { margin-top:12px; }
+@media(max-width:480px) { .application-controls label {flex-basis:100%;} .application-controls select {flex-basis:100%;} }
 .community-controls { margin:20px 0; padding:20px; border:1px solid #d6e6de; border-radius:16px; background:#f1f7f3; color:#163c30; }
 .community-controls label { display:block; font-weight:700; margin-bottom:8px; }
 .community-controls select { max-width:100%; width:330px; min-height:44px; padding:10px; border:1px solid #a4c4b4; border-radius:8px; background:white; color:#163c30; }
