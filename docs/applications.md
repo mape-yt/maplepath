@@ -52,12 +52,17 @@ selected application ID, so a stale tab cannot accidentally update a newly selec
 Explicit record-ID date edits remain available for owned historical records. Application
 metadata uses Mongoose optimistic concurrency; conflicts ask for a reload.
 
-Details accept an allowlist of fields, real calendar dates, no future dates, submission before
-result, and paired result/date. Optional permit details are rejected on other pathways. A
+Details accept an allowlist of fields, real calendar dates and no future dates. As of October 4,
+dates may remain unknown even when a result or submission location is known. A decision date
+requires a result; submission must precede the decision only when both dates are known.
+Known outcomes and submission locations prevent an attempt being treated as empty.
+Optional permit details are rejected on other pathways. A
 test application's future steps remain test data even if community mode is later enabled.
 No automatic promotion, deletion, moderation system or import tool is included.
 
-## Analytics method 4
+## Analytics method 4, extended by method 5
+
+See [Optional dates](optional-dates.md) for method 5 and unknown-date handling.
 
 The method-3 rules preserving repeated values remain. Permit location now means location
 at submission, with a separate new/extension filter. Missing details contribute only to

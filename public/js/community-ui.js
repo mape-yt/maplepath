@@ -38,6 +38,7 @@
             <p>${escape(q.invalid || 0)} invalid records excluded · ${escape(q.older || 0)} older records excluded · ${escape(q.unusual || 0)} unusual durations flagged, still included · ${escape(q.durationCorrections || 0)} durations recalculated.</p>
             ${q.repeatedRecordCopies ? `<p>${escape(q.repeatedRecordCopies)} repeat reads of the same saved record counted once.</p>` : ""}
             <p>${escape(q.testOrUnlabelled || 0)} test or unlabelled records excluded from all statistics.</p>
+            <p>${escape(q.missingDates || 0)} timelines with missing dates are not used for durations. Progress is still saved.</p>
             <p>Every eligible timeline has equal weight. Multiple timelines from one account can influence the result more; minimum samples count distinct contributors. ${escape(summary.ongoingRecords || 0)} timelines from ${escape(summary.ongoingUsers || 0)} other contributors are still in progress. Completed-case results can underrepresent long waits. These are self-reported dates, not independently verified applications.</p>
             <p>${escape(summary.recentRecords || 0)} completions from ${escape(summary.recentUsers || 0)} contributors in the last 180 days.${summary.latestCompletion ? ` Latest completion: ${escape(new Date(summary.latestCompletion).toLocaleDateString())}.` : ""}</p>
             <p>Calculated ${escape(new Date(summary.lastUpdated).toLocaleDateString())}. <a href="community-method.html">Method and sources</a></p>

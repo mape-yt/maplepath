@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Set up your MaplePath journey</title>
     <link rel="stylesheet" href="css/onboarding.css">
+    <link rel="stylesheet" href="css/optional-dates.css">
 </head>
 <body>
     <main class="onboarding-shell">
@@ -117,23 +118,23 @@
                         <select id="current-stage"><option value="">Select your current stage</option></select>
                     </div>
                     <div id="pathway-start-group" class="form-group hidden">
-                        <label for="pathway-start-date">When did you start working toward this pathway?</label>
-                        <input id="pathway-start-date" type="date">
-                        <small>An approximate date is fine. You can edit it later.</small>
+                        <label for="pathway-start-date">When did you begin preparing for this pathway? (optional)</label>
+                        <input id="pathway-start-date" type="date" data-optional-date>
+                        <small>This is your preparation date, not an application submission date. Leave it blank if you don’t remember.</small>
                     </div>
                     <div id="arrival-date-group" class="form-group hidden">
                         <label for="canada-arrival-date">When did you first arrive in Canada? <span>(optional)</span></label>
-                        <input id="canada-arrival-date" type="date">
+                        <input id="canada-arrival-date" type="date" data-optional-date>
                     </div>
                     <div id="permit-date-group" class="form-group hidden">
-                        <label for="permit-approval-date">When was your permit application approved?</label>
-                        <input id="permit-approval-date" type="date">
-                        <small>Use the approval date on your IRCC decision letter.</small>
+                        <label for="permit-approval-date">When was your permit application approved? (optional)</label>
+                        <input id="permit-approval-date" type="date" data-optional-date>
+                        <small>If you don’t remember, leave this blank. You can add it later.</small>
                     </div>
                     <div id="pr-date-group" class="form-group hidden">
-                        <label for="permanent-residence-date">When did you become a permanent resident?</label>
-                        <input id="permanent-residence-date" type="date">
-                        <small>Use the date you officially became a permanent resident.</small>
+                        <label for="permanent-residence-date">When did you become a permanent resident? (optional)</label>
+                        <input id="permanent-residence-date" type="date" data-optional-date>
+                        <small>If you don’t remember, leave this blank. You can add it later.</small>
                     </div>
                 </div>
 
@@ -150,5 +151,6 @@
     <script src="js/session.js"></script>
     <script src="js/pathway-context.js"></script>
 <script src="js/onboarding.js"></script>
+<script src="js/optional-dates.js"></script>
 </body>
 </html>

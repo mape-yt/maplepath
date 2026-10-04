@@ -154,7 +154,8 @@ test("invalid and stale dates are excluded; stored duration cannot override date
     rows.push(record(2, 11, { pathway: "Work Permit" }));
     const result = summarizeStep(rows, config);
     assert.equal(result.averageDays, 10);
-    assert.equal(result.quality.invalid, 5);
+    assert.equal(result.quality.invalid, 4);
+    assert.equal(result.quality.missingDates, 1);
     assert.equal(result.quality.older, 1);
     assert.equal(result.quality.durationCorrections, 1);
 });
@@ -242,4 +243,17 @@ test("public responses and UI do not expose identities, raw dates or unsupported
     assert.match(html,/&lt;img/);
     assert.match(render(summarizeStep([],config)),/Building the sample/);
     assert.match(render({status:"unavailable"}),/unavailable/);
+});
+
+test('missing dates never turn into zero-day or epoch-based duration samples',()=>{
+    const rows=sample([10,10,10,10,10]);
+    rows.push(record(900,50,{startedAt:null}),record(900,51,{completedAt:null}),record(900,52,{startedAt:null,completedAt:null}));
+    rows.push({...active(),username:'unknown-wait',_id:'unknown-wait',startedAt:null});
+    const result=summarizeStep(rows,config);
+    assert.equal(result.averageDays,10);
+    assert.equal(result.totalRecords,5);
+    assert.equal(result.quality.missingDates,4);
+    assert.equal(result.ongoingUsers,1,'unknown-start unfinished cases still count conservatively');
+    const own={...active(),startedAt:null};
+    assert.match(summarizeStep([...sample(Array(24).fill(30)),own],config).forecast.reason,/start date/);
 });

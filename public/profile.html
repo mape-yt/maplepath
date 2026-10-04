@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/optional-dates.css">
 </head>
 <body>
 <div class="container">
@@ -84,20 +85,20 @@
                         <select id="edit-stage"></select>
                     </div>
                     <div id="pathway-start-group" class="form-group hidden">
-                        <label for="edit-pathway-start">When did you start working toward this pathway?</label>
-                        <input id="edit-pathway-start" type="date">
+                        <label for="edit-pathway-start">When did you begin preparing for this pathway? (optional)</label>
+                        <input id="edit-pathway-start" type="date" data-optional-date>
                     </div>
                     <div id="arrival-group" class="form-group hidden">
                         <label for="edit-arrival-date">When did you first arrive in Canada? (optional)</label>
-                        <input id="edit-arrival-date" type="date">
+                        <input id="edit-arrival-date" type="date" data-optional-date>
                     </div>
                     <div id="permit-date-group" class="form-group hidden">
-                        <label for="edit-permit-date">When was your permit application approved?</label>
-                        <input id="edit-permit-date" type="date">
+                        <label for="edit-permit-date">When was your permit application approved? (optional)</label>
+                        <input id="edit-permit-date" type="date" data-optional-date>
                     </div>
                     <div id="pr-date-group" class="form-group hidden">
-                        <label for="edit-pr-date">When did you become a permanent resident?</label>
-                        <input id="edit-pr-date" type="date">
+                        <label for="edit-pr-date">When did you become a permanent resident? (optional)</label>
+                        <input id="edit-pr-date" type="date" data-optional-date>
                     </div>
                 </div>
 
@@ -113,5 +114,6 @@
 <script src="js/session.js"></script>
 <script src="js/pathway-context.js"></script>
 <script src="js/profile.js"></script>
+<script src="js/optional-dates.js"></script>
 </body>
 </html>

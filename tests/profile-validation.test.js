@@ -63,15 +63,16 @@ test("PNP profiles use the province assigned by the roadmap registry", () => {
     assert.equal(result.profile.province, "Alberta");
 });
 
-test("completed journeys require a logical permanent residence date", () => {
+test("completed journeys allow unknown dates and validate dates when supplied", () => {
     const missing = validateProfile(activeProfile({ journeyType: "completed" }));
-    assert.match(missing.error, /date you became a permanent resident/);
+    assert.equal(missing.error, undefined);
+    assert.equal(missing.profile.permanentResidenceDate,null);
 
     const beforeStart = validateProfile(activeProfile({
         journeyType: "completed",
         permanentResidenceDate: "2024-01-01"
     }));
-    assert.match(beforeStart.error, /after the pathway start date/);
+    assert.match(beforeStart.error, /before you began preparing/);
 
     const valid = validateProfile(activeProfile({
         journeyType: "completed",
@@ -87,4 +88,18 @@ test("profile dates cannot be invalid or in the future", () => {
         /valid dates/);
     assert.match(validateProfile(activeProfile({ journeyStartDate: "2099-01-01" })).error,
         /not in the future/);
+});
+
+test('onboarding can finish with every date unknown without creating placeholder dates',()=>{
+    for(const journeyType of ['planning','pathway','completed']){
+        const result=validateProfile(activeProfile({journeyType,journeyStartDate:null,canadaArrivalDate:null,permanentResidenceDate:null}));
+        assert.equal(result.error,undefined);
+        assert.equal(result.profile.journeyStartDate,null);
+        assert.equal(result.profile.canadaArrivalDate,null);
+        assert.equal(result.profile.permanentResidenceDate,null);
+    }
+    for(const value of [false,0,{},'2026-02-30','2026-02-30T12:00:00Z']){
+        assert.ok(validateProfile(activeProfile({journeyStartDate:value})).error);
+        assert.ok(validateProfile(activeProfile({journeyType:'completed',permanentResidenceDate:value})).error);
+    }
 });

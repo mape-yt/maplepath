@@ -91,7 +91,7 @@ test("onboarding uses the three journey states and a progressive PNP flow", () =
     assert.match(html, /id="pathway-step"/);
     assert.match(html, /id="province-step"/);
     assert.match(html, /id="stream-step"/);
-    assert.match(html, /When did you start working toward this pathway\?/);
+    assert.match(html, /When did you begin preparing for this pathway\?/);
     assert.match(html, /When did you become a permanent resident\?/);
     assert.doesNotMatch(html, /Highest Education|Journey Start Date/);
     assert.match(script, /streamsForProvince/);

@@ -1,6 +1,7 @@
 # Community analytics
 
-Current: method 4. See [Application identities and minimal details](applications.md) for
+Current: method 5. See [Optional dates](optional-dates.md) for missing-date handling.
+See [Application identities and minimal details](applications.md) for
 the application-aware changes, permit submission location/type groups, current API and
 compatibility rules. The method-3 explanation below records the underlying statistics;
 its old permit location rule is superseded by method 4.

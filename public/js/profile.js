@@ -118,7 +118,7 @@ function renderProfile(profile) {
         addInfo(grid, isCompleted && !MaplePathContext.isPermit(profile.pathway) ? "Location when applying" : "Current location", profile.location);
         addInfo(grid, "Application status", profile.status);
         addInfo(grid, isCompleted ? "Final stage" : "Current stage", profile.currentStage);
-        addInfo(grid, "Started working toward pathway", formatDate(profile.journeyStartDate));
+        addInfo(grid, "Started preparing for pathway", formatDate(profile.journeyStartDate));
         if (profile.canadaArrivalDate) addInfo(grid, "First arrived in Canada", formatDate(profile.canadaArrivalDate));
         if (isCompleted) addInfo(grid, outcome.dateLabel, formatDate(profile[outcome.dateField]));
     }
@@ -128,7 +128,7 @@ function renderProfile(profile) {
 
 function toggleGroup(id, visible, requiredInput) {
     document.getElementById(id).classList.toggle("hidden", !visible);
-    if (requiredInput) requiredInput.required = visible;
+    if (requiredInput) requiredInput.required = visible && requiredInput.type !== "date";
 }
 
 function refreshStreamFields(selectedStream = "") {

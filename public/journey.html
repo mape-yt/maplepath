@@ -15,6 +15,7 @@
 
     <link rel="stylesheet" href="css/pathways.css">
     <link rel="stylesheet" href="css/community.css">
+    <link rel="stylesheet" href="css/optional-dates.css">
 </head>
 
 <body>
@@ -106,7 +107,7 @@
         <h2 id="application-title">Application details</h2>
         <p id="application-help"></p>
         <label id="application-submission-label" for="application-submittedOn">Application submitted</label>
-        <input id="application-submittedOn" type="date">
+        <input id="application-submittedOn" type="date" data-optional-date data-date-today>
         <div id="application-permit-fields" hidden>
             <label for="application-permitType">New permit or extension?</label>
             <select id="application-permitType"><option value="">Not sure yet</option><option value="new">New permit</option><option value="extension">Permit extension</option></select>
@@ -116,7 +117,7 @@
         <label id="application-result-label" for="application-outcome">Application result</label>
         <select id="application-outcome"><option value="">No result recorded</option><option value="approved">Approved</option><option value="refused">Refused</option><option value="withdrawn">Withdrawn</option></select>
         <label for="application-decidedOn">Decision or withdrawal date</label>
-        <input id="application-decidedOn" type="date">
+        <input id="application-decidedOn" type="date" data-optional-date data-date-today>
         <p id="application-error" class="timeline-edit-error" role="alert"></p>
         <div class="timeline-edit-actions">
             <button id="application-cancel" type="button" class="edit-timeline-btn">Cancel</button>
@@ -129,13 +130,18 @@
     <form id="timeline-edit-form">
         <h2 id="timeline-edit-title">Edit timeline dates</h2>
         <p id="timeline-edit-step"></p>
+        <p class="date-note">Choose a date, use Today, or leave it blank if you don’t remember. Missing dates won’t be used for duration estimates.</p>
+        <div id="timeline-status-field">
+            <label for="timeline-status">Where are you with this step?</label>
+            <select id="timeline-status"><option value="in-progress">Started</option><option value="completed">Finished</option></select>
+        </div>
 
-        <label for="timeline-start-date">Start date</label>
-        <input id="timeline-start-date" name="startedAt" type="date" required>
+        <label id="timeline-start-label" for="timeline-start-date">Started this step</label>
+        <input id="timeline-start-date" name="startedAt" type="date" data-optional-date data-date-today>
 
         <div id="timeline-finish-field">
-            <label for="timeline-finish-date">Finish date</label>
-            <input id="timeline-finish-date" name="completedAt" type="date">
+            <label id="timeline-finish-label" for="timeline-finish-date">Finished this step</label>
+            <input id="timeline-finish-date" name="completedAt" type="date" data-optional-date data-date-today>
         </div>
 
         <p id="timeline-edit-error" class="timeline-edit-error" role="alert" hidden></p>
@@ -151,9 +157,11 @@
 <script src="js/session.js"></script>
 <script src="js/pathway-context.js"></script>
 <script src="js/community-ui.js"></script>
+<script src="js/timeline-labels.js"></script>
 <script src="js/application-ui.js"></script>
 <script src="js/journey.js"></script>
 
+<script src="js/optional-dates.js"></script>
 </body>
 
 </html>

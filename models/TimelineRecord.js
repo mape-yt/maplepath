@@ -73,7 +73,7 @@ const timelineRecordSchema = new mongoose.Schema({
 
         type: Date,
 
-        required: true
+        default: null
 
     },
 

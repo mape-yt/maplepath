@@ -13,6 +13,7 @@ const { durationDays, LOCATIONS, communityDataMode } = require("../services/comm
 const { requireOwnUsername } = require("../middleware/auth");
 const { roadmapForProfile, loadRoadmap } = require("../data/roadmaps/registry");
 const { selectedApplication, applicationMatches, recordScope, isPermit } = require("../services/applications");
+const {readDate,validateTimelineDates} = require("../services/timelineDates");
 
 router.param("username", requireOwnUsername);
 
@@ -51,11 +52,21 @@ router.post("/start", async (req,res) => {
         const existing = await TimelineRecord.findOne({
             username, profileKey, stepOrder, ...scope, status:"in-progress"
         });
+        if(existing && req.body.status === "completed") return res.status(409).json({message:"This step was already started in another request. Reload Journey to record its completion."});
         if(existing) return res.json({ message:"Step already started.", record:existing });
+
+        const status = req.body.status ?? "in-progress";
+        if (!["in-progress","completed"].includes(status)) return res.status(400).json({message:"Choose started or finished."});
+        if (status === "in-progress" && req.body.completedAt != null) return res.status(400).json({message:"Mark the step finished before adding a finish date."});
+        const startedAt = readDate(req.body,"startedAt",new Date());
+        const completedAt = status === "completed" ? readDate(req.body,"completedAt",new Date()) : null;
+        const dateError = validateTimelineDates(startedAt,completedAt);
+        if (dateError) return res.status(400).json({message:dateError});
 
         const record = new TimelineRecord({
             username, pathway, profileKey, stepOrder,
-            stepTitle:step.title, startedAt:new Date(),
+            stepTitle:step.title, startedAt, completedAt, status,
+            durationDays:status === "completed" ? durationDays(startedAt,completedAt) : null,
             applicationId:application?._id,
             dataSource: application?.dataSource || (communityDataMode() === "community" ? "self-reported" : "test"),
             context: application && isPermit(definition) ? undefined : { location: LOCATIONS.includes(user.immigrationProfile.location)
@@ -95,9 +106,13 @@ router.put("/complete", async (req,res) => {
         });
         if(!record) return res.status(404).json({ message:"Active step not found." });
 
-        record.completedAt = new Date();
-        record.durationDays = durationDays(record.startedAt, record.completedAt);
-        if (record.durationDays === null) return res.status(400).json({ message:"Check the step start date before completing it." });
+        const startedAt = readDate(req.body,"startedAt",record.startedAt ?? null);
+        const completedAt = readDate(req.body,"completedAt",new Date());
+        const dateError = validateTimelineDates(startedAt,completedAt);
+        if (dateError) return res.status(400).json({message:dateError});
+        record.startedAt = startedAt;
+        record.completedAt = completedAt;
+        record.durationDays = durationDays(startedAt,completedAt);
         record.status = "completed";
         await record.save();
         res.json({ message:"Step completed.", durationDays:record.durationDays });
@@ -162,26 +177,6 @@ router.get("/:username", async (req,res)=>{
 // Edit Timeline Dates
 // =================================
 
-function parseTimelineDate(value){
-    if(typeof value !== "string") return null;
-
-    // Accept a date-only value for older clients and a UTC ISO timestamp
-    // for the Journey date picker, which sends local noon as an instant.
-    let normalized = value;
-    if(/^\d{4}-\d{2}-\d{2}$/.test(value)){
-        normalized = value + "T12:00:00.000Z";
-    }
-
-    if(!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(normalized)){
-        return null;
-    }
-
-    const date = new Date(normalized);
-    return Number.isNaN(date.getTime()) || date.toISOString() !== normalized
-        ? null
-        : date;
-}
-
 router.put("/edit/:id", async (req,res)=>{
     try{
         const payload = req.body || {};
@@ -213,27 +208,10 @@ router.put("/edit/:id", async (req,res)=>{
             return res.status(400).json({ message:"Complete the step before editing its finish date." });
         }
 
-        const newStart = hasStart
-            ? parseTimelineDate(payload.startedAt)
-            : record.startedAt;
-        const newEnd = hasEnd
-            ? parseTimelineDate(payload.completedAt)
-            : record.completedAt;
-
-        if(!newStart || (record.status === "completed" && !newEnd)){
-            return res.status(400).json({ message:"Enter valid start and finish dates." });
-        }
-
-        if(newEnd && newEnd < newStart){
-            return res.status(400).json({ message:"Finish date cannot be before start date." });
-        }
-
-        // A local calendar date is sent as local noon, which may be ahead of
-        // server time on the same day. Allow that offset but reject future days.
-        const latestAllowed = Date.now() + (1000 * 60 * 60 * 24);
-        if(newStart.getTime() > latestAllowed || (newEnd && newEnd.getTime() > latestAllowed)){
-            return res.status(400).json({ message:"Timeline dates cannot be in the future." });
-        }
+        const newStart = readDate(payload,"startedAt",record.startedAt ?? null);
+        const newEnd = readDate(payload,"completedAt",record.completedAt ?? null);
+        const dateError = validateTimelineDates(newStart,newEnd);
+        if (dateError) return res.status(400).json({message:dateError});
 
         record.startedAt = newStart;
         record.completedAt = newEnd || null;

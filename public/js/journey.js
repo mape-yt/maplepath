@@ -1004,7 +1004,7 @@ function renderJourneySummary(){
 
                 <h3>
 
-                    ${state.application ? "Application submitted" : "Started this pathway"}
+                    ${state.application ? "Application submitted" : "Started preparing"}
 
                 </h3>
 
@@ -1568,173 +1568,34 @@ function renderRoadmapDetails(step){
 
 function renderTimelineInformation(step, record, average){
     let html = "";
-    if(record?.status === "completed"){
+    if(record?.status === "completed" && record.startedAt && record.completedAt){
         const span = new Date(record.completedAt) - new Date(record.startedAt);
         if(Number.isFinite(span) && span >= 0) record = {...record, durationDays:Math.max(1, Math.round(span / 86400000))};
     }
     if(record){
-        html = `Started: ${escapeRoadmapText(formatDate(record.startedAt))}`;
+        const labels=MaplePathTimelineLabels.forStep(step);
+        html = `${escapeRoadmapText(labels.start)}: ${record.startedAt ? escapeRoadmapText(formatDate(record.startedAt)) : "Not recorded"}`;
         if(record.status === "completed"){
-            html += `<br>Finished: ${escapeRoadmapText(formatDate(record.completedAt))}
-                <br>Duration: ${escapeRoadmapText(record.durationDays)} days`;
+            if(!record.startedAt || !record.completedAt)record={...record,durationDays:null};
+            html += `<br>${escapeRoadmapText(labels.finish)}: ${record.completedAt ? escapeRoadmapText(formatDate(record.completedAt)) : "Not recorded"}
+                <br>${record.durationDays == null ? "Add both dates later to calculate duration." : `Duration: ${escapeRoadmapText(record.durationDays)} days`}`;
         }
     }
     return html + MaplePathCommunity.render(average, record);
 }
 
-function renderActionButton(
-
-    step,
-
-    record,
-
-    completed
-
-){
-
-
-
-    if(completed){
-
-
-
-        return `
-
-
-<button
-
-class="complete-btn completed"
-
-disabled
-
->
-
-Completed
-
-</button>
-
-
-`;
-
-
-
-    }
-
-
-
-
-
-    if(
-        record &&
-        record.status ===
-        "in-progress"
-    ){
-
-
-        return `
-
-
-<button
-
-class="complete-btn"
-
-data-action="complete"
-
-data-step="${step.order}"
-
->
-
-Complete Step
-
-</button>
-
-
-`;
-
-
-
-    }
-
-
-
-
-
-    return `
-
-
-<button
-
-class="complete-btn"
-
-data-action="start"
-
-data-step="${step.order}"
-
->
-
-Start Step
-
-</button>
-
-
-`;
-
-
-
+function renderActionButton(step,record,completed){
+    if(completed && record)return '<button class="complete-btn completed" disabled>Completed</button>';
+    const action=record?.status==='in-progress'?'complete':'start';
+    const text=action==='complete'?MaplePathTimelineLabels.forStep(step).action:'Record progress';
+    return `<button type="button" class="complete-btn" data-action="${action}" data-step="${escapeRoadmapText(step.order)}">${escapeRoadmapText(text)}</button>`;
 }
-
-// ============================================
-// Part 3
-//
-// Actions
-// Timeline Updates
-// Modal
-// Events
-// Startup
-// ============================================
-
-
-
-
-
-
-
-// ============================================
-// STEP ACTION HANDLER
-// ============================================
 
 
 async function handleStepAction(stepOrder){
-    try{
-        const step = state.roadmap?.steps.find(item => item.order === stepOrder);
-        if(!step) return;
-        const existing = getTimelineRecord(stepOrder);
-        if(existing?.status === "completed") return;
-
-        const response = await fetch(existing ? "/api/timeline/complete" : "/api/timeline/start", {
-            method:existing ? "PUT" : "POST",
-            headers:{ "Content-Type":"application/json" },
-            body:JSON.stringify({
-                pathway:state.pathway,
-                profileKey:state.profileKey,
-                applicationId:state.application?.id || null,
-                stepOrder:step.order
-            })
-        });
-        const result = await response.json();
-        if(!response.ok) throw new Error(result.message || "Could not update this step.");
-
-        if(existing){
-            state.completedSteps = [...new Set([...state.completedSteps, step.order])];
-            await updateJourneyProgress();
-        }
-        await reloadJourney();
-        showJourneyNotice("");
-    } catch(error){
-        console.error("Step action failed:", error);
-        showJourneyNotice(error.message || "Could not update this step. Reload Journey and try again.");
-    }
+    openTimelineDateEditor(stepOrder,getTimelineRecord(stepOrder)?'complete':'new');
 }
+
 
 async function updateJourneyProgress(){
     const username = localStorage.getItem("username");
@@ -1833,89 +1694,71 @@ function showJourneyNotice(message){
     notice.hidden = !message;
 }
 
-function openTimelineDateEditor(stepOrder){
-    const record = getTimelineRecord(stepOrder);
-    const step = state.roadmap?.steps.find(item => item.order === stepOrder);
-    if(!record || !record._id || !step) return;
-
-    const dialog = document.getElementById("timeline-edit-dialog");
-    const form = document.getElementById("timeline-edit-form");
-    const start = document.getElementById("timeline-start-date");
-    const finish = document.getElementById("timeline-finish-date");
-    const completed = record.status === "completed";
-
-    form.dataset.recordId = record._id;
-    form.dataset.completed = String(completed);
-    document.getElementById("timeline-edit-step").textContent = step.title;
-    start.value = dateInputValue(record.startedAt);
-    finish.value = completed ? dateInputValue(record.completedAt) : "";
-    start.max = dateInputValue(new Date());
-    finish.max = start.max;
-    document.getElementById("timeline-finish-field").hidden = !completed;
-    finish.required = completed;
-    showTimelineEditError("");
-    if(!dialog.open) dialog.showModal();
+function openTimelineDateEditor(stepOrder,mode='edit'){
+    const record=getTimelineRecord(stepOrder);
+    const step=state.roadmap?.steps.find(item=>item.order===stepOrder);
+    if(!step || (mode!=='new' && !record?._id))return;
+    const form=document.getElementById('timeline-edit-form');
+    if(document.getElementById('timeline-edit-save').disabled)return;
+    form.dataset.recordId=record?._id || '';
+    form.dataset.stepOrder=stepOrder;
+    form.dataset.mode=mode;
+    form.dataset.completed=String(mode==='complete' || record?.status==='completed');
+    const labels=MaplePathTimelineLabels.forStep(step);
+    document.getElementById('timeline-edit-title').textContent=mode==='edit'?'Edit dates':'Record progress';
+    document.getElementById('timeline-edit-step').textContent=step.title;
+    document.getElementById('timeline-start-label').textContent=labels.start+' (optional)';
+    document.getElementById('timeline-finish-label').textContent=labels.finish+' (optional)';
+    const status=document.getElementById('timeline-status');
+    status.options[0].textContent=labels.start;
+    status.options[1].textContent=labels.finish;
+    status.value=form.dataset.completed==='true'?'completed':'in-progress';
+    document.getElementById('timeline-status-field').hidden=mode!=='new';
+    const start=document.getElementById('timeline-start-date'),finish=document.getElementById('timeline-finish-date');
+    start.value=dateInputValue(record?.startedAt);
+    finish.value=dateInputValue(record?.completedAt);
+    start.max=dateInputValue(new Date());finish.max=start.max;
+    start.required=false;finish.required=false;
+    document.getElementById('timeline-finish-field').hidden=status.value!=='completed';
+    document.getElementById('timeline-edit-save').textContent=mode==='edit'?'Save dates':'Save progress';
+    showTimelineEditError('');
+    document.getElementById('timeline-edit-dialog').showModal();
 }
 
 async function saveTimelineDates(event){
     event.preventDefault();
-    const form = event.currentTarget;
-    const dialog = document.getElementById("timeline-edit-dialog");
-    const save = document.getElementById("timeline-edit-save");
-    const startValue = document.getElementById("timeline-start-date").value;
-    const finishValue = document.getElementById("timeline-finish-date").value;
-    const completed = form.dataset.completed === "true";
-    const startedAt = dateInputToIso(startValue);
-    const completedAt = completed ? dateInputToIso(finishValue) : null;
-
-    if(!startedAt || (completed && !completedAt)){
-        showTimelineEditError("Enter valid dates.");
-        return;
-    }
-    if(completed && finishValue < startValue){
-        showTimelineEditError("Finish date cannot be before start date.");
-        return;
-    }
-
-    const username = localStorage.getItem("username");
-    if(!username){
-        showTimelineEditError("Sign in again before editing dates.");
-        return;
-    }
-
-    const body = { username, startedAt };
-    if(completed) body.completedAt = completedAt;
-    save.disabled = true;
-    showTimelineEditError("");
-
-    let saved = false;
+    const form=event.currentTarget,save=document.getElementById('timeline-edit-save');
+    if(save.disabled)return;
+    const mode=form.dataset.mode;
+    const completed=mode==='new'?document.getElementById('timeline-status').value==='completed':form.dataset.completed==='true';
+    const startValue=document.getElementById('timeline-start-date').value,finishValue=document.getElementById('timeline-finish-date').value;
+    const startedAt=startValue?dateInputToIso(startValue):null;
+    const completedAt=completed && finishValue?dateInputToIso(finishValue):null;
+    if((startValue && !startedAt)||(completed && finishValue && !completedAt))return showTimelineEditError('Enter a valid date or leave it blank.');
+    if(startedAt && completedAt && completedAt<startedAt)return showTimelineEditError('The finish date cannot be before the start date. Correct it or leave an unknown date blank.');
+    const body={startedAt};
+    if(completed)body.completedAt=completedAt;
+    if(mode!=='edit')Object.assign(body,{pathway:state.pathway,profileKey:state.profileKey,applicationId:state.application?.id || null,stepOrder:Number(form.dataset.stepOrder),status:completed?'completed':'in-progress'});
+    const url=mode==='edit'?`/api/timeline/edit/${encodeURIComponent(form.dataset.recordId)}`:mode==='new'?'/api/timeline/start':'/api/timeline/complete';
+    save.disabled=true;showTimelineEditError('');let saved=false;
     try{
-        const response = await fetch(`/api/timeline/edit/${encodeURIComponent(form.dataset.recordId)}`, {
-            method:"PUT",
-            headers:{ "Content-Type":"application/json" },
-            body:JSON.stringify(body)
-        });
-        const result = await response.json();
-        if(!response.ok) throw new Error(result.message || "Could not save dates.");
-
-        saved = true;
-        dialog.close();
-        await reloadJourney();
-        showJourneyNotice(result.analyticsUpdated === false
-            ? "Dates saved. Community average could not be refreshed; try again later."
-            : "Timeline dates saved.");
-    }
-    catch(error){
-        if(saved){
-            showJourneyNotice("Dates saved, but the Journey page could not refresh. Reload the page.");
-        } else {
-            showTimelineEditError(error.message || "Could not save dates.");
+        const response=await fetch(url,{method:mode==='new'?'POST':'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+        const result=await response.json();if(!response.ok)throw new Error(result.message || 'Could not save progress.');
+        saved=true;
+        if(completed){
+            state.completedSteps=[...new Set([...state.completedSteps,Number(form.dataset.stepOrder)])];
+            await updateJourneyProgress();
         }
-    }
-    finally{
-        save.disabled = false;
-    }
+        document.getElementById('timeline-edit-dialog').close();
+        await reloadJourney();
+        showJourneyNotice('Saved. You can add or correct dates later.');
+    }catch(error){
+        if(saved){document.getElementById('timeline-edit-dialog').close();showJourneyNotice('Timeline saved, but progress could not refresh. Reload and save its dates again to retry.');}
+        else showTimelineEditError(error.message || 'Could not save dates.');
+    }finally{save.disabled=false;}
 }
+
+
 
 // ============================================
 // EVENT LISTENERS
@@ -1935,11 +1778,17 @@ function setupEventListeners(){
         }
     });
 
+    document.getElementById('timeline-status').addEventListener('change',event=>{
+        document.getElementById('timeline-finish-field').hidden=event.target.value!=='completed';
+    });
+    document.getElementById('timeline-edit-dialog').addEventListener('cancel',event=>{
+        if(document.getElementById('timeline-edit-save').disabled)event.preventDefault();
+    });
     document.getElementById("timeline-edit-form")
         .addEventListener("submit", saveTimelineDates);
     document.getElementById("timeline-edit-cancel")
         .addEventListener("click", () => {
-            document.getElementById("timeline-edit-dialog").close();
+            if(!document.getElementById("timeline-edit-save").disabled)document.getElementById("timeline-edit-dialog").close();
         });
 }
 

@@ -11,6 +11,11 @@ function isListed(value, values) {
 function dateOnly(value) {
     if (!value) return null;
     if (!(value instanceof Date) && (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(value))) return null;
+    if (typeof value === "string") {
+        const calendar = value.slice(0,10);
+        const parsed = new Date(calendar);
+        if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0,10) !== calendar) return null;
+    }
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) return null;
     const day = date.toISOString().slice(0, 10);
@@ -89,17 +94,18 @@ function validateProfile(input = {}) {
             profile.currentStatus = "Permanent resident";
             profile.permitApprovalDate = null;
         }
-        if (!profile[outcome.dateField]) {
-            return { error: pathwayContext.isPermit(profile.pathway)
-                ? "Enter the date your permit application was approved."
-                : "Enter the date you became a permanent resident." };
-        }
+        // Completion is a self-reported status; its exact date may be unknown.
     }
 
     return validateDates(profile);
 }
 
 function validateDates(profile) {
+    for (const field of ["journeyStartDate","canadaArrivalDate","permanentResidenceDate","permitApprovalDate"]) {
+        const value=profile[field];
+        if(value==null || value==="")profile[field]=null;
+        else if(!dateOnly(value))return {error:"Enter valid dates, or leave unknown dates blank."};
+    }
     const today = new Date().toISOString().slice(0, 10);
     const dates = [profile.journeyStartDate, profile.canadaArrivalDate, profile.permanentResidenceDate, profile.permitApprovalDate]
         .filter(Boolean)
@@ -110,11 +116,11 @@ function validateDates(profile) {
     const start = dateOnly(profile.journeyStartDate);
     const permanentResidence = dateOnly(profile.permanentResidenceDate);
     if (start && permanentResidence && permanentResidence < start) {
-        return { error: "The permanent residence date must be after the pathway start date." };
+        return { error: "The permanent residence date cannot be before you began preparing." };
     }
     const approval = dateOnly(profile.permitApprovalDate);
     if (start && approval && approval < start) {
-        return { error: "The permit approval date cannot be before the pathway start date." };
+        return { error: "The permit approval date cannot be before you began preparing." };
     }
 
     return { profile };

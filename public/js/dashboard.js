@@ -94,7 +94,7 @@ function nextRoadmapStep() {
 
 function missingTimelineStep() {
     if (!dashboardState.roadmap?.steps?.length) return null;
-    const recorded = new Set(profileTimeline().filter(record => record.status === "completed").map(record => record.stepOrder));
+    const recorded = new Set(profileTimeline().filter(record => record.status === "completed" && record.startedAt && record.completedAt).map(record => record.stepOrder));
     return dashboardState.roadmap.steps.find(step => !recorded.has(step.order)) || null;
 }
 
@@ -103,7 +103,7 @@ function progressDetails() {
     if (!total) return { percent: 0, text: journeyType() === "planning" ? "Not started" : "Roadmap coming soon" };
 
     if (journeyType() === "completed") {
-        const contributed = new Set(profileTimeline().filter(record => record.status === "completed").map(record => record.stepOrder)).size;
+        const contributed = new Set(profileTimeline().filter(record => record.status === "completed" && record.startedAt && record.completedAt).map(record => record.stepOrder)).size;
         return { percent: Math.round((contributed / total) * 100), text: `${contributed} of ${total} dates shared` };
     }
 
@@ -267,9 +267,9 @@ function renderActivity() {
         heading.textContent = record.stepTitle;
         content.appendChild(heading);
         const time = document.createElement("time");
-        const date = record.completedAt || record.startedAt;
+        const date = record.status === "completed" ? record.completedAt : record.startedAt;
         time.dateTime = date || "";
-        time.textContent = formatDate(date);
+        time.textContent = date ? formatDate(date) : "Date not recorded";
         item.append(dot, content, time);
         container.appendChild(item);
     });

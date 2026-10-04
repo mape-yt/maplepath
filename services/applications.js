@@ -54,9 +54,8 @@ function validateDetails(input, definition, now = new Date()) {
             return {error:"Enter real dates that are not in the future."};
         }
     }
-    if (details.submissionLocation && !details.submittedOn) return {error:"Add the submission date before choosing where you submitted."};
-    if (Boolean(details.decidedOn) !== Boolean(details.outcome)) return {error:"Add both the result and its date, or leave both blank."};
-    if (details.decidedOn && (!details.submittedOn || details.decidedOn < details.submittedOn)) return {error:"The result date must be on or after submission."};
+    if (details.decidedOn && !details.outcome) return {error:"Choose which result this date refers to."};
+    if (details.decidedOn && details.submittedOn && details.decidedOn < details.submittedOn) return {error:"The result date must be on or after submission. Correct it or leave an unknown date blank."};
     return {details};
 }
 

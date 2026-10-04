@@ -36,7 +36,7 @@ router.post("/", async(req,res,next) => {
         if (validation.error) return res.status(400).json({message:validation.error});
         const active = await selectedApplication(user,definition);
         if (!applicationMatches(req.body.applicationId,active)) return res.status(409).json({message:"Your application changed. Reload Journey."});
-        if (active && !active.submittedOn && !active.permitType && !active.completedSteps.length
+        if (active && !active.submittedOn && !active.outcome && !active.submissionLocation && !active.permitType && !active.completedSteps.length
             && !await TimelineRecord.findOne({username:user.username,profileKey:definition.profileKey,...recordScope(active)})) {
             return res.status(409).json({message:"Your current application is empty. Use it before starting another."});
         }

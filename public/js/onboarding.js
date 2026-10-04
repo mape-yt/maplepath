@@ -92,7 +92,7 @@ function totalSteps() {
 
 function setRequired(groupId, input, required) {
     document.getElementById(groupId).classList.toggle("hidden", !required);
-    input.required = required;
+    input.required = required && input.type !== "date";
     if (!required) input.value = "";
 }
 
@@ -112,8 +112,8 @@ function configureDetails() {
     document.getElementById("details-help").textContent = isPlanning
         ? "These basics help MaplePath show relevant options without asking for information we do not use yet."
         : isCompleted
-            ? "These dates help you rebuild your timeline and contribute more useful community data."
-            : "These answers set the starting point for your roadmap. Approximate dates are okay.";
+            ? "Dates are optional. Leave anything you don’t remember blank and add it later."
+            : "Dates are optional. You can finish setup without guessing.";
     document.getElementById("location-label").textContent = isCompleted
         ? "Where were you living when you applied?"
         : "Where are you currently living?";

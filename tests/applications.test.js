@@ -7,18 +7,19 @@ const TimelineRecord = require('../models/TimelineRecord');
 const now=new Date('2026-10-03T12:00:00Z');
 const permit={pathway:'Work Permit',profileKey:'WP-PGWP'};
 
-test('application questions accept only useful fields and valid date/result pairs',()=>{
+test('application questions accept only useful fields and validate known dates',()=>{
     assert.deepEqual(validateDetails({},permit,now).details,{permitType:'',submissionLocation:'',submittedOn:'',decidedOn:'',outcome:''});
     for(const input of [
         {education:'degree'}, {username:'someone'}, {applicationNumber:'private'}, {dataSource:'self-reported'},
         {submittedOn:'2026-02-30'}, {submittedOn:'2027-01-01'}, {submittedOn:5},
         {submittedOn:'2026-09-01',decidedOn:'2026-08-01',outcome:'approved'},
-        {decidedOn:'2026-09-01',outcome:'approved'}, {outcome:'approved'},
         {submittedOn:'2026-09-01',decidedOn:'2026-09-02'},
-        {submissionLocation:'Inside Canada'}, {permitType:'anything'}, {submissionLocation:'Edmonton'}
+        {permitType:'anything'}, {submissionLocation:'Edmonton'}
     ]) assert.ok(validateDetails(input,permit,now).error,JSON.stringify(input));
     assert.ok(validateDetails({permitType:'new'},{pathway:'Express Entry'},now).error);
     assert.ok(validateDetails({submittedOn:'2026-09-01',decidedOn:'2026-09-01',outcome:'refused'},permit,now).details);
+    assert.ok(validateDetails({outcome:'approved',submissionLocation:'Inside Canada'},permit,now).details);
+    assert.ok(validateDetails({decidedOn:'2026-09-01',outcome:'approved'},permit,now).details);
 });
 
 test('new application indexes distinguish actual attempts without constraining matching durations',()=>{
@@ -126,4 +127,7 @@ test('application routes preserve legacy history, isolate attempts, protect owne
     assert.equal((await request('/api/analytics/WP-PGWP/1?location=Inside%20Canada&permitType=new')).body.totalRecords,6,'first application details explicitly cover its legacy timeline without rewriting it');
     fixture.user.immigrationProfile={pathway:'Express Entry',stream:'Canadian Experience Class (CEC)'};
     assert.equal((await request('/api/journey/progress/analytics-test')).body.application.id,a,'switching pathways restores the selected attempt');
+    const undated=await request('/api/applications','POST',{...key,applicationId:a,outcome:'refused'});
+    assert.equal(undated.status,201);
+    assert.equal((await request('/api/applications','POST',{...key,applicationId:undated.body.application.id})).status,201,'known outcome with unknown dates is not an empty attempt');
 });

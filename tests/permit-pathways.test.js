@@ -60,7 +60,7 @@ test("permit profiles enforce their stages, category, and approval dates", () =>
     assert.equal(validateProfile(profile(definition)).error, undefined);
     assert.match(validateProfile(profile(definition, { currentStage: "Landed as PR" })).error, /valid current stage/);
     assert.match(validateProfile(profile(definition, { stream: "Canadian Experience Class (CEC)" })).error, /supported program stream/);
-    assert.match(validateProfile(profile(definition, { journeyType: "completed" })).error, /permit application was approved/);
+    assert.equal(validateProfile(profile(definition, { journeyType: "completed" })).error, undefined);
     for (const date of ["2099-01-01", "2025-02-30", "not-a-date", "2024-01-01"]) {
         assert.ok(validateProfile(profile(definition, { journeyType: "completed", permitApprovalDate: date })).error);
     }
