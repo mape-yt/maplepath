@@ -34,6 +34,7 @@ async function createSession(res,user){
     await Session.create({
         tokenHash: hashToken(token),
         userId: user._id,
+        version: user.sessionVersion || 0,
         expiresAt: new Date(Date.now() + SESSION_SECONDS * 1000)
     });
     res.setHeader("Set-Cookie", cookieOptions({ value: token, seconds: SESSION_SECONDS }));
@@ -46,17 +47,23 @@ async function endSession(req,res){
 }
 
 function requireSameOrigin(req,res,next){
+    const safe = ['GET','HEAD','OPTIONS'].includes(req.method);
+    if (!safe && req.headers['sec-fetch-site'] && req.headers['sec-fetch-site'] !== 'same-origin') {
+        return res.status(403).json({message:'Cross-origin request denied.'});
+    }
     const origin = req.headers.origin;
     if(origin){
         try{
             const parsed = new URL(origin);
-            if(!["http:", "https:"].includes(parsed.protocol) ||
-                parsed.host !== req.headers.host){
+            if(parsed.origin !== `${req.protocol}://${req.headers.host}` || origin !== parsed.origin){
                 return res.status(403).json({ message: "Cross-origin request denied." });
             }
         } catch(error){
             return res.status(403).json({ message: "Cross-origin request denied." });
         }
+    }
+    if (!safe && !origin && req.headers['sec-fetch-site'] !== 'same-origin' && req.headers['x-requested-with'] !== 'MaplePath') {
+        return res.status(403).json({message:'Reload the page before trying again.'});
     }
     next();
 }
@@ -74,7 +81,7 @@ async function requireAuth(req,res,next){
         if(!session) return res.status(401).json({ message: "Session expired. Please sign in." });
 
         const user = await User.findById(session.userId);
-        if(!user) return res.status(401).json({ message: "Please sign in." });
+        if(!user || (session.version || 0) !== (user.sessionVersion || 0)) return res.status(401).json({ message: "Please sign in." });
 
         req.auth = {
             userId: user._id,

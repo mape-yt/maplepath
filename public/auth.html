@@ -68,16 +68,16 @@
           <div class="form-field">
             <label for="signup-password">Password</label>
             <div class="password-field">
-              <input id="signup-password" name="password" type="password" minlength="8" maxlength="128" autocomplete="new-password" required aria-describedby="signup-password-help">
+              <input id="signup-password" name="password" type="password" minlength="15" maxlength="72" autocomplete="new-password" required aria-describedby="signup-password-help">
               <button class="password-toggle" type="button" data-password-toggle="signup-password" aria-label="Show password">Show</button>
             </div>
-            <small id="signup-password-help">Use at least 8 characters.</small>
+            <small id="signup-password-help">Use at least 15 characters. A few memorable words work well.</small>
           </div>
 
           <button class="button button--full auth-submit" type="submit">Create my account <span aria-hidden="true">→</span></button>
           <p id="signup-message" class="form-message" role="status" aria-live="polite"></p>
 
-          <p class="auth-fine-print">No email required. MaplePath stores a protected password hash, never your plain-text password.</p>
+          <p class="auth-fine-print">No email required to sign up. Add a verified recovery email in Account after signing in.</p>
         </form>
 
         <form id="login-form" class="auth-form hidden" aria-labelledby="login-title" novalidate>
@@ -98,6 +98,7 @@
 
           <button class="button button--full auth-submit" type="submit">Continue to MaplePath <span aria-hidden="true">→</span></button>
           <p id="login-message" class="form-message" role="status" aria-live="polite"></p>
+          <a href="recover.html">Forgot your password?</a>
           <p class="auth-fine-print">Your session is protected with a secure, HTTP-only cookie.</p>
         </form>
 

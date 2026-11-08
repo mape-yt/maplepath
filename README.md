@@ -12,7 +12,7 @@ and compare completed-step durations with community timeline averages.
    3000. Never commit `.env`.
 3. Run `npm run dev` and open `http://localhost:3000`.
 
-`npm start` runs the same server without nodemon. The server connects to
+`npm run dev` uses Node's built-in watch mode. `npm start` runs without watching. The server connects to
 MongoDB and serves the API and files in `public/`.
 
 The start scripts use Node's system certificate store for the Atlas TLS

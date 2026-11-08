@@ -63,7 +63,7 @@ test("authentication markup preserves the JavaScript contract", () => {
         assert.match(html, new RegExp(`id="${id}"`), `auth.html is missing #${id}`);
     }
 
-    assert.match(html, /minlength="8"/, "new passwords need the production minimum length");
+    assert.match(html, /minlength="15"/, "new passwords need the production minimum length");
     assert.match(html, /src="js\/auth\.js"/, "auth.html must load its controller");
 });
 

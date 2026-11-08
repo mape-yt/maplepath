@@ -14,7 +14,9 @@ const pageNames = [
     "dashboard.html",
     "profile.html",
     "journey.html",
-    "community-method.html"
+    "community-method.html",
+    "account.html",
+    "recover.html"
 ];
 
 function read(relativePath) {

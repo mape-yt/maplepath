@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Account | MaplePath</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+<div class="container">
+    <div id="sidebar-container"></div>
+    <main class="main-content">
+        <h1>Account</h1>
+        <p id="account-notice" class="account-note" role="status"></p>
+        <div id="account-content" class="account-grid" hidden>
+            <section class="account-card">
+                <h2>Recovery email</h2>
+                <p id="email-status" class="account-note"></p>
+                <form id="email-form">
+                    <label for="account-email">Email address</label>
+                    <input id="account-email" type="email" maxlength="254" autocomplete="email" required>
+                    <label for="email-password">Current password</label>
+                    <input id="email-password" type="password" maxlength="128" autocomplete="current-password" required>
+                    <p class="account-note">Used only for account verification and password recovery.</p>
+                    <button type="submit">Send verification link</button>
+                    <p class="account-message" role="status"></p>
+                </form>
+            </section>
+            <section class="account-card">
+                <h2>Change password</h2>
+                <form id="password-form">
+                    <label for="current-password">Current password</label>
+                    <input id="current-password" type="password" maxlength="128" autocomplete="current-password" required>
+                    <label for="new-password">New password</label>
+                    <input id="new-password" type="password" minlength="15" maxlength="72" autocomplete="new-password" required>
+                    <label for="confirm-password">Confirm new password</label>
+                    <input id="confirm-password" type="password" minlength="15" maxlength="72" autocomplete="new-password" required>
+                    <p class="account-note">Use at least 15 characters. Changing it signs you out on every device.</p>
+                    <button type="submit">Change password</button>
+                    <p class="account-message" role="status"></p>
+                </form>
+            </section>
+            <section class="account-card account-card--green">
+                <h2>Signed-in devices</h2>
+                <p class="account-note">End all sessions, including this one.</p>
+                <form id="logout-all-form">
+                    <button type="submit">Sign out everywhere</button>
+                    <p class="account-message" role="status"></p>
+                </form>
+            </section>
+        </div>
+    </main>
+</div>
+<script src="js/session.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>

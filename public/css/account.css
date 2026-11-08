@@ -1,0 +1,18 @@
+[hidden] {display:none !important;}
+.account-grid {display:grid;align-items:start;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:1100px;margin-top:24px;}
+.account-card {background:#fff;border:1px solid #dce6df;border-radius:18px;padding:26px;min-width:0;}
+.account-card h2 {font-size:1.25rem;margin:0 0 18px;}
+.account-card label {display:block;font-weight:600;margin:16px 0 6px;}
+.account-card input {width:100%;min-width:0;min-height:46px;border:1px solid #a6bcb0;border-radius:8px;padding:10px 12px;background:#fff;font:inherit;}
+.account-card button {margin-top:18px;min-height:46px;padding:10px 18px;border:0;border-radius:9px;background:#246547;color:white;font:inherit;font-weight:600;cursor:pointer;}
+.account-card button:disabled {opacity:.6;cursor:wait;}
+.account-card input:focus-visible,.account-card button:focus-visible {outline:3px solid #6d9e83;outline-offset:3px;}
+.account-note {color:#4d6458;line-height:1.6;font-size:.94rem;margin-top:12px;overflow-wrap:anywhere;}
+.account-message {color:#8c2929;line-height:1.5;margin-top:14px;overflow-wrap:anywhere;}
+.account-card--green {background:#e4f0e8;}
+.recovery-main {max-width:540px;margin:36px auto;padding:0 16px;}
+.recovery-main a {color:#215c40;}
+.recovery-main h1 {font-size:1.7rem;margin:24px 0 12px;}
+.recovery-main .account-card {margin-top:20px;}
+@media(max-width:760px){.account-grid{grid-template-columns:1fr;}}
+@media(max-width:420px){.account-card{padding:20px 16px;}.account-card button{width:100%;}}

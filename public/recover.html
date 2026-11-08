@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Account recovery | MaplePath</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/account.css">
+</head>
+<body>
+<main class="recovery-main">
+    <a href="index.html">🍁 MaplePath</a>
+    <h1 id="recovery-heading">Reset your password</h1>
+    <p id="recovery-note" class="account-note">Use the email you verified in Account. If you haven't added one, email recovery is not available for your account.</p>
+    <section class="account-card">
+        <form id="recovery-form">
+            <div id="recovery-email-fields">
+                <label for="recovery-email">Verified email address</label>
+                <input id="recovery-email" type="email" maxlength="254" autocomplete="email" required>
+            </div>
+            <div id="recovery-password-fields" hidden>
+                <label for="recovery-password">New password</label>
+                <input id="recovery-password" type="password" minlength="15" maxlength="72" autocomplete="new-password">
+                <label for="recovery-confirm">Confirm new password</label>
+                <input id="recovery-confirm" type="password" minlength="15" maxlength="72" autocomplete="new-password">
+                <p class="account-note">Use at least 15 characters. A few memorable words work well.</p>
+            </div>
+            <button id="recovery-submit" type="submit">Send reset link</button>
+        </form>
+        <p id="recovery-message" class="account-message" role="status"></p>
+    </section>
+    <p class="account-note"><a href="auth.html?mode=login">Back to sign in</a></p>
+</main>
+<script src="js/recover.js"></script>
+</body>
+</html>

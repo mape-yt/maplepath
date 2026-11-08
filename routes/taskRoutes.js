@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
 
         const user = await currentUser(req, res);
         if (!user) return;
+        if ((user.dashboardTasks || []).length >= 100) return res.status(400).json({message:'You can keep up to 100 tasks. Remove an old task before adding another.'});
         const task = {
             id:crypto.randomUUID(),
             title,

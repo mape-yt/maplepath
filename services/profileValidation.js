@@ -24,7 +24,15 @@ function dateOnly(value) {
 }
 
 function validateProfile(input = {}) {
+    const fields = ['journeyType','country','education','currentStatus','pathway','stream','province','location','status','currentStage',
+        'journeyStartDate','canadaArrivalDate','permanentResidenceDate','permitApprovalDate'];
+    if (!input || typeof input !== 'object' || Array.isArray(input) || Object.keys(input).some(key=>!fields.includes(key))) {
+        return {error:'Unexpected profile fields.'};
+    }
     const profile = { ...input };
+    for (const field of fields.filter(field=>!field.endsWith('Date'))) {
+        if (profile[field] != null && (typeof profile[field] !== 'string' || profile[field].length > 256)) return {error:'Invalid profile value.'};
+    }
 
     if (!profile.journeyType) {
         const completed = Boolean(profile.permanentResidenceDate || profile.permitApprovalDate)

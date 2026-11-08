@@ -1,0 +1,147 @@
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const crypto=require('node:crypto');
+const bcrypt=require('bcrypt');
+const {createSecurityApp}=require('./helpers/security-app');
+const {passwordError}=require('../services/passwords');
+const TimelineRecord=require('../models/TimelineRecord');
+const Application=require('../models/Application');
+const Session=require('../models/Session');
+
+test('new password policy checks UTF-8 bytes without preventing legacy password login',()=>{
+    assert.ok(passwordError('short'));
+    assert.equal(passwordError('a'.repeat(72)),null);
+    assert.ok(passwordError('a'.repeat(73)));
+    assert.ok(passwordError('🍁'.repeat(19)));
+    assert.equal(passwordError('🍁'.repeat(15)),null);
+});
+
+test('real HTTP security: sessions, CSRF, ownership, password changes and email recovery',async t=>{
+    const fixture=createSecurityApp();
+    const server=fixture.app.listen(0,'127.0.0.1');
+    await new Promise(resolve=>server.once('listening',resolve));
+    t.after(()=>new Promise(resolve=>server.close(resolve)));
+    const base=`http://127.0.0.1:${server.address().port}`;
+    const password='A long initial password!';
+    const newPassword='A different long password!';
+    async function request(path,{method='GET',body,cookie,headers={}}={}){
+        const response=await fetch(base+path,{method,headers:{Origin:base,'Content-Type':'application/json',...(cookie?{Cookie:cookie}:{}),...headers},body:body===undefined?undefined:JSON.stringify(body)});
+        return {status:response.status,headers:response.headers,body:await response.json(),cookie:response.headers.get('set-cookie')?.split(';')[0]};
+    }
+    async function login(username='alice',value=password){const result=await request('/api/auth/login',{method:'POST',body:{username,password:value}});assert.equal(result.status,200);return result.cookie;}
+    async function nextMail(count){for(let i=0;i<60&&fixture.messages.length<count;i++)await new Promise(r=>setTimeout(r,10));assert.equal(fixture.messages.length,count);return fixture.messages.at(-1);}
+    const digest=token=>crypto.createHash('sha256').update(token).digest('hex');
+    const signup=await request('/api/auth/signup',{method:'POST',body:{username:'alice',password}});
+    assert.equal(signup.status,201);
+    assert.equal(signup.headers.get('cache-control'),'no-store');
+    assert.ok(signup.headers.get('content-security-policy'));
+    assert.equal(signup.headers.get('x-powered-by'),null);
+    assert.equal((await request('/api/auth/signup',{method:'POST',body:{username:{$ne:null},password}})).status,400);
+    assert.equal((await request('/api/auth/signup',{method:'POST',body:{username:'long',password:'a'.repeat(73)}})).status,400);
+    const alice=fixture.users[0];
+    assert.notEqual(alice.passwordHash,password);
+    const cookieA=await login();const cookieB=await login();
+    assert.notEqual(cookieA,cookieB);
+    assert.equal(fixture.sessions[0].tokenHash,digest(cookieA.split('=')[1]));
+    const loginHeaders=(await request('/api/auth/login',{method:'POST',body:{username:'alice',password}})).headers.get('set-cookie');
+    assert.match(loginHeaders,/HttpOnly/);assert.match(loginHeaders,/SameSite=Strict/);
+    assert.equal((await request('/api/auth/session',{cookie:cookieA})).status,200);
+    const session=fixture.sessions.find(row=>row.tokenHash===digest(cookieB.split('=')[1]));session.expiresAt=new Date(0);
+    assert.equal((await request('/api/auth/session',{cookie:cookieB})).status,401);
+    for(const path of ['/api/profile/alice','/api/timeline/alice','/api/tasks','/api/account','/api/applications','/api/analytics/EE-CEC/1'])assert.equal((await request(path)).status,401,path);
+    for(const path of ['/api/profile/bob','/api/timeline/bob','/api/journey/progress/bob'])assert.equal((await request(path,{cookie:cookieA})).status,403,path);
+    fixture.records.push(new TimelineRecord({username:'bob',pathway:'Express Entry',profileKey:'EE-CEC',stepOrder:1,stepTitle:'Check Eligibility',status:'completed'}));
+    assert.equal((await request('/api/timeline/edit/'+fixture.records[0]._id,{method:'PUT',cookie:cookieA,body:{startedAt:null}})).status,404);
+    alice.immigrationProfile={journeyType:'pathway',pathway:'Express Entry',stream:'Canadian Experience Class (CEC)',location:'Inside Canada',province:'Alberta',status:'Preparing application',currentStage:'Preparing documents'};
+    fixture.applications.push(new Application({username:'bob',profileKey:'EE-CEC'}));
+    assert.equal((await request('/api/applications/'+fixture.applications[0]._id,{method:'PUT',cookie:cookieA,body:{profileKey:'EE-CEC'}})).status,404);
+    assert.equal((await request('/api/profile/alice',{method:'PATCH',cookie:cookieA,body:{passwordHash:'hijack'}})).status,400);
+    assert.equal((await request('/api/profile/alice',{method:'PATCH',cookie:cookieA,body:{currentStatus:{$ne:null}}})).status,400);
+    const cross=await request('/api/tasks',{method:'POST',cookie:cookieA,headers:{Origin:'https://evil.example'},body:{title:'bad'}});assert.equal(cross.status,403);
+    assert.equal((await request('/api/tasks',{method:'POST',cookie:cookieA,headers:{'Sec-Fetch-Site':'same-site'},body:{title:'bad'}})).status,403);
+    const noOrigin=await fetch(base+'/api/auth/logout',{method:'POST',headers:{Cookie:cookieA}});assert.equal(noOrigin.status,403);
+    assert.equal((await request('/api/tasks',{method:'POST',cookie:cookieA,body:[]})).status,400);
+    const malformed=await fetch(base+'/api/auth/login',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{"password":"SECRET"'});
+    assert.equal(malformed.status,400);assert.doesNotMatch(await malformed.text(),/SECRET|SyntaxError|stack/);
+    const form=await fetch(base+'/api/auth/login',{method:'POST',headers:{Origin:base,'Content-Type':'application/x-www-form-urlencoded'},body:'username=alice&password=x'});assert.equal(form.status,415);
+    const oversized=await request('/api/auth/login',{method:'POST',body:{password:'x'.repeat(110000)}});assert.equal(oversized.status,413);
+    assert.equal((await request('/api/tasks',{method:'POST',cookie:cookieA,body:{title:'<script>alert(1)</script>'}})).status,201);
+    assert.equal((await request('/api/tasks/another-account-task',{method:'DELETE',cookie:cookieA})).status,404);
+    const account=await request('/api/account',{cookie:cookieA});assert.equal(account.status,200);assert.doesNotMatch(JSON.stringify(account.body),/passwordHash|sessionVersion|tokenHash/);
+    assert.equal((await request('/api/account/email',{method:'POST',cookie:cookieA,body:{email:'alice@example.com',password:'wrong'}})).status,403);
+    assert.equal((await request('/api/account/email',{method:'POST',cookie:cookieA,body:{email:'Alice@example.com',password}})).status,200);
+    const verify=await nextMail(1);assert.equal(verify.purpose,'verify');assert.equal(verify.to,'alice@example.com');
+    assert.equal(alice.email,undefined);assert.equal(alice.emailVerification.tokenHash,digest(verify.token));
+    assert.equal((await request('/api/account/forgot-password',{method:'POST',body:{email:'alice@example.com'}})).status,202);
+    await new Promise(r=>setTimeout(r,30));assert.equal(fixture.messages.length,1,'unverified address cannot recover an account');
+    assert.equal((await request('/api/account/verify-email',{method:'POST',body:{token:verify.token}})).status,200);
+    assert.equal(alice.email,'alice@example.com');assert.equal((await request('/api/auth/session',{cookie:cookieA})).status,401);
+    assert.equal((await request('/api/account/verify-email',{method:'POST',body:{token:verify.token}})).status,400);
+    const cookieC=await login();const cookieD=await login();
+    const known=await request('/api/account/forgot-password',{method:'POST',body:{email:'alice@example.com'}});
+    const unknown=await request('/api/account/forgot-password',{method:'POST',body:{email:'unknown@example.com'}});
+    assert.equal(known.status,unknown.status);assert.deepEqual(known.body,unknown.body);
+    const reset=await nextMail(2);assert.equal(alice.passwordReset.tokenHash,digest(reset.token));
+    assert.equal((await request('/api/account/reset-password',{method:'POST',body:{token:reset.token,password:'short'}})).status,400);
+    const simultaneous=await Promise.all([1,2].map(()=>request('/api/account/reset-password',{method:'POST',body:{token:reset.token,password:newPassword}})));
+    assert.deepEqual(simultaneous.map(r=>r.status).sort(),[200,400],'single-use reset stays single-use under concurrent requests');
+    for(const cookie of [cookieC,cookieD])assert.equal((await request('/api/auth/session',{cookie})).status,401);
+    assert.equal((await request('/api/auth/login',{method:'POST',body:{username:'alice',password}})).status,401);
+    const cookieE=await login('alice',newPassword);
+    const expired='a'.repeat(64);alice.passwordReset={tokenHash:digest(expired),expiresAt:new Date(0)};
+    assert.equal((await request('/api/account/reset-password',{method:'POST',body:{token:expired,password}})).status,400);
+    assert.equal((await request('/api/account/password',{method:'POST',cookie:cookieE,body:{currentPassword:'wrong',newPassword:password}})).status,403);
+    const staleVersion=alice.sessionVersion;
+    assert.equal((await request('/api/account/password',{method:'POST',cookie:cookieE,body:{currentPassword:newPassword,newPassword:password}})).status,200);
+    assert.equal(alice.passwordReset?.tokenHash,undefined);
+    const lateToken='b'.repeat(64);fixture.sessions.push(new Session({userId:alice._id,tokenHash:digest(lateToken),version:staleVersion,expiresAt:new Date(Date.now()+60000)}));
+    assert.equal((await request('/api/auth/session',{cookie:'maplepath_session='+lateToken})).status,401,'a late session created with an old version stays invalid');
+    const cookieF=await login();const cookieG=await login();
+    assert.equal((await request('/api/account/logout-all',{method:'POST',cookie:cookieF,body:{}})).status,200);
+    assert.equal((await request('/api/auth/session',{cookie:cookieG})).status,401);
+    const cookieH=await login();
+    fixture.setFailMail(true);
+    const mailFailure=await request('/api/account/email',{method:'POST',cookie:cookieH,body:{email:'new@example.com',password}});
+    assert.equal(mailFailure.status,503);assert.equal(alice.emailVerification?.tokenHash,undefined);
+    assert.equal(alice.email,'alice@example.com','delivery failure keeps verified address');
+    fixture.setEmailReady(false);
+    assert.equal((await request('/api/account/email',{method:'POST',cookie:cookieH,body:{email:'other@example.com',password}})).status,503);
+    assert.equal((await request('/api/account/forgot-password',{method:'POST',body:{email:'alice@example.com'}})).status,503);
+    const bob=await require('../models/User').create({username:'bob',passwordHash:await bcrypt.hash('old-pass',10)});
+    const duplicateToken='c'.repeat(64);
+    bob.emailVerification={email:'alice@example.com',tokenHash:digest(duplicateToken),expiresAt:new Date(Date.now()+60000)};
+    assert.equal((await request('/api/account/verify-email',{method:'POST',body:{token:duplicateToken}})).status,409);
+    assert.equal(bob.email,undefined,'verification cannot take another account’s verified address');
+    bob.emailVerification.expiresAt=new Date(0);
+    assert.equal((await request('/api/account/verify-email',{method:'POST',body:{token:duplicateToken}})).status,400);
+    assert.ok(await login('bob','old-pass'),'legacy short passwords still work');
+    assert.ok(bob);
+});
+
+test('verified email index allows legacy missing/null emails while preventing address reuse',()=>{
+    const index=require('../models/User').schema.indexes().find(([keys])=>keys.email===1);
+    assert.equal(index[1].unique,true);
+    assert.deepEqual(index[1].partialFilterExpression,{email:{$type:'string'}});
+});
+
+test('production cookies are secure and protocol mismatches are rejected',async t=>{
+    const previous=process.env.NODE_ENV;process.env.NODE_ENV='production';
+    t.after(()=>{if(previous===undefined)delete process.env.NODE_ENV;else process.env.NODE_ENV=previous;});
+    const fixture=createSecurityApp();const server=fixture.app.listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));t.after(()=>new Promise(r=>server.close(r)));
+    const base=`http://127.0.0.1:${server.address().port}`;
+    const headers={Origin:base.replace('http:','https:'),'X-Forwarded-Proto':'https','Content-Type':'application/json'};
+    const body=JSON.stringify({username:'secure-user',password:'A long secure passphrase!'});
+    assert.equal((await fetch(base+'/api/auth/signup',{method:'POST',headers,body})).status,201);
+    const result=await fetch(base+'/api/auth/login',{method:'POST',headers,body});
+    assert.match(result.headers.get('set-cookie'),/; Secure/);
+    const mismatched=await fetch(base+'/api/auth/login',{method:'POST',headers:{...headers,Origin:base},body});
+    assert.equal(mismatched.status,403);
+});
+
+test('auth rate limits cannot be bypassed with trailing slashes or case changes',async t=>{
+    const fixture=createSecurityApp();const server=fixture.app.listen(0,'127.0.0.1');await new Promise(r=>server.once('listening',r));t.after(()=>new Promise(r=>server.close(r)));
+    const base=`http://127.0.0.1:${server.address().port}`;
+    let response;
+    for(let i=0;i<31;i++)response=await fetch(base+'/api/auth/LOGIN/',{method:'POST',headers:{Origin:base,'Content-Type':'application/json'},body:'{}'});
+    assert.equal(response.status,429);assert.ok(response.headers.get('retry-after'));
+});

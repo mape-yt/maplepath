@@ -1,6 +1,6 @@
-const bcrypt = require("bcrypt");
+const { passwordError, matches, hashPassword } = require('../services/passwords');
 const User = require("../models/User");
-const { createSession } = require("../middleware/auth");
+const { createSession, endSession } = require("../middleware/auth");
 
 const USERNAME_PATTERN = /^[A-Za-z0-9._-]+$/;
 
@@ -26,9 +26,10 @@ exports.signup = async (req, res) => {
             });
         }
 
-        if (password.length < 8 || password.length > 128) {
+        const error = passwordError(password);
+        if (error) {
             return res.status(400).json({
-                message: "Password must be between 8 and 128 characters."
+                message: error
             });
         }
 
@@ -40,7 +41,7 @@ exports.signup = async (req, res) => {
             });
         }
 
-        const passwordHash = await bcrypt.hash(password, 10);
+        const passwordHash = await hashPassword(password);
 
         await User.create({
             username,
@@ -57,7 +58,7 @@ exports.signup = async (req, res) => {
             });
         }
 
-        console.error(error);
+        console.error('Signup failed.');
         res.status(500).json({
             message: "Server error."
         });
@@ -87,16 +88,7 @@ exports.login = async (req, res) => {
 
         const user = await User.findOne({ username });
 
-        if (!user) {
-            return res.status(401).json({
-                message: "Incorrect username or password."
-            });
-        }
-
-        const passwordMatches = await bcrypt.compare(
-            password,
-            user.passwordHash
-        );
+        const passwordMatches = await matches(password, user?.passwordHash);
 
         if (!passwordMatches) {
             return res.status(401).json({
@@ -104,6 +96,7 @@ exports.login = async (req, res) => {
             });
         }
 
+        await endSession(req, res);
         await createSession(res, user);
 
         res.json({
@@ -112,7 +105,7 @@ exports.login = async (req, res) => {
             profileCompleted: user.profileCompleted
         });
     } catch (error) {
-        console.error(error);
+        console.error('Login failed.');
         res.status(500).json({
             message: "Server error."
         });

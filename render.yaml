@@ -8,5 +8,9 @@ services:
     healthCheckPath: /api/health
     autoDeployTrigger: commit
     envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PUBLIC_APP_URL
+        value: https://maplepath-3b6a.onrender.com
       - key: MONGO_URI
         sync: false

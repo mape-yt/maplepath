@@ -25,6 +25,16 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 
+    sessionVersion: { type: Number, default: 0 },
+    // Only verified addresses occupy the unique index. Legacy users need no email.
+    email: { type: String },
+    emailVerification: {
+        email: String, tokenHash: String, expiresAt: Date, requestedAt: Date
+    },
+    passwordReset: {
+        tokenHash: String, expiresAt: Date, requestedAt: Date
+    },
+
     profileCompleted: {
         type: Boolean,
         default: false
@@ -101,5 +111,7 @@ const userSchema = new mongoose.Schema({
     dashboardTasks: { type:[dashboardTaskSchema], default:[] },
 
 });
+
+userSchema.index({email:1},{unique:true,partialFilterExpression:{email:{$type:'string'}}});
 
 module.exports = mongoose.model("User", userSchema);
