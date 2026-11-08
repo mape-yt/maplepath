@@ -36,6 +36,11 @@ function createApp() {
     for (const [name,file] of Object.entries({profile:'profile',tasks:'task',journey:'journey',timeline:'timeline',analytics:'analytics',applications:'application'})) {
         app.use(`/api/${name}`,requireAuth,require(`./routes/${file}Routes`));
     }
+    app.get('/api/support',(req,res)=>{
+        const configured=process.env.SUPPORT_EMAIL || '';
+        const email=/^[-a-z0-9._+]+@[-a-z0-9.]+\.[a-z]{2,}$/i.test(configured) ? configured : 'sylim.cs@gmail.com';
+        res.json({email});
+    });
     app.use('/api/options',require('./routes/optionsRoutes'));
     app.get('/api/health',(req,res)=>{
         const connected=mongoose.connection.readyState===1;
@@ -48,9 +53,9 @@ function createApp() {
     }}));
     app.use((error,req,res,next)=>{
         if (res.headersSent) return next(error);
-        const status = [400,413,415].includes(error.status) ? error.status : 500;
+        const status = [400,409,413,415].includes(error.status) ? error.status : 500;
         if (status===500) console.error('Request failed:',error.name || 'Error');
-        const message = status===413?'Request is too large.':status===415?'Unsupported request format.':status===400?'Invalid request.':'Something went wrong. Please try again.';
+        const message = status===409?'Your account changed. Sign in again.':status===413?'Request is too large.':status===415?'Unsupported request format.':status===400?'Invalid request.':'Something went wrong. Please try again.';
         res.status(status).json({message});
     });
     return app;

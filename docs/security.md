@@ -112,3 +112,7 @@ Updated: `server.js`, `middleware/auth.js`, `controllers/authController.js`,
 - https://github.com/kelektiv/node.bcrypt.js
 - https://resend.com/docs/api-reference/emails/send-email
 - https://resend.com/docs/dashboard/domains/introduction
+
+## Launch follow-up
+
+See [launch-readiness.md](launch-readiness.md) for Brevo setup without a custom domain, account deletion transactions, public support/privacy pages, and the outstanding backup verification.

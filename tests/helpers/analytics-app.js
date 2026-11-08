@@ -6,10 +6,11 @@ const User = require("../../models/User");
 const Application = require("../../models/Application");
 
 function createAnalyticsApp(seed = [], { browserPreview = false } = {}) {
+    require('mongoose').connection.transaction=async work=>work({fixture:true});
     let records = seed.map(row => new TimelineRecord(row));
     let failReads = false;
     let applications = [];
-    const user = { username:"analytics-test", immigrationProfile: {
+    const user = { _id:new (require("mongoose").Types.ObjectId)(), username:"analytics-test", immigrationProfile: {
         journeyType:"pathway", pathway:"Express Entry", stream:"Canadian Experience Class (CEC)",
         location:"Inside Canada", province:"Alberta", currentStage:"Background Check", status:"Waiting for decision"
     }};
@@ -20,7 +21,8 @@ function createAnalyticsApp(seed = [], { browserPreview = false } = {}) {
     const match = (row, query) => Object.entries(query).every(([key,value]) => {
         if(key==="$or")return value.some(part=>match(row,part));
         if(value===null)return row[key]==null;
-        if(value?.$in)return value.$in.some(item=>String(row[key])===String(item));
+        if(value?.$exists!==undefined)return (row[key]!==undefined)===value.$exists;
+        if(value?.$in)return value.$in.some(item=>item==null ? row[key]==null : String(row[key])===String(item));
         return String(row[key]) === String(value);
     });
     Application.findOne = async query => applications.find(row=>match(row,query)) || null;
@@ -49,10 +51,11 @@ function createAnalyticsApp(seed = [], { browserPreview = false } = {}) {
         if (!records.some(row=>String(row._id)===String(this._id))) records.push(this);
         return this;
     };
+    User.findById=async id=>String(id)===String(user._id)?user:null;
     User.findOne = async ({username}) => username === user.username ? user : null;
     User.updateOne = async(query,update)=>{
-        if(query.username!==user.username)return {matchedCount:0};
-        for(const [key,value] of Object.entries(update.$set))user.activeApplications.set(key.slice('activeApplications.'.length),value);
+        if(query.username && query.username!==user.username || query._id && String(query._id)!==String(user._id))return {matchedCount:0};
+        for(const [key,value] of Object.entries(update.$set || {}))user.activeApplications.set(key.slice('activeApplications.'.length),value);
         return {matchedCount:1};
     };
     const authPath = require.resolve("../../middleware/auth");
@@ -65,7 +68,7 @@ function createAnalyticsApp(seed = [], { browserPreview = false } = {}) {
     // Production authentication is outside the scope of this fixture.
     app.use("/api",(req,res,next)=>{
         if(!browserPreview && req.get("x-test-user")!==user.username) return res.sendStatus(401);
-        req.auth={username:user.username};next();
+        req.auth={username:user.username,userId:user._id};next();
     });
     app.get("/api/auth/session",(req,res)=>res.json({username:user.username}));
     app.get("/api/profile/:username",(req,res)=>res.json(user.immigrationProfile));

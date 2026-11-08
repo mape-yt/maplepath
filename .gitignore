@@ -2,3 +2,12 @@ node_modules/
 .env
 .env.*
 !.env.example
+
+# Database copies and local backup configuration must never be committed.
+backups/
+dumps/
+*.archive
+*.bson
+*.bson.gz
+*.backup
+backup-tools.yml

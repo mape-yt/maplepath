@@ -163,3 +163,5 @@ loginForm.addEventListener("submit", async event => {
 
 const requestedMode = new URLSearchParams(window.location.search).get("mode");
 setMode(requestedMode === "login" ? "login" : "signup", false);
+
+if(new URLSearchParams(window.location.search).get('deleted')==='1'){setMode('login',false);setMessage(loginMessage,'Your account and saved journey data have been deleted.',true);}

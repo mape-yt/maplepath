@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 // One application attempt. Program/province labels come from the roadmap registry.
 const schema = new mongoose.Schema({
+    ownerId: {type:mongoose.Schema.Types.ObjectId, immutable:true},
     username: { type:String, required:true, immutable:true },
     profileKey: { type:String, required:true, immutable:true },
     includesLegacy: { type:Boolean, default:false, immutable:true },

@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const publicRoot = path.join(__dirname, "..", "public");
-const pageNames = ["index.html", "about.html", "aboutdev.html", "auth.html", "community-method.html"];
+const pageNames = ["index.html", "about.html", "aboutdev.html", "auth.html", "community-method.html", "contact.html", "privacy.html"];
 
 function readPublic(relativePath) {
     return fs.readFileSync(path.join(publicRoot, relativePath), "utf8");
@@ -29,7 +29,7 @@ test("every local public-page link and asset resolves", () => {
         const references = [...html.matchAll(/(?:href|src)="([^"]+)"/gi)]
             .map(match => match[1])
             .filter(reference =>
-                !reference.startsWith("#") &&
+                !reference.startsWith("#") && !reference.startsWith("mailto:") &&
                 !reference.startsWith("http://") &&
                 !reference.startsWith("https://")
             );
@@ -130,7 +130,7 @@ test("dashboard tasks are stored on the user instead of server memory", () => {
     const model = fs.readFileSync(path.join(__dirname, "..", "models", "User.js"), "utf8");
     const route = fs.readFileSync(path.join(__dirname, "..", "routes", "taskRoutes.js"), "utf8");
     assert.match(model, /dashboardTasks:/);
-    assert.match(route, /User\.findOne/);
+    assert.match(route, /User\.findById/);
     assert.match(route, /crypto\.randomUUID/);
     assert.doesNotMatch(route, /tasksByUser|new Map\(/);
 });

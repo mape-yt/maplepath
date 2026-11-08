@@ -32,5 +32,6 @@
         if($('new-password').value!==$('confirm-password').value)throw new Error('The new passwords do not match.');
         await request('/password',{currentPassword:$('current-password').value,newPassword:$('new-password').value});signedOut();
     });
+    submit('delete-form',async()=>{await request('/delete',{password:$('delete-password').value,confirmation:$('delete-confirmation').value});localStorage.removeItem('username');localStorage.removeItem('journeyType');window.location.href='auth.html?deleted=1';});
     submit('logout-all-form',async()=>{await request('/logout-all',{});signedOut();});
 })();

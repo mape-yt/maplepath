@@ -1,3 +1,4 @@
+const {saveOwned} = require('../services/accountData');
 const express = require("express");
 
 const router = express.Router();
@@ -26,7 +27,7 @@ router.param("username", requireOwnUsername);
 router.post("/start", async (req,res) => {
     try{
         const username = req.auth.username;
-        const user = await User.findOne({ username });
+        const user = await User.findById(req.auth.userId);
         if(!user) return res.status(404).json({ message:"User not found." });
         const definition = roadmapForProfile(user.immigrationProfile);
         if(!definition) return res.status(404).json({ message:"No roadmap for this profile yet." });
@@ -44,12 +45,12 @@ router.post("/start", async (req,res) => {
         if (!applicationMatches(req.body.applicationId,application)) return res.status(409).json({message:"Your application changed. Reload Journey."});
         const scope = recordScope(application);
 
-        const completed = await TimelineRecord.findOne({
+        const completed = await TimelineRecord.findOne({ownerId:{$in:[req.auth.userId,null]},
             username, profileKey, stepOrder, ...scope, status:"completed"
         });
         if(completed) return res.status(409).json({ message:"Step already completed. Edit its dates if needed." });
 
-        const existing = await TimelineRecord.findOne({
+        const existing = await TimelineRecord.findOne({ownerId:{$in:[req.auth.userId,null]},
             username, profileKey, stepOrder, ...scope, status:"in-progress"
         });
         if(existing && req.body.status === "completed") return res.status(409).json({message:"This step was already started in another request. Reload Journey to record its completion."});
@@ -72,7 +73,7 @@ router.post("/start", async (req,res) => {
             context: application && isPermit(definition) ? undefined : { location: LOCATIONS.includes(user.immigrationProfile.location)
                 ? user.immigrationProfile.location : "Unknown" }
         });
-        await record.save();
+        await saveOwned(record, req.auth.userId);
         res.json({ message:"Step started.", record });
     } catch(error){
         if (error.code===11000) return res.status(409).json({message:"This step was just started. Reload Journey."});
@@ -86,7 +87,7 @@ router.post("/start", async (req,res) => {
 router.put("/complete", async (req,res) => {
     try{
         const username = req.auth.username;
-        const user = await User.findOne({ username });
+        const user = await User.findById(req.auth.userId);
         if(!user) return res.status(404).json({ message:"User not found." });
         const definition = roadmapForProfile(user.immigrationProfile);
         if(!definition) return res.status(404).json({ message:"No roadmap for this profile yet." });
@@ -101,7 +102,7 @@ router.put("/complete", async (req,res) => {
         }
         const application = await selectedApplication(user,definition);
         if (!applicationMatches(req.body.applicationId,application)) return res.status(409).json({message:"Your application changed. Reload Journey."});
-        const record = await TimelineRecord.findOne({
+        const record = await TimelineRecord.findOne({ownerId:{$in:[req.auth.userId,null]},
             username, profileKey:definition.profileKey, stepOrder, ...recordScope(application), status:"in-progress"
         });
         if(!record) return res.status(404).json({ message:"Active step not found." });
@@ -114,7 +115,7 @@ router.put("/complete", async (req,res) => {
         record.completedAt = completedAt;
         record.durationDays = durationDays(startedAt,completedAt);
         record.status = "completed";
-        await record.save();
+        await saveOwned(record, req.auth.userId);
         res.json({ message:"Step completed.", durationDays:record.durationDays });
     } catch(error){
         console.error(error);
@@ -134,7 +135,8 @@ router.get("/:username", async (req,res)=>{
             await TimelineRecord.find({
 
                 username:
-                req.params.username
+                req.params.username,
+                $or:[{ownerId:req.auth.userId},{ownerId:{$exists:false}}]
 
             });
 
@@ -189,7 +191,7 @@ router.put("/edit/:id", async (req,res)=>{
             return res.status(400).json({ message:"Invalid timeline record ID." });
         }
 
-        const record = await TimelineRecord.findOne({
+        const record = await TimelineRecord.findOne({ownerId:{$in:[req.auth.userId,null]},
             _id:req.params.id,
             username
         });
@@ -219,7 +221,7 @@ router.put("/edit/:id", async (req,res)=>{
             ? durationDays(newStart, newEnd)
             : null;
 
-        await record.save();
+        await saveOwned(record, req.auth.userId);
         res.json({ message:"Timeline updated.", record, analyticsUpdated:true });
     }
     catch(error){

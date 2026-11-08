@@ -51,6 +51,21 @@
                     <p class="account-message" role="status"></p>
                 </form>
             </section>
+            <section class="account-card account-card--danger">
+                <h2>Delete account</h2>
+                <p class="account-note">Permanently remove your profile, tasks, applications, and timelines. This cannot be undone.</p>
+                <details><summary>Delete my account</summary>
+                    <form id="delete-form">
+                        <label for="delete-password">Current password</label>
+                        <input id="delete-password" type="password" maxlength="128" autocomplete="current-password" required>
+                        <label for="delete-confirmation">Type DELETE to confirm</label>
+                        <input id="delete-confirmation" type="text" pattern="DELETE" autocomplete="off" required>
+                        <p class="account-note">This signs you out on every device. See our <a href="privacy.html">privacy notice</a> for support messages and backup copies.</p>
+                        <button type="submit">Permanently delete account</button>
+                        <p class="account-message" role="status"></p>
+                    </form>
+                </details>
+            </section>
         </div>
     </main>
 </div>

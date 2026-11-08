@@ -64,3 +64,7 @@ they are isolated per account while the server is running and reset on restart.
 
 Local development over `http://localhost` works without a `Secure` cookie.
 Production must serve the entire app over HTTPS with `NODE_ENV=production`.
+
+## Launch setup
+
+See [launch readiness](docs/launch-readiness.md) for account email activation, contact address configuration, account deletion, privacy, and backup/restore verification. Email delivery and production backups still require operator setup and verification.

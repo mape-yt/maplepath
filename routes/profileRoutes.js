@@ -22,9 +22,7 @@ router.get("/:username", async (req, res) => {
 
     try {
 
-        const user = await User.findOne({
-            username: req.params.username
-        });
+        const user = await User.findById(req.auth.userId);
 
         if (!user) {
 
@@ -60,9 +58,7 @@ router.put("/onboarding/:username", async (req, res) => {
 
     try {
 
-        const user = await User.findOne({
-            username: req.params.username
-        });
+        const user = await User.findById(req.auth.userId);
 
         if (!user) {
 
@@ -118,9 +114,7 @@ router.patch("/:username", async (req, res) => {
 
     try {
 
-        const user = await User.findOne({
-            username: req.params.username
-        });
+        const user = await User.findById(req.auth.userId);
 
         if (!user) {
 

@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const crypto = require("node:crypto");
 const Session = require("../models/Session");
 const User = require("../models/User");
@@ -31,11 +32,17 @@ function hashToken(token){
 
 async function createSession(res,user){
     const token = crypto.randomBytes(32).toString("hex");
-    await Session.create({
-        tokenHash: hashToken(token),
-        userId: user._id,
-        version: user.sessionVersion || 0,
-        expiresAt: new Date(Date.now() + SESSION_SECONDS * 1000)
+    await mongoose.connection.transaction(async session => {
+        const owner = await User.updateOne({_id:user._id,passwordHash:user.passwordHash,
+            ...(user.sessionVersion ? {sessionVersion:user.sessionVersion} : {$or:[{sessionVersion:0},{sessionVersion:{$exists:false}}]})},
+            {$inc:{dataRevision:1}},{session});
+        if (owner.matchedCount !== 1) throw new Error('Account changed during sign-in');
+        await Session.create([{
+            tokenHash: hashToken(token),
+            userId: user._id,
+            version: user.sessionVersion || 0,
+            expiresAt: new Date(Date.now() + SESSION_SECONDS * 1000)
+        }],{session});
     });
     res.setHeader("Set-Cookie", cookieOptions({ value: token, seconds: SESSION_SECONDS }));
 }

@@ -1,3 +1,4 @@
+const {saveOwned} = require('../services/accountData');
 const express = require("express");
 const User = require("../models/User");
 const { requireOwnUsername } = require("../middleware/auth");
@@ -12,7 +13,7 @@ router.param("username", requireOwnUsername);
 // Keep this route above /:pathway/:stream.
 router.get("/progress/:username", async (req, res) => {
     try{
-        const user = await User.findOne({ username:req.params.username });
+        const user = await User.findById(req.auth.userId);
         if(!user) return res.status(404).json({ message:"User not found." });
 
         const definition = roadmapForProfile(user.immigrationProfile);
@@ -35,7 +36,7 @@ router.get("/progress/:username", async (req, res) => {
 
 router.put("/progress/:username", async (req, res) => {
     try{
-        const user = await User.findOne({ username:req.params.username });
+        const user = await User.findById(req.auth.userId);
         if(!user) return res.status(404).json({ message:"User not found." });
 
         const definition = roadmapForProfile(user.immigrationProfile);
@@ -60,7 +61,7 @@ router.put("/progress/:username", async (req, res) => {
         if (application) {
             application.completedSteps = completedSteps;
             application.currentStep = currentStep;
-            await application.save();
+            await saveOwned(application, req.auth.userId);
         } else {
             saveProgress(user, definition.profileKey, completedSteps, currentStep);
             await user.save();

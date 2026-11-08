@@ -38,7 +38,7 @@ async function calculate(req, res, batch = false) {
         if (records.length > POLICY.maximumRecords) {
             return res.status(503).json({ message: "Community data is temporarily unavailable. Please try again later." });
         }
-        const user = await User.findOne({username:req.auth.username});
+        const user = await User.findById(req.auth.userId);
         const active = user ? await selectedApplication(user,definition) : null;
         if (dataMode === "community" && records.length) {
             const ids = [...new Set(records.filter(row=>row.applicationId).map(row=>String(row.applicationId)))];

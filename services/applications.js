@@ -7,7 +7,7 @@ const idOf = value => value == null ? "" : String(value);
 async function selectedApplication(user, definition) {
     const id = user.activeApplications?.get(definition.profileKey);
     if (!id) return null;
-    const application = await Application.findOne({_id:id, username:user.username, profileKey:definition.profileKey});
+    const application = await Application.findOne({ownerId:{$in:[user._id,null]},_id:id, username:user.username, profileKey:definition.profileKey});
     if (!application) throw new Error("Selected application not found.");
     return application;
 }

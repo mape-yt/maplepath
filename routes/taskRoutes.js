@@ -5,7 +5,7 @@ const User = require("../models/User");
 const router = express.Router();
 
 async function currentUser(req, res) {
-    const user = await User.findOne({ username:req.auth.username });
+    const user = await User.findById(req.auth.userId);
     if (!user) res.status(404).json({ message:"User not found." });
     return user;
 }

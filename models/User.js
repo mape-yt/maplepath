@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
 
+    dataRevision: { type: Number, default: 0 },
     sessionVersion: { type: Number, default: 0 },
     // Only verified addresses occupy the unique index. Legacy users need no email.
     email: { type: String },

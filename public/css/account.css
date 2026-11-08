@@ -16,3 +16,5 @@
 .recovery-main .account-card {margin-top:20px;}
 @media(max-width:760px){.account-grid{grid-template-columns:1fr;}}
 @media(max-width:420px){.account-card{padding:20px 16px;}.account-card button{width:100%;}}
+
+.account-card--danger{border-color:#dcbab5}.account-card--danger button{background:#922f27}.account-card summary{cursor:pointer;min-height:44px;padding:12px 0;color:#8b3029;font-weight:600}.account-card a{color:#205b40}.account-card summary:focus-visible{outline:3px solid #6d9e83;outline-offset:3px}

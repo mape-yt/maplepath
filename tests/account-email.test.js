@@ -4,7 +4,7 @@ const mail=require('../services/accountEmail');
 
 test('email transport uses configured HTTPS origin, minimal data and fails closed',async t=>{
     const oldFetch=global.fetch;
-    const keys=['PUBLIC_APP_URL','RESEND_API_KEY','ACCOUNT_EMAIL_FROM'];
+    const keys=['PUBLIC_APP_URL','RESEND_API_KEY','ACCOUNT_EMAIL_FROM','ACCOUNT_EMAIL_PROVIDER','BREVO_API_KEY'];
     const old=Object.fromEntries(keys.map(key=>[key,process.env[key]]));
     t.after(()=>{global.fetch=oldFetch;for(const key of keys){if(old[key]===undefined)delete process.env[key];else process.env[key]=old[key];}});
     for(const key of keys)delete process.env[key];
@@ -22,6 +22,17 @@ test('email transport uses configured HTTPS origin, minimal data and fails close
     const body=JSON.parse(sent.options.body);
     assert.deepEqual(body.to,['test@example.com']);assert.match(body.text,/https:\/\/maplepath.example.com\/recover.html#purpose=reset&token=/);
     assert.deepEqual(Object.keys(body).sort(),['from','subject','text','to']);
+    process.env.ACCOUNT_EMAIL_PROVIDER='brevo';process.env.BREVO_API_KEY='synthetic-brevo-key';
+    assert.equal(mail.ready(),false,'Brevo needs a plain sender address');
+    process.env.ACCOUNT_EMAIL_FROM='sender@example.com';assert.equal(mail.ready(),true);
+    await mail.send('test@example.com','verify','b'.repeat(64));
+    assert.equal(sent.url,'https://api.brevo.com/v3/smtp/email');
+    assert.equal(sent.options.headers['api-key'],'synthetic-brevo-key');
+    const brevoBody=JSON.parse(sent.options.body);
+    assert.deepEqual(brevoBody.sender,{name:'MaplePath',email:'sender@example.com'});
+    assert.deepEqual(brevoBody.to,[{email:'test@example.com'}]);
+    assert.match(brevoBody.textContent,/purpose=verify/);
+    await assert.rejects(mail.send('bad','verify','b'.repeat(64)),/Invalid/);
     global.fetch=async()=>({ok:false});
     await assert.rejects(mail.send('test@example.com','verify','b'.repeat(64)),/delivery failed/);
     assert.equal(mail.normalizeEmail(' Test@Example.com '),'test@example.com');

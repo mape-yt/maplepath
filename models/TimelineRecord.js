@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 
 const timelineRecordSchema = new mongoose.Schema({
+    ownerId: {type:mongoose.Schema.Types.ObjectId, immutable:true},
 
 
     // User who created this record

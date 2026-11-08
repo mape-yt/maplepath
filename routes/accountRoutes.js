@@ -6,6 +6,7 @@ const Session = require('../models/Session');
 const {requireAuth, endSession} = require('../middleware/auth');
 const {passwordError, matches, hashPassword} = require('../services/passwords');
 const email = require('../services/accountEmail');
+const {removeAccount} = require('../services/accountData');
 const router = express.Router();
 const digest = token => crypto.createHash('sha256').update(token).digest('hex');
 const tokenValid = token => typeof token === 'string' && /^[a-f0-9]{64}$/.test(token);
@@ -124,6 +125,15 @@ router.post('/password', async (req,res) => {
     await Session.deleteMany({userId:user._id});
     await endSession(req,res);
     res.json({message:'Password changed. Sign in again on each device.'});
+});
+
+router.post('/delete', async (req,res) => {
+    if (req.body?.confirmation !== 'DELETE') return res.status(400).json({message:'Type DELETE to confirm.'});
+    const user = await User.findById(req.auth.userId);
+    if (!user || !await matches(req.body?.password,user.passwordHash)) return res.status(403).json({message:'Current password is incorrect.'});
+    await removeAccount(user);
+    await endSession(req,res);
+    res.json({message:'Your account and saved journey data have been deleted.'});
 });
 
 router.post('/logout-all', async (req,res) => {
