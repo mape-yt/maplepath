@@ -1,0 +1,43 @@
+name: MaplePath health check
+
+on:
+  schedule:
+    # Every 10 minutes, offset from the busiest start-of-hour period (UTC).
+    - cron: '3,13,23,33,43,53 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/health-check.yml'
+
+# Only a public HTTP endpoint is needed; no repository access or secrets.
+permissions: {}
+
+concurrency:
+  group: maplepath-health-check
+  cancel-in-progress: false
+
+jobs:
+  health:
+    if: github.repository == 'mape-yt/maplepath'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check MaplePath and its database connection
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error \
+            --proto '=https' --connect-timeout 15 --max-time 90 \
+            --retry 2 --retry-delay 10 --retry-max-time 240 --retry-connrefused \
+            --output /tmp/maplepath-health.json \
+            'https://maplepath-3b6a.onrender.com/api/health'
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          health = json.loads(Path('/tmp/maplepath-health.json').read_text())
+          if not isinstance(health, dict) or health.get('status') != 'ok' or health.get('database') != 'connected':
+              raise SystemExit('MaplePath did not report a healthy database connection.')
+          print('MaplePath health check passed: server responding, database connected.')
+          PY
