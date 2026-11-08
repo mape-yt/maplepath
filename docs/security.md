@@ -9,7 +9,7 @@ penetration-test certification or a claim that every vulnerability has been foun
   HTTP parsing/proxy dependencies. Removed unused CORS/JWT dependencies. Replaced
   nodemon with Node's built-in watch mode to remove its vulnerable development-only
   dependency chain. `npm run dev` and `npm start` remain the entry commands.
-- New passwords require at least 15 Unicode code points and at most 72 UTF-8 bytes;
+- New passwords require at least 8 Unicode code points and at most 72 UTF-8 bytes;
   bcrypt cost is 12. Existing passwords remain usable. Bcrypt historically ignored
   bytes beyond 72; an old oversized password should be changed to a compliant one.
   No old password is known, modified or silently truncated by new signup/change logic.

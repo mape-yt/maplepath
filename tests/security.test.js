@@ -9,7 +9,10 @@ const Application=require('../models/Application');
 const Session=require('../models/Session');
 
 test('new password policy checks UTF-8 bytes without preventing legacy password login',()=>{
-    assert.ok(passwordError('short'));
+    assert.ok(passwordError('a'.repeat(7)));
+    assert.equal(passwordError('a'.repeat(8)),null);
+    assert.ok(passwordError('🍁'.repeat(7)));
+    assert.equal(passwordError('🍁'.repeat(8)),null);
     assert.equal(passwordError('a'.repeat(72)),null);
     assert.ok(passwordError('a'.repeat(73)));
     assert.ok(passwordError('🍁'.repeat(19)));
@@ -22,8 +25,8 @@ test('real HTTP security: sessions, CSRF, ownership, password changes and email 
     await new Promise(resolve=>server.once('listening',resolve));
     t.after(()=>new Promise(resolve=>server.close(resolve)));
     const base=`http://127.0.0.1:${server.address().port}`;
-    const password='A long initial password!';
-    const newPassword='A different long password!';
+    const password='Initial8';
+    const newPassword='Changed8';
     async function request(path,{method='GET',body,cookie,headers={}}={}){
         const response=await fetch(base+path,{method,headers:{Origin:base,'Content-Type':'application/json',...(cookie?{Cookie:cookie}:{}),...headers},body:body===undefined?undefined:JSON.stringify(body)});
         return {status:response.status,headers:response.headers,body:await response.json(),cookie:response.headers.get('set-cookie')?.split(';')[0]};
@@ -31,6 +34,7 @@ test('real HTTP security: sessions, CSRF, ownership, password changes and email 
     async function login(username='alice',value=password){const result=await request('/api/auth/login',{method:'POST',body:{username,password:value}});assert.equal(result.status,200);return result.cookie;}
     async function nextMail(count){for(let i=0;i<60&&fixture.messages.length<count;i++)await new Promise(r=>setTimeout(r,10));assert.equal(fixture.messages.length,count);return fixture.messages.at(-1);}
     const digest=token=>crypto.createHash('sha256').update(token).digest('hex');
+    assert.equal((await request('/api/auth/signup',{method:'POST',body:{username:'too-short',password:'seven77'}})).status,400);
     const signup=await request('/api/auth/signup',{method:'POST',body:{username:'alice',password}});
     assert.equal(signup.status,201);
     assert.equal(signup.headers.get('cache-control'),'no-store');
@@ -82,7 +86,7 @@ test('real HTTP security: sessions, CSRF, ownership, password changes and email 
     const unknown=await request('/api/account/forgot-password',{method:'POST',body:{email:'unknown@example.com'}});
     assert.equal(known.status,unknown.status);assert.deepEqual(known.body,unknown.body);
     const reset=await nextMail(2);assert.equal(alice.passwordReset.tokenHash,digest(reset.token));
-    assert.equal((await request('/api/account/reset-password',{method:'POST',body:{token:reset.token,password:'short'}})).status,400);
+    assert.equal((await request('/api/account/reset-password',{method:'POST',body:{token:reset.token,password:'seven77'}})).status,400);
     const simultaneous=await Promise.all([1,2].map(()=>request('/api/account/reset-password',{method:'POST',body:{token:reset.token,password:newPassword}})));
     assert.deepEqual(simultaneous.map(r=>r.status).sort(),[200,400],'single-use reset stays single-use under concurrent requests');
     for(const cookie of [cookieC,cookieD])assert.equal((await request('/api/auth/session',{cookie})).status,401);
@@ -91,6 +95,7 @@ test('real HTTP security: sessions, CSRF, ownership, password changes and email 
     const expired='a'.repeat(64);alice.passwordReset={tokenHash:digest(expired),expiresAt:new Date(0)};
     assert.equal((await request('/api/account/reset-password',{method:'POST',body:{token:expired,password}})).status,400);
     assert.equal((await request('/api/account/password',{method:'POST',cookie:cookieE,body:{currentPassword:'wrong',newPassword:password}})).status,403);
+    assert.equal((await request('/api/account/password',{method:'POST',cookie:cookieE,body:{currentPassword:newPassword,newPassword:'seven77'}})).status,400);
     const staleVersion=alice.sessionVersion;
     assert.equal((await request('/api/account/password',{method:'POST',cookie:cookieE,body:{currentPassword:newPassword,newPassword:password}})).status,200);
     assert.equal(alice.passwordReset?.tokenHash,undefined);
@@ -107,14 +112,14 @@ test('real HTTP security: sessions, CSRF, ownership, password changes and email 
     fixture.setEmailReady(false);
     assert.equal((await request('/api/account/email',{method:'POST',cookie:cookieH,body:{email:'other@example.com',password}})).status,503);
     assert.equal((await request('/api/account/forgot-password',{method:'POST',body:{email:'alice@example.com'}})).status,503);
-    const bob=await require('../models/User').create({username:'bob',passwordHash:await bcrypt.hash('old-pass',10)});
+    const bob=await require('../models/User').create({username:'bob',passwordHash:await bcrypt.hash('oldpass',10)});
     const duplicateToken='c'.repeat(64);
     bob.emailVerification={email:'alice@example.com',tokenHash:digest(duplicateToken),expiresAt:new Date(Date.now()+60000)};
     assert.equal((await request('/api/account/verify-email',{method:'POST',body:{token:duplicateToken}})).status,409);
     assert.equal(bob.email,undefined,'verification cannot take another account’s verified address');
     bob.emailVerification.expiresAt=new Date(0);
     assert.equal((await request('/api/account/verify-email',{method:'POST',body:{token:duplicateToken}})).status,400);
-    assert.ok(await login('bob','old-pass'),'legacy short passwords still work');
+    assert.ok(await login('bob','oldpass'),'legacy short passwords still work');
     assert.ok(bob);
 });
 
