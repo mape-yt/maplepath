@@ -1,10 +1,12 @@
 # Launch readiness — November 8, 2026
 
-## Account email: operator setup still required
+## Account email: active; inbox placement still needs improvement
+
+On November 8, 2026, the owner confirmed that verification and password recovery worked after configuring Brevo in Render. The first message arrived in spam. This confirms delivery and account recovery, not reliable inbox placement for all users.
 
 The application supports Brevo's HTTPS transactional API and the existing Resend adapter. No email credentials are included in Git. Email recovery stays disabled unless configuration is complete. Configuration availability is not proof of successful inbox delivery.
 
-For the current Gmail address, use Brevo as an initial option:
+Setup reference for the current Gmail/Brevo configuration:
 
 1. Create a free Brevo account. Complete the provider's account checks and any transactional-email activation it requests.
 2. Add `sylim.cs@gmail.com` as a sender named MaplePath. Complete verification from that inbox. Do not import contacts or start marketing campaigns.
@@ -26,6 +28,16 @@ For the current Gmail address, use Brevo as an initial option:
 Brevo currently replaces a free-email sender with a provider-domain address for delivery. This is a temporary fallback, not a deliverability guarantee. A domain you own with DKIM/DMARC authentication is the recommended long-term setup. Resend remains supported with `ACCOUNT_EMAIL_PROVIDER=resend`, `RESEND_API_KEY`, and a verified-domain `ACCOUNT_EMAIL_FROM`.
 
 Official references: [Brevo sender requirements](https://help.brevo.com/hc/en-us/articles/14925263522578-Comply-with-Gmail-Yahoo-and-Microsoft-s-requirements-for-email-senders), [Brevo transactional API](https://developers.brevo.com/reference/send-transac-email), [Resend domain verification](https://resend.com/docs/dashboard/domains/introduction).
+
+## Email delivery follow-up
+
+- Account messages explain the requested action, identify the MaplePath website, include the single-use expiry, and point replies to the validated SUPPORT_EMAIL address. Brevo falls back to the configured sender inbox when no valid support address is configured. Resend omits Reply-To when no valid support address is configured.
+- The application sends plain text and does not add tracking pixels, remote assets, URL shorteners, or invented authentication headers. Provider-side tracking settings are separate and have not been verified. Message wording and Reply-To help recipients recognize and contact MaplePath; they do not fix sender authentication or guarantee inbox placement.
+- The verification screen reminds users to check spam. Marking a genuine MaplePath email as Not spam helps that recipient's inbox; it does not authenticate the sending domain for everyone.
+- To improve authentication, first obtain a domain the owner controls. In Brevo's Domains settings, add the domain and copy the exact verification, DKIM and DMARC records provided into that domain's DNS. Do not invent DNS values, add a second DMARC record, or change existing mail records blindly. Follow the provider's instructions and check authentication succeeds before switching the Render sender address.
+- Verify a sender on the authenticated domain, update ACCOUNT_EMAIL_FROM in Render, deploy, and test with a dedicated MaplePath account. The website can stay on its Render URL; buying an email-sending domain does not require moving the website.
+- Inspect a delivered test message's Authentication-Results for SPF/DKIM/DMARC outcomes and From alignment. Use metadata only; do not share reset links or raw message bodies. Check more than one mailbox provider. Inbox placement remains the receiving provider's decision.
+- No domain has been purchased and no DNS/provider authentication settings have been changed by this code update.
 
 ## Public contact and privacy
 

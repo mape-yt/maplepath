@@ -4,7 +4,7 @@ const mail=require('../services/accountEmail');
 
 test('email transport uses configured HTTPS origin, minimal data and fails closed',async t=>{
     const oldFetch=global.fetch;
-    const keys=['PUBLIC_APP_URL','RESEND_API_KEY','ACCOUNT_EMAIL_FROM','ACCOUNT_EMAIL_PROVIDER','BREVO_API_KEY'];
+    const keys=['PUBLIC_APP_URL','RESEND_API_KEY','ACCOUNT_EMAIL_FROM','ACCOUNT_EMAIL_PROVIDER','BREVO_API_KEY','SUPPORT_EMAIL'];
     const old=Object.fromEntries(keys.map(key=>[key,process.env[key]]));
     t.after(()=>{global.fetch=oldFetch;for(const key of keys){if(old[key]===undefined)delete process.env[key];else process.env[key]=old[key];}});
     for(const key of keys)delete process.env[key];
@@ -32,6 +32,23 @@ test('email transport uses configured HTTPS origin, minimal data and fails close
     assert.deepEqual(brevoBody.sender,{name:'MaplePath',email:'sender@example.com'});
     assert.deepEqual(brevoBody.to,[{email:'test@example.com'}]);
     assert.match(brevoBody.textContent,/purpose=verify/);
+    assert.match(brevoBody.textContent,/You requested to use this address for account recovery/);
+    assert.match(brevoBody.textContent,/expires in 30 minutes/);
+    assert.match(brevoBody.textContent,/Never share your password or this link/);
+    assert.deepEqual(brevoBody.replyTo,{name:'MaplePath Support',email:'sender@example.com'});
+    process.env.SUPPORT_EMAIL=' Help@Example.com ';
+    await mail.send('test@example.com','reset','a'.repeat(64));
+    const supported=JSON.parse(sent.options.body);
+    assert.equal(supported.replyTo.email,'help@example.com');
+    assert.match(supported.textContent,/A password reset was requested/);
+    assert.ok(supported.textContent.includes('https://maplepath.example.com/recover.html#purpose=reset&token='+'a'.repeat(64)));
+    assert.equal(supported.htmlContent,undefined,'Keep account messages plain text without app-added pixels or remote assets');
+    process.env.SUPPORT_EMAIL='bad@example.com\r\nBcc:other@example.com';
+    await mail.send('test@example.com','verify','b'.repeat(64));
+    assert.equal(JSON.parse(sent.options.body).replyTo.email,'sender@example.com','Invalid support configuration cannot inject headers');
+    process.env.SUPPORT_EMAIL='help@example.com';process.env.ACCOUNT_EMAIL_PROVIDER='resend';
+    await mail.send('test@example.com','reset','a'.repeat(64));
+    assert.equal(JSON.parse(sent.options.body).reply_to,'help@example.com');
     await assert.rejects(mail.send('bad','verify','b'.repeat(64)),/Invalid/);
     global.fetch=async()=>({ok:false});
     await assert.rejects(mail.send('test@example.com','verify','b'.repeat(64)),/delivery failed/);

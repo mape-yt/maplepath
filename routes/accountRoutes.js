@@ -110,7 +110,7 @@ router.post('/email', async (req,res) => {
         await User.updateOne({_id:user._id,'emailVerification.tokenHash':data.tokenHash},{$unset:{emailVerification:1}});
         return res.status(503).json({message:'Could not send the verification email. Please try again later.'});
     }
-    res.json({message:'Check your inbox to verify the address. Your existing email stays active until then.'});
+    res.json({message:'Check your inbox and spam folder for the MaplePath verification email. Your existing email stays active until you verify the new one.'});
 });
 
 router.post('/password', async (req,res) => {

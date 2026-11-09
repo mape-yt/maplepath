@@ -53,27 +53,15 @@ Users can request another link. No raw message history or mail queue is stored.
 
 ## Activate email on Render
 
-No provider account was created, real email sent, Render setting changed, or secret committed.
-The implementation uses the Resend HTTPS API and remains unavailable until configured.
-There is no development backdoor or logged reset-link fallback in production.
+Brevo and Resend HTTPS APIs are supported. The owner configured Brevo in Render and
+confirmed verification/recovery delivery on November 8, 2026; the first message went
+to spam. See [launch readiness](launch-readiness.md) for current configuration,
+sending-domain authentication steps, and remaining delivery checks.
 
-1. Use a domain you own and verify a sending domain with Resend. A Render `onrender.com`
-   address or a personal Gmail address is not a domain you own for this purpose. If no
-   sending domain is available, choose a different delivery provider before activation.
-2. Turn off open/click tracking for account emails in the provider settings.
-3. In Render's environment settings, add:
-   - `NODE_ENV=production`
-   - `PUBLIC_APP_URL=https://maplepath-3b6a.onrender.com` (no path, query or fragment)
-   - `ACCOUNT_EMAIL_FROM=MaplePath <account@YOUR-VERIFIED-DOMAIN>`
-   - `RESEND_API_KEY` using a sending-only provider key, entered directly in Render.
-4. Keep `MONGO_URI` and existing community-data mode settings unchanged. The Blueprint
-   declares the first two values, but a manually created service still needs its environment
-   checked. Redeploy after configuration and verify the email index exists successfully.
-5. With a designated test account/inbox, add and verify an email, request a reset, use it
-   once, confirm the old password and sessions fail, and confirm replay fails. Delivery and
-   actual Atlas index/concurrency behavior still need this deployment check.
-
-`.env` and `.env.*` stay ignored; never paste a provider key into chat or commit it.
+Account messages use a validated support Reply-To when available and explain why the
+message was sent. This helps users recognize legitimate account mail; it does not
+replace DKIM/DMARC or guarantee inbox placement. API keys stay in Render environment
+settings. There is no logged reset-link fallback in production.
 
 ## Validation and remaining launch work
 
