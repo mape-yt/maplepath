@@ -20,13 +20,11 @@ The existing GitHub check remains enabled as a secondary diagnostic. Its cron
 expression is a requested schedule, not an assurance of timely requests. Merely
 changing it to five minutes would not resolve the observed hours-long gaps.
 
-## External scheduler setup (not activated yet)
+## External scheduler: active; initial scheduled run verified
 
-A dedicated external scheduler is the proposed free mitigation. The owner needs
-to create/verify an account first. No cron-job.org account or job has been created
-by this repository, and the following settings alone do not activate monitoring.
+The owner created and verified a cron-job.org account. Job 8845289 was enabled on November 11, 2026. Its first automatic execution was scheduled for 14:45:00 America/Cambridge_Bay and ran at 14:45:03, returning HTTP 200 in 1.37 seconds (reported jitter 3.8 seconds). No payment, API key, or private MaplePath credentials were needed. Notifications were left at their existing defaults.
 
-In cron-job.org, create a job with these settings:
+The saved job uses these settings:
 
 | Setting | Value |
 | --- | --- |
@@ -51,11 +49,7 @@ can take about a minute to start, longer than the scheduler FAQ's documented
 for the app to finish waking and repeat the test. Persistent failures need
 investigation, not repeated blind retries.
 
-After saving, check at least four scheduled runs spanning 15 minutes in the
-provider history. Record their actual timestamps and successful HTTP statuses;
-a single manual test does not establish that recurring scheduling works.
-Only then mark the external scheduler active. No guarantee of continuous uptime
-should be claimed from a short test.
+Initial verification covers the saved enabled schedule and one successful automatic run. The first manual test returned a temporary 503; a subsequent direct request took about 21 seconds and returned healthy, consistent with waking up. A longer four-run observation spanning 15 minutes has not yet been completed. Use the provider history to review continued scheduling and any failures; one successful execution is not a continuous-uptime guarantee.
 
 ## Existing GitHub diagnostic
 
