@@ -59,12 +59,15 @@ more to receive a session cookie.
 
 Profile, tasks, journey, timeline, and analytics APIs require a valid session.
 User-specific routes check the signed-in username on the server. Immigration
-options remain public. Dashboard tasks are still temporary in-memory data;
-they are isolated per account while the server is running and reset on restart.
+options remain public. Dashboard tasks are stored in the user document and persist across restarts.
 
 Local development over `http://localhost` works without a `Secure` cookie.
 Production must serve the entire app over HTTPS with `NODE_ENV=production`.
 
 ## Launch setup
 
-See [launch readiness](docs/launch-readiness.md) for account email activation, contact address configuration, account deletion, privacy, and backup/restore verification. Email delivery and production backups still require operator setup and verification.
+See [launch readiness](docs/launch-readiness.md) for account email activation, contact address configuration, account deletion, privacy, and backup/restore verification. Email recovery and an encrypted local backup restore have been verified; see the documented delivery and local-only recovery limits.
+
+## Backups and launch checks
+
+[Encrypted local backups and restore drill](docs/backups.md) · [Browser launch checks](docs/launch-checks.md). Run `npm run backup:create` for a local encrypted backup and `npm run backup:restore-test` for an isolated restore drill. Run `npm run test:launch` for browser checks (development tools required).

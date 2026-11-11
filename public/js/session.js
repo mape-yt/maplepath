@@ -5,14 +5,27 @@ window.MaplePathSession = {
                 credentials:"same-origin",
                 cache:"no-store"
             });
-            return response.ok ? await response.json() : null;
+            if(response.status===401)return null;
+            if(!response.ok)throw new Error(response.status===429 ? 'Too many requests. Wait a moment, then retry.' : 'Unable to check your session. Please retry.');
+            return await response.json();
         } catch(error){
-            return null;
+            throw new Error(error.message || "Unable to connect. Please retry.");
         }
     },
 
     async require(){
-        const session = await this.current();
+        let session;
+        try {session=await this.current();}
+        catch(error){
+            let notice=document.getElementById('session-load-error');
+            if(!notice){
+                notice=document.createElement('section');notice.id='session-load-error';notice.setAttribute('role','alert');notice.tabIndex=-1;
+                const message=document.createElement('p');message.textContent=error.message;
+                const retry=document.createElement('button');retry.type='button';retry.textContent='Retry';retry.addEventListener('click',()=>window.location.reload());
+                notice.append(message,retry);(document.querySelector('main')||document.body).prepend(notice);
+            }
+            notice.focus();return null;
+        }
         if(!session){
             localStorage.removeItem("username");
             window.location.href = "auth.html";

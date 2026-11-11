@@ -57,9 +57,9 @@ Community calculations read current records, so deleted timelines disappear from
 
 Support messages and provider operational logs are separate. Deletion from those systems must be handled according to the applicable request and verified retention policy. Backups must not silently resurrect deleted accounts: restore into an isolated destination, reconcile deletions since the snapshot using the source database or operator records, invalidate restored sessions/recovery tokens, and verify the result before any production promotion. If reconciliation cannot be established, do not promote the snapshot.
 
-## Backups: not yet verified
+## Backups: local restore verified; local-only by owner choice
 
-No production backup or restore has been performed by this change. The owner must inspect the Atlas cluster's Backup tab, its tier, snapshot dates, retention, and available restore destinations. Do not report Git commits as database backups.
+The owner confirmed that managed Atlas backups are unavailable on the current setup. An encrypted local backup has now been created and restored successfully into an isolated local database, with document hashes and indexes verified. See [backups.md](backups.md) for commands, retention, key-protection limits, and the owner's decision to keep backups local for now. It runs manually; no automatic daily job has been configured. The following provider notes remain alternatives for future setup.
 
 MongoDB's current [Free Cluster Backups](https://www.mongodb.com/docs/atlas/backup/cloud-backup/free-cluster-backup/) page describes a gradually released **paid private preview**: daily snapshots, four retained, $0.10/day up to $3/month. Older overview pages still say free clusters have no managed backups. The actual Atlas UI and account availability must therefore be checked. Do not enable a paid subscription without the owner's agreement.
 

@@ -11,3 +11,10 @@ dumps/
 *.bson.gz
 *.backup
 backup-tools.yml
+
+# Encrypted database backups and locally protected keys.
+*.mpbackup
+*.mpbackup.partial
+*.dpapi
+
+.qa-output/
