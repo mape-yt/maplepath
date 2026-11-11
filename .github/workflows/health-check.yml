@@ -2,7 +2,7 @@ name: MaplePath health check
 
 on:
   schedule:
-    # Every 10 minutes, offset from the busiest start-of-hour period (UTC).
+    # Requested every 10 minutes; GitHub can delay/drop runs. See docs/health-check.md.
     - cron: '3,13,23,33,43,53 * * * *'
   workflow_dispatch:
   push:
