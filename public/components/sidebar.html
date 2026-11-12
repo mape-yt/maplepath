@@ -1,39 +1,22 @@
 <aside class="sidebar">
-    <a class="sidebar-brand" href="dashboard.html" aria-label="MaplePath dashboard">
-        <span class="sidebar-brand__mark" aria-hidden="true">🍁</span>
-        <span>MaplePath</span>
-    </a>
-
-    <nav aria-label="Account navigation">
-        <a href="dashboard.html" data-page="dashboard.html">
-            <span class="sidebar-link__icon" aria-hidden="true">🏠</span>
-            <span>Dashboard</span>
-        </a>
-        <a href="profile.html" data-page="profile.html">
-            <span class="sidebar-link__icon" aria-hidden="true">👤</span>
-            <span>Profile</span>
-        </a>
-        <a href="journey.html" data-page="journey.html">
-            <span class="sidebar-link__icon" aria-hidden="true">🧭</span>
-            <span>Journey</span>
-        </a>
-        <a href="dashboard.html#activity">
-            <span class="sidebar-link__icon" aria-hidden="true">🔔</span>
-            <span>Updates</span>
-        </a>
-        <a href="dashboard.html#tasks">
-            <span class="sidebar-link__icon" aria-hidden="true">✅</span>
-            <span>Tasks</span>
-        </a>
-        <a href="account.html" data-page="account.html">
-            <span class="sidebar-link__icon" aria-hidden="true">🔒</span>
-            <span>Account</span>
-        </a>
-        <a href="contact.html"><span class="sidebar-link__icon" aria-hidden="true">✉</span><span>Contact us</span></a>
-        <a href="privacy.html"><span class="sidebar-link__icon" aria-hidden="true">ⓘ</span><span>Privacy</span></a>
-        <a class="sidebar-home-link" href="index.html" data-page="index.html">
-            <span class="sidebar-link__icon" aria-hidden="true">↗</span>
-            <span>Public site</span>
-        </a>
-    </nav>
+  <a class="sidebar-brand" href="dashboard.html" aria-label="MaplePath dashboard"><span class="sidebar-brand__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 2.5 6 4-2-1 5 4 1-7 6 .5 3h-6l.5-3-7-6 4-1-1-5 4 2Z"/><path d="M12 12v9"/></svg></span><span>MaplePath</span></a>
+  <nav aria-label="Workspace navigation">
+    <div class="nav-group"><p class="nav-label">Workspace</p>
+      <a href="dashboard.html" data-page="dashboard.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Dashboard</span></a>
+      <a href="journey.html" data-page="journey.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="19" r="2"/><path d="M6 7v7a5 5 0 0 0 5 5h5M18 3v9m-3-3 3 3 3-3"/></svg><span>Journey</span></a>
+      <a href="dashboard.html#tasks" data-section="tasks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="m8 9 2 2 5-5M8 16h8"/></svg><span>Tasks</span></a>
+    </div>
+    <div class="nav-group"><p class="nav-label">Personal</p>
+      <a href="profile.html" data-page="profile.html" data-also-page="account.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span class="nav-account-full">Your account</span><span class="nav-account-short">Account</span></a>
+    </div>
+  </nav>
+  <div class="sidebar-tools">
+    <details class="sidebar-help"><summary>Help &amp; links</summary><div>
+      <a href="contact.html">Contact us <span aria-hidden="true">↗</span></a>
+      <a href="privacy.html">Privacy <span aria-hidden="true">↗</span></a>
+      <a href="index.html">Public site <span aria-hidden="true">↗</span></a>
+    </div></details>
+    <button id="sidebar-logout" type="button">Sign out</button>
+    <p id="sidebar-message" role="status"></p>
+  </div>
 </aside>

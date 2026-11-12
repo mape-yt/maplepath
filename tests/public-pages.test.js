@@ -119,15 +119,16 @@ test("dashboard uses live journey data and working activity sections", () => {
 
     for(const id of ["activity", "tasks"]){
         assert.match(html, new RegExp(`id="${id}"`));
-        assert.match(sidebar, new RegExp(`dashboard\\.html#${id}`));
+
     }
     assert.doesNotMatch(html, /id="documents"/);
     assert.doesNotMatch(sidebar, /dashboard\.html#documents/);
     assert.match(script, /\/api\/journey\/\$\{pathway\}\/\$\{stream\}/);
     assert.match(script, /\/api\/journey\/progress\//);
     assert.match(script, /\/api\/timeline\//);
-    assert.match(html, /id="next-step-icon"/);
-    assert.match(html, /class="next-step-route"/);
+    assert.match(html, /id="dashboard-progress"/);
+    assert.match(sidebar, /dashboard\.html#tasks/);
+    assert.match(sidebar, /data-also-page="account.html"/);
 });
 
 test("dashboard tasks are stored on the user instead of server memory", () => {

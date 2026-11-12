@@ -1,3 +1,15 @@
+const expandedJourneySteps = new Set();
+let pendingJourneyAnchor = location.hash;
+function revealJourneyAnchor() {
+    if (!/^#step-\d+$/.test(pendingJourneyAnchor)) return;
+    const target = document.getElementById(pendingJourneyAnchor.slice(1));
+    if (!target) return;
+    const details = target.querySelector('.stage-expander');
+    if (details) details.open = true;
+    pendingJourneyAnchor = '';
+    requestAnimationFrame(() => target.scrollIntoView({block:'start'}));
+}
+window.addEventListener('hashchange', () => { pendingJourneyAnchor = location.hash; revealJourneyAnchor(); });
 // ============================================
 // MaplePath Journey
 // Phase 7 Rebuild
@@ -103,6 +115,13 @@ async function initializeJourney(){
         );
 
 
+        if (!state.pathway || !state.stream) {
+            journeySummary.hidden = true;
+            journeyContainer.classList.add('journey-empty');
+            journeyContainer.innerHTML = '<p class="workspace-eyebrow">Getting started</p><h2>Your journey starts here</h2><p>Choose a pathway to see your roadmap.</p><a class="journey-empty-action" href="profile.html">Choose a pathway <span aria-hidden="true">↗</span></a>';
+            return;
+        }
+        journeySummary.hidden = false;
         await loadRoadmap();
 
 
@@ -724,7 +743,7 @@ function getStageBadge(type){
 
             return {
 
-                text:"🧑 Applicant",
+                text:"Applicant",
 
                 className:"applicant"
 
@@ -737,7 +756,7 @@ function getStageBadge(type){
 
             return {
 
-                text:"⏳ Waiting",
+                text:"Waiting",
 
                 className:"waiting"
 
@@ -750,7 +769,7 @@ function getStageBadge(type){
 
             return {
 
-                text:"🏛️ IRCC",
+                text:"IRCC",
 
                 className:"ircc"
 
@@ -758,7 +777,7 @@ function getStageBadge(type){
 
         case "province":
             return {
-                text:"🏛️ Provincial program",
+                text:"Provincial program",
                 className:"province"
             };
 
@@ -964,7 +983,7 @@ function renderJourneySummary(){
                         ?
                         escapeRoadmapText(currentStep.title)
                         :
-                        "Completed 🎉"
+                        "Completed"
                     }
 
                 </p>
@@ -1130,6 +1149,7 @@ function renderTimeline(){
     journeyContainer.appendChild(
         timeline
     );
+    revealJourneyAnchor();
 
 
 
@@ -1335,7 +1355,7 @@ ${renderRoadmapDetails(step)}
 
 <h4>
 
-📅 Timeline
+Your timeline
 
 </h4>
 
@@ -1413,6 +1433,20 @@ ${record && record._id
 
 
 
+    stage.id = 'step-' + step.order;
+    const card = stage.querySelector('.stage-card');
+    const header = card.querySelector('.stage-header');
+    const content = card.querySelector('.step-content');
+    const details = document.createElement('details'); details.className = 'stage-expander';
+    const summary = document.createElement('summary'); summary.className = 'stage-toggle';
+    summary.append(header);
+    const key = [state.profileKey, state.application?.id || 'legacy', step.order].join(':');
+    details.open = current || expandedJourneySteps.has(key) || location.hash === '#step-' + step.order;
+    if (details.open) expandedJourneySteps.add(key);
+    details.addEventListener('toggle', () => {
+        if (details.open) expandedJourneySteps.add(key); else expandedJourneySteps.delete(key);
+    });
+    details.append(summary, content); card.replaceChildren(details);
     return stage;
 
 

@@ -1,146 +1,35 @@
-/* MaplePath shared navigation */
-
-.sidebar {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    width: 240px;
-    min-height: 100vh;
-    height: 100%;
-    padding: 28px 22px;
-    color: #fff;
-    background: #10231a;
+.sidebar {position:sticky;top:0;display:flex;flex-direction:column;width:232px;height:100dvh;min-height:540px;padding:32px 20px 22px;background:#fff;border-right:1px solid #e0e6e2;color:#274039;}
+.sidebar-brand {display:flex;align-items:center;gap:10px;color:#193e33;text-decoration:none;font-size:21px;font-weight:750;letter-spacing:-.7px;margin:0 6px 46px;}
+.sidebar-brand__mark {display:grid;place-items:center;width:32px;height:36px;color:#247359;}
+.sidebar-brand svg {width:27px;height:27px;}
+.sidebar nav {display:flex;flex-direction:column;gap:30px;}
+.nav-label {margin:0 12px 10px;color:#616f64;font-size:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:650;}
+.nav-group {display:grid;gap:5px;}
+.sidebar nav a {display:flex;align-items:center;gap:12px;padding:12px;min-height:46px;color:#5a6a62;text-decoration:none;border-radius:8px;font-size:14px;font-weight:550;}
+.sidebar nav svg {width:19px;height:19px;flex-shrink:0;}
+.sidebar nav a:hover {background:#f3f6f3;color:#173e32;}
+.sidebar nav a.is-active {color:#174e3b;background:#e6f0e9;font-weight:700;box-shadow:inset 3px 0 #307957;}
+.sidebar-tools {margin-top:auto;padding:24px 10px 0;font-size:13px;}
+.sidebar-help summary {cursor:pointer;min-height:44px;display:flex;align-items:center;gap:12px;color:#5a6a62;list-style:none;}
+.sidebar-help summary::after {content:'+';margin-left:auto;font-size:18px;}
+.sidebar-help[open] summary::after {content:'−';}
+.sidebar-help a {display:flex;justify-content:space-between;gap:8px;min-height:40px;align-items:center;color:#5a6a62;text-decoration:none;}
+#sidebar-logout {display:block;border:0;background:none;color:#5a6a62;text-align:left;cursor:pointer;min-height:44px;font:inherit;}
+#sidebar-message {font-size:12px;color:#95382f;}
+.sidebar :is(a,button,summary):focus-visible {outline:3px solid #508570;outline-offset:3px;}
+@media (max-width:900px) {
+  .sidebar {position:static;display:grid;grid-template-columns:1fr auto;gap:12px;width:100%;height:auto;min-height:0;padding:12px 16px 8px;border-right:0;border-bottom:1px solid #dfe5df;}
+  .sidebar-brand {margin:0;font-size:19px;}
+  .sidebar-brand__mark {height:30px;width:26px;}
+  .sidebar nav {grid-row:2;grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;overflow-x:auto;}
+  .nav-group {display:contents;}.nav-label {display:none;}
+  .sidebar nav a {justify-content:center;padding:10px 6px;gap:7px;font-size:12px;min-height:44px;}
+  .sidebar nav a.is-active {box-shadow:inset 0 -2px #307957;}
+  .sidebar-tools {display:flex;align-items:center;gap:14px;grid-row:1;grid-column:2;margin:0;padding:0;font-size:12px;}
+  .sidebar-help {position:relative;}.sidebar-help summary {min-height:36px;gap:5px;}
+  .sidebar-help[open]>div {position:absolute;z-index:110;right:0;top:100%;width:180px;padding:12px 16px;background:white;border:1px solid #dfe5df;border-radius:10px;box-shadow:0 12px 30px #173e3214;}
+  #sidebar-logout {min-height:36px;}#sidebar-message:not(:empty){position:absolute;top:100%;left:0;background:white;padding:10px;width:100%;}
 }
+@media (max-width:520px) {.sidebar{padding:10px 12px 6px;gap:8px;}.sidebar nav a{flex-direction:column;gap:4px;font-size:11px;padding:7px 2px;}.sidebar nav svg{height:18px;width:18px;}.sidebar-tools{gap:12px;}.sidebar-help summary{font-size:0;}.sidebar-help summary::before{content:'Help';font-size:12px;}.sidebar-help summary::after{display:none;}}
 
-.sidebar-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0 8px 34px;
-    color: #fff;
-    font-size: 22px;
-    font-weight: 800;
-    text-decoration: none;
-    letter-spacing: -.02em;
-}
-
-.sidebar-brand__mark { font-size: 25px; line-height: 1; }
-
-.sidebar nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.sidebar nav a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    min-height: 44px;
-    padding: 11px 12px;
-    border-radius: 10px;
-    color: #d8e5dd;
-    font-weight: 650;
-    text-decoration: none;
-    transition: color .18s ease, background .18s ease;
-}
-
-.sidebar nav a:hover,
-.sidebar nav a:focus-visible {
-    color: #fff;
-    background: rgba(255, 255, 255, .1);
-}
-
-.sidebar nav a:focus-visible {
-    outline: 3px solid #8fd19e;
-    outline-offset: 2px;
-}
-
-.sidebar nav a.is-active {
-    color: #10231a;
-    background: #e6f4e9;
-}
-
-.sidebar-link__icon {
-    width: 22px;
-    flex: 0 0 22px;
-    text-align: center;
-}
-
-.sidebar-home-link {
-    margin-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, .14);
-    border-radius: 0 !important;
-    padding-top: 20px !important;
-}
-
-@media (max-width: 900px) {
-    .sidebar {
-        position: static;
-        flex-direction: row;
-        align-items: center;
-        width: 100%;
-        min-height: 0;
-        height: auto;
-        padding: 10px 12px;
-        box-shadow: 0 8px 24px rgba(16, 35, 26, .2);
-    }
-
-    .sidebar-brand {
-        flex: 0 0 auto;
-        margin: 0 12px 0 0;
-        padding: 8px;
-        font-size: 19px;
-    }
-
-    .sidebar nav {
-        flex: 1;
-        flex-direction: row;
-        gap: 4px;
-        min-width: 0;
-        overflow-x: auto;
-        scrollbar-width: thin;
-        overscroll-behavior-inline: contain;
-    }
-
-    .sidebar nav a {
-        flex: 0 0 auto;
-        min-height: 40px;
-        padding: 9px 10px;
-        white-space: nowrap;
-    }
-
-    .sidebar-home-link {
-        margin-top: 0;
-        border-top: 0;
-        border-left: 1px solid rgba(255, 255, 255, .14);
-        border-radius: 0 8px 8px 0 !important;
-        padding-top: 9px !important;
-        padding-left: 14px !important;
-    }
-}
-
-@media (max-width: 540px) {
-    .sidebar {
-        align-items: stretch;
-        flex-direction: column;
-        padding: 8px 10px 10px;
-    }
-
-    .sidebar-brand {
-        align-self: flex-start;
-        margin: 0 0 3px;
-        padding: 6px 8px;
-    }
-
-    .sidebar nav { width: 100%; }
-
-    .sidebar nav a {
-        gap: 7px;
-        padding: 8px 9px;
-        font-size: 14px;
-    }
-
-    .sidebar-link__icon { width: auto; flex-basis: auto; }
-}
+.nav-account-short{display:none;}@media(max-width:520px){.nav-account-full{display:none;}.nav-account-short{display:inline;}}

@@ -90,7 +90,7 @@ function renderProfile(profile) {
     const isCompleted = type === "completed";
     const outcome = MaplePathContext.completion(profile.pathway);
 
-    title.textContent = isPlanning ? "🧭 Planning my journey" : isCompleted ? "🍁 Journey completed" : "📝 Application in progress";
+    title.textContent = isPlanning ? "Planning my journey" : isCompleted ? "Journey completed" : "Application in progress";
     subtitle.textContent = isPlanning
         ? "Your immigration planning profile"
         : isCompleted
@@ -102,28 +102,31 @@ function renderProfile(profile) {
         subtitle.textContent = "Your permit application timeline";
     }
 
-    const grid = document.createElement("div");
-    grid.className = "profile-info";
-    addInfo(grid, "Journey status", journeyLabel(type));
-
-    if (isPlanning) {
-        addInfo(grid, "Current location", profile.location || profile.country);
-        addInfo(grid, "Status in Canada", profile.currentStatus);
-        addInfo(grid, "Province of interest", profile.province || "Not decided");
-        if (profile.canadaArrivalDate) addInfo(grid, "First arrived in Canada", formatDate(profile.canadaArrivalDate));
-    } else {
-        addInfo(grid, "Pathway", profile.pathway);
-        addInfo(grid, "Stream", profile.stream);
-        addInfo(grid, "Province or territory", profile.province);
-        addInfo(grid, isCompleted && !MaplePathContext.isPermit(profile.pathway) ? "Location when applying" : "Current location", profile.location);
-        addInfo(grid, "Application status", profile.status);
-        addInfo(grid, isCompleted ? "Final stage" : "Current stage", profile.currentStage);
-        addInfo(grid, "Started preparing for pathway", formatDate(profile.journeyStartDate));
-        if (profile.canadaArrivalDate) addInfo(grid, "First arrived in Canada", formatDate(profile.canadaArrivalDate));
-        if (isCompleted) addInfo(grid, outcome.dateLabel, formatDate(profile[outcome.dateField]));
+    const sections = document.createElement('div');
+    sections.className = 'profile-sections';
+    const group = heading => {
+        const section = document.createElement('section');
+        const title = document.createElement('h3'); title.textContent = heading;
+        const grid = document.createElement('div'); grid.className = 'profile-info';
+        section.append(title, grid); sections.appendChild(section); return grid;
+    };
+    const personal = group('About you');
+    addInfo(personal, isCompleted && !MaplePathContext.isPermit(profile.pathway) ? 'Location when applying' : 'Current location', profile.location || profile.country);
+    addInfo(personal, 'Status in Canada', profile.currentStatus);
+    addInfo(personal, isPlanning ? 'Province of interest' : 'Province or territory', profile.province || 'Not decided');
+    const pathway = group('Your pathway');
+    addInfo(pathway, 'Journey status', journeyLabel(type));
+    if (!isPlanning) {
+        addInfo(pathway, 'Pathway', profile.pathway);
+        addInfo(pathway, 'Stream', profile.stream);
+        addInfo(pathway, 'Application status', profile.status);
+        addInfo(pathway, isCompleted ? 'Final stage' : 'Current stage', profile.currentStage);
     }
-
-    profileContent.replaceChildren(grid);
+    const dates = group('Key dates');
+    if (!isPlanning) addInfo(dates, 'Started preparing', formatDate(profile.journeyStartDate));
+    addInfo(dates, 'First arrived in Canada', formatDate(profile.canadaArrivalDate));
+    if (isCompleted) addInfo(dates, outcome.dateLabel, formatDate(profile[outcome.dateField]));
+    profileContent.replaceChildren(sections);
 }
 
 function toggleGroup(id, visible, requiredInput) {

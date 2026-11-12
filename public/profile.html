@@ -8,15 +8,15 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="css/optional-dates.css">
+    <link rel="stylesheet" href="css/workspace.css">
 </head>
-<body>
+<body class="workspace workspace-profile">
+<a class="workspace-skip" href="#main-content">Skip to content</a>
 <div class="container">
     <div id="sidebar-container"></div>
-    <main class="main-content">
-        <header class="profile-header">
-            <h1>👤 Immigration Profile</h1>
-            <p>Manage the information MaplePath uses to personalize your journey.</p>
-        </header>
+    <main class="main-content" id="main-content">
+        <header class="workspace-header"><div><p class="workspace-eyebrow">Personal</p><h1>Your account</h1></div></header>
+        <nav class="account-tabs" aria-label="Your account"><a href="profile.html" aria-current="page">Profile</a><a href="account.html" >Security</a></nav>
 
         <section class="profile-card">
             <div class="profile-title">

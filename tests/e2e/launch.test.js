@@ -81,7 +81,7 @@ test('launch browser checks: responsive pages, onboarding, Journey, recovery and
             await page.locator('#save-profile').click();await page.waitForURL('**/dashboard.html');
             const user=await User.findOne({username});assert.ok(user.profileCompleted);
             assert.equal(user.immigrationProfile.journeyStartDate,null,'Unknown start remains unknown');
-            for(const width of [320,768,1280]){
+            for(const width of [320,768,900,1024,1280,1920]){
                 await page.setViewportSize({width,height:900});
                 for(const file of ['dashboard.html','profile.html','journey.html','account.html']){
                     await page.goto(base+'/'+file);await page.locator('#sidebar-container nav').waitFor();
@@ -91,7 +91,16 @@ test('launch browser checks: responsive pages, onboarding, Journey, recovery and
                 }
             }
             if(scenario.name==='express-entry'){
-                await page.setViewportSize({width:390,height:844});await page.goto(base+'/journey.html');
+                await page.setViewportSize({width:390,height:844});await page.goto(base+'/dashboard.html');
+                await page.locator('#next-step-link').click();
+                await page.waitForURL('**/journey.html#step-1');
+                await page.locator('#step-1 .stage-expander[open]').waitFor();
+                await page.waitForFunction(()=>document.querySelector('#step-1').getBoundingClientRect().top < innerHeight);
+                const future=page.locator('#step-3 .stage-toggle');
+                await future.press('Enter');
+                await page.locator('#step-3 .stage-expander[open]').waitFor();
+                await future.press('Enter');
+                assert.equal(await page.locator('#step-3 .stage-expander').getAttribute('open'),null);
                 const start=page.locator('[data-action="start"]').first();await start.click();
                 await page.locator('#timeline-edit-dialog').waitFor({state:'visible'});
                 await page.locator('#timeline-start-date').fill('2026-01-01');
@@ -122,6 +131,32 @@ test('launch browser checks: responsive pages, onboarding, Journey, recovery and
                 await page.locator('#login-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
             }
             if(scenario.name==='planning'){
+                await page.goto(base+'/journey.html');
+                await page.locator('.journey-empty-action').waitFor();
+                assert.equal(await page.locator('#journey-summary').isVisible(),false);
+                await page.goto(base+'/dashboard.html');
+                await page.locator('#new-task').fill('Prepare language test');
+                await page.locator('#add-task-btn').click();
+                await page.getByText('Prepare language test',{exact:true}).waitFor();
+                await page.locator('.task-list-main input').check();
+                await page.waitForFunction(()=>document.querySelector('#task-count').textContent==='0 open');
+                await page.reload();
+                await page.waitForFunction(()=>document.querySelector('.task-list-main input')?.checked);
+                await page.locator('.task-delete-btn').click();
+                await page.locator('#task-empty').waitFor({state:'visible'});
+                await page.locator('[data-section="tasks"]').click();
+                await page.waitForFunction(()=>document.querySelector('[data-section="tasks"]')?.getAttribute('aria-current')==='location');
+                assert.equal(await page.locator('.sidebar nav [aria-current]').count(),1);
+                await page.setViewportSize({width:320,height:900});
+                await page.goto(base+'/profile.html');
+                await page.locator('#edit-profile-btn').click();
+                await page.locator('#edit-section').waitFor({state:'visible'});
+                await layout(page,'profile editor');
+                await page.locator('#save-btn').click();
+                await page.locator('#edit-section').waitFor({state:'hidden'});
+                await page.locator('.account-tabs a[href="account.html"]').click();
+                await page.locator('#account-content').waitFor({state:'visible'});
+                assert.equal(await page.locator('.sidebar a[data-page="profile.html"]').getAttribute('aria-current'),'page');
                 await page.route('**/api/auth/session',route=>route.fulfill({status:429,contentType:'application/json',body:'{"message":"Too many requests"}'}));
                 await page.goto(base+'/account.html');await page.locator('#session-load-error').waitFor();
                 assert.ok(page.url().endsWith('/account.html'),'temporary throttling must not redirect to login');
@@ -129,8 +164,14 @@ test('launch browser checks: responsive pages, onboarding, Journey, recovery and
                 await page.unroute('**/api/auth/session');await page.locator('#session-load-error button').click();
                 await page.locator('#account-content').waitFor({state:'visible'});
             }
+            if(scenario.name==='work-permit'){
+                await page.locator('#sidebar-logout').click();await page.waitForURL('**/auth.html');
+                await page.locator('#login-tab').click();
+                await page.locator('#login-username').fill(username);await page.locator('#login-password').fill(password);
+                await page.locator('#login-form button[type=submit]').click();await page.waitForURL('**/dashboard.html');
+            }
             await page.goto(base+'/account.html');await page.locator('#account-content').waitFor({state:'visible'});
-            await page.locator('details summary').click();await page.locator('#delete-password').fill(scenario.name==='express-entry'?'Updated8':password);
+            await page.locator('.account-card--danger summary').click();await page.locator('#delete-password').fill(scenario.name==='express-entry'?'Updated8':password);
             await page.locator('#delete-confirmation').fill('DELETE');await page.locator('#delete-form button').click();await page.waitForURL('**/auth.html?deleted=1');
             assert.equal(await User.countDocuments({username}),0);assert.equal(await TimelineRecord.countDocuments({username}),0);
             assert.equal(await Application.countDocuments({username}),0);assert.equal(await Session.countDocuments({userId:user._id}),0);

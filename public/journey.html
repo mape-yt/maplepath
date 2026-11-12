@@ -16,35 +16,23 @@
     <link rel="stylesheet" href="css/pathways.css">
     <link rel="stylesheet" href="css/community.css">
     <link rel="stylesheet" href="css/optional-dates.css">
+    <link rel="stylesheet" href="css/workspace.css">
 </head>
 
-<body>
+<body class="workspace workspace-journey">
+<a class="workspace-skip" href="#main-content">Skip to content</a>
 
 <div class="container">
 
     <div id="sidebar-container"></div>
 
-    <main class="main-content">
+    <main class="main-content" id="main-content">
 
         <!-- ==========================
              Page Header
         =========================== -->
 
-        <header class="dashboard-header">
-
-            <div>
-
-                <h1>
-                    🧭 My Immigration Journey
-                </h1>
-
-                <p>
-                    Track your selected pathway, one step at a time.
-                </p>
-
-            </div>
-
-        </header>
+        <header class="workspace-header"><div><p class="workspace-eyebrow">Your roadmap</p><h1>Journey</h1></div><a class="quiet-link" href="profile.html">Manage pathway ↗</a></header>
 
 
         <!-- ==========================
@@ -70,7 +58,7 @@
             <p id="application-notice" role="status"></p>
         </section>
         <section id="community-controls" class="community-controls" hidden aria-label="Community comparison">
-            <label for="community-location">Compare community timelines</label>
+            <details id="community-options"><summary>Community comparisons</summary><label for="community-location">Compare community timelines</label>
             <select id="community-location">
                 <option value="all">All locations</option>
                 <option value="Inside Canada">Inside Canada when recorded</option>
@@ -82,6 +70,7 @@
             </div>
             <small>Eligible records without a location appear only in All locations. <a href="community-method.html">Method and sources</a> · <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html" target="_blank" rel="noopener noreferrer">Official IRCC processing times</a></small>
             <small>IRCC estimates cover whole applications; community numbers describe individual steps.</small>
+            </details>
         </section>
 
         <section id="journey-container">

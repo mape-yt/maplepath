@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/account.css">
+    <link rel="stylesheet" href="css/workspace.css">
 </head>
-<body>
+<body class="workspace workspace-account">
+<a class="workspace-skip" href="#main-content">Skip to content</a>
 <div class="container">
     <div id="sidebar-container"></div>
-    <main class="main-content">
-        <h1>Account</h1>
+    <main class="main-content" id="main-content">
+        <header class="workspace-header"><div><p class="workspace-eyebrow">Personal</p><h1>Your account</h1></div></header>
+        <nav class="account-tabs" aria-label="Your account"><a href="profile.html" >Profile</a><a href="account.html" aria-current="page">Security</a></nav>
         <p id="account-notice" class="account-note" role="status"></p>
         <div id="account-content" class="account-grid" hidden>
             <section class="account-card">
